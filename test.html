@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React table test</title>
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+    <script type="text/javascript" src="node_modules/react/dist/react.js"></script>
+    <script type="text/javascript" src="node_modules/react-dom/dist/react-dom.js"></script>
+    <script type="text/javascript" src="node_modules/react-router/umd/ReactRouter.js"></script>
+    <script type="text/javascript" src="node_modules/underscore/underscore.js"></script>
+    <script type="text/javascript" src="node_modules/babel-standalone/babel.js"></script>
+    <script type="text/javascript" src="node_modules/bluebird/js/browser/bluebird.js"></script>
+    <script type="text/javascript" src="dist/Table.js"></script>
+    <style type="text/css">
+        .pagination > li.current > a {
+            background-color: #eee;
+        }
+
+        .pagination > li > a {
+            min-width: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-container"></div>
+    <div id="row-clicked"></div>
+    <script type="text/babel">
+        function makeRow(data, tds) {
+            return {
+                onClick: (row) => {
+                    document.getElementById('row-clicked').innerHTML = 'Row clicked: ' + JSON.stringify(row.data)
+                },
+                data: data,
+                tds: tds
+            }
+        }
+
+        function makeResult() {
+            const result = [
+                makeRow(
+                    { foo: 'bar' },
+                    [
+                        {
+                            content: 0
+                        },
+                        {
+                            content: 'Foo'
+                        },
+                        {
+                            content: 'Bar'
+                        }
+                    ]
+                ),
+                makeRow(
+                    { baz: 'qux' },
+                    [
+                        {
+                            content: 1
+                        },
+                        {
+                            content: 'Baz'
+                        },
+                        {
+                            content: 'Qux'
+                        }
+                    ]
+                ),
+                makeRow(
+                    { baz: 'qux' },
+                    [
+                        {
+                            content: 2
+                        },
+                        {
+                            content: React.createElement('i', { className: 'glyphicon glyphicon-ok' })
+                        },
+                        {
+                            content: React.createElement('i', { className: 'glyphicon glyphicon-star' })
+                        }
+                    ]
+                )
+            ]
+
+            for(var i = 3; i < 153; i += 1) {
+                result.push(
+                    makeRow(
+                        { foo: 'bar' },
+                        [
+                            {
+                                content: i
+                            },
+                            {
+                                content: 'Foo'
+                            },
+                            {
+                                content: 'Bar'
+                            }
+                        ]
+                    )
+                )
+            }
+
+            return result
+        }
+
+        const result = makeResult()
+
+        const tableProps = {
+            paginator: {
+                navigateToPage: (link) => {
+                    ReactRouter.browserHistory.push(link)
+                }
+            },
+            theadThs: [
+                {
+                    content: 'Id'
+                },
+                {
+                    content: 'First column'
+                },
+                {
+                    content: 'Second column'
+                }
+            ],
+            emptyTableMessage: 'Empty Foobar table',
+            loadingMessage: 'Loading...',
+            tableClassName: 'table table-bordered',
+            getData: (page, pageSize) => {
+                const from = (page - 1) * pageSize
+                const end = from + pageSize
+
+                return new Promise((resolve) => {
+                    resolve({
+                        result: result.slice(from, end),
+                        info: {
+                            total: result.length * 2,
+                            totalFiltered: result.length
+                        }
+                    })
+                })
+            }
+        }
+
+        const Router = ReactRouter.Router
+        const Route = ReactRouter.Route
+
+        class TableWrapper extends React.Component {
+            render() {
+                tableProps.page = undefined === this.props.location.query.page ? 1 : parseInt(this.props.location.query.page, 10)
+                tableProps.pageSize = undefined === this.props.location.query.pageSize ? 10 : parseInt(this.props.location.query.pageSize, 10)
+
+                tableProps.paginator.makeLink = (page, pageSize) => {
+                    return ReactRouter.browserHistory.createPath(
+                        {
+                            pathname: this.props.location.pathname,
+                            query: _.extend({}, this.props.location.query, { page: page, pageSize: pageSize })
+                        }
+                    )
+                }
+
+                return (
+                    <div>
+                        {
+                            (() => {
+                                return React.createElement(Table, tableProps)
+                            })()
+                        }
+                    </div>
+                )
+            }
+        }
+
+        const router = (
+            <Router history={ReactRouter.browserHistory}>
+                <Route path="/" component={TableWrapper}>
+                    <Route path="*" component={TableWrapper} />
+                </Route>
+            </Router>
+        )
+
+        ReactDOM.render(
+            router,
+            document.getElementById('main-container')
+        )
+    </script>
+</body>
+</html>
