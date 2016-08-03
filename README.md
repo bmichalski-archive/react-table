@@ -8,11 +8,11 @@ A table implementation using React.
     * Quickly go to distant page
 
 ## Works
-* In the ****browser****
+* In the **browser**
   * See example file example/test.html
-* As ****CommonJS module****
+* As **CommonJS module**
   * require dist/umd/*.js files
-* As ****AMD module****
+* As **AMD module**
   * ```require('@bmichalski/react-table')```
 
 ##What's next
