@@ -3,7 +3,7 @@ class TableRow extends React.Component {
     const row = this.props.row
 
     return (
-      <tr onClick={undefined === row.onClick ? undefined : row.onClick.bind(null, row)}>
+      <tr onClick={undefined === row.onClick ? undefined : row.onClick.bind(undefined, row, this.props.rowIndex)}>
         {(() => {
           const tds = []
 
@@ -19,6 +19,15 @@ class TableRow extends React.Component {
 }
 
 TableRow.propTypes = {
+  rowIndex: (props, propName) => {
+    const prop = props[propName]
+
+    if (!isInteger(prop)) {
+      throw new Error(
+        'Invalid rowIndex, expecting number, got ' + prop
+      )
+    }
+  },
   row: React.PropTypes.shape({
     onClick: React.PropTypes.func,
     tds: React.PropTypes.arrayOf(

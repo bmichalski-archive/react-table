@@ -23,13 +23,14 @@
     </style>
 </head>
 <body>
+    <div id="row-clicked">Row clicked: </div>
     <div id="main-container" class="container-fluid"></div>
-    <div id="row-clicked"></div>
     <script type="text/babel">
+        //Make fake getData result
         function makeRow(data, tds) {
             return {
-                onClick: (row) => {
-                    document.getElementById('row-clicked').innerHTML = 'Row clicked: ' + JSON.stringify(row.data)
+                onClick: (row, i) => {
+                    document.getElementById('row-clicked').innerHTML = 'Row clicked: ' + i
                 },
                 data: data,
                 tds: tds
@@ -103,58 +104,56 @@
 
             return result
         }
+        //End make fake getData result
 
         const result = makeResult()
-
-        const tableProps = {
-            paginator: {
-                navigateToPage: (link) => {
-                    ReactRouter.browserHistory.push(link)
-                }
-            },
-            theadThs: [
-                {
-                    content: 'Id'
-                },
-                {
-                    content: 'First column'
-                },
-                {
-                    content: 'Second column'
-                }
-            ],
-//            tableClassName: 'table table-bordered',
-            getData: (page, pageSize) => {
-                const from = (page - 1) * pageSize
-                const end = from + pageSize
-
-                return new Promise((resolve) => {
-                    resolve({
-                        result: result.slice(from, end),
-                        info: {
-                            total: result.length * 2,
-                            totalFiltered: result.length
-                        }
-                    })
-                })
-            }
-        }
 
         const Router = ReactRouter.Router
         const Route = ReactRouter.Route
 
         class TableWrapper extends React.Component {
             render() {
-                tableProps.page = undefined === this.props.location.query.page ? 1 : parseInt(this.props.location.query.page, 10)
-                tableProps.pageSize = undefined === this.props.location.query.pageSize ? 10 : parseInt(this.props.location.query.pageSize, 10)
-
-                tableProps.paginator.makeLink = (page, pageSize) => {
-                    return ReactRouter.browserHistory.createPath(
+                const tableProps = {
+                    page: undefined === this.props.location.query.page ? 1 : parseInt(this.props.location.query.page, 10),
+                    pageSize: undefined === this.props.location.query.pageSize ? 10 : parseInt(this.props.location.query.pageSize, 10),
+                    theadThs: [
                         {
-                            pathname: this.props.location.pathname,
-                            query: _.extend({}, this.props.location.query, { page: page, pageSize: pageSize })
+                            content: 'Id'
+                        },
+                        {
+                            content: 'First column'
+                        },
+                        {
+                            content: 'Second column'
                         }
-                    )
+                    ],
+                    paginator: {
+                        navigateToPage: (link) => {
+                            ReactRouter.browserHistory.push(link)
+                        },
+                        makeLink: (page, pageSize) => {
+                            return ReactRouter.browserHistory.createPath(
+                                {
+                                    pathname: this.props.location.pathname,
+                                    query: _.extend({}, this.props.location.query, { page: page, pageSize: pageSize })
+                                }
+                            )
+                        }
+                    },
+                    getData: (page, pageSize) => {
+                        const from = (page - 1) * pageSize
+                        const end = from + pageSize
+
+                        return new Promise((resolve) => {
+                            resolve({
+                                result: result.slice(from, end),
+                                info: {
+                                    total: result.length * 2,
+                                    totalFiltered: result.length
+                                }
+                            })
+                        })
+                    }
                 }
 
                 return (

@@ -61,7 +61,7 @@ class Table extends React.Component {
     if (this.state.rows.length > 0) {
       this.state.rows.forEach((row, i) => {
         rows.push(
-          <TableRow key={i} row={row} />
+          <TableRow key={i} row={row} rowIndex={i} />
         )
       })
 
@@ -151,6 +151,8 @@ Table.propTypes = {
 }
 
 Table.defaultProps = {
+  page: 1,
+  pageSize: 10,
   emptyTableMessage: 'No data to display with given parameters.',
   loadingMessage: 'Loading...',
   tableClassName: 'table table-bordered'
