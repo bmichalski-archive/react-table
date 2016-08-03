@@ -113,57 +113,49 @@
 
         class TableWrapper extends React.Component {
             render() {
-                const tableProps = {
-                    page: undefined === this.props.location.query.page ? 1 : parseInt(this.props.location.query.page, 10),
-                    pageSize: undefined === this.props.location.query.pageSize ? 10 : parseInt(this.props.location.query.pageSize, 10),
-                    theadThs: [
-                        {
-                            content: 'Id'
-                        },
-                        {
-                            content: 'First column'
-                        },
-                        {
-                            content: 'Second column'
-                        }
-                    ],
-                    paginator: {
-                        navigateToPage: (link) => {
-                            ReactRouter.browserHistory.push(link)
-                        },
-                        makeLink: (page, pageSize) => {
-                            return ReactRouter.browserHistory.createPath(
-                                {
-                                    pathname: this.props.location.pathname,
-                                    query: _.extend({}, this.props.location.query, { page: page, pageSize: pageSize })
-                                }
-                            )
-                        }
+                const paginator = {
+                    navigateToPage: (link) => {
+                        ReactRouter.browserHistory.push(link)
                     },
-                    getData: (page, pageSize) => {
-                        const from = (page - 1) * pageSize
-                        const end = from + pageSize
-
-                        return new Promise((resolve) => {
-                            resolve({
-                                result: result.slice(from, end),
-                                info: {
-                                    total: result.length * 2,
-                                    totalFiltered: result.length
-                                }
-                            })
-                        })
+                    makeLink: (page, pageSize) => {
+                        return ReactRouter.browserHistory.createPath(
+                            {
+                                pathname: this.props.location.pathname,
+                                query: _.extend({}, this.props.location.query, { page: page, pageSize: pageSize })
+                            }
+                        )
                     }
                 }
 
+                const getData = (page, pageSize) => {
+                    const from = (page - 1) * pageSize
+                    const end = from + pageSize
+
+                    return new Promise((resolve) => {
+                        resolve({
+                            result: result.slice(from, end),
+                            info: {
+                                total: result.length * 2,
+                                totalFiltered: result.length
+                            }
+                        })
+                    })
+                }
+
                 return (
-                    <div>
-                        {
-                            (() => {
-                                return React.createElement(Table, tableProps)
-                            })()
-                        }
-                    </div>
+                    <Table
+                        page={undefined === this.props.location.query.page ? undefined : parseInt(this.props.location.query.page, 10)}
+                        pageSize={undefined === this.props.location.query.pageSize ? undefined : parseInt(this.props.location.query.pageSize, 10)}
+                        paginator={paginator}
+                        getData={getData}>
+                        <TableHead>
+                            <TableHeadRow>
+                                <TableHeadTh>Id</TableHeadTh>
+                                <TableHeadTh>First column</TableHeadTh>
+                                <TableHeadTh>Second column</TableHeadTh>
+                            </TableHeadRow>
+                        </TableHead>
+                    </Table>
                 )
             }
         }

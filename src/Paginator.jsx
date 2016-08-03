@@ -319,7 +319,7 @@ Paginator.propTypes = {
 
     if (!isPositiveInteger(prop)) {
       throw new Error(
-        'Invalid maximumPages, expecting number, got ' + prop
+        'Invalid maximumPages, expecting positive integer, got ' + prop
       )
     }
 

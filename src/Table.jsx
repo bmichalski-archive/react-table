@@ -67,24 +67,10 @@ class Table extends React.Component {
 
       table =
         <table className={this.props.tableClassName}>
-          <thead>
-            <tr>
-              {
-                (() => {
-                  const ths = []
-
-                  this.props.theadThs.forEach((th, i) => {
-                    ths.push(<th key={i}>{th.content}</th>)
-                  })
-
-                  return ths
-                })()
-              }
-            </tr>
-          </thead>
-        <tbody>
-        {rows}
-        </tbody>
+          {this.props.children}
+          <tbody>
+            {rows}
+          </tbody>
         </table>
     } else {
       table = <div>{this.props.emptyTableMessage}</div>
