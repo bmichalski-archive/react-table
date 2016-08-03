@@ -28,4 +28,3 @@ A table implementation using React.
 ### Documentation
 * Improve documentation quality
 * Add comments to code
-w
