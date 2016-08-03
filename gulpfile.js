@@ -95,7 +95,6 @@ gulp.task('umdReactRouterPaginator', [ 'babel' ], function() {
         'build/ReactRouterPaginator.js'
       ]
     )
-    .pipe(concat('Table.js'))
     .pipe(umd({
       dependencies: function() {
         return [
@@ -112,29 +111,51 @@ gulp.task('umdReactRouterPaginator', [ 'babel' ], function() {
     .pipe(gulp.dest('build/umd'))
 })
 
-gulp.task('concatTable', [ 'umdTable', 'umdTableHead', 'umdTableHeadRow', 'umdTableHeadTh', 'umdReactRouterPaginator' ], function () {
+gulp.task('umdAll', [ 'umdTable', 'umdTableHead', 'umdTableHeadRow', 'umdTableHeadTh', 'umdReactRouterPaginator' ])
+
+gulp.task('distBrowserConcatTable', [ 'umdAll' ], function () {
   return gulp.src(
       [
         'build/umd/TableHeadTh.js',
         'build/umd/TableHeadRow.js',
         'build/umd/TableHead.js',
         'build/umd/Table.js',
-        'build/ReactRouterPaginator.js'
+        'build/umd/ReactRouterPaginator.js'
       ]
     )
-    .pipe(concat('Table.js'))
-    .pipe(gulp.dest('dist'))
+    .pipe(concat('ReactTable.js'))
+    .pipe(gulp.dest('dist/browser'))
 })
 
-gulp.task('uglifyTable', [ 'concatTable' ], function() {
+gulp.task('distBrowserUglifyTable', [ 'distBrowserConcatTable' ], function() {
   return gulp.src(
       [
-        'dist/Table.js'
+        'dist/browser/ReactTable.js'
       ]
     )
-    .pipe(rename('Table.min.js'))
+    .pipe(rename('ReactTable.min.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('dist/browser'))
 })
 
-gulp.task('default', [ 'uglifyTable' ])
+gulp.task('distCopyUmd', [ 'umdAll' ], function () {
+  return gulp.src(
+    [
+      'build/umd/TableHeadTh.js',
+      'build/umd/TableHeadRow.js',
+      'build/umd/TableHead.js',
+      'build/umd/Table.js',
+      'build/umd/ReactRouterPaginator.js'
+    ]
+  ).pipe(gulp.dest('dist/umd'))
+})
+
+gulp.task('distCopyIndex', [ 'umdAll' ], function () {
+  return gulp.src(
+    [
+      'build/index.js',
+    ]
+  ).pipe(gulp.dest('dist'))
+})
+
+gulp.task('default', [ 'distBrowserUglifyTable', 'distCopyUmd', 'distCopyIndex' ])
