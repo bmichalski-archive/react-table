@@ -155,7 +155,7 @@ class Paginator extends React.Component {
 
   render() {
     return (
-      <div className="pagination-wrapper">
+      <div className="paginator-wrapper">
         <div className="row">
           <div className="col-md-1">
             {

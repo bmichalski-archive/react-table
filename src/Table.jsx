@@ -93,31 +93,43 @@ class Table extends React.Component {
     const isIncludePaginator = includePaginator(this.state.totalPages, this.props.page, this.props.pageSize)
 
     return (
-      <div>
+      <div className="table-wrapper">
         {(() => {
           if (isIncludePaginator) {
             return (
-              <Paginator
-                totalPages={this.state.totalPages}
-                currentPage={this.props.page}
-                pageSize={this.props.pageSize}
-                navigateToPage={this.props.paginator.navigateToPage}
-                makeLink={this.props.paginator.makeLink} />
+              <div className="row">
+                <div className="col-md-12">
+                  <Paginator
+                    totalPages={this.state.totalPages}
+                    currentPage={this.props.page}
+                    pageSize={this.props.pageSize}
+                    navigateToPage={this.props.paginator.navigateToPage}
+                    makeLink={this.props.paginator.makeLink} />
+                </div>
+              </div>
             )
           }
         })()}
-        {table}
+        <div className="row">
+          <div className="col-md-12">
+            {table}
+          </div>
+        </div>
         {(() => {
           if (isIncludePaginator) {
             return (
-              <Paginator
-                totalPages={this.state.totalPages}
-                currentPage={this.props.page}
-                pageSize={this.props.pageSize}
-                navigateToPage={this.props.paginator.navigateToPage}
-                makeLink={this.props.paginator.makeLink}
-                noPageSizeSelector
-                noGoTo />
+              <div className="row">
+                <div className="col-md-12">
+                  <Paginator
+                    totalPages={this.state.totalPages}
+                    currentPage={this.props.page}
+                    pageSize={this.props.pageSize}
+                    navigateToPage={this.props.paginator.navigateToPage}
+                    makeLink={this.props.paginator.makeLink}
+                    noPageSizeSelector
+                    noGoTo />
+                </div>
+              </div>
             )
           }
         })()}
@@ -127,10 +139,19 @@ class Table extends React.Component {
 }
 
 Table.propTypes = {
+  emptyTableMessage: React.PropTypes.string.isRequired,
+  loadingMessage: React.PropTypes.string.isRequired,
+  tableClassName: React.PropTypes.string.isRequired,
   page: React.PropTypes.number.isRequired,
   pageSize: React.PropTypes.number.isRequired,
   paginator: React.PropTypes.shape({
     navigateToPage: React.PropTypes.func.isRequired,
     makeLink: React.PropTypes.func.isRequired
   }).isRequired
+}
+
+Table.defaultProps = {
+  emptyTableMessage: 'No data to display with given parameters.',
+  loadingMessage: 'Loading...',
+  tableClassName: 'table table-bordered'
 }

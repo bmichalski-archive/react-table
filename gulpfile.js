@@ -48,8 +48,7 @@ gulp.task('umdTable', [ 'babel' ], function() {
 gulp.task('uglifyTable', [ 'umdTable' ], function() {
   return gulp.src([ 'dist/Table.js' ])
     .pipe(rename('Table.min.js'))
-    .pipe(uglify({
-    }))
+    .pipe(uglify())
     .pipe(gulp.dest('dist'))
 })
 

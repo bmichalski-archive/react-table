@@ -23,7 +23,7 @@
     </style>
 </head>
 <body>
-    <div id="main-container"></div>
+    <div id="main-container" class="container-fluid"></div>
     <div id="row-clicked"></div>
     <script type="text/babel">
         function makeRow(data, tds) {
@@ -123,9 +123,7 @@
                     content: 'Second column'
                 }
             ],
-            emptyTableMessage: 'Empty Foobar table',
-            loadingMessage: 'Loading...',
-            tableClassName: 'table table-bordered',
+//            tableClassName: 'table table-bordered',
             getData: (page, pageSize) => {
                 const from = (page - 1) * pageSize
                 const end = from + pageSize
