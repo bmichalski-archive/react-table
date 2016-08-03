@@ -388,7 +388,7 @@ class Table extends React.Component {
     const pageSize = parseInt(props.pageSize, 10)
 
     props.getData(page, pageSize).then((data) => {
-      this._checkResult(data.result, pageSize)
+      Table._checkResult(data.result, pageSize)
 
       this.setState({
         rows: data.result,
@@ -396,6 +396,14 @@ class Table extends React.Component {
         loading: false
       })
     }).done()
+  }
+
+  static _checkResult(result, pageSize) {
+    if (result.length > pageSize) {
+      throw new Error(
+        'pageSize is ' + pageSize + ', got ' + result.length + ' elements.'
+      )
+    }
   }
 
   componentWillReceiveProps(newProps) {
@@ -407,7 +415,7 @@ class Table extends React.Component {
     const pageSize = undefined === newProps.pageSize ? undefined : parseInt(newProps.pageSize, 10)
 
     newProps.getData(page, pageSize).then((data) => {
-      this._checkResult(data.result, pageSize)
+      Table._checkResult(data.result, pageSize)
 
       this.setState({
         rows: data.result,
@@ -415,14 +423,6 @@ class Table extends React.Component {
         loading: false
       })
     }).done()
-  }
-
-  _checkResult(result, pageSize) {
-    if (result.length > pageSize) {
-      throw new Error(
-        'pageSize is ' + pageSize + ', got ' + result.length + ' elements.'
-      )
-    }
   }
 
   render() {
