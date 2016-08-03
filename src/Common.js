@@ -5,7 +5,3 @@ function isInteger(nb) {
 function isPositiveInteger(nb) {
   return isInteger(nb) && nb > 0
 }
-
-function includePaginator(totalPage, currentPage, pageSize) {
-  return isPositiveInteger(totalPage) && isPositiveInteger(currentPage) && isPositiveInteger(pageSize)
-}

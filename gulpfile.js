@@ -31,7 +31,7 @@ const commonDependencies = [
 gulp.task('umdTableHead', [ 'babel' ], function() {
   return gulp.src(
     [
-      'build/TableHead.js'
+      'build/Component/TableHead.js'
     ]
   )
     .pipe(umd({
@@ -45,7 +45,7 @@ gulp.task('umdTableHead', [ 'babel' ], function() {
 gulp.task('umdTableHeadRow', [ 'babel' ], function() {
   return gulp.src(
     [
-      'build/TableHeadRow.js'
+      'build/Component/TableHeadRow.js'
     ]
   )
     .pipe(umd({
@@ -59,7 +59,7 @@ gulp.task('umdTableHeadRow', [ 'babel' ], function() {
 gulp.task('umdTableHeadTh', [ 'babel' ], function() {
   return gulp.src(
     [
-      'build/TableHeadTh.js'
+      'build/Component/TableHeadTh.js'
     ]
   )
     .pipe(umd({
@@ -74,9 +74,10 @@ gulp.task('umdTable', [ 'babel' ], function() {
   return gulp.src(
       [
         'build/Common.js',
-        'build/Paginator.js',
-        'build/TableRow.js',
-        'build/Table.js'
+        'build/Component/Paginator.js',
+        'build/Component/TableRow.js',
+        'build/Component/MainTable.js',
+        'build/Component/Table.js'
       ]
     )
     .pipe(concat('Table.js'))

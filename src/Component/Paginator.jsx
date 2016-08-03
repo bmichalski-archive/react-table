@@ -5,23 +5,15 @@ class Paginator extends React.Component {
     this.state = {
       pageSize: props.pageSize,
       currentPage: props.currentPage,
-      totalPages: props.totalPages
-    }
-
-    if (!includePaginator(props.totalPages, props.currentPage, props.pageSize)) {
-      throw new Error('Should not include paginator.')
+      totalPages: Math.ceil(props.totalResult / props.pageSize)
     }
   }
 
   componentWillReceiveProps(newProps) {
-    if (!includePaginator(newProps.totalPages, newProps.currentPage, newProps.pageSize)) {
-      throw new Error('Should not include paginator.')
-    }
-
     this.setState({
       pageSize: newProps.pageSize,
       currentPage: newProps.currentPage,
-      totalPages: newProps.totalPages
+      totalPages: Math.ceil(newProps.totalResult / props.pageSize)
     })
   }
 
@@ -42,7 +34,7 @@ class Paginator extends React.Component {
   _handleClick(page, event) {
     event.preventDefault()
 
-    this.props.navigateToPage(
+    this.props.goToPage(
       this._makeLink(page, this.state.pageSize)
     )
   }
@@ -110,7 +102,7 @@ class Paginator extends React.Component {
   _handlePageSizeChange(event) {
     const pageSize = parseInt(event.target.value, 10)
 
-    this.props.navigateToPage(
+    this.props.goToPage(
       this._makeLink(1, pageSize)
     )
   }
@@ -122,7 +114,7 @@ class Paginator extends React.Component {
   }
 
   _doGoToPage() {
-    this.props.navigateToPage(
+    this.props.goToPage(
       this._makeLink(this.state.goTo, this.state.pageSize)
     )
   }
@@ -307,10 +299,10 @@ class Paginator extends React.Component {
 }
 
 Paginator.propTypes = {
-  totalPages: React.PropTypes.number.isRequired,
+  totalResult: React.PropTypes.number.isRequired,
   currentPage: React.PropTypes.number.isRequired,
   pageSize: React.PropTypes.number.isRequired,
-  navigateToPage: React.PropTypes.func.isRequired,
+  goToPage: React.PropTypes.func.isRequired,
   makeLink: React.PropTypes.func.isRequired,
   noPageSizeSelector: React.PropTypes.bool,
   noGoTo: React.PropTypes.bool,

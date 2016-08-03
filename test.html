@@ -20,6 +20,10 @@
             min-width: 50px;
             text-align: center;
         }
+
+        .table > tbody > tr > td {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -88,7 +92,7 @@
         class TableWrapper extends React.Component {
             render() {
                 const paginator = {
-                    navigateToPage: (link) => {
+                    goToPage: (link) => {
                         ReactRouter.browserHistory.push(link)
                     },
                     makeLink: (page, pageSize) => {
@@ -101,7 +105,10 @@
                     }
                 }
 
-                const getData = (page, pageSize) => {
+                const page = undefined === this.props.location.query.page ? 1 : parseInt(this.props.location.query.page, 10)
+                const pageSize = undefined === this.props.location.query.pageSize ? 10 : parseInt(this.props.location.query.pageSize, 10)
+
+                const getData = () => {
                     const from = (page - 1) * pageSize
                     const end = from + pageSize
 
@@ -127,8 +134,8 @@
 
                 return (
                     <Table
-                        page={undefined === this.props.location.query.page ? undefined : parseInt(this.props.location.query.page, 10)}
-                        pageSize={undefined === this.props.location.query.pageSize ? undefined : parseInt(this.props.location.query.pageSize, 10)}
+                        page={page}
+                        pageSize={pageSize}
                         paginator={paginator}
                         onRowClicked={onRowClicked}
                         getData={getData}
