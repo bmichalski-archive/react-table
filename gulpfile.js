@@ -30,7 +30,7 @@ const commonDependencies = [
   }
 ]
 
-gulp.task('umdTableHead', [ 'babel' ], function() {
+gulp.task('umd:TableHead', [ 'babel' ], function() {
   return gulp.src(
       [
         'build/Component/TableHead.js'
@@ -44,7 +44,7 @@ gulp.task('umdTableHead', [ 'babel' ], function() {
     .pipe(gulp.dest('build/umd'))
 })
 
-gulp.task('umdTableHeadRow', [ 'babel' ], function() {
+gulp.task('umd:TableHeadRow', [ 'babel' ], function() {
   return gulp.src(
       [
         'build/Component/TableHeadRow.js'
@@ -58,7 +58,7 @@ gulp.task('umdTableHeadRow', [ 'babel' ], function() {
     .pipe(gulp.dest('build/umd'))
 })
 
-gulp.task('umdTableHeadTh', [ 'babel' ], function() {
+gulp.task('umd:TableHeadTh', [ 'babel' ], function() {
   return gulp.src(
       [
         'build/Component/TableHeadTh.js'
@@ -72,7 +72,7 @@ gulp.task('umdTableHeadTh', [ 'babel' ], function() {
     .pipe(gulp.dest('build/umd'))
 })
 
-gulp.task('umdTable', [ 'babel' ], function() {
+gulp.task('umd:Table', [ 'babel' ], function() {
   return gulp.src(
       [
         'build/Common.js',
@@ -91,7 +91,7 @@ gulp.task('umdTable', [ 'babel' ], function() {
     .pipe(gulp.dest('build/umd'))
 })
 
-gulp.task('umdReactRouterPaginator', [ 'babel' ], function() {
+gulp.task('umd:ReactRouterPaginator', [ 'babel' ], function() {
   return gulp.src(
       [
         'build/ReactRouterPaginator.js'
@@ -113,9 +113,9 @@ gulp.task('umdReactRouterPaginator', [ 'babel' ], function() {
     .pipe(gulp.dest('build/umd'))
 })
 
-gulp.task('umdAll', [ 'umdTable', 'umdTableHead', 'umdTableHeadRow', 'umdTableHeadTh', 'umdReactRouterPaginator' ])
+gulp.task('umd:all', [ 'umd:Table', 'umd:TableHead', 'umd:TableHeadRow', 'umd:TableHeadTh', 'umd:ReactRouterPaginator' ])
 
-gulp.task('distBrowserConcatTable', [ 'umdAll' ], function () {
+gulp.task('dist:browser:table:concat', [ 'umd:all' ], function () {
   return gulp.src(
       [
         'build/umd/TableHeadTh.js',
@@ -129,7 +129,7 @@ gulp.task('distBrowserConcatTable', [ 'umdAll' ], function () {
     .pipe(gulp.dest('dist/browser'))
 })
 
-gulp.task('distBrowserUglifyTable', [ 'distBrowserConcatTable' ], function() {
+gulp.task('dist:browser:table:uglify', [ 'dist:browser:table:concat' ], function() {
   return gulp.src(
       [
         'dist/browser/ReactTable.js'
@@ -140,7 +140,7 @@ gulp.task('distBrowserUglifyTable', [ 'distBrowserConcatTable' ], function() {
     .pipe(gulp.dest('dist/browser'))
 })
 
-gulp.task('distCopyUmd', [ 'umdAll' ], function () {
+gulp.task('dist:umd:copy', [ 'umd:all' ], function () {
   return gulp.src(
     [
       'build/umd/TableHeadTh.js',
@@ -153,7 +153,7 @@ gulp.task('distCopyUmd', [ 'umdAll' ], function () {
   .pipe(gulp.dest('dist/umd'))
 })
 
-gulp.task('distCopyIndex', [ 'umdAll' ], function () {
+gulp.task('dist:index:copy', [ 'umd:all' ], function () {
   return gulp.src(
     [
       'build/index.js'
@@ -162,7 +162,7 @@ gulp.task('distCopyIndex', [ 'umdAll' ], function () {
   .pipe(gulp.dest('dist'))
 })
 
-gulp.task('distLess', function () {
+gulp.task('dist:less', function () {
   return gulp.src(
     [
       'less/react-table.less'
@@ -174,7 +174,7 @@ gulp.task('distLess', function () {
   .pipe(gulp.dest('dist/css'))
 })
 
-gulp.task('distUglifyCss', [ 'distLess' ], function () {
+gulp.task('dist:css:uglify', [ 'dist:less' ], function () {
   return gulp.src(
       [
         'dist/css/react-table.css'
@@ -185,4 +185,4 @@ gulp.task('distUglifyCss', [ 'distLess' ], function () {
     .pipe(gulp.dest('dist/css'))
 })
 
-gulp.task('default', [ 'distBrowserUglifyTable', 'distCopyUmd', 'distCopyIndex', 'distUglifyCss' ])
+gulp.task('default', [ 'dist:browser:table:uglify', 'dist:umd:copy', 'dist:index:copy', 'dist:css:uglify' ])
