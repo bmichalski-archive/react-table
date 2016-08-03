@@ -4,8 +4,10 @@ const babel = require('gulp-babel')
 const debug = require('gulp-debug')
 const umd = require('gulp-umd')
 const concat = require('gulp-concat')
-const uglify = require('gulp-uglify')
+const uglifyJs = require('gulp-uglify')
 const rename = require('gulp-rename')
+const less = require('gulp-less')
+const uglifyCss = require('gulp-uglifycss')
 
 gulp.task('babel', function () {
   return gulp
@@ -134,7 +136,7 @@ gulp.task('distBrowserUglifyTable', [ 'distBrowserConcatTable' ], function() {
       ]
     )
     .pipe(rename('ReactTable.min.js'))
-    .pipe(uglify())
+    .pipe(uglifyJs())
     .pipe(gulp.dest('dist/browser'))
 })
 
@@ -147,15 +149,40 @@ gulp.task('distCopyUmd', [ 'umdAll' ], function () {
       'build/umd/Table.js',
       'build/umd/ReactRouterPaginator.js'
     ]
-  ).pipe(gulp.dest('dist/umd'))
+  )
+  .pipe(gulp.dest('dist/umd'))
 })
 
 gulp.task('distCopyIndex', [ 'umdAll' ], function () {
   return gulp.src(
     [
-      'build/index.js',
+      'build/index.js'
     ]
-  ).pipe(gulp.dest('dist'))
+  )
+  .pipe(gulp.dest('dist'))
 })
 
-gulp.task('default', [ 'distBrowserUglifyTable', 'distCopyUmd', 'distCopyIndex' ])
+gulp.task('distLess', function () {
+  return gulp.src(
+    [
+      'less/react-table.less'
+    ]
+  )
+  .pipe(less({
+    paths: [ __dirname + '/node_modules' ]
+  }))
+  .pipe(gulp.dest('dist/css'))
+})
+
+gulp.task('distUglifyCss', [ 'distLess' ], function () {
+  return gulp.src(
+      [
+        'dist/css/react-table.css'
+      ]
+    )
+    .pipe(rename('react-table.min.css'))
+    .pipe(uglifyCss())
+    .pipe(gulp.dest('dist/css'))
+})
+
+gulp.task('default', [ 'distBrowserUglifyTable', 'distCopyUmd', 'distCopyIndex', 'distUglifyCss' ])

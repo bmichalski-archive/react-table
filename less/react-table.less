@@ -1,0 +1,30 @@
+@import "bootstrap/less/variables";
+
+.table-wrapper {
+  table {
+    > tbody {
+      > tr {
+        > td {
+          &.clickable {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .pagination {
+    > li {
+      &.current {
+        > a {
+          background-color: @gray-lighter;
+        }
+      }
+
+      > a {
+        min-width: 50px;
+        text-align: center;
+      }
+    }
+  }
+}
