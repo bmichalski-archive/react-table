@@ -30,10 +30,10 @@ const commonDependencies = [
 
 gulp.task('umdTableHead', [ 'babel' ], function() {
   return gulp.src(
-    [
-      'build/Component/TableHead.js'
-    ]
-  )
+      [
+        'build/Component/TableHead.js'
+      ]
+    )
     .pipe(umd({
       dependencies: function() {
         return commonDependencies
@@ -44,10 +44,10 @@ gulp.task('umdTableHead', [ 'babel' ], function() {
 
 gulp.task('umdTableHeadRow', [ 'babel' ], function() {
   return gulp.src(
-    [
-      'build/Component/TableHeadRow.js'
-    ]
-  )
+      [
+        'build/Component/TableHeadRow.js'
+      ]
+    )
     .pipe(umd({
       dependencies: function () {
         return commonDependencies
@@ -58,10 +58,10 @@ gulp.task('umdTableHeadRow', [ 'babel' ], function() {
 
 gulp.task('umdTableHeadTh', [ 'babel' ], function() {
   return gulp.src(
-    [
-      'build/Component/TableHeadTh.js'
-    ]
-  )
+      [
+        'build/Component/TableHeadTh.js'
+      ]
+    )
     .pipe(umd({
       dependencies: function () {
         return commonDependencies
@@ -89,13 +89,37 @@ gulp.task('umdTable', [ 'babel' ], function() {
     .pipe(gulp.dest('build/umd'))
 })
 
-gulp.task('concatTable', [ 'umdTable', 'umdTableHead', 'umdTableHeadRow', 'umdTableHeadTh' ], function () {
+gulp.task('umdReactRouterPaginator', [ 'babel' ], function() {
+  return gulp.src(
+      [
+        'build/ReactRouterPaginator.js'
+      ]
+    )
+    .pipe(concat('Table.js'))
+    .pipe(umd({
+      dependencies: function() {
+        return [
+          {
+            name: 'react-router',
+            amd: 'react-router',
+            cjs: 'react-router',
+            global: 'ReactRouter',
+            param: 'ReactRouter'
+          }
+        ]
+      }
+    }))
+    .pipe(gulp.dest('build/umd'))
+})
+
+gulp.task('concatTable', [ 'umdTable', 'umdTableHead', 'umdTableHeadRow', 'umdTableHeadTh', 'umdReactRouterPaginator' ], function () {
   return gulp.src(
       [
         'build/umd/TableHeadTh.js',
         'build/umd/TableHeadRow.js',
         'build/umd/TableHead.js',
-        'build/umd/Table.js'
+        'build/umd/Table.js',
+        'build/ReactRouterPaginator.js'
       ]
     )
     .pipe(concat('Table.js'))

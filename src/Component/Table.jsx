@@ -46,10 +46,10 @@ class Table extends React.Component {
           <div className="col-md-12">
             <Paginator
               totalResult={this.state.totalResult}
-              currentPage={this.props.page}
-              pageSize={this.props.pageSize}
-              goToPage={this.props.paginator.goToPage}
-              makeLink={this.props.paginator.makeLink} />
+              currentPage={this.props.paginator.page}
+              pageSize={this.props.paginator.pageSize}
+              goToPage={this.props.paginator.goToPage.bind(this.props.paginator)}
+              makeLink={this.props.paginator.makeLink.bind(this.props.paginator)} />
           </div>
         </div>
         <div className="row">
@@ -68,10 +68,10 @@ class Table extends React.Component {
           <div className="col-md-12">
             <Paginator
               totalResult={this.state.totalResult}
-              currentPage={this.props.page}
-              pageSize={this.props.pageSize}
-              goToPage={this.props.paginator.goToPage}
-              makeLink={this.props.paginator.makeLink}
+              currentPage={this.props.paginator.page}
+              pageSize={this.props.paginator.pageSize}
+              goToPage={this.props.paginator.goToPage.bind(this.props.paginator)}
+              makeLink={this.props.paginator.makeLink.bind(this.props.paginator)}
               noPageSizeSelector
               noGoTo />
           </div>
@@ -87,17 +87,15 @@ Table.propTypes = {
   emptyTableMessage: React.PropTypes.string.isRequired,
   loadingMessage: React.PropTypes.string.isRequired,
   tableClassName: React.PropTypes.string.isRequired,
-  page: React.PropTypes.number.isRequired,
-  pageSize: React.PropTypes.number.isRequired,
   paginator: React.PropTypes.shape({
+    page: React.PropTypes.number.isRequired,
+    pageSize: React.PropTypes.number.isRequired,
     goToPage: React.PropTypes.func.isRequired,
     makeLink: React.PropTypes.func.isRequired
   }).isRequired
 }
 
 Table.defaultProps = {
-  page: 1,
-  pageSize: 10,
   emptyTableMessage: 'No data to display with given parameters.',
   loadingMessage: 'Loading...',
   tableClassName: 'table table-bordered'
