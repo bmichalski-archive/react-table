@@ -1,14 +1,14 @@
 class TableRow extends React.Component {
   render() {
-    const row = this.props.row
+    const rowData = this.props.data
 
     return (
-      <tr onClick={undefined === row.onClick ? undefined : row.onClick.bind(undefined, row, this.props.rowIndex)}>
+      <tr onClick={undefined === this.props.onClick ? undefined : this.props.onClick.bind(undefined, rowData, this.props.rowIndex)}>
         {(() => {
           const tds = []
 
-          row.tds.forEach((td, i) => {
-            tds.push(<td key={i}>{td.content}</td>)
+          rowData.forEach((cellData, cellIndex) => {
+            tds.push(<td key={cellIndex}>{this.props.renderCell(cellData, cellIndex, this.props.rowIndex)}</td>)
           })
 
           return tds
@@ -28,12 +28,13 @@ TableRow.propTypes = {
       )
     }
   },
-  row: React.PropTypes.shape({
-    onClick: React.PropTypes.func,
-    tds: React.PropTypes.arrayOf(
-      React.PropTypes.shape({
-        content: React.PropTypes.any.isRequired
-      }).isRequired
-    )
-  }).isRequired
+  renderCell: React.PropTypes.func.isRequired,
+  onClick: React.PropTypes.func,
+  data: React.PropTypes.array.isRequired
+}
+
+TableRow.defaultProps = {
+  renderCell: (data) => {
+    return data
+  }
 }

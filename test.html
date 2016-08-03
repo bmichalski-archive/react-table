@@ -26,24 +26,48 @@
     <div id="row-clicked">Row clicked: </div>
     <div id="main-container" class="container-fluid"></div>
     <script type="text/babel">
-        //Make fake getData result
-        function makeRow(data, tds) {
-            return {
-                onClick: (row, i) => {
-                    document.getElementById('row-clicked').innerHTML = 'Row clicked: ' + i
-                },
-                data: data,
-                tds: tds
-            }
-        }
-
-        function makeResult() {
+        const result = (() => {
             const result = [
-                makeRow(
-                    { foo: 'bar' },
+                [
+                    {
+                        content: 0
+                    },
+                    {
+                        content: 'Foo'
+                    },
+                    {
+                        content: 'Bar'
+                    }
+                ],
+                [
+                    {
+                        content: 1
+                    },
+                    {
+                        content: 'Baz'
+                    },
+                    {
+                        content: 'Qux'
+                    }
+                ],
+                [
+                    {
+                        content: 2
+                    },
+                    {
+                        content: React.createElement('i', { className: 'glyphicon glyphicon-ok' })
+                    },
+                    {
+                        content: React.createElement('i', { className: 'glyphicon glyphicon-star' })
+                    }
+                ]
+            ]
+
+            for(var i = 3; i < 153; i += 1) {
+                result.push(
                     [
                         {
-                            content: 0
+                            content: i
                         },
                         {
                             content: 'Foo'
@@ -52,61 +76,11 @@
                             content: 'Bar'
                         }
                     ]
-                ),
-                makeRow(
-                    { baz: 'qux' },
-                    [
-                        {
-                            content: 1
-                        },
-                        {
-                            content: 'Baz'
-                        },
-                        {
-                            content: 'Qux'
-                        }
-                    ]
-                ),
-                makeRow(
-                    { baz: 'qux' },
-                    [
-                        {
-                            content: 2
-                        },
-                        {
-                            content: React.createElement('i', { className: 'glyphicon glyphicon-ok' })
-                        },
-                        {
-                            content: React.createElement('i', { className: 'glyphicon glyphicon-star' })
-                        }
-                    ]
-                )
-            ]
-
-            for(var i = 3; i < 153; i += 1) {
-                result.push(
-                    makeRow(
-                        { foo: 'bar' },
-                        [
-                            {
-                                content: i
-                            },
-                            {
-                                content: 'Foo'
-                            },
-                            {
-                                content: 'Bar'
-                            }
-                        ]
-                    )
                 )
             }
 
             return result
-        }
-        //End make fake getData result
-
-        const result = makeResult()
+        })()
 
         const Router = ReactRouter.Router
         const Route = ReactRouter.Route
@@ -142,12 +116,23 @@
                     })
                 }
 
+
+                const onRowClicked = (data, rowIndex) => {
+                    const str = JSON.stringify({ rowIndex: rowIndex, data: data })
+
+                    document
+                        .getElementById('row-clicked')
+                        .innerHTML = 'Row clicked: ' + str
+                }
+
                 return (
                     <Table
                         page={undefined === this.props.location.query.page ? undefined : parseInt(this.props.location.query.page, 10)}
                         pageSize={undefined === this.props.location.query.pageSize ? undefined : parseInt(this.props.location.query.pageSize, 10)}
                         paginator={paginator}
-                        getData={getData}>
+                        onRowClicked={onRowClicked}
+                        getData={getData}
+                        renderCell={(data) => { return data.content }}>
                         <TableHead>
                             <TableHeadRow>
                                 <TableHeadTh>Id</TableHeadTh>

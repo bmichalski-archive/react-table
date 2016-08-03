@@ -6,18 +6,31 @@ class Table extends React.Component {
       loading: true
     }
 
-    const page = parseInt(props.page, 10)
-    const pageSize = parseInt(props.pageSize, 10)
+    this._updateStateFromRemoteSource(props.getData, props.page, props.pageSize)
+  }
 
-    props.getData(page, pageSize).then((data) => {
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      loading: true
+    })
+
+    this._updateStateFromRemoteSource(newProps.getData, newProps.page, newProps.pageSize)
+  }
+
+  _updateStateFromRemoteSource(getData, page, pageSize) {
+    getData(page, pageSize).then((data) => {
       Table._checkResult(data.result, pageSize)
 
-      this.setState({
-        rows: data.result,
-        totalPages: Math.ceil(data.info.totalFiltered / pageSize),
-        loading: false
-      })
+      this._updateStateFromFetchedData(data, pageSize)
     }).done()
+  }
+
+  _updateStateFromFetchedData(data, pageSize) {
+    this.setState({
+      data: data,
+      totalPages: Math.ceil(data.info.totalFiltered / pageSize),
+      loading: false
+    })
   }
 
   static _checkResult(result, pageSize) {
@@ -26,25 +39,6 @@ class Table extends React.Component {
         'pageSize is ' + pageSize + ', got ' + result.length + ' elements.'
       )
     }
-  }
-
-  componentWillReceiveProps(newProps) {
-    this.setState({
-      loading: true
-    })
-
-    const page = undefined === newProps.page ? undefined : parseInt(newProps.page, 10)
-    const pageSize = undefined === newProps.pageSize ? undefined : parseInt(newProps.pageSize, 10)
-
-    newProps.getData(page, pageSize).then((data) => {
-      Table._checkResult(data.result, pageSize)
-
-      this.setState({
-        rows: data.result,
-        totalPages: Math.ceil(data.info.totalFiltered / pageSize),
-        loading: false
-      })
-    }).done()
   }
 
   render() {
@@ -58,10 +52,15 @@ class Table extends React.Component {
 
     const rows = []
 
-    if (this.state.rows.length > 0) {
-      this.state.rows.forEach((row, i) => {
+    if (this.state.data.result.length > 0) {
+      this.state.data.result.forEach((data, rowIndex) => {
         rows.push(
-          <TableRow key={i} row={row} rowIndex={i} />
+          <TableRow
+            key={rowIndex}
+            data={data}
+            rowIndex={rowIndex}
+            onClick={this.props.onRowClicked}
+            renderCell={this.props.renderCell} />
         )
       })
 
@@ -125,6 +124,8 @@ class Table extends React.Component {
 }
 
 Table.propTypes = {
+  renderCell: React.PropTypes.func,
+  onRowClicked: React.PropTypes.func,
   emptyTableMessage: React.PropTypes.string.isRequired,
   loadingMessage: React.PropTypes.string.isRequired,
   tableClassName: React.PropTypes.string.isRequired,
