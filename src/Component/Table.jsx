@@ -57,7 +57,7 @@ class Table extends React.Component {
             <MainTable
               data={this.state.data.result}
               renderCell={this.props.renderCell}
-              onRowClicked={this.props.onRowClicked}
+              onCellClicked={this.props.onCellClicked}
               emptyTableMessage={this.props.emptyTableMessage}
               tableClassName={this.props.tableClassName}>
               {this.props.children}
@@ -82,8 +82,6 @@ class Table extends React.Component {
 }
 
 Table.propTypes = {
-  renderCell: React.PropTypes.func,
-  onRowClicked: React.PropTypes.func,
   emptyTableMessage: React.PropTypes.string.isRequired,
   loadingMessage: React.PropTypes.string.isRequired,
   tableClassName: React.PropTypes.string.isRequired,
@@ -92,7 +90,9 @@ Table.propTypes = {
     pageSize: React.PropTypes.number.isRequired,
     goToPage: React.PropTypes.func.isRequired,
     makeLink: React.PropTypes.func.isRequired
-  }).isRequired
+  }).isRequired,
+  renderCell: React.PropTypes.func,
+  onCellClicked: React.PropTypes.func
 }
 
 Table.defaultProps = {

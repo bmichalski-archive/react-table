@@ -24,8 +24,8 @@ class TableWrapper extends React.Component {
     })
   }
 
-  static onRowClicked (data, rowIndex) {
-    const str = JSON.stringify({ rowIndex: rowIndex, data: data })
+  static onCellClicked (data, cellIndex, rowIndex) {
+    const str = JSON.stringify({ cellIndex: cellIndex, rowIndex: rowIndex, data: data })
 
     document
       .getElementById('row-clicked')
@@ -35,7 +35,7 @@ class TableWrapper extends React.Component {
   render() {
     return (
       <Table
-        onRowClicked={TableWrapper.onRowClicked}
+        onCellClicked={TableWrapper.onCellClicked}
         getData={this.getData.bind(this)}
         renderCell={(data) => { return data.content }}
         paginator={this.paginator}>

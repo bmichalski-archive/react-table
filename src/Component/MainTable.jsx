@@ -14,7 +14,7 @@ class MainTable extends React.Component {
           key={rowIndex}
           data={data}
           rowIndex={rowIndex}
-          onClick={this.props.onRowClicked}
+          onCellClicked={this.props.onCellClicked}
           renderCell={this.props.renderCell} />
       )
     })
@@ -32,10 +32,10 @@ class MainTable extends React.Component {
 
 MainTable.propTypes = {
   data: React.PropTypes.array.isRequired,
-  renderCell: React.PropTypes.func,
-  onRowClicked: React.PropTypes.func,
   emptyTableMessage: React.PropTypes.string.isRequired,
-  tableClassName: React.PropTypes.string.isRequired
+  tableClassName: React.PropTypes.string.isRequired,
+  renderCell: React.PropTypes.func,
+  onCellClicked: React.PropTypes.func
 }
 
 MainTable.defaultProps = {

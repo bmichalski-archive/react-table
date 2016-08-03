@@ -3,12 +3,18 @@ class TableRow extends React.Component {
     const rowData = this.props.data
 
     return (
-      <tr onClick={undefined === this.props.onClick ? undefined : this.props.onClick.bind(undefined, rowData, this.props.rowIndex)}>
+      <tr>
         {(() => {
           const tds = []
 
           rowData.forEach((cellData, cellIndex) => {
-            tds.push(<td key={cellIndex}>{this.props.renderCell(cellData, cellIndex, this.props.rowIndex)}</td>)
+            tds.push(
+              <td
+                key={cellIndex}
+                onClick={this.props.onCellClicked.bind(undefined, rowData, cellIndex, this.props.rowIndex)}>
+                {this.props.renderCell(cellData, cellIndex, this.props.rowIndex)}
+              </td>
+            )
           })
 
           return tds
@@ -29,12 +35,15 @@ TableRow.propTypes = {
     }
   },
   renderCell: React.PropTypes.func.isRequired,
-  onClick: React.PropTypes.func,
+  onCellClicked: React.PropTypes.func.isRequired,
   data: React.PropTypes.array.isRequired
 }
 
 TableRow.defaultProps = {
   renderCell: (data) => {
     return data
+  },
+  onCellClicked: () => {
+    return
   }
 }
