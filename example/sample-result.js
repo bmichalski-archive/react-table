@@ -1,5 +1,5 @@
-const sampleResult = (() => {
-  const result = [
+var sampleResult = (function() {
+  var result = [
     [
       {
         content: 0

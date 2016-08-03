@@ -212,4 +212,15 @@ gulp.task('clean:dist:browser', function () {
   ])
 })
 
+gulp.task('example:build', function () {
+  return gulp
+    .src([ 'example/example.jsx' ])
+    .pipe(debug({}))
+    .pipe(rename('example.js'))
+    .pipe(babel({
+      presets: [ 'react', 'es2015' ]
+    }))
+    .pipe(gulp.dest('example'))
+})
+
 gulp.task('default', [ 'dist:browser:table:uglify', 'dist:umd:copy', 'dist:index:copy', 'dist:css:uglify' ])
