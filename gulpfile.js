@@ -34,10 +34,10 @@ gulp.task('umdTable', [ 'babel' ], function() {
         return [
           {
             name: 'Table',
-            amd: [ 'react', 'underscore' ],
-            cjs: [ 'react', 'underscore' ],
-            global: [ 'React', '_' ],
-            param: 'React, _'
+            amd: [ 'react' ],
+            cjs: [ 'react' ],
+            global: [ 'React' ],
+            param: 'React'
           }
         ];
       }

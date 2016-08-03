@@ -1,5 +1,5 @@
 function isInteger(nb) {
-  return _.isNumber(nb) && !_.isNaN(nb) && _.isFinite(nb) && nb === parseInt(nb, 10)
+  return nb === parseInt(nb, 10)
 }
 
 function isPositiveInteger(nb) {
