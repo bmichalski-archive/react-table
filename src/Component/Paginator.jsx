@@ -13,7 +13,7 @@ class Paginator extends React.Component {
     this.setState({
       pageSize: newProps.pageSize,
       currentPage: newProps.currentPage,
-      totalPages: Math.ceil(newProps.totalResult / props.pageSize)
+      totalPages: Math.ceil(newProps.totalResult / newProps.pageSize)
     })
   }
 

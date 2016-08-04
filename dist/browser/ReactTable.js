@@ -180,7 +180,7 @@ var Paginator = function (_React$Component) {
       this.setState({
         pageSize: newProps.pageSize,
         currentPage: newProps.currentPage,
-        totalPages: Math.ceil(newProps.totalResult / props.pageSize)
+        totalPages: Math.ceil(newProps.totalResult / newProps.pageSize)
       });
     }
   }, {
@@ -759,7 +759,13 @@ var Table = function (_React$Component) {
     value: function _updateStateFromRemoteSource(getData) {
       var _this2 = this;
 
-      getData().then(function (data) {
+      if (undefined !== this._promise) {
+        this._promise.cancel();
+      }
+
+      this._promise = getData();
+
+      this._promise.then(function (data) {
         _this2._updateStateFromFetchedData(data);
       }).catch(function (err) {
         _this2.setState({
@@ -783,7 +789,9 @@ var Table = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      if (this.state.loading) {
+      var _this3 = this;
+
+      if (undefined === this.state.totalResult) {
         return React.createElement(
           "div",
           null,
@@ -822,16 +830,26 @@ var Table = function (_React$Component) {
           React.createElement(
             "div",
             { className: "col-md-12" },
-            React.createElement(
-              MainTable,
-              {
-                data: this.state.data.result,
-                renderCell: this.props.renderCell,
-                onCellClicked: this.props.onCellClicked,
-                emptyTableMessage: this.props.emptyTableMessage,
-                tableClassName: this.props.tableClassName },
-              this.props.children
-            )
+            function () {
+              if (_this3.state.loading) {
+                return React.createElement(
+                  "div",
+                  null,
+                  _this3.props.loadingMessage
+                );
+              }
+
+              return React.createElement(
+                MainTable,
+                {
+                  data: _this3.state.data.result,
+                  renderCell: _this3.props.renderCell,
+                  onCellClicked: _this3.props.onCellClicked,
+                  emptyTableMessage: _this3.props.emptyTableMessage,
+                  tableClassName: _this3.props.tableClassName },
+                _this3.props.children
+              );
+            }()
           )
         ),
         React.createElement(

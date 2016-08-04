@@ -20,7 +20,13 @@ class Table extends React.Component {
   }
 
   _updateStateFromRemoteSource(getData) {
-    getData().then((data) => {
+    if (undefined !== this._promise) {
+      this._promise.cancel()
+    }
+
+    this._promise = getData()
+
+    this._promise.then((data) => {
       this._updateStateFromFetchedData(data)
     }).catch((err) => {
       this.setState({
@@ -42,7 +48,7 @@ class Table extends React.Component {
   }
 
   render() {
-    if (this.state.loading) {
+    if (undefined === this.state.totalResult) {
       return (
         <div>{this.props.loadingMessage}</div>
       )
@@ -68,14 +74,24 @@ class Table extends React.Component {
         </div>
         <div className="row">
           <div className="col-md-12">
-            <MainTable
-              data={this.state.data.result}
-              renderCell={this.props.renderCell}
-              onCellClicked={this.props.onCellClicked}
-              emptyTableMessage={this.props.emptyTableMessage}
-              tableClassName={this.props.tableClassName}>
-              {this.props.children}
-            </MainTable>
+            {(() => {
+              if (this.state.loading) {
+                return (
+                  <div>{this.props.loadingMessage}</div>
+                )
+              }
+
+              return (
+                <MainTable
+                  data={this.state.data.result}
+                  renderCell={this.props.renderCell}
+                  onCellClicked={this.props.onCellClicked}
+                  emptyTableMessage={this.props.emptyTableMessage}
+                  tableClassName={this.props.tableClassName}>
+                  {this.props.children}
+                </MainTable>
+              )
+            })()}
           </div>
         </div>
         <div className="row">

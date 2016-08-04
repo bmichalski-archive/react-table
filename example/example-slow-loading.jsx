@@ -13,8 +13,28 @@ class TableWrapper extends React.Component {
     const from = (this.paginator.page - 1) * this.paginator.pageSize
     const end = from + this.paginator.pageSize
 
-    return new Promise((resolve) => {
+    Promise.config({
+      warnings: true,
+      longStackTraces: true,
+      cancellation: true
+    })
+
+    return new Promise((resolve, reject, onCancel) => {
+      var canceled = false
+
+      onCancel(() => {
+        canceled = true
+
+        console.log('canceled')
+      })
+
       setTimeout(() => {
+        if (canceled) {
+          return
+        }
+
+        console.log('resolving')
+
         resolve({
           result: sampleResult.slice(from, end),
           info: {
