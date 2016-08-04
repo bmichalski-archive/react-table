@@ -198,7 +198,13 @@ var Paginator = function (_React$Component) {
         params.pageSize = pageSize;
       }
 
-      return this.props.makeLink(params.page, params.pageSize, q);
+      if ('' === q) {
+        params.q = undefined;
+      } else {
+        params.q = q;
+      }
+
+      return this.props.makeLink(params.page, params.pageSize, params.q);
     }
   }, {
     key: '_handleClick',
@@ -318,19 +324,9 @@ var Paginator = function (_React$Component) {
     value: function _handleQChanged(event) {
       var _this2 = this;
 
-      var q;
+      clearTimeout(this._debounceQ);
 
-      var rawValue = event.target.value;
-
-      if ('' === rawValue) {
-        q = undefined;
-      } else {
-        q = rawValue;
-      }
-
-      this.setState({ q: q, page: 1 }, function () {
-        clearTimeout(_this2._debounceQ);
-
+      this.setState({ q: event.target.value, page: 1 }, function () {
         _this2._debounceQ = setTimeout(_this2._doGoToPage.bind(_this2), 200);
       });
     }
@@ -355,130 +351,136 @@ var Paginator = function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      return React.createElement(
-        'div',
-        { className: 'paginator-wrapper' },
-        function () {
-          if (!(_this3.props.pageSizeSelector || _this3.props.goTo || _this3.props.filtering)) {
-            return;
-          }
+      var paginationFields = function () {
+        if (!(_this3.props.pageSizeSelector || _this3.props.goTo || _this3.props.filtering)) {
+          return;
+        }
 
-          return React.createElement(
-            'div',
-            { className: 'row' },
-            function () {
-              if (_this3.props.pageSizeSelector) {
-                return React.createElement(
+        return React.createElement(
+          'div',
+          { className: 'row' },
+          function () {
+            if (_this3.props.filtering) {
+              return React.createElement(
+                'div',
+                { className: 'col-md-5' },
+                React.createElement(
+                  'label',
+                  null,
+                  'Filter',
+                  React.createElement('input', {
+                    type: 'text',
+                    className: 'form-control',
+                    value: _this3.state.q,
+                    placeholder: 'Filter:',
+                    onChange: _this3._handleQChanged.bind(_this3) })
+                )
+              );
+            }
+          }(),
+          function () {
+            if (_this3.props.goTo) {
+              return React.createElement(
+                'div',
+                { className: 'col-md-4' },
+                React.createElement(
                   'div',
-                  { className: 'col-md-1' },
-                  React.createElement(
-                    'div',
-                    { className: 'page-size-selector form-group' },
-                    React.createElement(
-                      'label',
-                      null,
-                      'Page size ',
-                      React.createElement(
-                        'select',
-                        {
-                          className: 'form-control',
-                          value: _this3.state.pageSize,
-                          onChange: _this3._handlePageSizeChange.bind(_this3) },
-                        React.createElement(
-                          'option',
-                          { value: 10 },
-                          '10'
-                        ),
-                        React.createElement(
-                          'option',
-                          { value: 25 },
-                          '25'
-                        ),
-                        React.createElement(
-                          'option',
-                          { value: 50 },
-                          '50'
-                        ),
-                        React.createElement(
-                          'option',
-                          { value: 100 },
-                          '100'
-                        )
-                      )
-                    )
-                  )
-                );
-              }
-            }(),
-            function () {
-              if (_this3.props.goTo) {
-                return React.createElement(
-                  'div',
-                  { className: 'col-md-2' },
-                  React.createElement(
-                    'div',
-                    { className: 'page-selector form-group' },
-                    React.createElement(
-                      'label',
-                      null,
-                      'Go to page',
-                      React.createElement(
-                        'div',
-                        { className: 'input-group' },
-                        React.createElement('input', {
-                          type: 'text',
-                          className: 'form-control',
-                          placeholder: 'Current page:',
-                          onChange: _this3._handleGoToChanged.bind(_this3),
-                          onKeyDown: _this3._handleGoToKeyDown.bind(_this3) }),
-                        React.createElement(
-                          'div',
-                          { className: 'input-group-btn' },
-                          React.createElement(
-                            'button',
-                            {
-                              className: 'btn btn-default ',
-                              disabled: _this3._goToPageDisabled(),
-                              onClick: _this3._goToPage.bind(_this3) },
-                            'Go'
-                          )
-                        )
-                      )
-                    )
-                  )
-                );
-              }
-            }(),
-            function () {
-              if (_this3.props.filtering) {
-                return React.createElement(
-                  'div',
-                  { className: 'col-md-2' },
+                  { className: 'page-selector form-group' },
                   React.createElement(
                     'label',
                     null,
-                    'Filter',
-                    React.createElement('input', {
-                      type: 'text',
-                      className: 'form-control',
-                      defaultValue: _this3.state.q,
-                      placeholder: 'Filter:',
-                      onChange: _this3._handleQChanged.bind(_this3) })
+                    'Go to page',
+                    React.createElement(
+                      'div',
+                      { className: 'input-group' },
+                      React.createElement('input', {
+                        type: 'text',
+                        className: 'form-control',
+                        placeholder: 'Page:',
+                        onChange: _this3._handleGoToChanged.bind(_this3),
+                        onKeyDown: _this3._handleGoToKeyDown.bind(_this3) }),
+                      React.createElement(
+                        'div',
+                        { className: 'input-group-btn' },
+                        React.createElement(
+                          'button',
+                          {
+                            className: 'btn btn-default ',
+                            disabled: _this3._goToPageDisabled(),
+                            onClick: _this3._goToPage.bind(_this3) },
+                          'Go'
+                        )
+                      )
+                    )
                   )
-                );
-              }
-            }()
-          );
-        }(),
+                )
+              );
+            }
+          }(),
+          function () {
+            if (_this3.props.pageSizeSelector) {
+              return React.createElement(
+                'div',
+                { className: 'col-md-3' },
+                React.createElement(
+                  'div',
+                  { className: 'page-size-selector form-group' },
+                  React.createElement(
+                    'label',
+                    null,
+                    'Page size ',
+                    React.createElement(
+                      'select',
+                      {
+                        className: 'form-control',
+                        value: _this3.state.pageSize,
+                        onChange: _this3._handlePageSizeChange.bind(_this3) },
+                      React.createElement(
+                        'option',
+                        { value: 10 },
+                        '10'
+                      ),
+                      React.createElement(
+                        'option',
+                        { value: 25 },
+                        '25'
+                      ),
+                      React.createElement(
+                        'option',
+                        { value: 50 },
+                        '50'
+                      ),
+                      React.createElement(
+                        'option',
+                        { value: 100 },
+                        '100'
+                      )
+                    )
+                  )
+                )
+              );
+            }
+          }()
+        );
+      }();
+
+      return React.createElement(
+        'div',
+        { className: 'paginator-wrapper' },
         React.createElement(
           'div',
           { className: 'row' },
           React.createElement(
             'div',
-            { className: 'col-md-12' },
+            { className: 'col-md-4' },
+            paginationFields
+          ),
+          React.createElement(
+            'div',
+            { className: 'col-md-8' },
             React.createElement(
               'ul',
-              { className: 'pagination' },
+              { className: 'pagination pull-right' },
               function () {
                 var currentPage = parseInt(_this3.state.currentPage, 10);
                 var rows = [];
@@ -625,6 +627,7 @@ Paginator.propTypes = {
 };
 
 Paginator.defaultProps = {
+  q: '',
   maximumPages: 10,
   pageSizeSelector: false,
   goTo: false,

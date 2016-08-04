@@ -30,7 +30,13 @@ class Paginator extends React.Component {
       params.pageSize = pageSize
     }
 
-    return this.props.makeLink(params.page, params.pageSize, q)
+    if ('' === q) {
+      params.q = undefined
+    } else {
+      params.q = q
+    }
+
+    return this.props.makeLink(params.page, params.pageSize, params.q)
   }
 
   _handleClick(page, event) {
@@ -138,21 +144,11 @@ class Paginator extends React.Component {
   }
 
   _handleQChanged(event) {
-    var q
-
-    const rawValue = event.target.value
-
-    if ('' === rawValue) {
-      q = undefined
-    } else {
-      q = rawValue
-    }
+    clearTimeout(this._debounceQ)
 
     this.setState(
-      { q: q, page: 1 },
+      { q: event.target.value, page: 1 },
       () => {
-        clearTimeout(this._debounceQ)
-
         this._debounceQ = setTimeout(this._doGoToPage.bind(this), 200)
       }
     )
@@ -173,97 +169,99 @@ class Paginator extends React.Component {
   }
 
   render() {
+    const paginationFields = (() => {
+      if (!(this.props.pageSizeSelector || this.props.goTo || this.props.filtering)) {
+        return
+      }
+
+      return (
+        <div className="row">
+          {
+            (() => {
+              if (this.props.filtering) {
+                return (
+                  <div className="col-md-5">
+                    <label>
+                      Filter
+                      <input
+                        type="text"
+                        className="form-control"
+                        value={this.state.q}
+                        placeholder="Filter:"
+                        onChange={this._handleQChanged.bind(this)} />
+                    </label>
+                  </div>
+                )
+              }
+            })()
+          }
+          {
+            (() => {
+              if (this.props.goTo) {
+                return (
+                  <div className="col-md-4">
+                    <div className="page-selector form-group">
+                      <label>
+                        Go to page
+                        <div className="input-group">
+                          <input
+                            type="text"
+                            className="form-control"
+                            placeholder={'Page:'}
+                            onChange={this._handleGoToChanged.bind(this)}
+                            onKeyDown={this._handleGoToKeyDown.bind(this)} />
+                          <div className="input-group-btn">
+                            <button
+                              className="btn btn-default "
+                              disabled={this._goToPageDisabled()}
+                              onClick={this._goToPage.bind(this)}>
+                              Go
+                            </button>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                )
+              }
+            })()
+          }
+          {
+            (() => {
+              if (this.props.pageSizeSelector) {
+                return (
+                  <div className="col-md-3">
+                    <div className="page-size-selector form-group">
+                      <label>
+                        Page size&nbsp;
+                        <select
+                          className="form-control"
+                          value={this.state.pageSize}
+                          onChange={this._handlePageSizeChange.bind(this)}>
+                          <option value={10}>10</option>
+                          <option value={25}>25</option>
+                          <option value={50}>50</option>
+                          <option value={100}>100</option>
+                        </select>
+                      </label>
+                    </div>
+                  </div>
+                )
+              }
+            })()
+          }
+        </div>
+      )
+    })()
+
     return (
       <div className="paginator-wrapper">
-        {
-          (() => {
-            if (!(this.props.pageSizeSelector || this.props.goTo || this.props.filtering)) {
-              return
-            }
-
-            return (
-              <div className="row">
-                {
-                  (() => {
-                    if (this.props.pageSizeSelector) {
-                      return (
-                        <div className="col-md-1">
-                          <div className="page-size-selector form-group">
-                            <label>
-                              Page size&nbsp;
-                              <select
-                                className="form-control"
-                                value={this.state.pageSize}
-                                onChange={this._handlePageSizeChange.bind(this)}>
-                                <option value={10}>10</option>
-                                <option value={25}>25</option>
-                                <option value={50}>50</option>
-                                <option value={100}>100</option>
-                              </select>
-                            </label>
-                          </div>
-                        </div>
-                      )
-                    }
-                  })()
-                }
-                {
-                  (() => {
-                    if (this.props.goTo) {
-                      return (
-                        <div className="col-md-2">
-                          <div className="page-selector form-group">
-                            <label>
-                              Go to page
-                              <div className="input-group">
-                                <input
-                                  type="text"
-                                  className="form-control"
-                                  placeholder={'Current page:'}
-                                  onChange={this._handleGoToChanged.bind(this)}
-                                  onKeyDown={this._handleGoToKeyDown.bind(this)} />
-                                <div className="input-group-btn">
-                                  <button
-                                    className="btn btn-default "
-                                    disabled={this._goToPageDisabled()}
-                                    onClick={this._goToPage.bind(this)}>
-                                    Go
-                                  </button>
-                                </div>
-                              </div>
-                            </label>
-                          </div>
-                        </div>
-                      )
-                    }
-                  })()
-                }
-                {
-                  (() => {
-                    if (this.props.filtering) {
-                      return (
-                        <div className="col-md-2">
-                          <label>
-                            Filter
-                            <input
-                              type="text"
-                              className="form-control"
-                              defaultValue={this.state.q}
-                              placeholder="Filter:"
-                              onChange={this._handleQChanged.bind(this)} />
-                          </label>
-                        </div>
-                      )
-                    }
-                  })()
-                }
-              </div>
-            )
-          })()
-        }
         <div className="row">
-          <div className="col-md-12">
-            <ul className="pagination">
+          <div className="col-md-4">
+            {paginationFields}
+          </div>
+          <div className="col-md-8">
+            <ul className="pagination pull-right">
               {(() => {
                 const currentPage = parseInt(this.state.currentPage, 10)
                 const rows = []
@@ -382,6 +380,7 @@ Paginator.propTypes = {
 }
 
 Paginator.defaultProps = {
+  q: '',
   maximumPages: 10,
   pageSizeSelector: false,
   goTo: false,
