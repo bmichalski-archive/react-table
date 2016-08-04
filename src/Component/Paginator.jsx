@@ -5,6 +5,7 @@ class Paginator extends React.Component {
     this.state = {
       pageSize: props.pageSize,
       currentPage: props.currentPage,
+      q: props.q,
       totalPages: Math.ceil(props.totalResult / props.pageSize)
     }
   }
@@ -13,11 +14,12 @@ class Paginator extends React.Component {
     this.setState({
       pageSize: newProps.pageSize,
       currentPage: newProps.currentPage,
+      q: newProps.q,
       totalPages: Math.ceil(newProps.totalResult / newProps.pageSize)
     })
   }
 
-  _makeLink(page, pageSize) {
+  _makeLink(page, pageSize, q) {
     const params = {}
 
     if (page > 1) {
@@ -28,7 +30,7 @@ class Paginator extends React.Component {
       params.pageSize = pageSize
     }
 
-    return this.props.makeLink(params.page, params.pageSize)
+    return this.props.makeLink(params.page, params.pageSize, q)
   }
 
   _handleClick(page, event) {
@@ -115,20 +117,45 @@ class Paginator extends React.Component {
 
   _doGoToPage() {
     this.props.goToPage(
-      this._makeLink(this.state.goTo, this.state.pageSize)
+      this._makeLink(this.state.goTo, this.state.pageSize, this.state.q)
     )
   }
 
-  _handleGoToKeyDown(event) {
+  _handleKeyDown(event, isDisabled) {
     if (13 === event.keyCode) {
       event.preventDefault()
 
-      if (this._goToPageDisabled()) {
+      if (isDisabled()) {
         return
       }
 
       this._doGoToPage()
     }
+  }
+
+  _handleGoToKeyDown(event) {
+    this._handleKeyDown(event, this._goToPageDisabled.bind(this))
+  }
+
+  _handleQChanged(event) {
+    var q
+
+    const rawValue = event.target.value
+
+    if ('' === rawValue) {
+      q = undefined
+    } else {
+      q = rawValue
+    }
+
+    this.setState(
+      { q: q, page: 1 },
+      () => {
+        clearTimeout(this._debounceQ)
+
+        this._debounceQ = setTimeout(this._doGoToPage.bind(this), 200)
+      }
+    )
   }
 
   _goToPageDisabled() {
@@ -148,63 +175,92 @@ class Paginator extends React.Component {
   render() {
     return (
       <div className="paginator-wrapper">
-        <div className="row">
-          <div className="col-md-1">
-            {
-              (() => {
-                if (!this.props.noPageSizeSelector) {
-                  return (
-                    <div className="page-size-selector form-group">
-                      <label>
-                        Page size&nbsp;
-                        <select
-                          className="form-control"
-                          value={this.state.pageSize}
-                          onChange={this._handlePageSizeChange.bind(this)}>
-                          <option value={10}>10</option>
-                          <option value={25}>25</option>
-                          <option value={50}>50</option>
-                          <option value={100}>100</option>
-                        </select>
-                      </label>
-                    </div>
-                  )
-                }
-              })()
+        {
+          (() => {
+            if (!(this.props.pageSizeSelector || this.props.goTo || this.props.filtering)) {
+              return
             }
-          </div>
-          <div className="col-md-2">
-            {
-              (() => {
-                if (!this.props.noGoTo) {
-                  return (
-                    <div className="page-selector form-group">
-                      <label>
-                        Go to page
-                        <div className="input-group">
-                          <input
-                            type="text"
-                            className="form-control"
-                            placeholder={'Current page: ' + this.state.currentPage}
-                            onChange={this._handleGoToChanged.bind(this)}
-                            onKeyDown={this._handleGoToKeyDown.bind(this)} />
-                          <div className="input-group-btn">
-                            <button
-                              className="btn btn-default "
-                              disabled={this._goToPageDisabled()}
-                              onClick={this._goToPage.bind(this)}>
-                              Go
-                            </button>
+
+            return (
+              <div className="row">
+                {
+                  (() => {
+                    if (this.props.pageSizeSelector) {
+                      return (
+                        <div className="col-md-1">
+                          <div className="page-size-selector form-group">
+                            <label>
+                              Page size&nbsp;
+                              <select
+                                className="form-control"
+                                value={this.state.pageSize}
+                                onChange={this._handlePageSizeChange.bind(this)}>
+                                <option value={10}>10</option>
+                                <option value={25}>25</option>
+                                <option value={50}>50</option>
+                                <option value={100}>100</option>
+                              </select>
+                            </label>
                           </div>
                         </div>
-                      </label>
-                    </div>
-                  )
+                      )
+                    }
+                  })()
                 }
-              })()
-            }
-          </div>
-        </div>
+                {
+                  (() => {
+                    if (this.props.goTo) {
+                      return (
+                        <div className="col-md-2">
+                          <div className="page-selector form-group">
+                            <label>
+                              Go to page
+                              <div className="input-group">
+                                <input
+                                  type="text"
+                                  className="form-control"
+                                  placeholder={'Current page:'}
+                                  onChange={this._handleGoToChanged.bind(this)}
+                                  onKeyDown={this._handleGoToKeyDown.bind(this)} />
+                                <div className="input-group-btn">
+                                  <button
+                                    className="btn btn-default "
+                                    disabled={this._goToPageDisabled()}
+                                    onClick={this._goToPage.bind(this)}>
+                                    Go
+                                  </button>
+                                </div>
+                              </div>
+                            </label>
+                          </div>
+                        </div>
+                      )
+                    }
+                  })()
+                }
+                {
+                  (() => {
+                    if (this.props.filtering) {
+                      return (
+                        <div className="col-md-2">
+                          <label>
+                            Filter
+                            <input
+                              type="text"
+                              className="form-control"
+                              defaultValue={this.state.q}
+                              placeholder="Filter:"
+                              onChange={this._handleQChanged.bind(this)} />
+                          </label>
+                        </div>
+                      )
+                    }
+                  })()
+                }
+              </div>
+            )
+          })()
+        }
         <div className="row">
           <div className="col-md-12">
             <ul className="pagination">
@@ -302,10 +358,12 @@ Paginator.propTypes = {
   totalResult: React.PropTypes.number.isRequired,
   currentPage: React.PropTypes.number.isRequired,
   pageSize: React.PropTypes.number.isRequired,
+  q: React.PropTypes.string,
   goToPage: React.PropTypes.func.isRequired,
   makeLink: React.PropTypes.func.isRequired,
-  noPageSizeSelector: React.PropTypes.bool,
-  noGoTo: React.PropTypes.bool,
+  pageSizeSelector: React.PropTypes.bool.isRequired,
+  goTo: React.PropTypes.bool.isRequired,
+  filtering: React.PropTypes.bool.isRequired,
   maximumPages: (props, propName) => {
     const prop = props[propName]
 
@@ -325,6 +383,7 @@ Paginator.propTypes = {
 
 Paginator.defaultProps = {
   maximumPages: 10,
-  noPageSizeSelector: false,
-  noGoTo: false
+  pageSizeSelector: false,
+  goTo: false,
+  filtering: false
 }

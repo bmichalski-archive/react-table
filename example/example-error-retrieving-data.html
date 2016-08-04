@@ -14,6 +14,8 @@
 <body>
     <div id="row-clicked"></div>
     <div id="main-container" class="container-fluid"></div>
-    <script type="text/javascript" src="./example-error-retrieving-data.js"></script>
+    <!-- Does not load ./sample-result.js before ./example.js, which will result in expected error -->
+    <script type="text/javascript" src="./example.js"></script>
+    <script type="text/javascript" src="./init.js"></script>
 </body>
 </html>

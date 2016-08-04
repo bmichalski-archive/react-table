@@ -17,11 +17,17 @@ class ReactRouterPaginator {
     return ReactRouterPaginator.getAsIntegerOrGetDefaultValue(this._location.query.pageSize, 10)
   }
 
+  get q () {
+    const rawValue = this._location.query.q
+
+    return '' === rawValue ? undefined : rawValue
+  }
+
   goToPage (link) {
     ReactRouter.browserHistory.push(link)
   }
 
-  makeLink (page, pageSize) {
+  makeLink (page, pageSize, q) {
     const query = {}
 
     /**
@@ -36,6 +42,7 @@ class ReactRouterPaginator {
     //Override any page and pageSize query parameters
     query.page = page
     query.pageSize = pageSize
+    query.q = q
 
     return ReactRouter.browserHistory.createPath({ pathname: this._location.pathname, query: query })
   }

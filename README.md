@@ -18,7 +18,6 @@ A table implementation using React.
 ##What's next
 ###Features
 * Sorting
-* Filtering
 * Templating
 ### Improvements
 * Customizability

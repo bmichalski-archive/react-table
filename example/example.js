@@ -8,6 +8,12 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+Promise.config({
+  warnings: true,
+  longStackTraces: true,
+  cancellation: true
+});
+
 var TableWrapper = function (_React$Component) {
   _inherits(TableWrapper, _React$Component);
 
@@ -28,17 +34,55 @@ var TableWrapper = function (_React$Component) {
   }, {
     key: 'getData',
     value: function getData() {
+      var _this2 = this;
+
       var from = (this.paginator.page - 1) * this.paginator.pageSize;
       var end = from + this.paginator.pageSize;
+      var q = this.paginator.q;
 
-      return new Promise(function (resolve) {
-        resolve({
-          result: sampleResult.slice(from, end),
-          info: {
-            total: sampleResult.length * 2,
-            totalFiltered: sampleResult.length
-          }
+      return new Promise(function (resolve, reject, onCancel) {
+        var canceled = false;
+
+        onCancel(function () {
+          canceled = true;
+
+          console.log('canceled');
         });
+
+        setTimeout(function () {
+          if (canceled) {
+            return;
+          }
+
+          console.log('resolving');
+
+          var filteredResults;
+
+          if (undefined === q) {
+            filteredResults = sampleResult;
+          } else {
+            filteredResults = sampleResult.filter(function (row) {
+
+              var include = false;
+
+              row.forEach(function (cell) {
+                if (0 === ('' + cell.content).toLowerCase().indexOf(q)) {
+                  include = true;
+                }
+              });
+
+              return include;
+            });
+          }
+
+          resolve({
+            result: filteredResults.slice(from, end),
+            info: {
+              total: sampleResult.length * 2,
+              totalFiltered: filteredResults.length
+            }
+          });
+        }, _this2.props.resultTimeout);
       });
     }
   }, {
@@ -90,17 +134,10 @@ var TableWrapper = function (_React$Component) {
   return TableWrapper;
 }(React.Component);
 
-var Router = ReactRouter.Router;
-var Route = ReactRouter.Route;
+TableWrapper.propTypes = {
+  resultTimeout: React.PropTypes.number.isRequired
+};
 
-ReactDOM.render(React.createElement(
-  Router,
-  { history: ReactRouter.browserHistory },
-  React.createElement(
-    Route,
-    { path: '/', component: TableWrapper },
-    React.createElement(Route, { path: '*', component: TableWrapper })
-  )
-), document.getElementById('main-container'));
-
-document.getElementById('row-clicked').innerHTML = 'Row clicked:';
+TableWrapper.defaultProps = {
+  resultTimeout: 200
+};

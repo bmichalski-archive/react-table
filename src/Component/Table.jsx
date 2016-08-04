@@ -68,8 +68,12 @@ class Table extends React.Component {
               totalResult={this.state.totalResult}
               currentPage={this.props.paginator.page}
               pageSize={this.props.paginator.pageSize}
+              q={this.props.paginator.q}
               goToPage={this.props.paginator.goToPage.bind(this.props.paginator)}
-              makeLink={this.props.paginator.makeLink.bind(this.props.paginator)} />
+              makeLink={this.props.paginator.makeLink.bind(this.props.paginator)}
+              pageSizeSelector
+              goTo
+              filtering />
           </div>
         </div>
         <div className="row">
@@ -100,10 +104,9 @@ class Table extends React.Component {
               totalResult={this.state.totalResult}
               currentPage={this.props.paginator.page}
               pageSize={this.props.paginator.pageSize}
+              q={this.props.paginator.q}
               goToPage={this.props.paginator.goToPage.bind(this.props.paginator)}
-              makeLink={this.props.paginator.makeLink.bind(this.props.paginator)}
-              noPageSizeSelector
-              noGoTo />
+              makeLink={this.props.paginator.makeLink.bind(this.props.paginator)} />
           </div>
         </div>
       </div>

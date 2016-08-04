@@ -7,7 +7,7 @@
     root.ReactRouterPaginator = factory(root.ReactRouter);
   }
 }(this, function(ReactRouter) {
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -21,13 +21,13 @@ var ReactRouterPaginator = function () {
   }
 
   _createClass(ReactRouterPaginator, [{
-    key: "goToPage",
+    key: 'goToPage',
     value: function goToPage(link) {
       ReactRouter.browserHistory.push(link);
     }
   }, {
-    key: "makeLink",
-    value: function makeLink(page, pageSize) {
+    key: 'makeLink',
+    value: function makeLink(page, pageSize, q) {
       var query = {};
 
       /**
@@ -42,28 +42,36 @@ var ReactRouterPaginator = function () {
       //Override any page and pageSize query parameters
       query.page = page;
       query.pageSize = pageSize;
+      query.q = q;
 
       return ReactRouter.browserHistory.createPath({ pathname: this._location.pathname, query: query });
     }
   }, {
-    key: "location",
+    key: 'location',
     set: function set(location) {
       this._location = location;
 
       return this;
     }
   }, {
-    key: "page",
+    key: 'page',
     get: function get() {
       return ReactRouterPaginator.getAsIntegerOrGetDefaultValue(this._location.query.page, 1);
     }
   }, {
-    key: "pageSize",
+    key: 'pageSize',
     get: function get() {
       return ReactRouterPaginator.getAsIntegerOrGetDefaultValue(this._location.query.pageSize, 10);
     }
+  }, {
+    key: 'q',
+    get: function get() {
+      var rawValue = this._location.query.q;
+
+      return '' === rawValue ? undefined : rawValue;
+    }
   }], [{
-    key: "getAsIntegerOrGetDefaultValue",
+    key: 'getAsIntegerOrGetDefaultValue',
     value: function getAsIntegerOrGetDefaultValue(value, defaultValue) {
       return undefined === value ? defaultValue : parseInt(value, 10);
     }

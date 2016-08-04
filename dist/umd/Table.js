@@ -16,7 +16,7 @@ function isInteger(nb) {
 function isPositiveInteger(nb) {
   return isInteger(nb) && nb > 0;
 }
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -37,23 +37,25 @@ var Paginator = function (_React$Component) {
     _this.state = {
       pageSize: props.pageSize,
       currentPage: props.currentPage,
+      q: props.q,
       totalPages: Math.ceil(props.totalResult / props.pageSize)
     };
     return _this;
   }
 
   _createClass(Paginator, [{
-    key: "componentWillReceiveProps",
+    key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(newProps) {
       this.setState({
         pageSize: newProps.pageSize,
         currentPage: newProps.currentPage,
+        q: newProps.q,
         totalPages: Math.ceil(newProps.totalResult / newProps.pageSize)
       });
     }
   }, {
-    key: "_makeLink",
-    value: function _makeLink(page, pageSize) {
+    key: '_makeLink',
+    value: function _makeLink(page, pageSize, q) {
       var params = {};
 
       if (page > 1) {
@@ -64,22 +66,22 @@ var Paginator = function (_React$Component) {
         params.pageSize = pageSize;
       }
 
-      return this.props.makeLink(params.page, params.pageSize);
+      return this.props.makeLink(params.page, params.pageSize, q);
     }
   }, {
-    key: "_handleClick",
+    key: '_handleClick',
     value: function _handleClick(page, event) {
       event.preventDefault();
 
       this.props.goToPage(this._makeLink(page, this.state.pageSize));
     }
   }, {
-    key: "_getClassName",
+    key: '_getClassName',
     value: function _getClassName(page) {
       return this.state.currentPage === page ? 'current' : null;
     }
   }, {
-    key: "_previous",
+    key: '_previous',
     value: function _previous(event) {
       if (this._previousDisabled()) {
         event.preventDefault();
@@ -90,7 +92,7 @@ var Paginator = function (_React$Component) {
       this._handleClick(this.state.currentPage - 1, event);
     }
   }, {
-    key: "_next",
+    key: '_next',
     value: function _next(event) {
       if (this._nextDisabled()) {
         event.preventDefault();
@@ -101,7 +103,7 @@ var Paginator = function (_React$Component) {
       this._handleClick(this.state.currentPage + 1, event);
     }
   }, {
-    key: "_first",
+    key: '_first',
     value: function _first(event) {
       if (this._firstDisabled()) {
         event.preventDefault();
@@ -112,7 +114,7 @@ var Paginator = function (_React$Component) {
       this._handleClick(1, event);
     }
   }, {
-    key: "_last",
+    key: '_last',
     value: function _last(event) {
       if (this._lastDisabled()) {
         event.preventDefault();
@@ -123,51 +125,51 @@ var Paginator = function (_React$Component) {
       this._handleClick(this.state.totalPages, event);
     }
   }, {
-    key: "_firstDisabled",
+    key: '_firstDisabled',
     value: function _firstDisabled() {
       return this.state.currentPage <= 1;
     }
   }, {
-    key: "_lastDisabled",
+    key: '_lastDisabled',
     value: function _lastDisabled() {
       return this.state.currentPage >= this.state.totalPages;
     }
   }, {
-    key: "_previousDisabled",
+    key: '_previousDisabled',
     value: function _previousDisabled() {
       return this._firstDisabled();
     }
   }, {
-    key: "_nextDisabled",
+    key: '_nextDisabled',
     value: function _nextDisabled() {
       return this._lastDisabled();
     }
   }, {
-    key: "_handlePageSizeChange",
+    key: '_handlePageSizeChange',
     value: function _handlePageSizeChange(event) {
       var pageSize = parseInt(event.target.value, 10);
 
       this.props.goToPage(this._makeLink(1, pageSize));
     }
   }, {
-    key: "_handleGoToChanged",
+    key: '_handleGoToChanged',
     value: function _handleGoToChanged(event) {
       this.setState({
         goTo: parseInt(event.target.value, 10)
       });
     }
   }, {
-    key: "_doGoToPage",
+    key: '_doGoToPage',
     value: function _doGoToPage() {
-      this.props.goToPage(this._makeLink(this.state.goTo, this.state.pageSize));
+      this.props.goToPage(this._makeLink(this.state.goTo, this.state.pageSize, this.state.q));
     }
   }, {
-    key: "_handleGoToKeyDown",
-    value: function _handleGoToKeyDown(event) {
+    key: '_handleKeyDown',
+    value: function _handleKeyDown(event, isDisabled) {
       if (13 === event.keyCode) {
         event.preventDefault();
 
-        if (this._goToPageDisabled()) {
+        if (isDisabled()) {
           return;
         }
 
@@ -175,12 +177,38 @@ var Paginator = function (_React$Component) {
       }
     }
   }, {
-    key: "_goToPageDisabled",
+    key: '_handleGoToKeyDown',
+    value: function _handleGoToKeyDown(event) {
+      this._handleKeyDown(event, this._goToPageDisabled.bind(this));
+    }
+  }, {
+    key: '_handleQChanged',
+    value: function _handleQChanged(event) {
+      var _this2 = this;
+
+      var q;
+
+      var rawValue = event.target.value;
+
+      if ('' === rawValue) {
+        q = undefined;
+      } else {
+        q = rawValue;
+      }
+
+      this.setState({ q: q, page: 1 }, function () {
+        clearTimeout(_this2._debounceQ);
+
+        _this2._debounceQ = setTimeout(_this2._doGoToPage.bind(_this2), 200);
+      });
+    }
+  }, {
+    key: '_goToPageDisabled',
     value: function _goToPageDisabled() {
       return !isPositiveInteger(this.state.goTo) || this.state.goTo < 1;
     }
   }, {
-    key: "_goToPage",
+    key: '_goToPage',
     value: function _goToPage(event) {
       event.preventDefault();
 
@@ -191,160 +219,185 @@ var Paginator = function (_React$Component) {
       this._doGoToPage();
     }
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       return React.createElement(
-        "div",
-        { className: "paginator-wrapper" },
-        React.createElement(
-          "div",
-          { className: "row" },
-          React.createElement(
-            "div",
-            { className: "col-md-1" },
+        'div',
+        { className: 'paginator-wrapper' },
+        function () {
+          if (!(_this3.props.pageSizeSelector || _this3.props.goTo || _this3.props.filtering)) {
+            return;
+          }
+
+          return React.createElement(
+            'div',
+            { className: 'row' },
             function () {
-              if (!_this2.props.noPageSizeSelector) {
+              if (_this3.props.pageSizeSelector) {
                 return React.createElement(
-                  "div",
-                  { className: "page-size-selector form-group" },
+                  'div',
+                  { className: 'col-md-1' },
                   React.createElement(
-                    "label",
-                    null,
-                    "Page size ",
+                    'div',
+                    { className: 'page-size-selector form-group' },
                     React.createElement(
-                      "select",
-                      {
-                        className: "form-control",
-                        value: _this2.state.pageSize,
-                        onChange: _this2._handlePageSizeChange.bind(_this2) },
+                      'label',
+                      null,
+                      'Page size ',
                       React.createElement(
-                        "option",
-                        { value: 10 },
-                        "10"
-                      ),
-                      React.createElement(
-                        "option",
-                        { value: 25 },
-                        "25"
-                      ),
-                      React.createElement(
-                        "option",
-                        { value: 50 },
-                        "50"
-                      ),
-                      React.createElement(
-                        "option",
-                        { value: 100 },
-                        "100"
-                      )
-                    )
-                  )
-                );
-              }
-            }()
-          ),
-          React.createElement(
-            "div",
-            { className: "col-md-2" },
-            function () {
-              if (!_this2.props.noGoTo) {
-                return React.createElement(
-                  "div",
-                  { className: "page-selector form-group" },
-                  React.createElement(
-                    "label",
-                    null,
-                    "Go to page",
-                    React.createElement(
-                      "div",
-                      { className: "input-group" },
-                      React.createElement("input", {
-                        type: "text",
-                        className: "form-control",
-                        placeholder: 'Current page: ' + _this2.state.currentPage,
-                        onChange: _this2._handleGoToChanged.bind(_this2),
-                        onKeyDown: _this2._handleGoToKeyDown.bind(_this2) }),
-                      React.createElement(
-                        "div",
-                        { className: "input-group-btn" },
+                        'select',
+                        {
+                          className: 'form-control',
+                          value: _this3.state.pageSize,
+                          onChange: _this3._handlePageSizeChange.bind(_this3) },
                         React.createElement(
-                          "button",
-                          {
-                            className: "btn btn-default ",
-                            disabled: _this2._goToPageDisabled(),
-                            onClick: _this2._goToPage.bind(_this2) },
-                          "Go"
+                          'option',
+                          { value: 10 },
+                          '10'
+                        ),
+                        React.createElement(
+                          'option',
+                          { value: 25 },
+                          '25'
+                        ),
+                        React.createElement(
+                          'option',
+                          { value: 50 },
+                          '50'
+                        ),
+                        React.createElement(
+                          'option',
+                          { value: 100 },
+                          '100'
                         )
                       )
                     )
                   )
                 );
               }
+            }(),
+            function () {
+              if (_this3.props.goTo) {
+                return React.createElement(
+                  'div',
+                  { className: 'col-md-2' },
+                  React.createElement(
+                    'div',
+                    { className: 'page-selector form-group' },
+                    React.createElement(
+                      'label',
+                      null,
+                      'Go to page',
+                      React.createElement(
+                        'div',
+                        { className: 'input-group' },
+                        React.createElement('input', {
+                          type: 'text',
+                          className: 'form-control',
+                          placeholder: 'Current page:',
+                          onChange: _this3._handleGoToChanged.bind(_this3),
+                          onKeyDown: _this3._handleGoToKeyDown.bind(_this3) }),
+                        React.createElement(
+                          'div',
+                          { className: 'input-group-btn' },
+                          React.createElement(
+                            'button',
+                            {
+                              className: 'btn btn-default ',
+                              disabled: _this3._goToPageDisabled(),
+                              onClick: _this3._goToPage.bind(_this3) },
+                            'Go'
+                          )
+                        )
+                      )
+                    )
+                  )
+                );
+              }
+            }(),
+            function () {
+              if (_this3.props.filtering) {
+                return React.createElement(
+                  'div',
+                  { className: 'col-md-2' },
+                  React.createElement(
+                    'label',
+                    null,
+                    'Filter',
+                    React.createElement('input', {
+                      type: 'text',
+                      className: 'form-control',
+                      defaultValue: _this3.state.q,
+                      placeholder: 'Filter:',
+                      onChange: _this3._handleQChanged.bind(_this3) })
+                  )
+                );
+              }
             }()
-          )
-        ),
+          );
+        }(),
         React.createElement(
-          "div",
-          { className: "row" },
+          'div',
+          { className: 'row' },
           React.createElement(
-            "div",
-            { className: "col-md-12" },
+            'div',
+            { className: 'col-md-12' },
             React.createElement(
-              "ul",
-              { className: "pagination" },
+              'ul',
+              { className: 'pagination' },
               function () {
-                var currentPage = parseInt(_this2.state.currentPage, 10);
+                var currentPage = parseInt(_this3.state.currentPage, 10);
                 var rows = [];
-                var firstDisabled = _this2._firstDisabled();
-                var lastDisabled = _this2._lastDisabled();
-                var previousDisabled = _this2._previousDisabled();
-                var nextDisabled = _this2._nextDisabled();
+                var firstDisabled = _this3._firstDisabled();
+                var lastDisabled = _this3._lastDisabled();
+                var previousDisabled = _this3._previousDisabled();
+                var nextDisabled = _this3._nextDisabled();
 
                 rows.push(React.createElement(
-                  "li",
-                  { key: "first", className: firstDisabled ? 'disabled' : null },
+                  'li',
+                  { key: 'first', className: firstDisabled ? 'disabled' : null },
                   React.createElement(
-                    "a",
+                    'a',
                     {
                       disabled: firstDisabled,
-                      href: firstDisabled ? '' : _this2._makeLink(1, _this2.state.pageSize),
-                      onClick: _this2._first.bind(_this2) },
+                      href: firstDisabled ? '' : _this3._makeLink(1, _this3.state.pageSize),
+                      onClick: _this3._first.bind(_this3) },
                     React.createElement(
-                      "span",
+                      'span',
                       null,
-                      "«"
+                      '«'
                     )
                   )
                 ));
 
                 rows.push(React.createElement(
-                  "li",
-                  { key: "previous", className: previousDisabled ? 'disabled' : null },
+                  'li',
+                  { key: 'previous', className: previousDisabled ? 'disabled' : null },
                   React.createElement(
-                    "a",
+                    'a',
                     {
                       disabled: previousDisabled,
-                      href: previousDisabled ? '' : _this2._makeLink(currentPage - 1, _this2.state.pageSize),
-                      onClick: _this2._previous.bind(_this2) },
+                      href: previousDisabled ? '' : _this3._makeLink(currentPage - 1, _this3.state.pageSize),
+                      onClick: _this3._previous.bind(_this3) },
                     React.createElement(
-                      "span",
+                      'span',
                       null,
-                      "‹"
+                      '‹'
                     )
                   )
                 ));
 
                 var addPageLi = function addPageLi(page, key) {
                   rows.push(React.createElement(
-                    "li",
-                    { key: key, className: _this2._getClassName(page) },
+                    'li',
+                    { key: key, className: _this3._getClassName(page) },
                     React.createElement(
-                      "a",
-                      { href: _this2._makeLink(page, _this2.state.pageSize), onClick: _this2._handleClick.bind(_this2, page) },
+                      'a',
+                      { href: _this3._makeLink(page, _this3.state.pageSize), onClick: _this3._handleClick.bind(_this3, page) },
                       React.createElement(
-                        "span",
+                        'span',
                         null,
                         page
                       )
@@ -360,46 +413,46 @@ var Paginator = function (_React$Component) {
                   }
                 }
 
-                if (_this2.state.totalPages <= _this2.props.maximumPages) {
-                  addPages(1, _this2.state.totalPages);
+                if (_this3.state.totalPages <= _this3.props.maximumPages) {
+                  addPages(1, _this3.state.totalPages);
                 } else {
-                  var mid = _this2.props.maximumPages / 2 + 1;
+                  var mid = _this3.props.maximumPages / 2 + 1;
 
-                  if (_this2.state.currentPage <= mid) {
-                    addPages(1, _this2.props.maximumPages);
-                  } else if (_this2.state.currentPage >= _this2.state.totalPages - (mid - 2)) {
-                    addPages(_this2.state.totalPages - (_this2.props.maximumPages - 1), _this2.state.totalPages);
+                  if (_this3.state.currentPage <= mid) {
+                    addPages(1, _this3.props.maximumPages);
+                  } else if (_this3.state.currentPage >= _this3.state.totalPages - (mid - 2)) {
+                    addPages(_this3.state.totalPages - (_this3.props.maximumPages - 1), _this3.state.totalPages);
                   } else {
-                    var paginatorLastPage = _this2.state.currentPage + (mid - 2);
+                    var paginatorLastPage = _this3.state.currentPage + (mid - 2);
 
-                    addPages(_this2.state.currentPage - (mid - 1), paginatorLastPage < _this2.state.totalPages ? paginatorLastPage : _this2.state.totalPages);
+                    addPages(_this3.state.currentPage - (mid - 1), paginatorLastPage < _this3.state.totalPages ? paginatorLastPage : _this3.state.totalPages);
                   }
                 }
 
                 rows.push(React.createElement(
-                  "li",
-                  { key: "next", className: nextDisabled ? 'disabled' : null },
+                  'li',
+                  { key: 'next', className: nextDisabled ? 'disabled' : null },
                   React.createElement(
-                    "a",
-                    { disabled: nextDisabled, href: nextDisabled ? '' : _this2._makeLink(currentPage + 1, _this2.state.pageSize), onClick: _this2._next.bind(_this2) },
+                    'a',
+                    { disabled: nextDisabled, href: nextDisabled ? '' : _this3._makeLink(currentPage + 1, _this3.state.pageSize), onClick: _this3._next.bind(_this3) },
                     React.createElement(
-                      "span",
+                      'span',
                       null,
-                      "›"
+                      '›'
                     )
                   )
                 ));
 
                 rows.push(React.createElement(
-                  "li",
-                  { key: "last", className: lastDisabled ? 'disabled' : null },
+                  'li',
+                  { key: 'last', className: lastDisabled ? 'disabled' : null },
                   React.createElement(
-                    "a",
-                    { disabled: lastDisabled, href: lastDisabled ? '' : _this2._makeLink(_this2.state.totalPages, _this2.state.pageSize), onClick: _this2._last.bind(_this2) },
+                    'a',
+                    { disabled: lastDisabled, href: lastDisabled ? '' : _this3._makeLink(_this3.state.totalPages, _this3.state.pageSize), onClick: _this3._last.bind(_this3) },
                     React.createElement(
-                      "span",
+                      'span',
                       null,
-                      "»"
+                      '»'
                     )
                   )
                 ));
@@ -420,10 +473,12 @@ Paginator.propTypes = {
   totalResult: React.PropTypes.number.isRequired,
   currentPage: React.PropTypes.number.isRequired,
   pageSize: React.PropTypes.number.isRequired,
+  q: React.PropTypes.string,
   goToPage: React.PropTypes.func.isRequired,
   makeLink: React.PropTypes.func.isRequired,
-  noPageSizeSelector: React.PropTypes.bool,
-  noGoTo: React.PropTypes.bool,
+  pageSizeSelector: React.PropTypes.bool.isRequired,
+  goTo: React.PropTypes.bool.isRequired,
+  filtering: React.PropTypes.bool.isRequired,
   maximumPages: function maximumPages(props, propName) {
     var prop = props[propName];
 
@@ -439,8 +494,9 @@ Paginator.propTypes = {
 
 Paginator.defaultProps = {
   maximumPages: 10,
-  noPageSizeSelector: false,
-  noGoTo: false
+  pageSizeSelector: false,
+  goTo: false,
+  filtering: false
 };
 'use strict';
 
@@ -688,8 +744,12 @@ var Table = function (_React$Component) {
               totalResult: this.state.totalResult,
               currentPage: this.props.paginator.page,
               pageSize: this.props.paginator.pageSize,
+              q: this.props.paginator.q,
               goToPage: this.props.paginator.goToPage.bind(this.props.paginator),
-              makeLink: this.props.paginator.makeLink.bind(this.props.paginator) })
+              makeLink: this.props.paginator.makeLink.bind(this.props.paginator),
+              pageSizeSelector: true,
+              goTo: true,
+              filtering: true })
           )
         ),
         React.createElement(
@@ -730,10 +790,9 @@ var Table = function (_React$Component) {
               totalResult: this.state.totalResult,
               currentPage: this.props.paginator.page,
               pageSize: this.props.paginator.pageSize,
+              q: this.props.paginator.q,
               goToPage: this.props.paginator.goToPage.bind(this.props.paginator),
-              makeLink: this.props.paginator.makeLink.bind(this.props.paginator),
-              noPageSizeSelector: true,
-              noGoTo: true })
+              makeLink: this.props.paginator.makeLink.bind(this.props.paginator) })
           )
         )
       );

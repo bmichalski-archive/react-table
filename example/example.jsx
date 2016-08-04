@@ -1,3 +1,9 @@
+Promise.config({
+  warnings: true,
+  longStackTraces: true,
+  cancellation: true
+})
+
 class TableWrapper extends React.Component {
   constructor(props) {
     super(props)
@@ -12,15 +18,51 @@ class TableWrapper extends React.Component {
   getData() {
     const from = (this.paginator.page - 1) * this.paginator.pageSize
     const end = from + this.paginator.pageSize
+    const q = this.paginator.q
 
-    return new Promise((resolve) => {
-      resolve({
-        result: sampleResult.slice(from, end),
-        info: {
-          total: sampleResult.length * 2,
-          totalFiltered: sampleResult.length
-        }
+    return new Promise((resolve, reject, onCancel) => {
+      var canceled = false
+
+      onCancel(() => {
+        canceled = true
+
+        console.log('canceled')
       })
+
+      setTimeout(() => {
+        if (canceled) {
+          return
+        }
+
+        console.log('resolving')
+
+        var filteredResults
+
+        if (undefined === q) {
+          filteredResults = sampleResult
+        } else {
+          filteredResults = sampleResult.filter((row) => {
+
+            var include = false
+
+            row.forEach((cell) => {
+              if (0 === ('' + cell.content).toLowerCase().indexOf(q)) {
+                include = true
+              }
+            })
+
+            return include
+          })
+        }
+
+        resolve({
+          result: filteredResults.slice(from, end),
+          info: {
+            total: sampleResult.length * 2,
+            totalFiltered: filteredResults.length
+          }
+        })
+      }, this.props.resultTimeout)
     })
   }
 
@@ -51,18 +93,10 @@ class TableWrapper extends React.Component {
   }
 }
 
-const Router = ReactRouter.Router
-const Route = ReactRouter.Route
+TableWrapper.propTypes = {
+  resultTimeout: React.PropTypes.number.isRequired
+}
 
-ReactDOM.render(
-  (
-    <Router history={ReactRouter.browserHistory}>
-      <Route path="/" component={TableWrapper}>
-        <Route path="*" component={TableWrapper} />
-      </Route>
-    </Router>
-  ),
-  document.getElementById('main-container')
-)
-
-document.getElementById('row-clicked').innerHTML = 'Row clicked:'
+TableWrapper.defaultProps = {
+  resultTimeout: 200
+}
