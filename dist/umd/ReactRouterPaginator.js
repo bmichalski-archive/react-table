@@ -7,35 +7,39 @@
     root.ReactRouterPaginator = factory(root.ReactRouter);
   }
 }(this, function(ReactRouter) {
-'use strict';
+"use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var ReactRouterPaginator = function () {
-  function ReactRouterPaginator(location) {
+  function ReactRouterPaginator(query, pathname, page, pageSize, q) {
     _classCallCheck(this, ReactRouterPaginator);
 
-    this.location = location;
+    this.query = query;
+    this.pathname = pathname;
+    this.page = page;
+    this.pageSize = pageSize;
+    this.q = q;
   }
 
   _createClass(ReactRouterPaginator, [{
-    key: 'goToPage',
+    key: "goToPage",
     value: function goToPage(link) {
       ReactRouter.browserHistory.push(link);
     }
   }, {
-    key: 'makeLink',
+    key: "makeLink",
     value: function makeLink(page, pageSize, q) {
       var query = {};
 
       /**
        * Preserve query parameters that would not have been set by the paginator
        */
-      for (var prop in this._location.query) {
-        if (this._location.query.hasOwnProperty(prop)) {
-          query[prop] = this._location.query[prop];
+      for (var prop in this._query) {
+        if (this._query.hasOwnProperty(prop)) {
+          query[prop] = this._query[prop];
         }
       }
 
@@ -44,34 +48,69 @@ var ReactRouterPaginator = function () {
       query.pageSize = pageSize;
       query.q = q;
 
-      return ReactRouter.browserHistory.createPath({ pathname: this._location.pathname, query: query });
+      return ReactRouter.browserHistory.createPath({ pathname: this._pathname, query: query });
     }
   }, {
-    key: 'location',
-    set: function set(location) {
-      this._location = location;
+    key: "query",
+    set: function set(query) {
+      this._query = query;
 
       return this;
     }
   }, {
-    key: 'page',
-    get: function get() {
-      return ReactRouterPaginator.getAsIntegerOrGetDefaultValue(this._location.query.page, 1);
-    }
-  }, {
-    key: 'pageSize',
-    get: function get() {
-      return ReactRouterPaginator.getAsIntegerOrGetDefaultValue(this._location.query.pageSize, 10);
-    }
-  }, {
-    key: 'q',
-    get: function get() {
-      var rawValue = this._location.query.q;
+    key: "pathname",
+    set: function set(pathname) {
+      this._pathname = pathname;
 
-      return '' === rawValue ? undefined : rawValue;
+      return this;
+    }
+  }, {
+    key: "totalResult",
+    get: function get() {
+      return this._totalResult;
+    },
+    set: function set(totalResult) {
+      this._totalResult = totalResult;
+
+      return this;
+    }
+  }, {
+    key: "page",
+    get: function get() {
+      return this._page;
+    },
+    set: function set(page) {
+      this._page = page;
+
+      return this;
+    }
+  }, {
+    key: "pageSize",
+    get: function get() {
+      return this._pageSize;
+    },
+    set: function set(pageSize) {
+      this._pageSize = pageSize;
+
+      return this;
+    }
+  }, {
+    key: "totalPages",
+    get: function get() {
+      return Math.ceil(this._totalResult / this.pageSize);
+    }
+  }, {
+    key: "q",
+    get: function get() {
+      return this._q;
+    },
+    set: function set(q) {
+      this._q = q;
+
+      return this;
     }
   }], [{
-    key: 'getAsIntegerOrGetDefaultValue',
+    key: "getAsIntegerOrGetDefaultValue",
     value: function getAsIntegerOrGetDefaultValue(value, defaultValue) {
       return undefined === value ? defaultValue : parseInt(value, 10);
     }

@@ -2,21 +2,12 @@ class Paginator extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      pageSize: props.pageSize,
-      currentPage: props.currentPage,
-      q: props.q,
-      totalPages: Math.ceil(props.totalResult / props.pageSize)
-    }
-  }
+    this._paginator = props.paginator
 
-  componentWillReceiveProps(newProps) {
-    this.setState({
-      pageSize: newProps.pageSize,
-      currentPage: newProps.currentPage,
-      q: newProps.q,
-      totalPages: Math.ceil(newProps.totalResult / newProps.pageSize)
-    })
+    this.state = {
+      q: this._paginator.q,
+      goToValue: ''
+    }
   }
 
   _makeLink(page, pageSize, q) {
@@ -36,19 +27,21 @@ class Paginator extends React.Component {
       params.q = q
     }
 
-    return this.props.makeLink(params.page, params.pageSize, params.q)
+    return this._paginator.makeLink(params.page, params.pageSize, params.q)
   }
 
   _handleClick(page, event) {
     event.preventDefault()
 
-    this.props.goToPage(
-      this._makeLink(page, this.state.pageSize)
+    this._paginator.page = page
+
+    this._paginator.goToPage(
+      this._makeLink(this._paginator.page, this._paginator.pageSize)
     )
   }
 
   _getClassName(page) {
-    return this.state.currentPage === page ? 'current' : null
+    return this._paginator.page === page ? 'current' : null
   }
 
   _previous(event) {
@@ -58,7 +51,7 @@ class Paginator extends React.Component {
       return
     }
 
-    this._handleClick(this.state.currentPage - 1, event)
+    this._handleClick(this._paginator.page - 1, event)
   }
 
   _next(event) {
@@ -68,7 +61,7 @@ class Paginator extends React.Component {
       return
     }
 
-    this._handleClick(this.state.currentPage + 1, event)
+    this._handleClick(this._paginator.page + 1, event)
   }
 
   _first(event) {
@@ -88,15 +81,15 @@ class Paginator extends React.Component {
       return
     }
 
-    this._handleClick(this.state.totalPages, event)
+    this._handleClick(this._paginator.totalPages, event)
   }
 
   _firstDisabled() {
-    return this.state.currentPage <= 1
+    return this._paginator.page <= 1
   }
 
   _lastDisabled() {
-    return this.state.currentPage >= this.state.totalPages
+    return this._paginator.page >= this._paginator.totalPages
   }
 
   _previousDisabled() {
@@ -110,21 +103,49 @@ class Paginator extends React.Component {
   _handlePageSizeChange(event) {
     const pageSize = parseInt(event.target.value, 10)
 
-    this.props.goToPage(
-      this._makeLink(1, pageSize)
+    this.setState(
+      {
+        goToValue: ''
+      },
+      () => {
+        this._paginator.pageSize = pageSize
+        this._paginator.page = 1
+
+        this._paginator.goToPage(
+          this._makeLink(this._paginator.page, this._paginator.pageSize)
+        )
+      }
     )
   }
 
   _handleGoToChanged(event) {
+    var goToValue
+
+    const rawValue = event.target.value
+
+    if ('' === rawValue) {
+      goToValue = ''
+    } else if (/^[0-9]+$/.test(rawValue) && rawValue >= 1) {
+      goToValue = parseInt(rawValue, 10)
+    } else {
+      goToValue = this.state.goToValue
+    }
+
     this.setState({
-      goTo: parseInt(event.target.value, 10)
+      goToValue: goToValue
     })
   }
 
   _doGoToPage() {
-    this.props.goToPage(
-      this._makeLink(this.state.goTo, this.state.pageSize, this.state.q)
+    this._paginator.goToPage(
+      this._makeLink(this._paginator.page, this._paginator.pageSize, this._paginator.q)
     )
+  }
+
+  _goToPage() {
+    this._paginator.page = this.state.goToValue
+
+    this._doGoToPage()
   }
 
   _handleKeyDown(event, isDisabled) {
@@ -135,7 +156,7 @@ class Paginator extends React.Component {
         return
       }
 
-      this._doGoToPage()
+      this._goToPage()
     }
   }
 
@@ -146,26 +167,35 @@ class Paginator extends React.Component {
   _handleQChanged(event) {
     clearTimeout(this._debounceQ)
 
+    const rawValue = event.target.value
+
     this.setState(
-      { q: event.target.value, page: 1 },
+      {
+        q: rawValue,
+        page: 1,
+        goToValue: ''
+      },
       () => {
-        this._debounceQ = setTimeout(this._doGoToPage.bind(this), 200)
+        this._paginator.q = rawValue
+        this._paginator.page = 1
+
+        this._debounceQ = setTimeout(this._doGoToPage.bind(this), this.props.qDebounceTimeout)
       }
     )
   }
 
   _goToPageDisabled() {
-    return !isPositiveInteger(this.state.goTo) || this.state.goTo < 1
+    return !(isPositiveInteger(this.state.goToValue) && this.state.goToValue >= 1)
   }
 
-  _goToPage(event) {
+  _goToPageGoButtonClicked(event) {
     event.preventDefault()
 
     if (this._goToPageDisabled()) {
       return
     }
 
-    this._doGoToPage()
+    this._goToPage()
   }
 
   render() {
@@ -208,13 +238,14 @@ class Paginator extends React.Component {
                             type="text"
                             className="form-control"
                             placeholder={'Page:'}
+                            value={this.state.goToValue}
                             onChange={this._handleGoToChanged.bind(this)}
                             onKeyDown={this._handleGoToKeyDown.bind(this)} />
                           <div className="input-group-btn">
                             <button
                               className="btn btn-default "
                               disabled={this._goToPageDisabled()}
-                              onClick={this._goToPage.bind(this)}>
+                              onClick={this._goToPageGoButtonClicked.bind(this)}>
                               Go
                             </button>
                           </div>
@@ -236,7 +267,7 @@ class Paginator extends React.Component {
                         Page size&nbsp;
                         <select
                           className="form-control"
-                          value={this.state.pageSize}
+                          value={this._paginator.pageSize}
                           onChange={this._handlePageSizeChange.bind(this)}>
                           <option value={10}>10</option>
                           <option value={25}>25</option>
@@ -263,7 +294,7 @@ class Paginator extends React.Component {
           <div className="col-md-8">
             <ul className="pagination pull-right">
               {(() => {
-                const currentPage = parseInt(this.state.currentPage, 10)
+                const page = parseInt(this._paginator.page, 10)
                 const rows = []
                 const firstDisabled = this._firstDisabled()
                 const lastDisabled = this._lastDisabled()
@@ -274,7 +305,7 @@ class Paginator extends React.Component {
                   <li key="first" className={firstDisabled ? 'disabled' : null}>
                     <a
                       disabled={firstDisabled}
-                      href={firstDisabled ? '' : this._makeLink(1, this.state.pageSize)}
+                      href={firstDisabled ? '' : this._makeLink(1, this._paginator.pageSize)}
                       onClick={this._first.bind(this)}>
                       <span>&laquo;</span>
                     </a>
@@ -285,7 +316,7 @@ class Paginator extends React.Component {
                   <li key="previous" className={previousDisabled ? 'disabled' : null}>
                     <a
                       disabled={previousDisabled}
-                      href={previousDisabled ? '' : this._makeLink(currentPage - 1, this.state.pageSize)}
+                      href={previousDisabled ? '' : this._makeLink(page - 1, this._paginator.pageSize)}
                       onClick={this._previous.bind(this)}>
                       <span>&lsaquo;</span>
                     </a>
@@ -295,7 +326,7 @@ class Paginator extends React.Component {
                 const addPageLi = (page, key) => {
                   rows.push(
                     <li key={key} className={this._getClassName(page)}>
-                      <a href={this._makeLink(page, this.state.pageSize)} onClick={this._handleClick.bind(this, page)}>
+                      <a href={this._makeLink(page, this._paginator.pageSize)} onClick={this._handleClick.bind(this, page)}>
                         <span>{page}</span>
                       </a>
                     </li>
@@ -310,25 +341,34 @@ class Paginator extends React.Component {
                   }
                 }
 
-                if (this.state.totalPages <= this.props.maximumPages) {
-                  addPages(1, this.state.totalPages)
+                if (this._paginator.totalPages <= this.props.maximumPages) {
+                  addPages(1, this._paginator.totalPages)
                 } else {
                   const mid = this.props.maximumPages / 2 + 1
 
-                  if (this.state.currentPage <= mid) {
+                  if (page <= mid) {
                     addPages(1, this.props.maximumPages)
-                  } else if (this.state.currentPage >= (this.state.totalPages - (mid - 2))) {
-                    addPages(this.state.totalPages - (this.props.maximumPages - 1), this.state.totalPages)
+                  } else if (page >= (this._paginator.totalPages - (mid - 2))) {
+                    addPages(
+                      this._paginator.totalPages - (this.props.maximumPages - 1),
+                      this._paginator.totalPages
+                    )
                   } else {
-                    const paginatorLastPage = this.state.currentPage + (mid - 2)
+                    const paginatorLastPage = page + (mid - 2)
 
-                    addPages(this.state.currentPage - (mid - 1), paginatorLastPage < this.state.totalPages ? paginatorLastPage : this.state.totalPages)
+                    addPages(
+                      page - (mid - 1),
+                      paginatorLastPage < this._paginator.totalPages ? paginatorLastPage : this._paginator.totalPages
+                    )
                   }
                 }
 
                 rows.push(
                   <li key="next" className={nextDisabled ? 'disabled' : null}>
-                    <a disabled={nextDisabled} href={nextDisabled ? '' : this._makeLink(currentPage + 1, this.state.pageSize)} onClick={this._next.bind(this)}>
+                    <a
+                      disabled={nextDisabled}
+                      href={nextDisabled ? '' : this._makeLink(page + 1, this._paginator.pageSize)}
+                      onClick={this._next.bind(this)}>
                       <span>&rsaquo;</span>
                     </a>
                   </li>
@@ -336,7 +376,10 @@ class Paginator extends React.Component {
 
                 rows.push(
                   <li key="last" className={lastDisabled ? 'disabled' : null}>
-                    <a disabled={lastDisabled} href={lastDisabled ? '' : this._makeLink(this.state.totalPages, this.state.pageSize)} onClick={this._last.bind(this)}>
+                    <a
+                      disabled={lastDisabled}
+                      href={lastDisabled ? '' : this._makeLink(this._paginator.totalPages, this._paginator.pageSize)}
+                      onClick={this._last.bind(this)}>
                       <span>&raquo;</span>
                     </a>
                   </li>
@@ -353,15 +396,18 @@ class Paginator extends React.Component {
 }
 
 Paginator.propTypes = {
-  totalResult: React.PropTypes.number.isRequired,
-  currentPage: React.PropTypes.number.isRequired,
-  pageSize: React.PropTypes.number.isRequired,
-  q: React.PropTypes.string,
-  goToPage: React.PropTypes.func.isRequired,
-  makeLink: React.PropTypes.func.isRequired,
+  paginator: React.PropTypes.shape({
+    totalResult: React.PropTypes.number.isRequired,
+    page: React.PropTypes.number.isRequired,
+    pageSize: React.PropTypes.number.isRequired,
+    q: React.PropTypes.string,
+    goToPage: React.PropTypes.func.isRequired,
+    makeLink: React.PropTypes.func.isRequired
+  }).isRequired,
   pageSizeSelector: React.PropTypes.bool.isRequired,
   goTo: React.PropTypes.bool.isRequired,
   filtering: React.PropTypes.bool.isRequired,
+  qDebounceTimeout: React.PropTypes.number.isRequired,
   maximumPages: (props, propName) => {
     const prop = props[propName]
 
@@ -380,9 +426,9 @@ Paginator.propTypes = {
 }
 
 Paginator.defaultProps = {
-  q: '',
-  maximumPages: 10,
   pageSizeSelector: false,
   goTo: false,
-  filtering: false
+  filtering: false,
+  qDebounceTimeout: 300,
+  maximumPages: 10
 }

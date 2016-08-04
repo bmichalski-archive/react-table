@@ -1,26 +1,66 @@
 class ReactRouterPaginator {
-  constructor(location) {
-    this.location = location
+  constructor(query, pathname, page, pageSize, q) {
+    this.query = query
+    this.pathname = pathname
+    this.page = page
+    this.pageSize = pageSize
+    this.q = q
   }
 
-  set location(location) {
-    this._location = location
+  set query(query) {
+    this._query = query
 
     return this
   }
 
-  get page () {
-    return ReactRouterPaginator.getAsIntegerOrGetDefaultValue(this._location.query.page, 1)
+  set pathname(pathname) {
+    this._pathname = pathname
+
+    return this
   }
 
-  get pageSize () {
-    return ReactRouterPaginator.getAsIntegerOrGetDefaultValue(this._location.query.pageSize, 10)
+  get totalResult() {
+    return this._totalResult
   }
 
-  get q () {
-    const rawValue = this._location.query.q
+  set totalResult(totalResult) {
+    this._totalResult = totalResult
 
-    return '' === rawValue ? undefined : rawValue
+    return this
+  }
+
+  get page() {
+    return this._page
+  }
+
+  set page(page) {
+    this._page = page
+
+    return this
+  }
+
+  get pageSize() {
+    return this._pageSize
+  }
+
+  set pageSize(pageSize) {
+    this._pageSize = pageSize
+
+    return this
+  }
+
+  get totalPages() {
+    return Math.ceil(this._totalResult / this.pageSize)
+  }
+
+  get q() {
+    return this._q
+  }
+
+  set q(q) {
+    this._q = q
+
+    return this
   }
 
   goToPage (link) {
@@ -33,9 +73,9 @@ class ReactRouterPaginator {
     /**
      * Preserve query parameters that would not have been set by the paginator
      */
-    for (var prop in this._location.query) {
-      if (this._location.query.hasOwnProperty(prop)) {
-        query[prop] = this._location.query[prop]
+    for (var prop in this._query) {
+      if (this._query.hasOwnProperty(prop)) {
+        query[prop] = this._query[prop]
       }
     }
 
@@ -44,7 +84,7 @@ class ReactRouterPaginator {
     query.pageSize = pageSize
     query.q = q
 
-    return ReactRouter.browserHistory.createPath({ pathname: this._location.pathname, query: query })
+    return ReactRouter.browserHistory.createPath({ pathname: this._pathname, query: query })
   }
 
   static getAsIntegerOrGetDefaultValue(value, defaultValue) {

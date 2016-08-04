@@ -34,26 +34,16 @@ var Paginator = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Paginator).call(this, props));
 
+    _this._paginator = props.paginator;
+
     _this.state = {
-      pageSize: props.pageSize,
-      currentPage: props.currentPage,
-      q: props.q,
-      totalPages: Math.ceil(props.totalResult / props.pageSize)
+      q: _this._paginator.q,
+      goToValue: ''
     };
     return _this;
   }
 
   _createClass(Paginator, [{
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(newProps) {
-      this.setState({
-        pageSize: newProps.pageSize,
-        currentPage: newProps.currentPage,
-        q: newProps.q,
-        totalPages: Math.ceil(newProps.totalResult / newProps.pageSize)
-      });
-    }
-  }, {
     key: '_makeLink',
     value: function _makeLink(page, pageSize, q) {
       var params = {};
@@ -72,19 +62,21 @@ var Paginator = function (_React$Component) {
         params.q = q;
       }
 
-      return this.props.makeLink(params.page, params.pageSize, params.q);
+      return this._paginator.makeLink(params.page, params.pageSize, params.q);
     }
   }, {
     key: '_handleClick',
     value: function _handleClick(page, event) {
       event.preventDefault();
 
-      this.props.goToPage(this._makeLink(page, this.state.pageSize));
+      this._paginator.page = page;
+
+      this._paginator.goToPage(this._makeLink(this._paginator.page, this._paginator.pageSize));
     }
   }, {
     key: '_getClassName',
     value: function _getClassName(page) {
-      return this.state.currentPage === page ? 'current' : null;
+      return this._paginator.page === page ? 'current' : null;
     }
   }, {
     key: '_previous',
@@ -95,7 +87,7 @@ var Paginator = function (_React$Component) {
         return;
       }
 
-      this._handleClick(this.state.currentPage - 1, event);
+      this._handleClick(this._paginator.page - 1, event);
     }
   }, {
     key: '_next',
@@ -106,7 +98,7 @@ var Paginator = function (_React$Component) {
         return;
       }
 
-      this._handleClick(this.state.currentPage + 1, event);
+      this._handleClick(this._paginator.page + 1, event);
     }
   }, {
     key: '_first',
@@ -128,17 +120,17 @@ var Paginator = function (_React$Component) {
         return;
       }
 
-      this._handleClick(this.state.totalPages, event);
+      this._handleClick(this._paginator.totalPages, event);
     }
   }, {
     key: '_firstDisabled',
     value: function _firstDisabled() {
-      return this.state.currentPage <= 1;
+      return this._paginator.page <= 1;
     }
   }, {
     key: '_lastDisabled',
     value: function _lastDisabled() {
-      return this.state.currentPage >= this.state.totalPages;
+      return this._paginator.page >= this._paginator.totalPages;
     }
   }, {
     key: '_previousDisabled',
@@ -153,21 +145,49 @@ var Paginator = function (_React$Component) {
   }, {
     key: '_handlePageSizeChange',
     value: function _handlePageSizeChange(event) {
+      var _this2 = this;
+
       var pageSize = parseInt(event.target.value, 10);
 
-      this.props.goToPage(this._makeLink(1, pageSize));
+      this.setState({
+        goToValue: ''
+      }, function () {
+        _this2._paginator.pageSize = pageSize;
+        _this2._paginator.page = 1;
+
+        _this2._paginator.goToPage(_this2._makeLink(_this2._paginator.page, _this2._paginator.pageSize));
+      });
     }
   }, {
     key: '_handleGoToChanged',
     value: function _handleGoToChanged(event) {
+      var goToValue;
+
+      var rawValue = event.target.value;
+
+      if ('' === rawValue) {
+        goToValue = '';
+      } else if (/^[0-9]+$/.test(rawValue) && rawValue >= 1) {
+        goToValue = parseInt(rawValue, 10);
+      } else {
+        goToValue = this.state.goToValue;
+      }
+
       this.setState({
-        goTo: parseInt(event.target.value, 10)
+        goToValue: goToValue
       });
     }
   }, {
     key: '_doGoToPage',
     value: function _doGoToPage() {
-      this.props.goToPage(this._makeLink(this.state.goTo, this.state.pageSize, this.state.q));
+      this._paginator.goToPage(this._makeLink(this._paginator.page, this._paginator.pageSize, this._paginator.q));
+    }
+  }, {
+    key: '_goToPage',
+    value: function _goToPage() {
+      this._paginator.page = this.state.goToValue;
+
+      this._doGoToPage();
     }
   }, {
     key: '_handleKeyDown',
@@ -179,7 +199,7 @@ var Paginator = function (_React$Component) {
           return;
         }
 
-        this._doGoToPage();
+        this._goToPage();
       }
     }
   }, {
@@ -190,37 +210,46 @@ var Paginator = function (_React$Component) {
   }, {
     key: '_handleQChanged',
     value: function _handleQChanged(event) {
-      var _this2 = this;
+      var _this3 = this;
 
       clearTimeout(this._debounceQ);
 
-      this.setState({ q: event.target.value, page: 1 }, function () {
-        _this2._debounceQ = setTimeout(_this2._doGoToPage.bind(_this2), 200);
+      var rawValue = event.target.value;
+
+      this.setState({
+        q: rawValue,
+        page: 1,
+        goToValue: ''
+      }, function () {
+        _this3._paginator.q = rawValue;
+        _this3._paginator.page = 1;
+
+        _this3._debounceQ = setTimeout(_this3._doGoToPage.bind(_this3), _this3.props.qDebounceTimeout);
       });
     }
   }, {
     key: '_goToPageDisabled',
     value: function _goToPageDisabled() {
-      return !isPositiveInteger(this.state.goTo) || this.state.goTo < 1;
+      return !(isPositiveInteger(this.state.goToValue) && this.state.goToValue >= 1);
     }
   }, {
-    key: '_goToPage',
-    value: function _goToPage(event) {
+    key: '_goToPageGoButtonClicked',
+    value: function _goToPageGoButtonClicked(event) {
       event.preventDefault();
 
       if (this._goToPageDisabled()) {
         return;
       }
 
-      this._doGoToPage();
+      this._goToPage();
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       var paginationFields = function () {
-        if (!(_this3.props.pageSizeSelector || _this3.props.goTo || _this3.props.filtering)) {
+        if (!(_this4.props.pageSizeSelector || _this4.props.goTo || _this4.props.filtering)) {
           return;
         }
 
@@ -228,7 +257,7 @@ var Paginator = function (_React$Component) {
           'div',
           { className: 'row' },
           function () {
-            if (_this3.props.filtering) {
+            if (_this4.props.filtering) {
               return React.createElement(
                 'div',
                 { className: 'col-md-5' },
@@ -239,15 +268,15 @@ var Paginator = function (_React$Component) {
                   React.createElement('input', {
                     type: 'text',
                     className: 'form-control',
-                    value: _this3.state.q,
+                    value: _this4.state.q,
                     placeholder: 'Filter:',
-                    onChange: _this3._handleQChanged.bind(_this3) })
+                    onChange: _this4._handleQChanged.bind(_this4) })
                 )
               );
             }
           }(),
           function () {
-            if (_this3.props.goTo) {
+            if (_this4.props.goTo) {
               return React.createElement(
                 'div',
                 { className: 'col-md-4' },
@@ -265,8 +294,9 @@ var Paginator = function (_React$Component) {
                         type: 'text',
                         className: 'form-control',
                         placeholder: 'Page:',
-                        onChange: _this3._handleGoToChanged.bind(_this3),
-                        onKeyDown: _this3._handleGoToKeyDown.bind(_this3) }),
+                        value: _this4.state.goToValue,
+                        onChange: _this4._handleGoToChanged.bind(_this4),
+                        onKeyDown: _this4._handleGoToKeyDown.bind(_this4) }),
                       React.createElement(
                         'div',
                         { className: 'input-group-btn' },
@@ -274,8 +304,8 @@ var Paginator = function (_React$Component) {
                           'button',
                           {
                             className: 'btn btn-default ',
-                            disabled: _this3._goToPageDisabled(),
-                            onClick: _this3._goToPage.bind(_this3) },
+                            disabled: _this4._goToPageDisabled(),
+                            onClick: _this4._goToPageGoButtonClicked.bind(_this4) },
                           'Go'
                         )
                       )
@@ -286,7 +316,7 @@ var Paginator = function (_React$Component) {
             }
           }(),
           function () {
-            if (_this3.props.pageSizeSelector) {
+            if (_this4.props.pageSizeSelector) {
               return React.createElement(
                 'div',
                 { className: 'col-md-3' },
@@ -301,8 +331,8 @@ var Paginator = function (_React$Component) {
                       'select',
                       {
                         className: 'form-control',
-                        value: _this3.state.pageSize,
-                        onChange: _this3._handlePageSizeChange.bind(_this3) },
+                        value: _this4._paginator.pageSize,
+                        onChange: _this4._handlePageSizeChange.bind(_this4) },
                       React.createElement(
                         'option',
                         { value: 10 },
@@ -350,12 +380,12 @@ var Paginator = function (_React$Component) {
               'ul',
               { className: 'pagination pull-right' },
               function () {
-                var currentPage = parseInt(_this3.state.currentPage, 10);
+                var page = parseInt(_this4._paginator.page, 10);
                 var rows = [];
-                var firstDisabled = _this3._firstDisabled();
-                var lastDisabled = _this3._lastDisabled();
-                var previousDisabled = _this3._previousDisabled();
-                var nextDisabled = _this3._nextDisabled();
+                var firstDisabled = _this4._firstDisabled();
+                var lastDisabled = _this4._lastDisabled();
+                var previousDisabled = _this4._previousDisabled();
+                var nextDisabled = _this4._nextDisabled();
 
                 rows.push(React.createElement(
                   'li',
@@ -364,8 +394,8 @@ var Paginator = function (_React$Component) {
                     'a',
                     {
                       disabled: firstDisabled,
-                      href: firstDisabled ? '' : _this3._makeLink(1, _this3.state.pageSize),
-                      onClick: _this3._first.bind(_this3) },
+                      href: firstDisabled ? '' : _this4._makeLink(1, _this4._paginator.pageSize),
+                      onClick: _this4._first.bind(_this4) },
                     React.createElement(
                       'span',
                       null,
@@ -381,8 +411,8 @@ var Paginator = function (_React$Component) {
                     'a',
                     {
                       disabled: previousDisabled,
-                      href: previousDisabled ? '' : _this3._makeLink(currentPage - 1, _this3.state.pageSize),
-                      onClick: _this3._previous.bind(_this3) },
+                      href: previousDisabled ? '' : _this4._makeLink(page - 1, _this4._paginator.pageSize),
+                      onClick: _this4._previous.bind(_this4) },
                     React.createElement(
                       'span',
                       null,
@@ -394,10 +424,10 @@ var Paginator = function (_React$Component) {
                 var addPageLi = function addPageLi(page, key) {
                   rows.push(React.createElement(
                     'li',
-                    { key: key, className: _this3._getClassName(page) },
+                    { key: key, className: _this4._getClassName(page) },
                     React.createElement(
                       'a',
-                      { href: _this3._makeLink(page, _this3.state.pageSize), onClick: _this3._handleClick.bind(_this3, page) },
+                      { href: _this4._makeLink(page, _this4._paginator.pageSize), onClick: _this4._handleClick.bind(_this4, page) },
                       React.createElement(
                         'span',
                         null,
@@ -409,25 +439,25 @@ var Paginator = function (_React$Component) {
 
                 function addPages(from, to) {
                   for (var i = from - 1; i < to; i += 1) {
-                    var page = i + 1;
+                    var _page = i + 1;
 
-                    addPageLi(page, i);
+                    addPageLi(_page, i);
                   }
                 }
 
-                if (_this3.state.totalPages <= _this3.props.maximumPages) {
-                  addPages(1, _this3.state.totalPages);
+                if (_this4._paginator.totalPages <= _this4.props.maximumPages) {
+                  addPages(1, _this4._paginator.totalPages);
                 } else {
-                  var mid = _this3.props.maximumPages / 2 + 1;
+                  var mid = _this4.props.maximumPages / 2 + 1;
 
-                  if (_this3.state.currentPage <= mid) {
-                    addPages(1, _this3.props.maximumPages);
-                  } else if (_this3.state.currentPage >= _this3.state.totalPages - (mid - 2)) {
-                    addPages(_this3.state.totalPages - (_this3.props.maximumPages - 1), _this3.state.totalPages);
+                  if (page <= mid) {
+                    addPages(1, _this4.props.maximumPages);
+                  } else if (page >= _this4._paginator.totalPages - (mid - 2)) {
+                    addPages(_this4._paginator.totalPages - (_this4.props.maximumPages - 1), _this4._paginator.totalPages);
                   } else {
-                    var paginatorLastPage = _this3.state.currentPage + (mid - 2);
+                    var paginatorLastPage = page + (mid - 2);
 
-                    addPages(_this3.state.currentPage - (mid - 1), paginatorLastPage < _this3.state.totalPages ? paginatorLastPage : _this3.state.totalPages);
+                    addPages(page - (mid - 1), paginatorLastPage < _this4._paginator.totalPages ? paginatorLastPage : _this4._paginator.totalPages);
                   }
                 }
 
@@ -436,7 +466,10 @@ var Paginator = function (_React$Component) {
                   { key: 'next', className: nextDisabled ? 'disabled' : null },
                   React.createElement(
                     'a',
-                    { disabled: nextDisabled, href: nextDisabled ? '' : _this3._makeLink(currentPage + 1, _this3.state.pageSize), onClick: _this3._next.bind(_this3) },
+                    {
+                      disabled: nextDisabled,
+                      href: nextDisabled ? '' : _this4._makeLink(page + 1, _this4._paginator.pageSize),
+                      onClick: _this4._next.bind(_this4) },
                     React.createElement(
                       'span',
                       null,
@@ -450,7 +483,10 @@ var Paginator = function (_React$Component) {
                   { key: 'last', className: lastDisabled ? 'disabled' : null },
                   React.createElement(
                     'a',
-                    { disabled: lastDisabled, href: lastDisabled ? '' : _this3._makeLink(_this3.state.totalPages, _this3.state.pageSize), onClick: _this3._last.bind(_this3) },
+                    {
+                      disabled: lastDisabled,
+                      href: lastDisabled ? '' : _this4._makeLink(_this4._paginator.totalPages, _this4._paginator.pageSize),
+                      onClick: _this4._last.bind(_this4) },
                     React.createElement(
                       'span',
                       null,
@@ -472,15 +508,18 @@ var Paginator = function (_React$Component) {
 }(React.Component);
 
 Paginator.propTypes = {
-  totalResult: React.PropTypes.number.isRequired,
-  currentPage: React.PropTypes.number.isRequired,
-  pageSize: React.PropTypes.number.isRequired,
-  q: React.PropTypes.string,
-  goToPage: React.PropTypes.func.isRequired,
-  makeLink: React.PropTypes.func.isRequired,
+  paginator: React.PropTypes.shape({
+    totalResult: React.PropTypes.number.isRequired,
+    page: React.PropTypes.number.isRequired,
+    pageSize: React.PropTypes.number.isRequired,
+    q: React.PropTypes.string,
+    goToPage: React.PropTypes.func.isRequired,
+    makeLink: React.PropTypes.func.isRequired
+  }).isRequired,
   pageSizeSelector: React.PropTypes.bool.isRequired,
   goTo: React.PropTypes.bool.isRequired,
   filtering: React.PropTypes.bool.isRequired,
+  qDebounceTimeout: React.PropTypes.number.isRequired,
   maximumPages: function maximumPages(props, propName) {
     var prop = props[propName];
 
@@ -495,11 +534,11 @@ Paginator.propTypes = {
 };
 
 Paginator.defaultProps = {
-  q: '',
-  maximumPages: 10,
   pageSizeSelector: false,
   goTo: false,
-  filtering: false
+  filtering: false,
+  qDebounceTimeout: 300,
+  maximumPages: 10
 };
 'use strict';
 
@@ -662,6 +701,8 @@ var Table = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Table).call(this, props));
 
+    _this._paginator = props.paginator;
+
     _this.state = {
       loading: true,
       errorLoadingData: false
@@ -706,9 +747,10 @@ var Table = function (_React$Component) {
   }, {
     key: "_updateStateFromFetchedData",
     value: function _updateStateFromFetchedData(data) {
+      this._paginator.totalResult = data.info.totalFiltered;
+
       this.setState({
         data: data,
-        totalResult: data.info.totalFiltered,
         loading: false,
         errorLoadingData: false
       });
@@ -718,19 +760,19 @@ var Table = function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      if (undefined === this.state.totalResult) {
-        return React.createElement(
-          "div",
-          null,
-          this.props.loadingMessage
-        );
-      }
-
       if (this.state.errorLoadingData) {
         return React.createElement(
           "div",
           null,
           this.props.errorLoadingDataMessage
+        );
+      }
+
+      if (undefined === this._paginator.totalResult) {
+        return React.createElement(
+          "div",
+          null,
+          this.props.loadingMessage
         );
       }
 
@@ -744,12 +786,7 @@ var Table = function (_React$Component) {
             "div",
             { className: "col-md-12" },
             React.createElement(Paginator, {
-              totalResult: this.state.totalResult,
-              currentPage: this.props.paginator.page,
-              pageSize: this.props.paginator.pageSize,
-              q: this.props.paginator.q,
-              goToPage: this.props.paginator.goToPage.bind(this.props.paginator),
-              makeLink: this.props.paginator.makeLink.bind(this.props.paginator),
+              paginator: this._paginator,
               pageSizeSelector: true,
               goTo: true,
               filtering: true })
@@ -790,12 +827,7 @@ var Table = function (_React$Component) {
             "div",
             { className: "col-md-12" },
             React.createElement(Paginator, {
-              totalResult: this.state.totalResult,
-              currentPage: this.props.paginator.page,
-              pageSize: this.props.paginator.pageSize,
-              q: this.props.paginator.q,
-              goToPage: this.props.paginator.goToPage.bind(this.props.paginator),
-              makeLink: this.props.paginator.makeLink.bind(this.props.paginator) })
+              paginator: this._paginator })
           )
         )
       );
@@ -806,25 +838,18 @@ var Table = function (_React$Component) {
 }(React.Component);
 
 Table.propTypes = {
-  emptyTableMessage: React.PropTypes.string.isRequired,
   errorLoadingDataMessage: React.PropTypes.string.isRequired,
   loadingMessage: React.PropTypes.string.isRequired,
-  tableClassName: React.PropTypes.string.isRequired,
-  paginator: React.PropTypes.shape({
-    page: React.PropTypes.number.isRequired,
-    pageSize: React.PropTypes.number.isRequired,
-    goToPage: React.PropTypes.func.isRequired,
-    makeLink: React.PropTypes.func.isRequired
-  }).isRequired,
+  paginator: React.PropTypes.object.isRequired,
+  emptyTableMessage: React.PropTypes.string,
+  tableClassName: React.PropTypes.string,
   renderCell: React.PropTypes.func,
   onCellClicked: React.PropTypes.func
 };
 
 Table.defaultProps = {
-  emptyTableMessage: 'No data to display with given parameters.',
   errorLoadingDataMessage: 'Error loading data.',
-  loadingMessage: 'Loading data...',
-  tableClassName: 'table table-bordered'
+  loadingMessage: 'Loading data...'
 };
 return Table;
 }));

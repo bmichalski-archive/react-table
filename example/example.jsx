@@ -8,17 +8,28 @@ class TableWrapper extends React.Component {
   constructor(props) {
     super(props)
 
-    this.paginator = new ReactRouterPaginator(this.props.location)
+    const query = props.location.query
+
+    this._paginator = new ReactRouterPaginator(
+      query,
+      props.location.pathname,
+      ReactRouterPaginator.getAsIntegerOrGetDefaultValue(query.page, 1),
+      ReactRouterPaginator.getAsIntegerOrGetDefaultValue(query.pageSize, 10),
+      undefined === query.q ? '' : query.q
+    )
   }
 
   componentWillReceiveProps(newProps) {
-    this.paginator.location = newProps.location
+    const location = newProps.location
+
+    this._paginator.query = location.query
+    this._paginator.pathname = location.pathname
   }
 
   getData() {
-    const from = (this.paginator.page - 1) * this.paginator.pageSize
-    const end = from + this.paginator.pageSize
-    const q = this.paginator.q
+    const from = (this._paginator.page - 1) * this._paginator.pageSize
+    const end = from + this._paginator.pageSize
+    const q = this._paginator.q
 
     return new Promise((resolve, reject, onCancel) => {
       var canceled = false
@@ -36,32 +47,36 @@ class TableWrapper extends React.Component {
 
         console.log('resolving')
 
-        var filteredResults
+        try {
+          var filteredResults
 
-        if (undefined === q) {
-          filteredResults = sampleResult
-        } else {
-          filteredResults = sampleResult.filter((row) => {
+          if (undefined === q) {
+            filteredResults = sampleResult
+          } else {
+            filteredResults = sampleResult.filter((row) => {
 
-            var include = false
+              var include = false
 
-            row.forEach((cell) => {
-              if (0 === ('' + cell.content).toLowerCase().indexOf(q)) {
-                include = true
-              }
+              row.forEach((cell) => {
+                if (0 === ('' + cell.content).toLowerCase().indexOf(q)) {
+                  include = true
+                }
+              })
+
+              return include
             })
-
-            return include
-          })
-        }
-
-        resolve({
-          result: filteredResults.slice(from, end),
-          info: {
-            total: sampleResult.length * 2,
-            totalFiltered: filteredResults.length
           }
-        })
+
+          resolve({
+            result: filteredResults.slice(from, end),
+            info: {
+              total: sampleResult.length * 2,
+              totalFiltered: filteredResults.length
+            }
+          })
+        } catch (err) {
+          reject(err)
+        }
       }, this.props.resultTimeout)
     })
   }
@@ -80,7 +95,7 @@ class TableWrapper extends React.Component {
         onCellClicked={TableWrapper.onCellClicked}
         getData={this.getData.bind(this)}
         renderCell={(data) => { return data.content }}
-        paginator={this.paginator}>
+        paginator={this._paginator}>
         <TableHead>
           <TableHeadRow>
             <TableHeadTh>Id</TableHeadTh>

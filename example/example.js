@@ -22,23 +22,28 @@ var TableWrapper = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(TableWrapper).call(this, props));
 
-    _this.paginator = new ReactRouterPaginator(_this.props.location);
+    var query = props.location.query;
+
+    _this._paginator = new ReactRouterPaginator(query, props.location.pathname, ReactRouterPaginator.getAsIntegerOrGetDefaultValue(query.page, 1), ReactRouterPaginator.getAsIntegerOrGetDefaultValue(query.pageSize, 10), undefined === query.q ? '' : query.q);
     return _this;
   }
 
   _createClass(TableWrapper, [{
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(newProps) {
-      this.paginator.location = newProps.location;
+      var location = newProps.location;
+
+      this._paginator.query = location.query;
+      this._paginator.pathname = location.pathname;
     }
   }, {
     key: 'getData',
     value: function getData() {
       var _this2 = this;
 
-      var from = (this.paginator.page - 1) * this.paginator.pageSize;
-      var end = from + this.paginator.pageSize;
-      var q = this.paginator.q;
+      var from = (this._paginator.page - 1) * this._paginator.pageSize;
+      var end = from + this._paginator.pageSize;
+      var q = this._paginator.q;
 
       return new Promise(function (resolve, reject, onCancel) {
         var canceled = false;
@@ -56,32 +61,36 @@ var TableWrapper = function (_React$Component) {
 
           console.log('resolving');
 
-          var filteredResults;
+          try {
+            var filteredResults;
 
-          if (undefined === q) {
-            filteredResults = sampleResult;
-          } else {
-            filteredResults = sampleResult.filter(function (row) {
+            if (undefined === q) {
+              filteredResults = sampleResult;
+            } else {
+              filteredResults = sampleResult.filter(function (row) {
 
-              var include = false;
+                var include = false;
 
-              row.forEach(function (cell) {
-                if (0 === ('' + cell.content).toLowerCase().indexOf(q)) {
-                  include = true;
-                }
+                row.forEach(function (cell) {
+                  if (0 === ('' + cell.content).toLowerCase().indexOf(q)) {
+                    include = true;
+                  }
+                });
+
+                return include;
               });
-
-              return include;
-            });
-          }
-
-          resolve({
-            result: filteredResults.slice(from, end),
-            info: {
-              total: sampleResult.length * 2,
-              totalFiltered: filteredResults.length
             }
-          });
+
+            resolve({
+              result: filteredResults.slice(from, end),
+              info: {
+                total: sampleResult.length * 2,
+                totalFiltered: filteredResults.length
+              }
+            });
+          } catch (err) {
+            reject(err);
+          }
         }, _this2.props.resultTimeout);
       });
     }
@@ -96,7 +105,7 @@ var TableWrapper = function (_React$Component) {
           renderCell: function renderCell(data) {
             return data.content;
           },
-          paginator: this.paginator },
+          paginator: this._paginator },
         React.createElement(
           TableHead,
           null,
