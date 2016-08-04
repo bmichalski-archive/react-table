@@ -212,7 +212,29 @@ gulp.task('clean:dist:browser', function () {
   ])
 })
 
-gulp.task('example:build', function () {
+gulp.task('example:build:example-slow-loading', function () {
+  return gulp
+    .src([ 'example/example-slow-loading.jsx' ])
+    .pipe(debug({}))
+    .pipe(rename('example-slow-loading.js'))
+    .pipe(babel({
+      presets: [ 'react', 'es2015' ]
+    }))
+    .pipe(gulp.dest('example'))
+})
+
+gulp.task('example:build:example-error-retrieving-data', function () {
+  return gulp
+    .src([ 'example/example-error-retrieving-data.jsx' ])
+    .pipe(debug({}))
+    .pipe(rename('example-error-retrieving-data.js'))
+    .pipe(babel({
+      presets: [ 'react', 'es2015' ]
+    }))
+    .pipe(gulp.dest('example'))
+})
+
+gulp.task('example:build:example', function () {
   return gulp
     .src([ 'example/example.jsx' ])
     .pipe(debug({}))
@@ -223,4 +245,6 @@ gulp.task('example:build', function () {
     .pipe(gulp.dest('example'))
 })
 
-gulp.task('default', [ 'dist:browser:table:uglify', 'dist:umd:copy', 'dist:index:copy', 'dist:css:uglify' ])
+gulp.task('example:build', [ 'example:build:example', 'example:build:example-error-retrieving-data', 'example:build:example-slow-loading' ])
+
+gulp.task('default', [ 'dist:browser:table:uglify', 'dist:umd:copy', 'dist:index:copy', 'dist:css:uglify', 'example:build' ])

@@ -736,7 +736,8 @@ var Table = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Table).call(this, props));
 
     _this.state = {
-      loading: true
+      loading: true,
+      errorLoadingData: false
     };
 
     _this._updateStateFromRemoteSource(props.getData);
@@ -747,7 +748,8 @@ var Table = function (_React$Component) {
     key: "componentWillReceiveProps",
     value: function componentWillReceiveProps(newProps) {
       this.setState({
-        loading: true
+        loading: true,
+        errorLoadingData: false
       });
 
       this._updateStateFromRemoteSource(newProps.getData);
@@ -759,6 +761,13 @@ var Table = function (_React$Component) {
 
       getData().then(function (data) {
         _this2._updateStateFromFetchedData(data);
+      }).catch(function (err) {
+        _this2.setState({
+          loading: false,
+          errorLoadingData: true
+        });
+
+        throw err;
       }).done();
     }
   }, {
@@ -767,7 +776,8 @@ var Table = function (_React$Component) {
       this.setState({
         data: data,
         totalResult: data.info.totalFiltered,
-        loading: false
+        loading: false,
+        errorLoadingData: false
       });
     }
   }, {
@@ -781,7 +791,13 @@ var Table = function (_React$Component) {
         );
       }
 
-      //TODO Display error if wrong parameters
+      if (this.state.errorLoadingData) {
+        return React.createElement(
+          "div",
+          null,
+          this.props.errorLoadingDataMessage
+        );
+      }
 
       return React.createElement(
         "div",
@@ -843,6 +859,7 @@ var Table = function (_React$Component) {
 
 Table.propTypes = {
   emptyTableMessage: React.PropTypes.string.isRequired,
+  errorLoadingDataMessage: React.PropTypes.string.isRequired,
   loadingMessage: React.PropTypes.string.isRequired,
   tableClassName: React.PropTypes.string.isRequired,
   paginator: React.PropTypes.shape({
@@ -857,7 +874,8 @@ Table.propTypes = {
 
 Table.defaultProps = {
   emptyTableMessage: 'No data to display with given parameters.',
-  loadingMessage: 'Loading...',
+  errorLoadingDataMessage: 'Error loading data.',
+  loadingMessage: 'Loading data...',
   tableClassName: 'table table-bordered'
 };
 return Table;

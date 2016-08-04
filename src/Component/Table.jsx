@@ -3,7 +3,8 @@ class Table extends React.Component {
     super(props)
 
     this.state = {
-      loading: true
+      loading: true,
+      errorLoadingData: false
     }
 
     this._updateStateFromRemoteSource(props.getData)
@@ -11,7 +12,8 @@ class Table extends React.Component {
 
   componentWillReceiveProps(newProps) {
     this.setState({
-      loading: true
+      loading: true,
+      errorLoadingData: false
     })
 
     this._updateStateFromRemoteSource(newProps.getData)
@@ -20,6 +22,13 @@ class Table extends React.Component {
   _updateStateFromRemoteSource(getData) {
     getData().then((data) => {
       this._updateStateFromFetchedData(data)
+    }).catch((err) => {
+      this.setState({
+        loading: false,
+        errorLoadingData: true
+      })
+
+      throw err
     }).done()
   }
 
@@ -27,7 +36,8 @@ class Table extends React.Component {
     this.setState({
       data: data,
       totalResult: data.info.totalFiltered,
-      loading: false
+      loading: false,
+      errorLoadingData: false
     })
   }
 
@@ -38,7 +48,11 @@ class Table extends React.Component {
       )
     }
 
-    //TODO Display error if wrong parameters
+    if (this.state.errorLoadingData) {
+      return (
+        <div>{this.props.errorLoadingDataMessage}</div>
+      )
+    }
 
     return (
       <div className="table-wrapper">
@@ -83,6 +97,7 @@ class Table extends React.Component {
 
 Table.propTypes = {
   emptyTableMessage: React.PropTypes.string.isRequired,
+  errorLoadingDataMessage: React.PropTypes.string.isRequired,
   loadingMessage: React.PropTypes.string.isRequired,
   tableClassName: React.PropTypes.string.isRequired,
   paginator: React.PropTypes.shape({
@@ -97,6 +112,7 @@ Table.propTypes = {
 
 Table.defaultProps = {
   emptyTableMessage: 'No data to display with given parameters.',
-  loadingMessage: 'Loading...',
+  errorLoadingDataMessage: 'Error loading data.',
+  loadingMessage: 'Loading data...',
   tableClassName: 'table table-bordered'
 }

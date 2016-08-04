@@ -21,7 +21,6 @@ A table implementation using React.
 * Filtering
 * Templating
 ### Improvements
-* Error handling during remote data retrieval
 * Customizability
 ### Automation
 * Automated testing
