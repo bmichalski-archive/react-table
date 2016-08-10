@@ -4,7 +4,9 @@ import React from 'react'
 import { Router, Route } from 'react-router'
 
 export default (sampleResult, loadingDelay = 200) => {
-  const getData = (page, pageSize, q) => {
+  const getData = (opts) => {
+    const { page, pageSize, q, sort } = opts
+
     const from = (page - 1) * pageSize
     const end = from + pageSize
 
@@ -28,9 +30,9 @@ export default (sampleResult, loadingDelay = 200) => {
           let filteredResults
 
           if (undefined === q) {
-            filteredResults = sampleResult
+            filteredResults = [].concat(sampleResult)
           } else {
-            filteredResults = sampleResult.filter((row) => {
+            filteredResults = [].concat(sampleResult).filter((row) => {
 
               let include = false
 
@@ -44,10 +46,30 @@ export default (sampleResult, loadingDelay = 200) => {
             })
           }
 
+          if (undefined !== sort) {
+            const coef = (sort.order === 'asc' ? 1 : -1)
+
+            if ('id' === sort.sort) {
+              filteredResults.sort((a, b) => {
+                return (a[0].content -  b[0].content) * coef
+              })
+            } else if ('firstColumn' === sort.sort) {
+              filteredResults.sort((a, b) => {
+                return ('' + a[1].content).localeCompare('' + b[1].content) * coef
+              })
+            } else {
+              throw new Error(
+                'Unexpected sort "' + sort.sort + '"'
+              )
+            }
+          }
+
+          const result = filteredResults.slice(from, end)
+
           resolve({
-            result: filteredResults.slice(from, end),
+            result: result,
             info: {
-              total: sampleResult.length * 2,
+              total: result.length,
               totalFiltered: filteredResults.length
             }
           })

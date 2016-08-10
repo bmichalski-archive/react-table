@@ -47,11 +47,19 @@ function* updateDataAsync(getState) {
   const state = getState()
 
   const { page, pageSize, q } = state.get('paginator').toJS()
+  const sortContext = state.get('table').get('sortContext')
 
   try {
     const doGetData = state.get('table').get('getData')
 
-    const newPromise = doGetData(page, pageSize, q)
+    const opts = {
+      page,
+      pageSize,
+      q,
+      sort: undefined === sortContext ? sortContext : sortContext.toJS()
+    }
+
+    const newPromise = doGetData(opts)
 
     newPromise[CANCEL] = () => { newPromise.cancel() }
 
