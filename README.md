@@ -17,10 +17,13 @@ A table implementation using React.
 ##What's next
 ###Features
 * Templating
+
 ### Improvements
 * Customizability
+
 ### Automation
 * Automated testing
+
 ### Documentation
 * Improve documentation quality
 * Add comments to code
