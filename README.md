@@ -2,22 +2,20 @@
 A table implementation using React.
 
 ##Features
+* Filtering
 * Pagination
-  * Page size selector
   * "Go to page" component
-    * Quickly go to distant page
+    * Quickly go to any page
+  * Page size selector
 
 ## Works
 * In the **browser**
-  * See example file example/test.html
-* As **CommonJS module**
-  * require dist/umd/*.js files
+  * See example file example/example.html
 * As **AMD module**
   * ```require('@bmichalski/react-table')```
 
 ##What's next
 ###Features
-* Sorting
 * Templating
 ### Improvements
 * Customizability

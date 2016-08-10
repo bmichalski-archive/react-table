@@ -2,20 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>React table test</title>
+    <title>React table - error retrieving data example</title>
     <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="../dist/css/react-table.min.css" />
-    <script type="text/javascript" src="../node_modules/react/dist/react.js"></script>
-    <script type="text/javascript" src="../node_modules/react-dom/dist/react-dom.js"></script>
-    <script type="text/javascript" src="../node_modules/react-router/umd/ReactRouter.js"></script>
-    <script type="text/javascript" src="../node_modules/bluebird/js/browser/bluebird.js"></script>
-    <script type="text/javascript" src="../dist/browser/ReactTable.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../dist/css/react-table.css" />
 </head>
 <body>
     <div id="row-clicked"></div>
     <div id="main-container" class="container-fluid"></div>
-    <!-- Does not load ./sample-result.js before ./example.js, which will result in expected error -->
-    <script type="text/javascript" src="./example.js"></script>
-    <script type="text/javascript" src="./init.js"></script>
+    <script type="text/javascript" src="./vendor.js"></script>
+    <script type="text/javascript" src="./example-error-retrieving-data.js"></script>
 </body>
 </html>

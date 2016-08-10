@@ -1,1 +1,1 @@
-.table-wrapper table>tbody>tr>td.clickable{cursor:pointer}.table-wrapper .pagination>li.current>a{background-color:#eee}.table-wrapper .pagination>li>a{min-width:50px;text-align:center}
+.table-wrapper table>thead>tr>th.sortable{cursor:pointer}.table-wrapper table>tbody>tr>td.clickable{cursor:pointer}.table-wrapper .pagination>li.current>a{background-color:#eee}.table-wrapper .pagination>li>a{min-width:50px;text-align:center}

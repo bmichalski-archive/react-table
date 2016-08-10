@@ -1,13 +1,13 @@
-const TableHeadTh = require('./umd/TableHeadTh')
-const TableHeadRow = require('./umd/TableHeadRow')
-const TableHead = require('./umd/TableHead.js')
-const Table = require('./umd/Table')
-const ReactRouterPaginator = require('./umd/ReactRouterPaginator')
+import Table from './Component/Table'
+import TableHead from './Component/Presentational/TableHead'
+import TableHeadRow from './Component/Presentational/TableHeadRow'
+import TableHeadTh from './Component/Presentational/TableHeadTh'
+import makeTableWrapper from './Component/MakeTableWrapper'
 
 export {
-  TableHeadTh,
-  TableHeadRow,
-  TableHead,
   Table,
-  ReactRouterPaginator
+  TableHead,
+  TableHeadRow,
+  TableHeadTh,
+  makeTableWrapper
 }

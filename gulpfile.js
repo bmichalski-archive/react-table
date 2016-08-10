@@ -1,239 +1,162 @@
 const gulp = require('gulp')
 const babel = require('gulp-babel')
 const debug = require('gulp-debug')
-const umd = require('gulp-umd')
 const concat = require('gulp-concat')
-const uglifyJs = require('gulp-uglify')
 const rename = require('gulp-rename')
 const less = require('gulp-less')
 const uglifyCss = require('gulp-uglifycss')
 const del = require('del')
-const runSequence = require('run-sequence')
+const webpack = require('webpack-stream')
+const webpackOptimize = require('webpack').optimize
+const WebpackDefinePlugin = require('webpack').DefinePlugin
+const expect = require('gulp-expect-file')
 
-gulp.task('babel', [ 'clean:build:babel' ]  , function () {
+const babelPresets = [ 'react', 'es2015', 'stage-0' ]
+const babelQuery = {
+  presets: babelPresets
+}
+
+function gulpInit(files) {
   return gulp
-    .src([ 'src/**/*.jsx', 'src/**/*.js' ])
+    .src(files)
     .pipe(debug({}))
-    .pipe(babel({
-      presets: [ 'react', 'es2015' ]
-    }))
-    .pipe(gulp.dest('build/babel'))
+    .pipe(expect(files))
+}
+
+//JS
+gulp.task('dist:js:clean', function () {
+  return del([
+    'dist/js'
+  ])
 })
 
-const commonDependencies = [
-  {
-    name: 'react',
-    amd: 'react',
-    cjs: 'react',
-    global: 'React',
-    param: 'React'
-  }
-]
-
-gulp.task('umd:TableHead', [ 'babel' ], function() {
-  return gulp.src(
-      [
-        'build/babel/Component/TableHead.js'
-      ]
-    )
-    .pipe(umd({
-      dependencies: function() {
-        return commonDependencies
-      }
-    }))
-    .pipe(gulp.dest('build/umd'))
+gulp.task('dist:js:babel', [ 'dist:js:clean' ]  , function () {
+  return gulpInit('src/**/*.js')
+    .pipe(debug({}))
+    .pipe(babel(babelQuery))
+    .pipe(gulp.dest('dist/js'))
 })
 
-gulp.task('umd:TableHeadRow', [ 'babel' ], function() {
-  return gulp.src(
-      [
-        'build/babel/Component/TableHeadRow.js'
-      ]
-    )
-    .pipe(umd({
-      dependencies: function () {
-        return commonDependencies
-      }
-    }))
-    .pipe(gulp.dest('build/umd'))
+gulp.task('dist:js', [ 'dist:js:babel' ])
+//End JS
+
+//CSS
+
+gulp.task('dist:less:clean:css', function () {
+  return del([
+    'dist/css'
+  ])
 })
 
-gulp.task('umd:TableHeadTh', [ 'babel' ], function() {
-  return gulp.src(
-      [
-        'build/babel/Component/TableHeadTh.js'
-      ]
-    )
-    .pipe(umd({
-      dependencies: function () {
-        return commonDependencies
-      }
-    }))
-    .pipe(gulp.dest('build/umd'))
-})
-
-gulp.task('umd:Table', [ 'babel' ], function() {
-  return gulp.src(
-      [
-        'build/babel/Common.js',
-        'build/babel/Component/Paginator.js',
-        'build/babel/Component/TableRow.js',
-        'build/babel/Component/MainTable.js',
-        'build/babel/Component/Table.js'
-      ]
-    )
-    .pipe(concat('Table.js'))
-    .pipe(umd({
-      dependencies: function() {
-        return commonDependencies
-      }
-    }))
-    .pipe(gulp.dest('build/umd'))
-})
-
-gulp.task('umd:ReactRouterPaginator', [ 'babel' ], function() {
-  return gulp.src(
-      [
-        'build/babel/ReactRouterPaginator.js'
-      ]
-    )
-    .pipe(umd({
-      dependencies: function() {
-        return [
-          {
-            name: 'react-router',
-            amd: 'react-router',
-            cjs: 'react-router',
-            global: 'ReactRouter',
-            param: 'ReactRouter'
-          }
-        ]
-      }
-    }))
-    .pipe(gulp.dest('build/umd'))
-})
-
-gulp.task('umd:all', [ 'clean:build:umd' ], function (cb) {
-  runSequence(
-    [ 'umd:Table', 'umd:TableHead', 'umd:TableHeadRow', 'umd:TableHeadTh', 'umd:ReactRouterPaginator' ],
-    cb
-  )
-})
-
-gulp.task('dist:browser:table:concat', [ 'umd:all', 'clean:dist:browser' ], function () {
-  return gulp.src(
-      [
-        'build/umd/TableHeadTh.js',
-        'build/umd/TableHeadRow.js',
-        'build/umd/TableHead.js',
-        'build/umd/Table.js',
-        'build/umd/ReactRouterPaginator.js'
-      ]
-    )
-    .pipe(concat('ReactTable.js'))
-    .pipe(gulp.dest('dist/browser'))
-})
-
-gulp.task('dist:browser:table:uglify', [ 'dist:browser:table:concat' ], function() {
-  return gulp.src(
-      [
-        'dist/browser/ReactTable.js'
-      ]
-    )
-    .pipe(rename('ReactTable.min.js'))
-    .pipe(uglifyJs())
-    .pipe(gulp.dest('dist/browser'))
-})
-
-gulp.task('dist:umd:copy', [ 'umd:all', 'clean:dist:umd' ], function () {
-  return gulp.src('build/umd/*')
-  .pipe(gulp.dest('dist/umd'))
-})
-
-gulp.task('dist:index:copy', [ 'umd:all' ], function () {
-  return gulp.src(
-    [
-      'build/babel/index.js'
-    ]
-  )
-  .pipe(gulp.dest('dist'))
-})
-
-gulp.task('dist:less', [ 'clean:dist:css' ], function () {
-  return gulp.src(
-    [
-      'less/react-table.less'
-    ]
-  )
+gulp.task('dist:css:less', function () {
+  return gulpInit('less/react-table.less')
   .pipe(less({
     paths: [ __dirname + '/node_modules' ]
   }))
   .pipe(gulp.dest('dist/css'))
 })
 
-gulp.task('dist:css:uglify', [ 'dist:less' ], function () {
-  return gulp.src(
-      [
-        'dist/css/react-table.css'
-      ]
-    )
+gulp.task('dist:css:uglify', [ 'dist:css:less' ], function () {
+  return gulpInit('dist/css/react-table.css')
     .pipe(rename('react-table.min.css'))
     .pipe(uglifyCss())
     .pipe(gulp.dest('dist/css'))
 })
 
-gulp.task('clean:build:umd', function () {
-  return del([
-    'build/umd'
-  ])
-})
+gulp.task('dist:css:do', [ 'dist:css:uglify', 'dist:css:less', 'dist:less:clean:css' ])
 
-gulp.task('clean:build:babel', function () {
-  return del([
-    'build/babel'
-  ])
-})
+gulp.task('dist:css', [ 'dist:css:do', 'dist:less:clean:css' ])
 
-gulp.task('clean:dist:css', function () {
-  return del([
-    'dist/css'
-  ])
-})
+//End CSS
 
-gulp.task('clean:dist:umd', function () {
-  return del([
-    'dist/umd'
-  ])
-})
+//Example
 
-gulp.task('clean:dist:browser', function () {
-  return del([
-    'dist/browser'
-  ])
-})
+function exampleBuildWebpack(opts) {
+  if (undefined === opts) {
+    opts = {}
+  }
 
-gulp.task('example:build:example', function () {
-  return gulp
-    .src([ 'example/example.jsx' ])
-    .pipe(debug({}))
-    .pipe(rename('example.js'))
-    .pipe(babel({
-      presets: [ 'react', 'es2015' ]
-    }))
+  const defaultPlugins = [
+    new webpackOptimize.CommonsChunkPlugin(
+      {
+        name: 'vendor',
+        filename: 'vendor.js',
+        minChunks: Infinity
+      }
+    )
+  ]
+
+  const optsPlugins = opts.plugins
+
+  delete opts.plugins
+
+  const webpackOpts = Object.assign(
+    {},
+    {
+      entry: {
+        vendor: [
+          'babel-polyfill',
+          'bluebird',
+          'immutable',
+          'react',
+          'react-dom',
+          'react-redux',
+          'react-router',
+          'redux',
+          'redux-saga',
+          'redux-thunk'
+        ],
+        example: './example/src/example.js',
+        'example-error-retrieving-data': './example/src/example-error-retrieving-data.js',
+        'example-slow-loading': './example/src/example-slow-loading.js'
+      },
+      module: {
+        loaders: [
+          {
+            test: /\.js|jsx$/,
+            exclude: /(node_modules|bower_components)/,
+            loader: 'babel',
+            query: babelQuery
+          }
+        ]
+      },
+      output: { filename: '[name].js' }
+    },
+    opts
+  )
+
+  if (undefined !== optsPlugins) {
+    webpackOpts.plugins = defaultPlugins.concat(optsPlugins)
+  }
+
+  return gulpInit([])
+    .pipe(webpack(webpackOpts))
     .pipe(gulp.dest('example'))
+}
+
+const devtool = 'cheap-module-eval-source-map'
+
+gulp.task('example:build:webpack', function () {
+  return exampleBuildWebpack({ devtool: devtool })
 })
 
-gulp.task('example:build:init', function () {
-  return gulp
-    .src([ 'example/init.jsx' ])
-    .pipe(debug({}))
-    .pipe(rename('init.js'))
-    .pipe(babel({
-      presets: [ 'react', 'es2015' ]
-    }))
-    .pipe(gulp.dest('example'))
+gulp.task('example:build:webpack:prod', function () {
+  return exampleBuildWebpack({
+    plugins: [
+      new WebpackDefinePlugin({
+        'process.env':{
+          'NODE_ENV': JSON.stringify('production')
+        }
+      }),
+      new webpackOptimize.UglifyJsPlugin()
+    ]
+  })
 })
 
-gulp.task('example:build', [ 'example:build:example', 'example:build:init' ])
+gulp.task('example:build:webpack:watch', function () {
+  return exampleBuildWebpack({ watch: true, devtool: devtool })
+})
 
-gulp.task('default', [ 'dist:browser:table:uglify', 'dist:umd:copy', 'dist:index:copy', 'dist:css:uglify', 'example:build' ])
+//End example
+
+gulp.task('default', [ 'dist:js', 'dist:css', 'example:build:webpack' ])
