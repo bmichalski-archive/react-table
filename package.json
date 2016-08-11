@@ -1,5 +1,5 @@
 {
-  "name": "@bmichalski/react-table",
+  "name": "@bmichalski-react/table",
   "version": "0.1.0",
   "description": "A table implementation using React.",
   "repository": {
