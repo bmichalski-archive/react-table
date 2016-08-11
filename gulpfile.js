@@ -159,4 +159,4 @@ gulp.task('example:build:webpack:watch', function () {
 
 //End example
 
-gulp.task('default', [ 'dist:js', 'dist:css', 'example:build:webpack' ])
+gulp.task('default', [ 'dist:js', 'dist:css', 'example:build:webpack:prod' ])
