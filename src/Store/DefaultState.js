@@ -12,7 +12,7 @@ export default (sagaMiddleware, opts) => {
     table: {
       data: [],
       total: 0,
-      totalFiltered: 0,
+      filteredTotal: 0,
       onCellClicked: opts.onCellClicked,
       getData: opts.getData,
       renderCell: opts.renderCell,

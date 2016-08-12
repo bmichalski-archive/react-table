@@ -37,7 +37,7 @@ const updateData = (data) => {
     type: ActionType.UPDATE_DATA,
     data: data.result,
     total: data.info.total,
-    totalFiltered: data.info.totalFiltered
+    filteredTotal: data.info.filteredTotal
   }
 }
 

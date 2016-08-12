@@ -25,11 +25,11 @@ function *updatePaginator(getState, makeLinkFromState) {
 
   const paginator = state.get('paginator')
 
-  const totalFiltered = state.get('table').get('totalFiltered')
+  const filteredTotal = state.get('table').get('filteredTotal')
   const page = paginator.get('page')
   const pageSize = paginator.get('pageSize')
 
-  const totalPages = Math.ceil(totalFiltered / pageSize)
+  const totalPages = Math.ceil(filteredTotal / pageSize)
 
   const firstDisabled = page <= 1
   const lastDisabled = page >= totalPages
@@ -133,7 +133,7 @@ function *updatePaginator(getState, makeLinkFromState) {
       nextDisabled,
       previousDisabled,
       totalPages,
-      totalResult: totalFiltered
+      totalResult: filteredTotal
     }
   )
 }
