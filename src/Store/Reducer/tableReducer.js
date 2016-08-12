@@ -10,7 +10,7 @@ export default (state, action) => {
       return state.merge({
         data: action.data,
         total: action.total,
-        totalFiltered: action.totalFiltered
+        filteredTotal: action.filteredTotal
       })
     default:
       return state
