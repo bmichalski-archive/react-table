@@ -49,7 +49,7 @@ function getClassName(page, buttonPage) {
 }
 
 function updatePaginator(getState, makeLinkFromState) {
-  var state, paginator, totalFiltered, page, pageSize, totalPages, firstDisabled, lastDisabled, previousDisabled, nextDisabled, maximumPages, location, q, buttons, showButtons, addButtons, mid, paginatorLastPage;
+  var state, paginator, filteredTotal, page, pageSize, totalPages, firstDisabled, lastDisabled, previousDisabled, nextDisabled, maximumPages, location, q, buttons, showButtons, addButtons, mid, paginatorLastPage;
   return regeneratorRuntime.wrap(function updatePaginator$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
@@ -129,10 +129,10 @@ function updatePaginator(getState, makeLinkFromState) {
 
           state = getState();
           paginator = state.get('paginator');
-          totalFiltered = state.get('table').get('totalFiltered');
+          filteredTotal = state.get('table').get('filteredTotal');
           page = paginator.get('page');
           pageSize = paginator.get('pageSize');
-          totalPages = Math.ceil(totalFiltered / pageSize);
+          totalPages = Math.ceil(filteredTotal / pageSize);
           firstDisabled = page <= 1;
           lastDisabled = page >= totalPages;
           previousDisabled = firstDisabled;
@@ -172,7 +172,7 @@ function updatePaginator(getState, makeLinkFromState) {
             nextDisabled: nextDisabled,
             previousDisabled: previousDisabled,
             totalPages: totalPages,
-            totalResult: totalFiltered
+            totalResult: filteredTotal
           });
 
         case 19:

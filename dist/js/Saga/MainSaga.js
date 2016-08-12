@@ -63,7 +63,7 @@ var updateData = function updateData(data) {
     type: _ActionType2.default.UPDATE_DATA,
     data: data.result,
     total: data.info.total,
-    totalFiltered: data.info.totalFiltered
+    filteredTotal: data.info.filteredTotal
   };
 };
 
