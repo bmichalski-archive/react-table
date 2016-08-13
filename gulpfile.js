@@ -134,7 +134,7 @@ function exampleBuildWebpack(opts) {
     .pipe(gulp.dest('example'))
 }
 
-const devtool = 'cheap-module-eval-source-map'
+const devtool = 'source-map'
 
 gulp.task('example:build:webpack', function () {
   return exampleBuildWebpack({ devtool: devtool })
