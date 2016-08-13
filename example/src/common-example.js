@@ -1,7 +1,11 @@
 import { Table, TableHead, TableHeadRow, TableHeadTh, makeTableWrapper } from '../../src/index'
 import Promise from 'bluebird'
 import React from 'react'
+import { render } from 'react-dom'
 import { Router, Route } from 'react-router'
+import { takeEvery } from 'redux-saga'
+import { put } from 'redux-saga/effects'
+import ActionType from '../../src/Action/Type/ActionType'
 
 export default (sampleResult, loadingDelay = 200) => {
   const getData = (opts) => {
@@ -70,7 +74,7 @@ export default (sampleResult, loadingDelay = 200) => {
             result: result,
             info: {
               total: result.length,
-              totalFiltered: filteredResults.length
+              filteredTotal: filteredResults.length
             }
           })
         } catch (err) {
@@ -80,50 +84,90 @@ export default (sampleResult, loadingDelay = 200) => {
     })
   }
 
-  const onCellClicked = (data, cellIndex, rowIndex) => {
-    const str = JSON.stringify({ cellIndex: cellIndex, rowIndex: rowIndex, data: data })
+  function getSagas(getState) {
+    function *updateBodyRowsOnDataUpdateSaga() {
+      yield takeEvery(ActionType.UPDATE_DATA, (action) => {
+        const rows = {}
 
-    document
-      .getElementById('row-clicked')
-      .innerHTML = 'Row clicked: ' + str
+        action.data.forEach((data, i) => {
+          const cells = {}
+
+          data.forEach((data, i) => {
+            if (i < 2) {
+              cells[i] = {
+                className: 'clickable foobar-cell-class'
+              }
+            }
+          })
+
+          rows[i] = {
+            className: 'bazqux-row-class',
+            cells
+          }
+        })
+
+        return put({
+          type: ActionType.UPDATE_BODY_ROWS,
+          rows
+        })
+      })
+    }
+
+    function *onTableBodyCellClicked() {
+      yield takeEvery(ActionType.TABLE_BODY_CELL_CLICKED, (action) => {
+        const str = JSON.stringify(action)
+
+        document
+          .getElementById('row-clicked')
+          .innerHTML = 'Row clicked: ' + str
+      })
+    }
+
+    return [
+      updateBodyRowsOnDataUpdateSaga(),
+      onTableBodyCellClicked()
+    ]
   }
 
-  makeTableWrapper((browserHistory, render) => {
-    const opts = {
-      onCellClicked: onCellClicked,
-      getData: getData,
-      renderCell: (data) => {
-        return data.content
+  const opts = {
+    getData: getData,
+    renderCell: (data) => {
+      return data.content
+    },
+    getSagas: getSagas
+  }
+
+  const { TableWrapper, browserHistory } = makeTableWrapper(opts, (browserHistory, store) => {
+    return {
+      TableWrapper: (props) => {
+        return (
+          <Table
+            location={props.location}
+            store={store}>
+            <TableHead>
+              <TableHeadRow>
+                <TableHeadTh sortable name="id">Id</TableHeadTh>
+                <TableHeadTh sortable={ { defaultOrder: 'asc' } } name="firstColumn">First column</TableHeadTh>
+                <TableHeadTh>Second column</TableHeadTh>
+              </TableHeadRow>
+            </TableHead>
+          </Table>
+        )
       },
-      browserHistory: browserHistory,
+      browserHistory
     }
-
-    const TableWrapper = (props) => {
-      return (
-        <Table
-          opts={Object.assign({}, opts, { location: props.location })}>
-          <TableHead>
-            <TableHeadRow>
-              <TableHeadTh sortable name="id">Id</TableHeadTh>
-              <TableHeadTh sortable={ { defaultOrder: 'asc' } } name="firstColumn">First column</TableHeadTh>
-              <TableHeadTh>Second column</TableHeadTh>
-            </TableHeadRow>
-          </TableHead>
-        </Table>
-      )
-    }
-
-    render(
-      (
-        <Router history={browserHistory}>
-          <Route path="/" component={TableWrapper}>
-            <Route path="*" component={TableWrapper} />
-          </Route>
-        </Router>
-      ),
-      document.getElementById('main-container')
-    )
-
-    document.getElementById('row-clicked').innerHTML = 'Row clicked:'
   })
+
+  render(
+    (
+      <Router history={browserHistory}>
+        <Route path="/" component={TableWrapper}>
+          <Route path="*" component={TableWrapper} />
+        </Route>
+      </Router>
+    ),
+    document.getElementById('main-container')
+  )
+
+  document.getElementById('row-clicked').innerHTML = 'Row clicked:'
 }
