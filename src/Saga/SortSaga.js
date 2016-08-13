@@ -54,7 +54,6 @@ function *updateSortContextSaga(getState, stateAwareRouting) {
   yield [
     takeEvery(ActionType.UPDATE_SORT_CONTEXT, stateAwareRouting.navigateToPage),
     takeEvery(ActionType.UPDATE_SORT_CONTEXT, function *(action) {
-      console.log(action)
       const sortContext = action.sortContext
       const rows = getState().get('table').get('head').get('rows').toJS()
 
