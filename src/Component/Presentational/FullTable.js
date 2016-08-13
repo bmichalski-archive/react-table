@@ -38,8 +38,9 @@ const FullTable = (props) => {
             return (
               <Table
                 data={props.table.data}
-                renderCell={props.table.renderCell}
-                onCellClicked={props.table.onCellClicked}
+                body={props.table.body}
+                renderCell={props.renderCell}
+                onTableBodyCellClicked={props.onTableBodyCellClicked}
                 emptyTableMessage={props.table.emptyTableMessage}
                 tableClassName={props.table.tableClassName}
                 isCellClickable={props.table.isCellClickable}>
@@ -67,6 +68,8 @@ const FullTable = (props) => {
 
 FullTable.propTypes = {
   table: PropTypes.object.isRequired,
+  renderCell: PropTypes.func,
+  onTableBodyCellClicked: PropTypes.func,
   initialized: PropTypes.bool.isRequired,
   loading: PropTypes.bool.isRequired,
   errorLoadingData: PropTypes.bool.isRequired,

@@ -2,23 +2,22 @@ import React, { PropTypes } from 'react'
 import { isInteger } from '../../Common'
 
 const TableRow = (props) => {
-  const getClassName = (rowData, cellIndex, rowIndex) => {
-    return props.isCellClickable(rowData, cellIndex, rowIndex) ? 'clickable' : ''
-  }
-
   const rowData = props.data
 
   return (
-    <tr>
+    <tr className={props.className}>
       {(() => {
         const tds = []
 
         rowData.forEach((cellData, cellIndex) => {
+          const cellProps = props.cells[cellIndex]
+          const className = undefined === cellProps ? undefined : cellProps.className
+
           tds.push(
             <td
               key={cellIndex}
-              className={getClassName(rowData, cellIndex, props.rowIndex)}
-              onClick={props.onCellClicked.bind(undefined, rowData, cellIndex, props.rowIndex)}>
+              className={className}
+              onClick={props.onTableBodyCellClicked.bind(undefined, rowData, cellIndex, props.rowIndex)}>
               {props.renderCell(cellData, cellIndex, props.rowIndex)}
             </td>
           )
@@ -41,19 +40,15 @@ TableRow.propTypes = {
     }
   },
   renderCell: PropTypes.func.isRequired,
-  onCellClicked: PropTypes.func.isRequired,
-  data: PropTypes.array.isRequired
+  onTableBodyCellClicked: PropTypes.func.isRequired,
+  data: PropTypes.array.isRequired,
+  className: PropTypes.string,
+  cells: PropTypes.object.isRequired
 }
 
 TableRow.defaultProps = {
   renderCell: (data) => {
     return data
-  },
-  onCellClicked: () => {
-    return
-  },
-  isCellClickable: () => {
-    return true
   }
 }
 

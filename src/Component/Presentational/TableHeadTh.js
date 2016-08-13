@@ -1,85 +1,65 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes, Component } from 'react'
 
-const TableHeadTh = (props) => {
-  const isCurrentSort = () => {
-    return undefined !== props.sortContext && props.sortContext.sort === props.name
-  }
+class TableHeadTh extends Component {
+  render() {
+    const props = this.props
 
-  const getIcon = () => {
-    const sortContext = props.sortContext
-    let className = 'glyphicon glyphicon-'
+    const handleOnClick = () => {
+      const sortableProp = props.sortable
 
-    if (undefined !== sortContext && sortContext.sort === props.name) {
-      if (sortContext.order === 'asc') {
-        className += 'arrow-up'
-      } else {
-        className += 'arrow-down'
+      if (sortableProp) {
+        props.toggleSort(props.name)
       }
-    } else {
-      className += 'sort'
+    }
+
+    const handleResetSortContextClicked = (event) => {
+      event.stopPropagation()
+
+      props.resetSortContext()
     }
 
     return (
-      <i className={className}></i>
+      <th
+        className={props.className}
+        onClick={handleOnClick}>
+        {props.children}
+        {
+          (() => {
+            if (props.sortable) {
+              return (
+                <div className="pull-right">
+                  {
+                    (() => {
+                      if (props.isCurrentSort) {
+                        return (
+                          <i
+                            className="glyphicon glyphicon-remove"
+                            onClick={handleResetSortContextClicked}>
+                          </i>
+                        )
+                      }
+                    })()
+                  }
+                  &nbsp;
+                  <i className={props.iconClassName}></i>
+                </div>
+              )
+            }
+          })()
+        }
+      </th>
     )
   }
-
-  const getClassName = () => {
-    return props.sortable ? 'sortable' : ''
-  }
-
-  const handleOnClick = () => {
-    const sortableProp = props.sortable
-
-    if (sortableProp) {
-      props.toggleSort(props.name)
-    }
-  }
-
-  const handleResetSortContextClicked = (event) => {
-    event.stopPropagation()
-
-    props.resetSortContext()
-  }
-
-  return (
-    <th
-      className={getClassName()}
-      onClick={handleOnClick}>
-      {props.children}
-      {
-        (() => {
-          if (props.sortable) {
-            return (
-              <div className="pull-right">
-                {
-                  (() => {
-                    if (isCurrentSort()) {
-                      return (
-                        <i
-                          className="glyphicon glyphicon-remove"
-                          onClick={handleResetSortContextClicked}>
-                        </i>
-                      )
-                    }
-                  })()
-                }
-                &nbsp;
-                {getIcon()}
-              </div>
-            )
-          }
-        })()
-      }
-    </th>
-  )
 }
 
 TableHeadTh.propTypes = {
+  className: PropTypes.string.isRequired,
   sortable: PropTypes.any.isRequired,
   name: PropTypes.string,
   toggleSort: PropTypes.func,//.isRequired
   resetSortContext: PropTypes.func,
+  isCurrentSort: PropTypes.bool.isRequired,
+  iconClassName: PropTypes.string.isRequired,
   sortContext: PropTypes.shape({
     sort: PropTypes.string,
     order: PropTypes.string

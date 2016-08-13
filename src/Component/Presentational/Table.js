@@ -11,12 +11,18 @@ const Table = (props) => {
   const rows = []
 
   props.data.forEach((data, rowIndex) => {
+    const rowProps = props.body.rows[rowIndex]
+    const className = undefined === rowProps ? undefined : rowProps.className
+    const cells = (undefined === rowProps || undefined === rowProps.cells) ? {} : rowProps.cells
+
     rows.push(
       <TableRow
         key={rowIndex}
+        className={className}
         data={data}
         rowIndex={rowIndex}
-        onCellClicked={props.onCellClicked}
+        cells={cells}
+        onTableBodyCellClicked={props.onTableBodyCellClicked}
         renderCell={props.renderCell}
         isCellClickable={props.isCellClickable} />
     )
@@ -34,6 +40,9 @@ const Table = (props) => {
 
 Table.propTypes = {
   data: PropTypes.array.isRequired,
+  body: PropTypes.shape({
+    rows: PropTypes.object.isRequired
+  }).isRequired,
   emptyTableMessage: PropTypes.string.isRequired,
   tableClassName: PropTypes.string.isRequired,
   renderCell: PropTypes.func,

@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default (props) => {
-  return (
-    <thead>
-      {props.children}
-    </thead>
-  )
+class TableHead extends Component {
+  render() {
+    const props = this.props
+
+    return (
+      <thead>
+        {props.children}
+      </thead>
+    )
+  }
 }
+
+export default TableHead

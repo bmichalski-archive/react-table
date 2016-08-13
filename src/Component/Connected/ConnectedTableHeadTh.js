@@ -3,19 +3,23 @@ import tableHeadThActionCreator from '../../Action/Creator/TableHeadThActionCrea
 import { connect } from 'react-redux'
 
 export default connect(
-  (state) => {
-    const immutableSortContext = state.get('table').get('sortContext')
+  (state, props) => {
+    const rows = state.get('table').get('head').get('rows').toJS()
 
-    let sortContext
+    let className = ''
+    let isCurrentSort = false
+    let iconClassName = ''
 
-    if (undefined === immutableSortContext) {
-      sortContext = undefined
-    } else {
-      sortContext = immutableSortContext.toJS()
+    if (undefined !== rows[props.rowIndex] && undefined !== rows[props.rowIndex][props.cellIndex]) {
+      className = rows[props.rowIndex][props.cellIndex].className
+      isCurrentSort = rows[props.rowIndex][props.cellIndex].isCurrentSort
+      iconClassName = rows[props.rowIndex][props.cellIndex].iconClassName
     }
 
     return {
-      sortContext: sortContext
+      className,
+      isCurrentSort,
+      iconClassName
     }
   },
   tableHeadThActionCreator

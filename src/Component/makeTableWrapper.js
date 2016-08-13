@@ -2,7 +2,9 @@ import { useRouterHistory } from 'react-router'
 import { createHistory } from 'history'
 import qs from 'qs'
 import Promise from 'bluebird'
-import { render } from 'react-dom'
+import getStore from '../Store/Store'
+import getMainSaga from '../Saga/MainSaga'
+import createSagaMiddleware from 'redux-saga'
 
 Promise.config({
   warnings: true,
@@ -10,11 +12,29 @@ Promise.config({
   cancellation: true
 })
 
-export default (cb) => {
+export default (opts, cb) => {
   const browserHistory = useRouterHistory(createHistory)({
     parseQueryString: qs.parse,
     stringifyQuery: qs.stringify
   })
 
-  cb(browserHistory, render)
+  const sagaMiddleware = createSagaMiddleware()
+
+  const store = getStore(opts, sagaMiddleware)
+
+  let sagas = [
+    getMainSaga(store.getState, browserHistory)
+  ]
+
+  if (undefined !== opts.getSagas) {
+    sagas = sagas.concat(opts.getSagas(store.getState))
+  }
+
+  function* rootSaga() {
+    yield sagas
+  }
+
+  sagaMiddleware.run(rootSaga)
+
+  return cb(browserHistory, store)
 }

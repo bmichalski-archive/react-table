@@ -1,5 +1,4 @@
 import ActionType from '../Type/ActionType'
-import { updateData } from './ActionCreator'
 
 function resetSortContext() {
   return {

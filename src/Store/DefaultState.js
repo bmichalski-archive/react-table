@@ -1,8 +1,13 @@
 import Immutable from 'immutable'
 
-export default (sagaMiddleware, opts) => {
+export default (opts) => {
   const defaultState = Immutable.fromJS({
-    saga: sagaMiddleware,
+    opts: {
+      table: {
+        getData: opts.getData,
+        renderCell: opts.renderCell
+      }
+    },
     location: undefined,
     loading: false,
     initialized: false,
@@ -13,10 +18,13 @@ export default (sagaMiddleware, opts) => {
       data: [],
       total: 0,
       filteredTotal: 0,
-      onCellClicked: opts.onCellClicked,
-      getData: opts.getData,
-      renderCell: opts.renderCell,
-      sortContext: undefined
+      sortContext: undefined,
+      head: {
+        rows: {}
+      },
+      body: {
+        rows: {}
+      }
     },
     paginator: {
       buttons: [],
