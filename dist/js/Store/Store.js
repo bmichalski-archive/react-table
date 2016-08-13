@@ -14,10 +14,6 @@ var _DefaultState = require('./DefaultState');
 
 var _DefaultState2 = _interopRequireDefault(_DefaultState);
 
-var _reduxSaga = require('redux-saga');
-
-var _reduxSaga2 = _interopRequireDefault(_reduxSaga);
-
 var _PaginatorReducer = require('./Reducer/PaginatorReducer');
 
 var _PaginatorReducer2 = _interopRequireDefault(_PaginatorReducer);
@@ -32,9 +28,8 @@ var _RootReducer2 = _interopRequireDefault(_RootReducer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (opts) {
-  var sagaMiddleware = (0, _reduxSaga2.default)();
-  var defaultState = (0, _DefaultState2.default)(sagaMiddleware, opts);
+exports.default = function (opts, sagaMiddleware) {
+  var defaultState = (0, _DefaultState2.default)(opts);
 
   var reducer = function reducer() {
     var state = arguments.length <= 0 || arguments[0] === undefined ? defaultState : arguments[0];

@@ -4,6 +4,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
 var _ActionType = require('../Action/Type/ActionType');
 
 var _ActionType2 = _interopRequireDefault(_ActionType);
@@ -30,7 +34,7 @@ var _PaginatorSaga2 = _interopRequireDefault(_PaginatorSaga);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _marked = [updateDataAsync, initLocation, initLocationSaga, navigateToPageSaga].map(regeneratorRuntime.mark);
+var _marked = [updateDataAsync, initLocation, initLocationSaga, navigateToPageSaga, tableHeadInitChildrenSaga].map(regeneratorRuntime.mark);
 
 var startLoading = function startLoading() {
   return {
@@ -93,7 +97,7 @@ function updateDataAsync(getState) {
               while (1) {
                 switch (_context.prev = _context.next) {
                   case 0:
-                    doGetData = state.get('table').get('getData');
+                    doGetData = state.get('opts').get('table').get('getData');
                     opts = {
                       page: page,
                       pageSize: pageSize,
@@ -215,10 +219,60 @@ function navigateToPageSaga(getState) {
   }, _marked[3], this);
 }
 
+function tableHeadInitChildrenSaga() {
+  return regeneratorRuntime.wrap(function tableHeadInitChildrenSaga$(_context7) {
+    while (1) {
+      switch (_context7.prev = _context7.next) {
+        case 0:
+          return _context7.delegateYield((0, _reduxSaga.takeEvery)(_ActionType2.default.TABLE_HEAD_INIT_CHILDREN, regeneratorRuntime.mark(function _callee2(action) {
+            var rows, theadChild;
+            return regeneratorRuntime.wrap(function _callee2$(_context6) {
+              while (1) {
+                switch (_context6.prev = _context6.next) {
+                  case 0:
+                    rows = {};
+                    theadChild = _react2.default.Children.only(action.children);
+
+
+                    _react2.default.Children.forEach(theadChild.props.children, function (rowChild, rowIndex) {
+                      var row = {};
+
+                      _react2.default.Children.forEach(rowChild.props.children, function (cellChild, cellIndex) {
+                        row[cellIndex] = {
+                          name: cellChild.props.name,
+                          className: cellChild.props.sortable ? 'sortable' : ''
+                        };
+                      });
+
+                      rows[rowIndex] = row;
+                    });
+
+                    _context6.next = 5;
+                    return (0, _effects.put)({
+                      type: _ActionType2.default.UPDATE_HEAD_ROWS,
+                      rows: rows
+                    });
+
+                  case 5:
+                  case 'end':
+                    return _context6.stop();
+                }
+              }
+            }, _callee2, this);
+          })), 't0', 1);
+
+        case 1:
+        case 'end':
+          return _context7.stop();
+      }
+    }
+  }, _marked[4], this);
+}
+
 var getMainSaga = function getMainSaga(getState, history) {
   var stateAwareRouting = (0, _StateAwareRouting2.default)(getState, (0, _Routing2.default)(history));
 
-  return [initLocationSaga(getState), navigateToPageSaga(getState), (0, _SortSaga2.default)(getState, stateAwareRouting), (0, _PaginatorSaga2.default)(getState, stateAwareRouting)];
+  return [initLocationSaga(getState), navigateToPageSaga(getState), (0, _SortSaga2.default)(getState, stateAwareRouting), (0, _PaginatorSaga2.default)(getState, stateAwareRouting), tableHeadInitChildrenSaga(getState)];
 };
 
 exports.default = getMainSaga;

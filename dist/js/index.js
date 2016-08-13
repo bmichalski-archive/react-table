@@ -9,17 +9,17 @@ var _Table = require('./Component/Table');
 
 var _Table2 = _interopRequireDefault(_Table);
 
-var _TableHead = require('./Component/Presentational/TableHead');
+var _ConnectedTableHead = require('./Component/Connected/ConnectedTableHead');
 
-var _TableHead2 = _interopRequireDefault(_TableHead);
+var _ConnectedTableHead2 = _interopRequireDefault(_ConnectedTableHead);
 
-var _TableHeadRow = require('./Component/Presentational/TableHeadRow');
+var _ConnectedTableHeadRow = require('./Component/Connected/ConnectedTableHeadRow');
 
-var _TableHeadRow2 = _interopRequireDefault(_TableHeadRow);
+var _ConnectedTableHeadRow2 = _interopRequireDefault(_ConnectedTableHeadRow);
 
-var _TableHeadTh = require('./Component/Presentational/TableHeadTh');
+var _ConnectedTableHeadTh = require('./Component/Connected/ConnectedTableHeadTh');
 
-var _TableHeadTh2 = _interopRequireDefault(_TableHeadTh);
+var _ConnectedTableHeadTh2 = _interopRequireDefault(_ConnectedTableHeadTh);
 
 var _MakeTableWrapper = require('./Component/MakeTableWrapper');
 
@@ -28,7 +28,7 @@ var _MakeTableWrapper2 = _interopRequireDefault(_MakeTableWrapper);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.Table = _Table2.default;
-exports.TableHead = _TableHead2.default;
-exports.TableHeadRow = _TableHeadRow2.default;
-exports.TableHeadTh = _TableHeadTh2.default;
+exports.TableHead = _ConnectedTableHead2.default;
+exports.TableHeadRow = _ConnectedTableHeadRow2.default;
+exports.TableHeadTh = _ConnectedTableHeadTh2.default;
 exports.makeTableWrapper = _MakeTableWrapper2.default;

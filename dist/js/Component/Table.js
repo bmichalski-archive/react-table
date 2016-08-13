@@ -12,14 +12,6 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = require('react-redux');
 
-var _Store = require('../Store/Store');
-
-var _Store2 = _interopRequireDefault(_Store);
-
-var _MainSaga = require('../Saga/MainSaga');
-
-var _MainSaga2 = _interopRequireDefault(_MainSaga);
-
 var _ActionType = require('../Action/Type/ActionType');
 
 var _ActionType2 = _interopRequireDefault(_ActionType);
@@ -39,54 +31,41 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Table = function (_Component) {
   _inherits(Table, _Component);
 
-  function Table(props) {
-    var _marked = [rootSaga].map(regeneratorRuntime.mark);
-
+  function Table() {
     _classCallCheck(this, Table);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Table).call(this, props));
-
-    _this._TableWrapper = (0, _ConnectedFullTable2.default)(props);
-
-    _this._location = props.opts.location;
-    var store = (0, _Store2.default)(props.opts);
-
-    function rootSaga() {
-      return regeneratorRuntime.wrap(function rootSaga$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return (0, _MainSaga2.default)(store.getState, props.opts.browserHistory);
-
-            case 2:
-            case 'end':
-              return _context.stop();
-          }
-        }
-      }, _marked[0], this);
-    }
-
-    store.getState().get('saga').run(rootSaga);
-
-    _this._store = store;
-    return _this;
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(Table).apply(this, arguments));
   }
 
   _createClass(Table, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
-      this._store.dispatch({ type: _ActionType2.default.INIT_LOCATION, location: this._location });
+      var props = this.props;
+      var store = props.store;
+
+      store.dispatch({
+        type: _ActionType2.default.TABLE_HEAD_INIT_CHILDREN,
+        children: props.children
+      });
+
+      store.dispatch({
+        type: _ActionType2.default.INIT_LOCATION,
+        location: props.location
+      });
     }
   }, {
     key: 'render',
     value: function render() {
-      var TableWrapper = this._TableWrapper;
+      var props = this.props;
 
       return _react2.default.createElement(
         _reactRedux.Provider,
-        { store: this._store },
-        _react2.default.createElement(TableWrapper, null)
+        { store: props.store },
+        _react2.default.createElement(
+          _ConnectedFullTable2.default,
+          null,
+          props.children
+        )
       );
     }
   }]);

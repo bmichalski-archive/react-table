@@ -26,11 +26,17 @@ var Table = function Table(props) {
   var rows = [];
 
   props.data.forEach(function (data, rowIndex) {
+    var rowProps = props.body.rows[rowIndex];
+    var className = undefined === rowProps ? undefined : rowProps.className;
+    var cells = undefined === rowProps || undefined === rowProps.cells ? {} : rowProps.cells;
+
     rows.push(_react2.default.createElement(_TableRow2.default, {
       key: rowIndex,
+      className: className,
       data: data,
       rowIndex: rowIndex,
-      onCellClicked: props.onCellClicked,
+      cells: cells,
+      onTableBodyCellClicked: props.onTableBodyCellClicked,
       renderCell: props.renderCell,
       isCellClickable: props.isCellClickable }));
   });
@@ -49,6 +55,9 @@ var Table = function Table(props) {
 
 Table.propTypes = {
   data: _react.PropTypes.array.isRequired,
+  body: _react.PropTypes.shape({
+    rows: _react.PropTypes.object.isRequired
+  }).isRequired,
   emptyTableMessage: _react.PropTypes.string.isRequired,
   tableClassName: _react.PropTypes.string.isRequired,
   renderCell: _react.PropTypes.func,

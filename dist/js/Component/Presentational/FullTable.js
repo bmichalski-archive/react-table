@@ -70,8 +70,9 @@ var FullTable = function FullTable(props) {
             _Table2.default,
             {
               data: props.table.data,
-              renderCell: props.table.renderCell,
-              onCellClicked: props.table.onCellClicked,
+              body: props.table.body,
+              renderCell: props.renderCell,
+              onTableBodyCellClicked: props.onTableBodyCellClicked,
               emptyTableMessage: props.table.emptyTableMessage,
               tableClassName: props.table.tableClassName,
               isCellClickable: props.table.isCellClickable },
@@ -99,6 +100,8 @@ var FullTable = function FullTable(props) {
 
 FullTable.propTypes = {
   table: _react.PropTypes.object.isRequired,
+  renderCell: _react.PropTypes.func,
+  onTableBodyCellClicked: _react.PropTypes.func,
   initialized: _react.PropTypes.bool.isRequired,
   loading: _react.PropTypes.bool.isRequired,
   errorLoadingData: _react.PropTypes.bool.isRequired,

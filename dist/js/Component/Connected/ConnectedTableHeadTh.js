@@ -16,18 +16,22 @@ var _reactRedux = require('react-redux');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = (0, _reactRedux.connect)(function (state) {
-  var immutableSortContext = state.get('table').get('sortContext');
+exports.default = (0, _reactRedux.connect)(function (state, props) {
+  var rows = state.get('table').get('head').get('rows').toJS();
 
-  var sortContext = void 0;
+  var className = '';
+  var isCurrentSort = false;
+  var iconClassName = '';
 
-  if (undefined === immutableSortContext) {
-    sortContext = undefined;
-  } else {
-    sortContext = immutableSortContext.toJS();
+  if (undefined !== rows[props.rowIndex] && undefined !== rows[props.rowIndex][props.cellIndex]) {
+    className = rows[props.rowIndex][props.cellIndex].className;
+    isCurrentSort = rows[props.rowIndex][props.cellIndex].isCurrentSort;
+    iconClassName = rows[props.rowIndex][props.cellIndex].iconClassName;
   }
 
   return {
-    sortContext: sortContext
+    className: className,
+    isCurrentSort: isCurrentSort,
+    iconClassName: iconClassName
   };
 }, _TableHeadThActionCreator2.default)(_TableHeadTh2.default);

@@ -8,8 +8,6 @@ var _ActionType = require('../Type/ActionType');
 
 var _ActionType2 = _interopRequireDefault(_ActionType);
 
-var _ActionCreator = require('./ActionCreator');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function resetSortContext() {

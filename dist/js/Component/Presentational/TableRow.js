@@ -13,25 +13,24 @@ var _Common = require('../../Common');
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var TableRow = function TableRow(props) {
-  var getClassName = function getClassName(rowData, cellIndex, rowIndex) {
-    return props.isCellClickable(rowData, cellIndex, rowIndex) ? 'clickable' : '';
-  };
-
   var rowData = props.data;
 
   return _react2.default.createElement(
     'tr',
-    null,
+    { className: props.className },
     function () {
       var tds = [];
 
       rowData.forEach(function (cellData, cellIndex) {
+        var cellProps = props.cells[cellIndex];
+        var className = undefined === cellProps ? undefined : cellProps.className;
+
         tds.push(_react2.default.createElement(
           'td',
           {
             key: cellIndex,
-            className: getClassName(rowData, cellIndex, props.rowIndex),
-            onClick: props.onCellClicked.bind(undefined, rowData, cellIndex, props.rowIndex) },
+            className: className,
+            onClick: props.onTableBodyCellClicked.bind(undefined, rowData, cellIndex, props.rowIndex) },
           props.renderCell(cellData, cellIndex, props.rowIndex)
         ));
       });
@@ -50,19 +49,15 @@ TableRow.propTypes = {
     }
   },
   renderCell: _react.PropTypes.func.isRequired,
-  onCellClicked: _react.PropTypes.func.isRequired,
-  data: _react.PropTypes.array.isRequired
+  onTableBodyCellClicked: _react.PropTypes.func.isRequired,
+  data: _react.PropTypes.array.isRequired,
+  className: _react.PropTypes.string,
+  cells: _react.PropTypes.object.isRequired
 };
 
 TableRow.defaultProps = {
   renderCell: function renderCell(data) {
     return data;
-  },
-  onCellClicked: function onCellClicked() {
-    return;
-  },
-  isCellClickable: function isCellClickable() {
-    return true;
   }
 };
 

@@ -10,9 +10,14 @@ var _immutable2 = _interopRequireDefault(_immutable);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (sagaMiddleware, opts) {
+exports.default = function (opts) {
   var defaultState = _immutable2.default.fromJS({
-    saga: sagaMiddleware,
+    opts: {
+      table: {
+        getData: opts.getData,
+        renderCell: opts.renderCell
+      }
+    },
     location: undefined,
     loading: false,
     initialized: false,
@@ -23,10 +28,13 @@ exports.default = function (sagaMiddleware, opts) {
       data: [],
       total: 0,
       filteredTotal: 0,
-      onCellClicked: opts.onCellClicked,
-      getData: opts.getData,
-      renderCell: opts.renderCell,
-      sortContext: undefined
+      sortContext: undefined,
+      head: {
+        rows: {}
+      },
+      body: {
+        rows: {}
+      }
     },
     paginator: {
       buttons: [],

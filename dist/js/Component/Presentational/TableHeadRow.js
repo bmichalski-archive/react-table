@@ -13,7 +13,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = function (props) {
   return _react2.default.createElement(
     'tr',
-    { className: props.getClassName() },
+    null,
     props.children
   );
 };
