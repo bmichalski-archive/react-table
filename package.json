@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "bluebird": "^3.4.1",
-    "history": "^2.0.0",
     "immutable": "^3.8.1",
     "lodash": "^4.15.0",
     "qs": "^6.2.1",
@@ -17,6 +16,7 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.6.1",
     "redux": "^3.5.2",
+    "redux-immutable": "^3.0.7",
     "redux-saga": "^0.11.0",
     "redux-thunk": "^2.1.0"
   },
@@ -36,6 +36,7 @@
     "gulp-debug": "^2.1.2",
     "gulp-expect-file": "0.0.7",
     "gulp-less": "^3.1.0",
+    "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-uglifycss": "^1.0.6",
     "webpack": "^1.13.1",

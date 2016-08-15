@@ -1,0 +1,5 @@
+const DATA_REPLACE_DATA = 'DATA_REPLACE_DATA'
+
+export default {
+  DATA_REPLACE_DATA
+}

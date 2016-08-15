@@ -2,6 +2,7 @@ const gulp = require('gulp')
 const babel = require('gulp-babel')
 const debug = require('gulp-debug')
 const concat = require('gulp-concat')
+const plumber = require('gulp-plumber')
 const rename = require('gulp-rename')
 const less = require('gulp-less')
 const uglifyCss = require('gulp-uglifycss')
@@ -15,6 +16,21 @@ const babelPresets = [ 'react', 'es2015', 'stage-0' ]
 const babelQuery = {
   presets: babelPresets
 }
+
+const webpackVendors = [
+  'babel-polyfill',
+  'bluebird',
+  'immutable',
+  'lodash',
+  'qs',
+  'react',
+  'react-dom',
+  'react-redux',
+  'react-router',
+  'redux',
+  'redux-saga',
+  'redux-thunk'
+]
 
 function gulpInit(files) {
   return gulp
@@ -94,18 +110,7 @@ function exampleBuildWebpack(opts) {
     {},
     {
       entry: {
-        vendor: [
-          'babel-polyfill',
-          'bluebird',
-          'immutable',
-          'react',
-          'react-dom',
-          'react-redux',
-          'react-router',
-          'redux',
-          'redux-saga',
-          'redux-thunk'
-        ],
+        vendor: webpackVendors,
         example: './example/src/example.js',
         'example-error-retrieving-data': './example/src/example-error-retrieving-data.js',
         'example-slow-loading': './example/src/example-slow-loading.js'
@@ -127,9 +132,12 @@ function exampleBuildWebpack(opts) {
 
   if (undefined !== optsPlugins) {
     webpackOpts.plugins = defaultPlugins.concat(optsPlugins)
+  } else {
+    webpackOpts.plugins = defaultPlugins
   }
 
   return gulpInit([])
+    .pipe(plumber())
     .pipe(webpack(webpackOpts))
     .pipe(gulp.dest('example'))
 }

@@ -1,0 +1,5 @@
+const ASYNC_DATA_UPDATE_DATA = 'ASYNC_DATA_UPDATE_DATA'
+
+export default {
+  ASYNC_DATA_UPDATE_DATA
+}
