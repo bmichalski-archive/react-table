@@ -1,4 +1,4 @@
-import Table from './Component/TableWithStore'
+import Table from './TableWithStore'
 
 export {
   Table
