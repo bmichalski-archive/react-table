@@ -1,17 +1,20 @@
 import ActionType from './Action/ActionType'
 import DataModuleActionType from '../Data/Action/ActionType'
+import TableWrapperActionType from '../TableWrapper/Action/ActionType'
+import reducer from './Store/Reducer'
 
-const AsyncDataModule = (opts) => {
-  const actions = {}
-
+const makeScheduleFetchData = () => {
   let promise = undefined
+  let tableWrapperOverrideUnset = false
 
-  const fetchData = (dispatch) => {
+  return (getFetchDataPromise, dispatch, getState) => {
     if (undefined !== promise) {
       promise.cancel()
     }
 
-    promise = opts.fetchData()
+    const asyncDataState = getState().get('asyncData').get('state').get('options').toJS()
+
+    promise = getFetchDataPromise(asyncDataState)
 
     promise.then((data) => {
       dispatch({
@@ -19,21 +22,47 @@ const AsyncDataModule = (opts) => {
         data
       })
     })
-  }
 
-  actions[ActionType.ASYNC_DATA_UPDATE_DATA] = ActionType.ASYNC_DATA_UPDATE_DATA
+    promise.then(() => {
+      if (tableWrapperOverrideUnset) {
+        return
+      }
+
+      tableWrapperOverrideUnset = true
+
+      dispatch({
+        type: TableWrapperActionType.TABLE_WRAPPER_UNSET_OVERRIDE_TABLE_WITH
+      })
+    })
+  }
+}
+
+const setTableWrapperContentLoading = (dispatch) => {
+  dispatch({
+    type: TableWrapperActionType.TABLE_WRAPPER_SET_OVERRIDE_TABLE_WITH,
+    overrideTableWith: 'Loading...'
+  })
+}
+
+const updateData = (dispatch) => {
+  dispatch({
+    type: ActionType.ASYNC_DATA_UPDATE_DATA
+  })
+}
+
+const AsyncDataModule = (opts) => {
+  const scheduleFetchData = makeScheduleFetchData()
 
   return {
-    actions: actions,
+    reducer: reducer,
     boot: (dispatch) => {
-      dispatch({
-        type: ActionType.ASYNC_DATA_UPDATE_DATA
-      })
+      setTableWrapperContentLoading(dispatch)
+      updateData(dispatch)
     },
     listeners: () => {
       return {
-        [ActionType.ASYNC_DATA_UPDATE_DATA]: (dispatch) => {
-          fetchData(dispatch)
+        [ActionType.ASYNC_DATA_UPDATE_DATA]: (action, dispatch, getState) => {
+          scheduleFetchData(opts.fetchData, dispatch, getState)
         }
       }
     }

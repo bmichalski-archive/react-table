@@ -1,16 +1,9 @@
 import React from 'react'
 import { Table } from '../../src/index'
 import Promise from 'bluebird'
+import { withRouter } from 'react-router'
 
 const DemoTableWrapper = (props) => {
-  // <TableHead>
-  //   <TableHeadRow>
-  //     <TableHeadTh sortable name="id">Id</TableHeadTh>
-  //     <TableHeadTh sortable={ { defaultOrder: 'asc' } } name="firstColumn">First column</TableHeadTh>
-  //     <TableHeadTh>Second column</TableHeadTh>
-  //   </TableHeadRow>
-  // </TableHead>
-
   const opts = {
     sort: {
       sortableColumns: [
@@ -82,14 +75,20 @@ const DemoTableWrapper = (props) => {
       }
     },
     asyncData: {
-      fetchData: () => {
+      fetchData: (opts) => {
         const sampleResult = props.sampleResult
         const loadingDelay = props.loadingDelay
-        const opts = {
-          page: 1,
-          pageSize: 10,
-          q: '',
-          sort: undefined
+
+        if (opts.page === undefined) {
+          opts.page = 1
+        }
+
+        if (opts.pageSize === undefined) {
+          opts.pageSize = 10
+        }
+
+        if (opts.q === undefined) {
+          opts.q = ''
         }
 
         const { page, pageSize, q, sort } = opts
@@ -98,8 +97,6 @@ const DemoTableWrapper = (props) => {
         const end = from + pageSize
 
         return new Promise((resolve, reject, onCancel) => {
-          let canceled = false
-
           let timeoutHandle
 
           onCancel(() => {
@@ -109,10 +106,6 @@ const DemoTableWrapper = (props) => {
           })
 
           timeoutHandle = setTimeout(() => {
-            if (canceled) {
-              return
-            }
-
             console.log('getData: resolving')
 
             try {
@@ -155,13 +148,15 @@ const DemoTableWrapper = (props) => {
 
               const result = filteredResults.slice(from, end)
 
-              resolve({
+              const resolveData = {
                 result: result,
                 info: {
                   total: result.length,
                   filteredTotal: filteredResults.length
                 }
-              })
+              }
+
+              resolve(resolveData)
             } catch (err) {
               reject(err)
             }
@@ -171,14 +166,18 @@ const DemoTableWrapper = (props) => {
     }
   }
 
+  opts.routing = {
+    location: props.location,
+    router: props.router
+  }
+
   return (
     <div>
       <style contentStyleType="text/css">
         {'table > tbody > tr > td.clickable {cursor: pointer;}'}
       </style>
       <Table
-        opts={opts}
-        location={props.location}>
+        opts={opts}>
       </Table>
     </div>
   )
@@ -193,4 +192,4 @@ DemoTableWrapper.defaultProps = {
   loadingDelay: 200
 }
 
-export default DemoTableWrapper
+export default withRouter(DemoTableWrapper)

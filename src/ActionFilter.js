@@ -12,7 +12,7 @@ export default () => {
 
         if (undefined !== callbacks) {
           callbacks.forEach((cb) => {
-            action = cb(action, this.store)
+            action = cb(action, this.store.dispatch, this.store.getState, this.store)
 
             assert.notStrictEqual(undefined, action)
           })

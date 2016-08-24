@@ -1,4 +1,4 @@
-import ActionType from '../Action/Type/ActionType'
+import ActionType from '../Action/Type/DataActionType'
 import { put } from 'redux-saga/effects'
 
 function makeLinkFromState(makeLink, getState, pageOverride) {

@@ -10,51 +10,52 @@ var _immutable2 = _interopRequireDefault(_immutable);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (opts) {
+/**
+ * sort structure:
+ *   {
+ *     sort: undefined, //string, field name
+ *     order: undefined //string, asc or desc
+ *   }
+ *
+ * @returns {Immutable.Map}
+ */
+exports.default = function () {
   var defaultState = _immutable2.default.fromJS({
-    opts: {
-      table: {
-        getData: opts.getData,
-        renderCell: opts.renderCell
-      }
-    },
-    location: undefined,
-    loading: false,
-    initialized: false,
-    errorLoadingData: false,
-    errorLoadingDataMessage: 'Error loading data.',
-    loadingMessage: 'Loading data...',
-    table: {
-      data: [],
-      total: 0,
-      filteredTotal: 0,
-      sortContext: undefined,
-      head: {
-        rows: {}
-      },
-      body: {
-        rows: {}
-      }
-    },
-    paginator: {
-      buttons: [],
-      showButtons: false,
-      goToPageDisabled: true,
-      firstDisabled: true,
-      lastDisabled: true,
-      previousDisabled: true,
-      nextDisabled: true,
-      totalPages: 0,
-      totalResult: 0,
-      page: 0,
-      pageSize: 0,
-      q: '',
-      qFieldValue: '',
-      goToPageValue: '',
-      debounce: {
-        timeout: undefined
-      }
-    }
+    // opts: {
+    //   paginator: {
+    //     debounce: {
+    //       timeout: undefined
+    //     }
+    //   }
+    // },
+    // context: {
+    //   location: undefined
+    // },
+    // sort: undefined,
+    // paginator: {
+    //   state: {
+    //     showButtons: false,
+    //     isGoToPageDisabled: true,
+    //     isFirstDisabled: true,
+    //     isLastDisabled: true,
+    //     isPreviousDisabled: true,
+    //     isNextDisabled: true,
+    //     fields: {
+    //       q: '',
+    //       goToPage: ''
+    //     }
+    //   },
+    //   computedViewModel: {
+    //     buttons: []
+    //   },
+    //   data: {
+    //     totalPages: 0,
+    //     totalResult: 0,
+    //     page: 0,
+    //     pageSize: 0,
+    //     q: ''
+    //   }
+    // }
   });
 
   return defaultState;

@@ -1,11 +1,10 @@
 import Immutable from 'immutable'
-import ActionType from '../Action/ActionType'
-
-const defaultState = Immutable.fromJS({})
+import DataActionType from '../Action/ActionType'
+import defaultState from './DefaultState'
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case ActionType.DATA_REPLACE_DATA:
+    case DataActionType.DATA_REPLACE_DATA:
       return state.setIn(['data'], Immutable.fromJS(action.data))
     default:
       return state

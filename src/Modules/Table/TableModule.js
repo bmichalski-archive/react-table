@@ -1,38 +1,37 @@
-import defaultOpts from './Store/DefaultOpts'
-import defaultState from './Store/DefaultState'
 import reducer from './Store/Reducer'
 import components from './Component/Components'
-import ActionType from './Action/ActionType'
+import TableActionType from './Action/ActionType'
+
+const tableReplaceComputedViewModelHead = (dispatch, head) => {
+  if (undefined !== head) {
+    dispatch({
+      type: TableActionType.TABLE_REPLACE_COMPUTED_VIEW_MODEL_HEAD,
+      head: head
+    })
+  }
+}
+
+const tableReplaceComputedViewModelProps = (dispatch, className) => {
+  dispatch({
+    type: TableActionType.TABLE_REPLACE_COMPUTED_VIEW_MODEL_PROPS,
+    props: {
+      className: className
+    }
+  })
+}
 
 const TableModule = (opts) => {
-  const actions = {
-    [ActionType.TABLE_REPLACE_COMPUTED_VIEW_MODEL_PROPS]: ActionType.TABLE_REPLACE_COMPUTED_VIEW_MODEL_PROPS,
-    [ActionType.TABLE_REPLACE_COMPUTED_VIEW_MODEL_BODYS]: ActionType.TABLE_REPLACE_COMPUTED_VIEW_MODEL_BODYS
+  const boot = function (dispatch) {
+    if (undefined !== opts) {
+      tableReplaceComputedViewModelHead(dispatch, opts.head)
+      tableReplaceComputedViewModelProps(dispatch, opts.className)
+    }
   }
 
   return {
-    defaultOpts: defaultOpts,
-    defaultState: defaultState,
     reducer: reducer,
     components: components,
-    actions: actions,
-    boot: (dispatch) => {
-      if (undefined !== opts) {
-        if (undefined !== opts.head) {
-          dispatch({
-            type: ActionType.TABLE_REPLACE_COMPUTED_VIEW_MODEL_HEAD,
-            head: opts.head
-          })
-        }
-
-        dispatch({
-          type: ActionType.TABLE_REPLACE_COMPUTED_VIEW_MODEL_PROPS,
-          props: {
-            className: opts.className
-          }
-        })
-      }
-    }
+    boot
   }
 }
 

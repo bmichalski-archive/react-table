@@ -5,14 +5,16 @@ import assert from 'assert'
 import makeActionFilterObj from './ActionFilter'
 import actionListener from './ActionListener'
 import _ from 'lodash'
+import Immutable from 'immutable'
+import CommonActionType from './Modules/Common/Action/ActionType'
 
 export default (opts, ...modules) => {
   const reducers = {}
   const components = {}
   const actionFilterCallbacks = {}
-  const actionListenerCallbacks = {}
-  const bootFunctions = {}
-  const beforeTableComponents = []
+  const preActionHandlingCallbacks = {}
+  const postActionHandlingCallbacks = {}
+  const bootFunctions = []
 
   modules.forEach((module) => {
     const moduleDefinition = module(opts[module.moduleName])
@@ -35,7 +37,7 @@ export default (opts, ...modules) => {
     }
 
     if (undefined !== moduleDefinition.boot) {
-      bootFunctions[moduleName] = moduleDefinition.boot
+      bootFunctions.push(moduleDefinition.boot)
     }
 
     if (undefined !== moduleDefinition.filters) {
@@ -48,50 +50,74 @@ export default (opts, ...modules) => {
       })
     }
 
-    if (undefined !== moduleDefinition.listeners) {
-      _.forEach(moduleDefinition.listeners(), (listener, key) => {
-        if (undefined === actionListenerCallbacks[key]) {
-          actionListenerCallbacks[key] = []
+    if (undefined !== moduleDefinition.preListeners) {
+      _.forEach(moduleDefinition.preListeners(), (listener, key) => {
+        if (undefined === preActionHandlingCallbacks[key]) {
+          preActionHandlingCallbacks[key] = []
         }
 
-        actionListenerCallbacks[key].push(listener)
+        preActionHandlingCallbacks[key].push(listener)
       })
     }
 
-    if (undefined !== moduleDefinition.beforeTableComponents) {
-      beforeTableComponents.push(
-        moduleDefinition.beforeTableComponents()
-      )
+    if (undefined !== moduleDefinition.listeners) {
+      _.forEach(moduleDefinition.listeners(), (listener, key) => {
+        if (undefined === postActionHandlingCallbacks[key]) {
+          postActionHandlingCallbacks[key] = []
+        }
+
+        postActionHandlingCallbacks[key].push(listener)
+      })
     }
   })
 
   const actionFilterObj = makeActionFilterObj()
 
+  const OPTS_INIT = 'OPTS_INIT'
+
+  const optsReducer = (state = Immutable.fromJS({}), action) => {
+    switch (action.type) {
+      case OPTS_INIT:
+        return state.merge(action.opts)
+      default:
+        return state
+    }
+  }
+
   const store = createStore(
-    combineReducers(reducers),
+    combineReducers({
+      ...reducers,
+      opts: optsReducer
+    }),
     compose(
       applyMiddleware(
         actionFilterObj.actionFilter.call(actionFilterObj, actionFilterCallbacks),
-        actionListener(actionListenerCallbacks),
+        actionListener(preActionHandlingCallbacks, postActionHandlingCallbacks),
         thunkMiddleware
       ),
       window.devToolsExtension ? window.devToolsExtension() : f => f
     )
   )
 
+  store.dispatch({
+    type: OPTS_INIT,
+    opts: opts
+  })
+
+  store.dispatch({
+    type: CommonActionType.COMMON_SET_COMPONENTS,
+    components
+  })
+
   actionFilterObj.store = store
 
-  _.forEach(bootFunctions, (bootFunction) => {
-    bootFunction(store.dispatch)
+  bootFunctions.forEach((bootFunction) => {
+    bootFunction(store.dispatch, store.getState)
   })
 
   //Test
 
   //End tests
 
-  return {
-    store,
-    components,
-    beforeTableComponents
-  }
+  return store
 }

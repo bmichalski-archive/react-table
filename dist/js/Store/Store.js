@@ -14,22 +14,22 @@ var _DefaultState = require('./DefaultState');
 
 var _DefaultState2 = _interopRequireDefault(_DefaultState);
 
-var _PaginatorReducer = require('./Reducer/PaginatorReducer');
+var _PaginatorReducer = require('ReducerBak/PaginatorReducer');
 
 var _PaginatorReducer2 = _interopRequireDefault(_PaginatorReducer);
 
-var _TableReducer = require('./Reducer/TableReducer');
+var _TableReducer = require('ReducerBak/TableReducer');
 
 var _TableReducer2 = _interopRequireDefault(_TableReducer);
 
-var _RootReducer = require('./Reducer/RootReducer');
+var _RootReducer = require('ReducerBak/RootReducer');
 
 var _RootReducer2 = _interopRequireDefault(_RootReducer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (opts, sagaMiddleware) {
-  var defaultState = (0, _DefaultState2.default)(opts);
+exports.default = function () {
+  var defaultState = (0, _DefaultState2.default)();
 
   var reducer = function reducer() {
     var state = arguments.length <= 0 || arguments[0] === undefined ? defaultState : arguments[0];
@@ -41,7 +41,7 @@ exports.default = function (opts, sagaMiddleware) {
     });
   };
 
-  var store = (0, _redux.createStore)(reducer, (0, _redux.applyMiddleware)(_reduxThunk2.default, sagaMiddleware));
+  var store = (0, _redux.createStore)(reducer, (0, _redux.applyMiddleware)(_reduxThunk2.default));
 
   return store;
 };

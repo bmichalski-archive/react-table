@@ -1,6 +1,5 @@
-webpackJsonp([0],{
-
-/***/ 0:
+webpackJsonp([0],[
+/* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18,8 +17,7 @@ webpackJsonp([0],{
 	(0, _commonExample2.default)(_sampleResult2.default);
 
 /***/ },
-
-/***/ 1:
+/* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67,8 +65,41 @@ webpackJsonp([0],{
 	exports.default = result;
 
 /***/ },
-
-/***/ 36:
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */,
+/* 30 */,
+/* 31 */,
+/* 32 */,
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -91,7 +122,7 @@ webpackJsonp([0],{
 	
 	var _DemoTableWrapper2 = _interopRequireDefault(_DemoTableWrapper);
 	
-	var _bluebird = __webpack_require__(327);
+	var _bluebird = __webpack_require__(371);
 	
 	var _bluebird2 = _interopRequireDefault(_bluebird);
 	
@@ -127,8 +158,210 @@ webpackJsonp([0],{
 	};
 
 /***/ },
-
-/***/ 240:
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */,
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */,
+/* 91 */,
+/* 92 */,
+/* 93 */,
+/* 94 */,
+/* 95 */,
+/* 96 */,
+/* 97 */,
+/* 98 */,
+/* 99 */,
+/* 100 */,
+/* 101 */,
+/* 102 */,
+/* 103 */,
+/* 104 */,
+/* 105 */,
+/* 106 */,
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */,
+/* 112 */,
+/* 113 */,
+/* 114 */,
+/* 115 */,
+/* 116 */,
+/* 117 */,
+/* 118 */,
+/* 119 */,
+/* 120 */,
+/* 121 */,
+/* 122 */,
+/* 123 */,
+/* 124 */,
+/* 125 */,
+/* 126 */,
+/* 127 */,
+/* 128 */,
+/* 129 */,
+/* 130 */,
+/* 131 */,
+/* 132 */,
+/* 133 */,
+/* 134 */,
+/* 135 */,
+/* 136 */,
+/* 137 */,
+/* 138 */,
+/* 139 */,
+/* 140 */,
+/* 141 */,
+/* 142 */,
+/* 143 */,
+/* 144 */,
+/* 145 */,
+/* 146 */,
+/* 147 */,
+/* 148 */,
+/* 149 */,
+/* 150 */,
+/* 151 */,
+/* 152 */,
+/* 153 */,
+/* 154 */,
+/* 155 */,
+/* 156 */,
+/* 157 */,
+/* 158 */,
+/* 159 */,
+/* 160 */,
+/* 161 */,
+/* 162 */,
+/* 163 */,
+/* 164 */,
+/* 165 */,
+/* 166 */,
+/* 167 */,
+/* 168 */,
+/* 169 */,
+/* 170 */,
+/* 171 */,
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */,
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */,
+/* 184 */,
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */,
+/* 190 */,
+/* 191 */,
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */,
+/* 196 */,
+/* 197 */,
+/* 198 */,
+/* 199 */,
+/* 200 */,
+/* 201 */,
+/* 202 */,
+/* 203 */,
+/* 204 */,
+/* 205 */,
+/* 206 */,
+/* 207 */,
+/* 208 */,
+/* 209 */,
+/* 210 */,
+/* 211 */,
+/* 212 */,
+/* 213 */,
+/* 214 */,
+/* 215 */,
+/* 216 */,
+/* 217 */,
+/* 218 */,
+/* 219 */,
+/* 220 */,
+/* 221 */,
+/* 222 */,
+/* 223 */,
+/* 224 */,
+/* 225 */,
+/* 226 */,
+/* 227 */,
+/* 228 */,
+/* 229 */,
+/* 230 */,
+/* 231 */,
+/* 232 */,
+/* 233 */,
+/* 234 */,
+/* 235 */,
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -143,21 +376,15 @@ webpackJsonp([0],{
 	
 	var _index = __webpack_require__(241);
 	
-	var _bluebird = __webpack_require__(327);
+	var _bluebird = __webpack_require__(371);
 	
 	var _bluebird2 = _interopRequireDefault(_bluebird);
+	
+	var _reactRouter = __webpack_require__(177);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var DemoTableWrapper = function DemoTableWrapper(props) {
-	  // <TableHead>
-	  //   <TableHeadRow>
-	  //     <TableHeadTh sortable name="id">Id</TableHeadTh>
-	  //     <TableHeadTh sortable={ { defaultOrder: 'asc' } } name="firstColumn">First column</TableHeadTh>
-	  //     <TableHeadTh>Second column</TableHeadTh>
-	  //   </TableHeadRow>
-	  // </TableHead>
-	
 	  var opts = {
 	    sort: {
 	      sortableColumns: ['id', 'firstColumn']
@@ -216,15 +443,21 @@ webpackJsonp([0],{
 	      }
 	    },
 	    asyncData: {
-	      fetchData: function fetchData() {
+	      fetchData: function fetchData(opts) {
 	        var sampleResult = props.sampleResult;
 	        var loadingDelay = props.loadingDelay;
-	        var opts = {
-	          page: 1,
-	          pageSize: 10,
-	          q: '',
-	          sort: undefined
-	        };
+	
+	        if (opts.page === undefined) {
+	          opts.page = 1;
+	        }
+	
+	        if (opts.pageSize === undefined) {
+	          opts.pageSize = 10;
+	        }
+	
+	        if (opts.q === undefined) {
+	          opts.q = '';
+	        }
 	
 	        var page = opts.page;
 	        var pageSize = opts.pageSize;
@@ -236,8 +469,6 @@ webpackJsonp([0],{
 	        var end = from + pageSize;
 	
 	        return new _bluebird2.default(function (resolve, reject, onCancel) {
-	          var canceled = false;
-	
 	          var timeoutHandle = void 0;
 	
 	          onCancel(function () {
@@ -247,10 +478,6 @@ webpackJsonp([0],{
 	          });
 	
 	          timeoutHandle = setTimeout(function () {
-	            if (canceled) {
-	              return;
-	            }
-	
 	            console.log('getData: resolving');
 	
 	            try {
@@ -293,13 +520,15 @@ webpackJsonp([0],{
 	
 	              var result = filteredResults.slice(from, end);
 	
-	              resolve({
+	              var resolveData = {
 	                result: result,
 	                info: {
 	                  total: result.length,
 	                  filteredTotal: filteredResults.length
 	                }
-	              });
+	              };
+	
+	              resolve(resolveData);
 	            } catch (err) {
 	              reject(err);
 	            }
@@ -307,6 +536,11 @@ webpackJsonp([0],{
 	        });
 	      }
 	    }
+	  };
+	
+	  opts.routing = {
+	    location: props.location,
+	    router: props.router
 	  };
 	
 	  return _react2.default.createElement(
@@ -318,8 +552,7 @@ webpackJsonp([0],{
 	      'table > tbody > tr > td.clickable {cursor: pointer;}'
 	    ),
 	    _react2.default.createElement(_index.Table, {
-	      opts: opts,
-	      location: props.location })
+	      opts: opts })
 	  );
 	};
 	
@@ -332,11 +565,10 @@ webpackJsonp([0],{
 	  loadingDelay: 200
 	};
 	
-	exports.default = DemoTableWrapper;
+	exports.default = (0, _reactRouter.withRouter)(DemoTableWrapper);
 
 /***/ },
-
-/***/ 241:
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -352,16 +584,10 @@ webpackJsonp([0],{
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// import TableHead from './Component/Connected/ConnectedTableHead'
-	// import TableHeadRow from './Component/Connected/ConnectedTableHeadRow'
-	// import TableHeadTh from './Component/Connected/ConnectedTableHeadTh'
-	// import makeTableWrapper from './Component/MakeTableWrapper'
-	
 	exports.Table = _TableWithStore2.default;
 
 /***/ },
-
-/***/ 242:
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -376,37 +602,109 @@ webpackJsonp([0],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _TableWrappedWithProvider = __webpack_require__(243);
-	
-	var _TableWrappedWithProvider2 = _interopRequireDefault(_TableWrappedWithProvider);
-	
-	var _ModuleLoader = __webpack_require__(277);
+	var _ModuleLoader = __webpack_require__(243);
 	
 	var _ModuleLoader2 = _interopRequireDefault(_ModuleLoader);
 	
-	var _TableModule = __webpack_require__(294);
+	var _CommonModule = __webpack_require__(275);
+	
+	var _CommonModule2 = _interopRequireDefault(_CommonModule);
+	
+	var _TableWrapperModule = __webpack_require__(278);
+	
+	var _TableWrapperModule2 = _interopRequireDefault(_TableWrapperModule);
+	
+	var _TableModule = __webpack_require__(292);
 	
 	var _TableModule2 = _interopRequireDefault(_TableModule);
 	
-	var _DataModule = __webpack_require__(314);
+	var _DataModule = __webpack_require__(310);
 	
 	var _DataModule2 = _interopRequireDefault(_DataModule);
 	
-	var _AsyncDataModule = __webpack_require__(317);
+	var _AsyncDataModule = __webpack_require__(314);
 	
 	var _AsyncDataModule2 = _interopRequireDefault(_AsyncDataModule);
 	
-	var _ParseDataModule = __webpack_require__(319);
+	var _ParseDataModule = __webpack_require__(317);
 	
 	var _ParseDataModule2 = _interopRequireDefault(_ParseDataModule);
 	
-	var _PaginatorModule = __webpack_require__(320);
+	var _BeforeTableModule = __webpack_require__(318);
+	
+	var _BeforeTableModule2 = _interopRequireDefault(_BeforeTableModule);
+	
+	var _SortModule = __webpack_require__(324);
+	
+	var _SortModule2 = _interopRequireDefault(_SortModule);
+	
+	var _RoutingModule = __webpack_require__(331);
+	
+	var _RoutingModule2 = _interopRequireDefault(_RoutingModule);
+	
+	var _FilterModule = __webpack_require__(334);
+	
+	var _FilterModule2 = _interopRequireDefault(_FilterModule);
+	
+	var _FilterBeforeTableModule = __webpack_require__(339);
+	
+	var _FilterBeforeTableModule2 = _interopRequireDefault(_FilterBeforeTableModule);
+	
+	var _FilterAsyncDataModule = __webpack_require__(342);
+	
+	var _FilterAsyncDataModule2 = _interopRequireDefault(_FilterAsyncDataModule);
+	
+	var _FilterAsyncDataRoutingModule = __webpack_require__(343);
+	
+	var _FilterAsyncDataRoutingModule2 = _interopRequireDefault(_FilterAsyncDataRoutingModule);
+	
+	var _GoToPageModule = __webpack_require__(344);
+	
+	var _GoToPageModule2 = _interopRequireDefault(_GoToPageModule);
+	
+	var _GoToPageBeforeTableModule = __webpack_require__(348);
+	
+	var _GoToPageBeforeTableModule2 = _interopRequireDefault(_GoToPageBeforeTableModule);
+	
+	var _GoToPageAsyncDataModule = __webpack_require__(351);
+	
+	var _GoToPageAsyncDataModule2 = _interopRequireDefault(_GoToPageAsyncDataModule);
+	
+	var _GoToPageAsyncDataRoutingModule = __webpack_require__(352);
+	
+	var _GoToPageAsyncDataRoutingModule2 = _interopRequireDefault(_GoToPageAsyncDataRoutingModule);
+	
+	var _PageSizeModule = __webpack_require__(353);
+	
+	var _PageSizeModule2 = _interopRequireDefault(_PageSizeModule);
+	
+	var _PageSizeBeforeTableModule = __webpack_require__(357);
+	
+	var _PageSizeBeforeTableModule2 = _interopRequireDefault(_PageSizeBeforeTableModule);
+	
+	var _PageSizeAsyncDataModule = __webpack_require__(360);
+	
+	var _PageSizeAsyncDataModule2 = _interopRequireDefault(_PageSizeAsyncDataModule);
+	
+	var _PageSizeAsyncDataRoutingModule = __webpack_require__(361);
+	
+	var _PageSizeAsyncDataRoutingModule2 = _interopRequireDefault(_PageSizeAsyncDataRoutingModule);
+	
+	var _PaginatorModule = __webpack_require__(362);
 	
 	var _PaginatorModule2 = _interopRequireDefault(_PaginatorModule);
 	
-	var _SortModule = __webpack_require__(321);
+	var _PaginatorBeforeTableModule = __webpack_require__(366);
 	
-	var _SortModule2 = _interopRequireDefault(_SortModule);
+	var _PaginatorBeforeTableModule2 = _interopRequireDefault(_PaginatorBeforeTableModule);
+	
+	var _FilterPageModule = __webpack_require__(369);
+	
+	var _FilterPageModule2 = _interopRequireDefault(_FilterPageModule);
+	
+	var _PageSizePageModule = __webpack_require__(370);
+	
+	var _PageSizePageModule2 = _interopRequireDefault(_PageSizePageModule);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -430,41 +728,18 @@ webpackJsonp([0],{
 	    value: function componentWillMount() {
 	      var props = this.props;
 	
-	      var _moduleLoader = (0, _ModuleLoader2.default)(props.opts, _TableModule2.default, _DataModule2.default, _AsyncDataModule2.default, _ParseDataModule2.default, _PaginatorModule2.default, _SortModule2.default);
-	
-	      var store = _moduleLoader.store;
-	      var components = _moduleLoader.components;
-	      var beforeTableComponents = _moduleLoader.beforeTableComponents;
-	
+	      var store = (0, _ModuleLoader2.default)(props.opts, _CommonModule2.default, _TableWrapperModule2.default, _TableModule2.default, _DataModule2.default, _AsyncDataModule2.default, _ParseDataModule2.default, _BeforeTableModule2.default, _RoutingModule2.default, _SortModule2.default, _FilterModule2.default, _FilterBeforeTableModule2.default, _FilterAsyncDataModule2.default, _FilterAsyncDataRoutingModule2.default, _GoToPageModule2.default, _GoToPageBeforeTableModule2.default, _GoToPageAsyncDataModule2.default, _GoToPageAsyncDataRoutingModule2.default, _PageSizeModule2.default, _PageSizeBeforeTableModule2.default, _PageSizeAsyncDataModule2.default, _PageSizeAsyncDataRoutingModule2.default, _PaginatorModule2.default, _PaginatorBeforeTableModule2.default, _FilterPageModule2.default, _PageSizePageModule2.default);
 	
 	      this._store = store;
-	      this._components = components;
-	      this._beforeTableComponents = beforeTableComponents;
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this2 = this;
-	
 	      var store = this._store;
-	      var Table = this._components.table.Table;
 	
-	      var renderBeforeTableComponents = function renderBeforeTableComponents() {
-	        return _this2._beforeTableComponents.map(function (component, i) {
-	          return _react2.default.createElement(
-	            'div',
-	            { key: i },
-	            component
-	          );
-	        });
-	      };
+	      var TableWrapper = store.getState().get('common').get('components').get('tableWrapper').get('TableWrapper');
 	
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'table-wrapper' },
-	        renderBeforeTableComponents(),
-	        _react2.default.createElement(Table, { store: store })
-	      );
+	      return _react2.default.createElement(TableWrapper, { store: store });
 	    }
 	  }]);
 	
@@ -474,8 +749,7 @@ webpackJsonp([0],{
 	exports.default = TableWithStore;
 
 /***/ },
-
-/***/ 243:
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -484,878 +758,39 @@ webpackJsonp([0],{
 	  value: true
 	});
 	
-	var _react = __webpack_require__(2);
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRedux = __webpack_require__(244);
-	
-	var _ConnectedFullTable = __webpack_require__(267);
-	
-	var _ConnectedFullTable2 = _interopRequireDefault(_ConnectedFullTable);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function (props) {
-	  return _react2.default.createElement(
-	    _reactRedux.Provider,
-	    { store: props.store },
-	    _react2.default.createElement(
-	      _ConnectedFullTable2.default,
-	      null,
-	      props.children
-	    )
-	  );
-	};
-
-/***/ },
-
-/***/ 267:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _FullTable = __webpack_require__(268);
-	
-	var _FullTable2 = _interopRequireDefault(_FullTable);
-	
-	var _ActionCreator = __webpack_require__(276);
-	
-	var _ActionCreator2 = _interopRequireDefault(_ActionCreator);
-	
-	var _reactRedux = __webpack_require__(244);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = (0, _reactRedux.connect)(function (state) {
-	  return {
-	    loading: state.get('loading'),
-	    initialized: state.get('initialized'),
-	    errorLoadingData: state.get('errorLoadingData'),
-	    errorLoadingDataMessage: state.get('errorLoadingDataMessage'),
-	    loadingMessage: state.get('loadingMessage'),
-	    table: state.get('table').toJS(),
-	    renderCell: state.get('opts').get('table').get('renderCell')
-	  };
-	}, _ActionCreator2.default)(_FullTable2.default);
-
-/***/ },
-
-/***/ 268:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _Table = __webpack_require__(269);
-	
-	var _Table2 = _interopRequireDefault(_Table);
-	
-	var _ConnectedPaginator = __webpack_require__(272);
-	
-	var _ConnectedPaginator2 = _interopRequireDefault(_ConnectedPaginator);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var FullTable = function FullTable(props) {
-	  if (props.errorLoadingData) {
-	    return _react2.default.createElement(
-	      'div',
-	      null,
-	      props.errorLoadingDataMessage
-	    );
-	  }
-	
-	  if (!props.initialized && props.loading) {
-	    return _react2.default.createElement(
-	      'div',
-	      null,
-	      props.loadingMessage
-	    );
-	  }
-	
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'table-wrapper' },
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'row' },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'col-md-12' },
-	        _react2.default.createElement(_ConnectedPaginator2.default, {
-	          paginator: props.paginator,
-	          pageSizeSelector: true,
-	          goTo: true,
-	          filtering: true })
-	      )
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'row' },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'col-md-12' },
-	        function () {
-	          if (props.loading) {
-	            return _react2.default.createElement(
-	              'div',
-	              null,
-	              props.loadingMessage
-	            );
-	          }
-	
-	          return _react2.default.createElement(
-	            _Table2.default,
-	            {
-	              data: props.table.data,
-	              body: props.table.body,
-	              renderCell: props.renderCell,
-	              onTableBodyCellClicked: props.onTableBodyCellClicked,
-	              emptyTableMessage: props.table.emptyTableMessage,
-	              tableClassName: props.table.tableClassName,
-	              isCellClickable: props.table.isCellClickable },
-	            props.children
-	          );
-	        }()
-	      )
-	    ),
-	    function () {
-	      if (!props.loading) {
-	        return _react2.default.createElement(
-	          'div',
-	          { className: 'row' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'col-md-12' },
-	            _react2.default.createElement(_ConnectedPaginator2.default, {
-	              paginator: props.paginator })
-	          )
-	        );
-	      }
-	    }()
-	  );
-	};
-	
-	FullTable.propTypes = {
-	  table: _react.PropTypes.object.isRequired,
-	  renderCell: _react.PropTypes.func,
-	  onTableBodyCellClicked: _react.PropTypes.func,
-	  initialized: _react.PropTypes.bool.isRequired,
-	  loading: _react.PropTypes.bool.isRequired,
-	  errorLoadingData: _react.PropTypes.bool.isRequired,
-	  errorLoadingDataMessage: _react.PropTypes.string.isRequired,
-	  loadingMessage: _react.PropTypes.string.isRequired
-	};
-	
-	exports.default = FullTable;
-
-/***/ },
-
-/***/ 269:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _TableRow = __webpack_require__(270);
-	
-	var _TableRow2 = _interopRequireDefault(_TableRow);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Table = function Table(props) {
-	  if (0 === props.data.length) {
-	    return _react2.default.createElement(
-	      'div',
-	      null,
-	      props.emptyTableMessage
-	    );
-	  }
-	
-	  var rows = [];
-	
-	  props.data.forEach(function (data, rowIndex) {
-	    var rowProps = props.body.rows[rowIndex];
-	    var className = undefined === rowProps ? undefined : rowProps.className;
-	    var cells = undefined === rowProps || undefined === rowProps.cells ? {} : rowProps.cells;
-	
-	    rows.push(_react2.default.createElement(_TableRow2.default, {
-	      key: rowIndex,
-	      className: className,
-	      data: data,
-	      rowIndex: rowIndex,
-	      cells: cells,
-	      onTableBodyCellClicked: props.onTableBodyCellClicked,
-	      renderCell: props.renderCell,
-	      isCellClickable: props.isCellClickable }));
-	  });
-	
-	  return _react2.default.createElement(
-	    'table',
-	    { className: props.tableClassName },
-	    props.children,
-	    _react2.default.createElement(
-	      'tbody',
-	      null,
-	      rows
-	    )
-	  );
-	};
-	
-	Table.propTypes = {
-	  data: _react.PropTypes.array.isRequired,
-	  body: _react.PropTypes.shape({
-	    rows: _react.PropTypes.object.isRequired
-	  }).isRequired,
-	  emptyTableMessage: _react.PropTypes.string.isRequired,
-	  tableClassName: _react.PropTypes.string.isRequired,
-	  renderCell: _react.PropTypes.func,
-	  onCellClicked: _react.PropTypes.func
-	};
-	
-	Table.defaultProps = {
-	  emptyTableMessage: 'No data to display with given parameters.',
-	  tableClassName: 'table table-bordered'
-	};
-	
-	exports.default = Table;
-
-/***/ },
-
-/***/ 270:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _Common = __webpack_require__(271);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var TableRow = function TableRow(props) {
-	  var rowData = props.data;
-	
-	  return _react2.default.createElement(
-	    'tr',
-	    { className: props.className },
-	    function () {
-	      var tds = [];
-	
-	      rowData.forEach(function (cellData, cellIndex) {
-	        var cellProps = props.cells[cellIndex];
-	        var className = undefined === cellProps ? undefined : cellProps.className;
-	
-	        tds.push(_react2.default.createElement(
-	          'td',
-	          {
-	            key: cellIndex,
-	            className: className,
-	            onClick: props.onTableBodyCellClicked.bind(undefined, rowData, cellIndex, props.rowIndex) },
-	          props.renderCell(cellData, cellIndex, props.rowIndex)
-	        ));
-	      });
-	
-	      return tds;
-	    }()
-	  );
-	};
-	
-	TableRow.propTypes = {
-	  rowIndex: function rowIndex(props, propName) {
-	    var prop = props[propName];
-	
-	    if (!(0, _Common.isInteger)(prop)) {
-	      throw new Error('Invalid rowIndex, expecting number, got ' + prop);
-	    }
-	  },
-	  renderCell: _react.PropTypes.func.isRequired,
-	  onTableBodyCellClicked: _react.PropTypes.func.isRequired,
-	  data: _react.PropTypes.array.isRequired,
-	  className: _react.PropTypes.string,
-	  cells: _react.PropTypes.object.isRequired
-	};
-	
-	TableRow.defaultProps = {
-	  renderCell: function renderCell(data) {
-	    return data;
-	  }
-	};
-	
-	exports.default = TableRow;
-
-/***/ },
-
-/***/ 271:
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var isInteger = function isInteger(nb) {
-	  return nb === parseInt(nb, 10);
-	};
-	
-	var isPositiveInteger = function isPositiveInteger(nb) {
-	  return isInteger(nb) && nb > 0;
-	};
-	
-	exports.isInteger = isInteger;
-	exports.isPositiveInteger = isPositiveInteger;
-
-/***/ },
-
-/***/ 272:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _reactRedux = __webpack_require__(244);
-	
-	var _Paginator = __webpack_require__(273);
-	
-	var _Paginator2 = _interopRequireDefault(_Paginator);
-	
-	var _PaginatorActionCreator = __webpack_require__(274);
-	
-	var _PaginatorActionCreator2 = _interopRequireDefault(_PaginatorActionCreator);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = (0, _reactRedux.connect)(function (state) {
-	  var paginator = state.get('paginator');
-	
-	  return {
-	    buttons: paginator.get('buttons').toJS(),
-	    showButtons: paginator.get('showButtons'),
-	    goToPageDisabled: paginator.get('goToPageDisabled'),
-	    totalPages: paginator.get('totalPages'),
-	    page: paginator.get('page'),
-	    pageSize: paginator.get('pageSize'),
-	    qFieldValue: paginator.get('qFieldValue'),
-	    goToPageValue: paginator.get('goToPageValue')
-	  };
-	}, _PaginatorActionCreator2.default)(_Paginator2.default);
-
-/***/ },
-
-/***/ 273:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Paginator = function Paginator(props) {
-	  var handleClick = function handleClick(page, disabled, event) {
-	    event.preventDefault();
-	
-	    if (disabled) {
-	      return;
-	    }
-	
-	    props.updatePage(page);
-	  };
-	
-	  var handlePageSizeChange = function handlePageSizeChange(event) {
-	    props.updatePageSize(parseInt(event.target.value, 10));
-	  };
-	
-	  var handleGoToPageChanged = function handleGoToPageChanged(event) {
-	    var rawValue = event.target.value;
-	
-	    if ('' === rawValue) {
-	      props.updateGoToPageValue('');
-	    } else if (/^[0-9]+$/.test(rawValue) && rawValue >= 1) {
-	      props.updateGoToPageValue(parseInt(rawValue, 10));
-	    }
-	  };
-	
-	  var handleGoToPageKeyDown = function handleGoToPageKeyDown(event) {
-	    if (13 === event.keyCode) {
-	      event.preventDefault();
-	
-	      if (props.goToPageDisabled) {
-	        return;
-	      }
-	
-	      props.updatePage(props.goToPageValue);
-	    }
-	  };
-	
-	  var handleQChanged = function handleQChanged(event) {
-	    props.updateQFieldValue(event.target.value);
-	  };
-	
-	  var handleGoToPageGoButtonClicked = function handleGoToPageGoButtonClicked(event) {
-	    event.preventDefault();
-	
-	    if (props.goToPageDisabled) {
-	      return;
-	    }
-	
-	    props.updatePage(props.goToPageValue);
-	  };
-	
-	  var hasFilteringFeature = props.filtering;
-	  var hasGoToFeature = props.goTo;
-	  var hasPageSizeSelectorFeature = props.pageSizeSelector;
-	
-	  var paginationFields = function () {
-	    if (!(hasPageSizeSelectorFeature || hasGoToFeature || hasFilteringFeature)) {
-	      return;
-	    }
-	
-	    return _react2.default.createElement(
-	      'div',
-	      { className: 'row' },
-	      function () {
-	        if (hasFilteringFeature) {
-	          return _react2.default.createElement(
-	            'div',
-	            { className: 'col-md-5' },
-	            _react2.default.createElement(
-	              'label',
-	              null,
-	              'Filter',
-	              _react2.default.createElement('input', {
-	                type: 'text',
-	                className: 'form-control',
-	                value: props.qFieldValue,
-	                placeholder: 'Filter:',
-	                onChange: handleQChanged })
-	            )
-	          );
-	        }
-	      }(),
-	      function () {
-	        if (hasGoToFeature) {
-	          return _react2.default.createElement(
-	            'div',
-	            { className: 'col-md-4' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'page-selector form-group' },
-	              _react2.default.createElement(
-	                'label',
-	                null,
-	                'Go to page',
-	                _react2.default.createElement(
-	                  'div',
-	                  { className: 'input-group' },
-	                  _react2.default.createElement('input', {
-	                    type: 'text',
-	                    className: 'form-control',
-	                    placeholder: 'Page:',
-	                    value: props.goToPageValue,
-	                    onChange: handleGoToPageChanged,
-	                    onKeyDown: handleGoToPageKeyDown }),
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'input-group-btn' },
-	                    _react2.default.createElement(
-	                      'button',
-	                      {
-	                        className: 'btn btn-default ',
-	                        disabled: props.goToPageDisabled,
-	                        onClick: handleGoToPageGoButtonClicked },
-	                      'Go'
-	                    )
-	                  )
-	                )
-	              )
-	            )
-	          );
-	        }
-	      }(),
-	      function () {
-	        if (hasPageSizeSelectorFeature) {
-	          return _react2.default.createElement(
-	            'div',
-	            { className: 'col-md-3' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'page-size-selector form-group' },
-	              _react2.default.createElement(
-	                'label',
-	                null,
-	                'Page size ',
-	                _react2.default.createElement(
-	                  'select',
-	                  {
-	                    className: 'form-control',
-	                    value: props.pageSize,
-	                    onChange: handlePageSizeChange },
-	                  _react2.default.createElement(
-	                    'option',
-	                    { value: 10 },
-	                    '10'
-	                  ),
-	                  _react2.default.createElement(
-	                    'option',
-	                    { value: 25 },
-	                    '25'
-	                  ),
-	                  _react2.default.createElement(
-	                    'option',
-	                    { value: 50 },
-	                    '50'
-	                  ),
-	                  _react2.default.createElement(
-	                    'option',
-	                    { value: 100 },
-	                    '100'
-	                  )
-	                )
-	              )
-	            )
-	          );
-	        }
-	      }()
-	    );
-	  }();
-	
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'paginator-wrapper' },
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'row' },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'col-md-4' },
-	        paginationFields
-	      ),
-	      function () {
-	        if (props.showButtons) {
-	          return _react2.default.createElement(
-	            'div',
-	            { className: 'col-md-8' },
-	            _react2.default.createElement(
-	              'ul',
-	              { className: 'pagination pull-right' },
-	              function () {
-	                var rows = [];
-	
-	                var addPageButton = function addPageButton(page, key, content, link, className, disabled) {
-	                  rows.push(_react2.default.createElement(
-	                    'li',
-	                    {
-	                      key: key,
-	                      className: className },
-	                    _react2.default.createElement(
-	                      'a',
-	                      {
-	                        disabled: disabled,
-	                        href: link,
-	                        onClick: handleClick.bind(undefined, page, disabled) },
-	                      _react2.default.createElement(
-	                        'span',
-	                        null,
-	                        content
-	                      )
-	                    )
-	                  ));
-	                };
-	
-	                props.buttons.forEach(function (button) {
-	                  addPageButton(button.page, button.key, button.content, button.link, button.className, button.disabled);
-	                });
-	
-	                return rows;
-	              }()
-	            )
-	          );
-	        }
-	      }()
-	    )
-	  );
-	};
-	
-	Paginator.propTypes = {
-	  buttons: _react.PropTypes.array.isRequired,
-	  showButtons: _react.PropTypes.bool.isRequired,
-	  goToPageDisabled: _react.PropTypes.bool.isRequired,
-	  page: _react.PropTypes.number.isRequired,
-	  pageSize: _react.PropTypes.number.isRequired,
-	  qFieldValue: _react.PropTypes.string.isRequired,
-	  goToPageValue: _react.PropTypes.any.isRequired,
-	  updateQFieldValue: _react.PropTypes.func.isRequired,
-	  updateGoToPageValue: _react.PropTypes.func.isRequired,
-	  updatePageSize: _react.PropTypes.func.isRequired,
-	  updatePage: _react.PropTypes.func.isRequired,
-	  pageSizeSelector: _react.PropTypes.bool.isRequired,
-	  goTo: _react.PropTypes.bool.isRequired,
-	  filtering: _react.PropTypes.bool.isRequired
-	};
-	
-	Paginator.defaultProps = {
-	  pageSizeSelector: false,
-	  goTo: false,
-	  filtering: false
-	};
-	
-	exports.default = Paginator;
-
-/***/ },
-
-/***/ 274:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _ActionType = __webpack_require__(275);
-	
-	var _ActionType2 = _interopRequireDefault(_ActionType);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function startDebounceQ(timeout) {
-	  return {
-	    type: _ActionType2.default.START_DEBOUNCE_Q,
-	    timeout: timeout
-	  };
-	}
-	
-	function updateGoToPageValue(goToPageValue) {
-	  return {
-	    type: _ActionType2.default.UPDATE_GO_TO_PAGE_VALUE,
-	    goToPageValue: goToPageValue
-	  };
-	}
-	
-	function updatePage(page) {
-	  return {
-	    type: _ActionType2.default.UPDATE_PAGE,
-	    page: page
-	  };
-	}
-	
-	function updatePageSize(pageSize) {
-	  return function (dispatch) {
-	    dispatch({
-	      type: _ActionType2.default.UPDATE_PAGE_SIZE,
-	      pageSize: pageSize
-	    });
-	
-	    dispatch(updatePage(1));
-	    dispatch(updateGoToPageValue(''));
-	  };
-	}
-	
-	function updateQ(q) {
-	  return function (dispatch, getState) {
-	    clearTimeout(getState().get('paginator').get('debounce').get('timeout'));
-	
-	    dispatch(startDebounceQ(setTimeout(function () {
-	      dispatch({
-	        type: _ActionType2.default.UPDATE_Q,
-	        q: q
-	      });
-	
-	      dispatch(updatePage(1));
-	      dispatch(updateGoToPageValue(''));
-	    }, 300)));
-	  };
-	}
-	
-	function doUpdateQFieldValue(qFieldValue) {
-	  return {
-	    type: _ActionType2.default.UPDATE_Q_FIELD_VALUE,
-	    qFieldValue: qFieldValue
-	  };
-	}
-	
-	function updateQFieldValue(qFieldValue) {
-	  return function (dispatch) {
-	    dispatch(doUpdateQFieldValue(qFieldValue));
-	
-	    dispatch(updateQ(qFieldValue));
-	  };
-	}
-	
-	exports.default = {
-	  updateQFieldValue: updateQFieldValue,
-	  updateGoToPageValue: updateGoToPageValue,
-	  updatePageSize: updatePageSize,
-	  updatePage: updatePage
-	};
-
-/***/ },
-
-/***/ 275:
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var INITIALIZE = 'INITIALIZE';
-	var SET_SORT = 'SET_SORT';
-	var SET_ORDER = 'SET_ORDER';
-	var LOADING = 'LOADING';
-	var UPDATE_DATA = 'UPDATE_DATA';
-	var ERROR_LOADING_DATA = 'ERROR_LOADING_DATA';
-	var TOGGLE_SORT = 'TOGGLE_SORT';
-	var INIT_LOCATION = 'INIT_LOCATION';
-	var UPDATE_LOCATION = 'UPDATE_LOCATION';
-	var UPDATE_Q = 'UPDATE_Q';
-	var INIT_Q_FIELD_VALUE = 'INIT_Q_FIELD_VALUE';
-	var UPDATE_Q_FIELD_VALUE = 'UPDATE_Q_FIELD_VALUE';
-	var UPDATE_GO_TO_PAGE_VALUE = 'UPDATE_GO_TO_PAGE_VALUE';
-	var UPDATE_PAGE_SIZE = 'UPDATE_PAGE_SIZE';
-	var UPDATE_PAGE = 'UPDATE_PAGE';
-	var START_DEBOUNCE_Q = 'START_DEBOUNCE_Q';
-	var NAVIGATE_TO_PAGE = 'NAVIGATE_TO_PAGE';
-	var UPDATE_TOTAL_RESULT_AND_PAGES_AND_LINKS = 'UPDATE_TOTAL_RESULT_AND_PAGES_AND_LINKS';
-	var UPDATE_GO_TO_PAGE_DISABLED = 'UPDATE_GO_TO_PAGE_DISABLED';
-	var UPDATE_SORT_CONTEXT = 'UPDATE_SORT_CONTEXT';
-	var RESET_SORT_CONTEXT = 'RESET_SORT_CONTEXT';
-	var UPDATE_HEAD_ROWS = 'UPDATE_HEAD_ROWS';
-	var UPDATE_BODY_ROWS = 'UPDATE_BODY_ROWS';
-	var TABLE_BODY_CELL_CLICKED = 'TABLE_BODY_CELL_CLICKED';
-	var TABLE_HEAD_INIT_CHILDREN = 'TABLE_HEAD_INIT_CHILDREN';
-	var UPDATE_HEAD_CELL = 'UPDATE_HEAD_CELL';
-	
-	exports.default = {
-	  INITIALIZE: INITIALIZE,
-	  SET_SORT: SET_SORT,
-	  SET_ORDER: SET_ORDER,
-	  LOADING: LOADING,
-	  UPDATE_DATA: UPDATE_DATA,
-	  ERROR_LOADING_DATA: ERROR_LOADING_DATA,
-	  TOGGLE_SORT: TOGGLE_SORT,
-	  INIT_LOCATION: INIT_LOCATION,
-	  UPDATE_LOCATION: UPDATE_LOCATION,
-	  UPDATE_Q: UPDATE_Q,
-	  INIT_Q_FIELD_VALUE: INIT_Q_FIELD_VALUE,
-	  UPDATE_Q_FIELD_VALUE: UPDATE_Q_FIELD_VALUE,
-	  UPDATE_GO_TO_PAGE_VALUE: UPDATE_GO_TO_PAGE_VALUE,
-	  UPDATE_PAGE_SIZE: UPDATE_PAGE_SIZE,
-	  UPDATE_PAGE: UPDATE_PAGE,
-	  START_DEBOUNCE_Q: START_DEBOUNCE_Q,
-	  NAVIGATE_TO_PAGE: NAVIGATE_TO_PAGE,
-	  UPDATE_TOTAL_RESULT_AND_PAGES_AND_LINKS: UPDATE_TOTAL_RESULT_AND_PAGES_AND_LINKS,
-	  UPDATE_GO_TO_PAGE_DISABLED: UPDATE_GO_TO_PAGE_DISABLED,
-	  UPDATE_SORT_CONTEXT: UPDATE_SORT_CONTEXT,
-	  RESET_SORT_CONTEXT: RESET_SORT_CONTEXT,
-	  UPDATE_HEAD_ROWS: UPDATE_HEAD_ROWS,
-	  UPDATE_BODY_ROWS: UPDATE_BODY_ROWS,
-	  TABLE_BODY_CELL_CLICKED: TABLE_BODY_CELL_CLICKED,
-	  TABLE_HEAD_INIT_CHILDREN: TABLE_HEAD_INIT_CHILDREN,
-	  UPDATE_HEAD_CELL: UPDATE_HEAD_CELL
-	};
-
-/***/ },
-
-/***/ 276:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _ActionType = __webpack_require__(275);
-	
-	var _ActionType2 = _interopRequireDefault(_ActionType);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function onTableBodyCellClicked(rowData, cellIndex, rowIndex) {
-	  return {
-	    type: _ActionType2.default.TABLE_BODY_CELL_CLICKED,
-	    rowData: rowData,
-	    cellIndex: cellIndex,
-	    rowIndex: rowIndex
-	  };
-	}
-	
-	exports.default = { onTableBodyCellClicked: onTableBodyCellClicked };
-
-/***/ },
-
-/***/ 277:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _reduxImmutable = __webpack_require__(278);
+	var _reduxImmutable = __webpack_require__(244);
 	
 	var _redux = __webpack_require__(251);
 	
-	var _reduxThunk = __webpack_require__(285);
+	var _reduxThunk = __webpack_require__(265);
 	
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 	
-	var _assert = __webpack_require__(286);
+	var _assert = __webpack_require__(266);
 	
 	var _assert2 = _interopRequireDefault(_assert);
 	
-	var _ActionFilter = __webpack_require__(290);
+	var _ActionFilter = __webpack_require__(270);
 	
 	var _ActionFilter2 = _interopRequireDefault(_ActionFilter);
 	
-	var _ActionListener = __webpack_require__(291);
+	var _ActionListener = __webpack_require__(271);
 	
 	var _ActionListener2 = _interopRequireDefault(_ActionListener);
 	
-	var _lodash = __webpack_require__(292);
+	var _lodash = __webpack_require__(272);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
+	
+	var _immutable = __webpack_require__(246);
+	
+	var _immutable2 = _interopRequireDefault(_immutable);
+	
+	var _ActionType = __webpack_require__(274);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -1367,9 +802,9 @@ webpackJsonp([0],{
 	  var reducers = {};
 	  var components = {};
 	  var actionFilterCallbacks = {};
-	  var actionListenerCallbacks = {};
-	  var bootFunctions = {};
-	  var beforeTableComponents = [];
+	  var preActionHandlingCallbacks = {};
+	  var postActionHandlingCallbacks = {};
+	  var bootFunctions = [];
 	
 	  modules.forEach(function (module) {
 	    var moduleDefinition = module(opts[module.moduleName]);
@@ -1394,7 +829,7 @@ webpackJsonp([0],{
 	    }
 	
 	    if (undefined !== moduleDefinition.boot) {
-	      bootFunctions[moduleName] = moduleDefinition.boot;
+	      bootFunctions.push(moduleDefinition.boot);
 	    }
 	
 	    if (undefined !== moduleDefinition.filters) {
@@ -1407,47 +842,74 @@ webpackJsonp([0],{
 	      });
 	    }
 	
-	    if (undefined !== moduleDefinition.listeners) {
-	      _lodash2.default.forEach(moduleDefinition.listeners(), function (listener, key) {
-	        if (undefined === actionListenerCallbacks[key]) {
-	          actionListenerCallbacks[key] = [];
+	    if (undefined !== moduleDefinition.preListeners) {
+	      _lodash2.default.forEach(moduleDefinition.preListeners(), function (listener, key) {
+	        if (undefined === preActionHandlingCallbacks[key]) {
+	          preActionHandlingCallbacks[key] = [];
 	        }
 	
-	        actionListenerCallbacks[key].push(listener);
+	        preActionHandlingCallbacks[key].push(listener);
 	      });
 	    }
 	
-	    if (undefined !== moduleDefinition.beforeTableComponents) {
-	      beforeTableComponents.push(moduleDefinition.beforeTableComponents());
+	    if (undefined !== moduleDefinition.listeners) {
+	      _lodash2.default.forEach(moduleDefinition.listeners(), function (listener, key) {
+	        if (undefined === postActionHandlingCallbacks[key]) {
+	          postActionHandlingCallbacks[key] = [];
+	        }
+	
+	        postActionHandlingCallbacks[key].push(listener);
+	      });
 	    }
 	  });
 	
 	  var actionFilterObj = (0, _ActionFilter2.default)();
 	
-	  var store = (0, _redux.createStore)((0, _reduxImmutable.combineReducers)(reducers), (0, _redux.compose)((0, _redux.applyMiddleware)(actionFilterObj.actionFilter.call(actionFilterObj, actionFilterCallbacks), (0, _ActionListener2.default)(actionListenerCallbacks), _reduxThunk2.default), window.devToolsExtension ? window.devToolsExtension() : function (f) {
+	  var OPTS_INIT = 'OPTS_INIT';
+	
+	  var optsReducer = function optsReducer() {
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? _immutable2.default.fromJS({}) : arguments[0];
+	    var action = arguments[1];
+	
+	    switch (action.type) {
+	      case OPTS_INIT:
+	        return state.merge(action.opts);
+	      default:
+	        return state;
+	    }
+	  };
+	
+	  var store = (0, _redux.createStore)((0, _reduxImmutable.combineReducers)(_extends({}, reducers, {
+	    opts: optsReducer
+	  })), (0, _redux.compose)((0, _redux.applyMiddleware)(actionFilterObj.actionFilter.call(actionFilterObj, actionFilterCallbacks), (0, _ActionListener2.default)(preActionHandlingCallbacks, postActionHandlingCallbacks), _reduxThunk2.default), window.devToolsExtension ? window.devToolsExtension() : function (f) {
 	    return f;
 	  }));
 	
+	  store.dispatch({
+	    type: OPTS_INIT,
+	    opts: opts
+	  });
+	
+	  store.dispatch({
+	    type: _ActionType2.default.COMMON_SET_COMPONENTS,
+	    components: components
+	  });
+	
 	  actionFilterObj.store = store;
 	
-	  _lodash2.default.forEach(bootFunctions, function (bootFunction) {
-	    bootFunction(store.dispatch);
+	  bootFunctions.forEach(function (bootFunction) {
+	    bootFunction(store.dispatch, store.getState);
 	  });
 	
 	  //Test
 	
 	  //End tests
 	
-	  return {
-	    store: store,
-	    components: components,
-	    beforeTableComponents: beforeTableComponents
-	  };
+	  return store;
 	};
 
 /***/ },
-
-/***/ 278:
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1457,7 +919,7 @@ webpackJsonp([0],{
 	});
 	exports.combineReducers = undefined;
 	
-	var _combineReducers2 = __webpack_require__(279);
+	var _combineReducers2 = __webpack_require__(245);
 	
 	var _combineReducers3 = _interopRequireDefault(_combineReducers2);
 	
@@ -1466,8 +928,7 @@ webpackJsonp([0],{
 	exports.combineReducers = _combineReducers3.default;
 
 /***/ },
-
-/***/ 279:
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -1478,11 +939,11 @@ webpackJsonp([0],{
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 	
-	var _immutable = __webpack_require__(280);
+	var _immutable = __webpack_require__(246);
 	
 	var _immutable2 = _interopRequireDefault(_immutable);
 	
-	var _utilities = __webpack_require__(281);
+	var _utilities = __webpack_require__(247);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -1623,8 +1084,8 @@ webpackJsonp([0],{
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-
-/***/ 281:
+/* 246 */,
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1635,15 +1096,15 @@ webpackJsonp([0],{
 	});
 	exports.validateNextState = exports.getUnexpectedInvocationParameterMessage = exports.getStateName = undefined;
 	
-	var _getStateName2 = __webpack_require__(282);
+	var _getStateName2 = __webpack_require__(248);
 	
 	var _getStateName3 = _interopRequireDefault(_getStateName2);
 	
-	var _getUnexpectedInvocationParameterMessage2 = __webpack_require__(283);
+	var _getUnexpectedInvocationParameterMessage2 = __webpack_require__(249);
 	
 	var _getUnexpectedInvocationParameterMessage3 = _interopRequireDefault(_getUnexpectedInvocationParameterMessage2);
 	
-	var _validateNextState2 = __webpack_require__(284);
+	var _validateNextState2 = __webpack_require__(250);
 	
 	var _validateNextState3 = _interopRequireDefault(_validateNextState2);
 	
@@ -1654,8 +1115,7 @@ webpackJsonp([0],{
 	exports.validateNextState = _validateNextState3.default;
 
 /***/ },
-
-/***/ 282:
+/* 248 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1758,8 +1218,7 @@ webpackJsonp([0],{
 	module.exports = exports['default'];
 
 /***/ },
-
-/***/ 283:
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1770,11 +1229,11 @@ webpackJsonp([0],{
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; }; /* eslint-disable lodash3/prefer-lodash-method */
 	
-	var _immutable = __webpack_require__(280);
+	var _immutable = __webpack_require__(246);
 	
 	var _immutable2 = _interopRequireDefault(_immutable);
 	
-	var _getStateName = __webpack_require__(282);
+	var _getStateName = __webpack_require__(248);
 	
 	var _getStateName2 = _interopRequireDefault(_getStateName);
 	
@@ -1892,8 +1351,7 @@ webpackJsonp([0],{
 	module.exports = exports['default'];
 
 /***/ },
-
-/***/ 284:
+/* 250 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2005,8 +1463,22 @@ webpackJsonp([0],{
 	module.exports = exports['default'];
 
 /***/ },
-
-/***/ 286:
+/* 251 */,
+/* 252 */,
+/* 253 */,
+/* 254 */,
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */,
+/* 263 */,
+/* 264 */,
+/* 265 */,
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
@@ -2077,7 +1549,7 @@ webpackJsonp([0],{
 	// ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 	// WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	
-	var util = __webpack_require__(287);
+	var util = __webpack_require__(267);
 	var hasOwn = Object.prototype.hasOwnProperty;
 	var pSlice = Array.prototype.slice;
 	var functionsHaveNames = (function () {
@@ -2503,8 +1975,7 @@ webpackJsonp([0],{
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-
-/***/ 287:
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -3032,7 +2503,7 @@ webpackJsonp([0],{
 	}
 	exports.isPrimitive = isPrimitive;
 	
-	exports.isBuffer = __webpack_require__(288);
+	exports.isBuffer = __webpack_require__(268);
 	
 	function objectToString(o) {
 	  return Object.prototype.toString.call(o);
@@ -3076,7 +2547,7 @@ webpackJsonp([0],{
 	 *     prototype.
 	 * @param {function} superCtor Constructor function to inherit prototype from.
 	 */
-	exports.inherits = __webpack_require__(289);
+	exports.inherits = __webpack_require__(269);
 	
 	exports._extend = function(origin, add) {
 	  // Don't do anything if add isn't an object
@@ -3097,8 +2568,7 @@ webpackJsonp([0],{
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(4)))
 
 /***/ },
-
-/***/ 288:
+/* 268 */
 /***/ function(module, exports) {
 
 	module.exports = function isBuffer(arg) {
@@ -3109,8 +2579,7 @@ webpackJsonp([0],{
 	}
 
 /***/ },
-
-/***/ 289:
+/* 269 */
 /***/ function(module, exports) {
 
 	if (typeof Object.create === 'function') {
@@ -3139,8 +2608,7 @@ webpackJsonp([0],{
 
 
 /***/ },
-
-/***/ 290:
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3149,7 +2617,7 @@ webpackJsonp([0],{
 	  value: true
 	});
 	
-	var _assert = __webpack_require__(286);
+	var _assert = __webpack_require__(266);
 	
 	var _assert2 = _interopRequireDefault(_assert);
 	
@@ -3171,7 +2639,7 @@ webpackJsonp([0],{
 	
 	            if (undefined !== callbacks) {
 	              callbacks.forEach(function (cb) {
-	                action = cb(action, _this.store);
+	                action = cb(action, _this.store.dispatch, _this.store.getState, _this.store);
 	
 	                _assert2.default.notStrictEqual(undefined, action);
 	              });
@@ -3186,8 +2654,7 @@ webpackJsonp([0],{
 	};
 
 /***/ },
-
-/***/ 291:
+/* 271 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -3196,17 +2663,24 @@ webpackJsonp([0],{
 	  value: true
 	});
 	
-	exports.default = function (actionListenerCallbacks) {
+	exports.default = function (preActionHandlingCallbacks, postActionHandlingCallbacks) {
 	  return function (store) {
 	    return function (next) {
 	      return function (action) {
+	        var preCb = preActionHandlingCallbacks[action.type];
+	        var postCb = postActionHandlingCallbacks[action.type];
+	
+	        if (undefined !== preCb) {
+	          preCb.forEach(function (cb) {
+	            cb(action, store.dispatch, store.getState);
+	          });
+	        }
+	
 	        var result = next(action);
 	
-	        var callbacks = actionListenerCallbacks[action.type];
-	
-	        if (undefined !== callbacks) {
-	          callbacks.forEach(function (cb) {
-	            cb(store.dispatch, action);
+	        if (undefined !== postCb) {
+	          postCb.forEach(function (cb) {
+	            cb(action, store.dispatch, store.getState);
 	          });
 	        }
 	
@@ -3217,8 +2691,24 @@ webpackJsonp([0],{
 	};
 
 /***/ },
+/* 272 */,
+/* 273 */,
+/* 274 */
+/***/ function(module, exports) {
 
-/***/ 294:
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var COMMON_SET_COMPONENTS = 'COMMON_SET_COMPONENTS';
+	
+	exports.default = {
+	  COMMON_SET_COMPONENTS: COMMON_SET_COMPONENTS
+	};
+
+/***/ },
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3227,58 +2717,310 @@ webpackJsonp([0],{
 	  value: true
 	});
 	
-	var _DefaultOpts = __webpack_require__(295);
-	
-	var _DefaultOpts2 = _interopRequireDefault(_DefaultOpts);
-	
-	var _DefaultState = __webpack_require__(297);
-	
-	var _DefaultState2 = _interopRequireDefault(_DefaultState);
-	
-	var _Reducer = __webpack_require__(298);
+	var _Reducer = __webpack_require__(276);
 	
 	var _Reducer2 = _interopRequireDefault(_Reducer);
 	
-	var _Components = __webpack_require__(301);
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var _Components2 = _interopRequireDefault(_Components);
+	var CommonModule = function CommonModule() {
+	  return {
+	    reducer: _Reducer2.default
+	  };
+	};
 	
-	var _ActionType = __webpack_require__(300);
+	CommonModule.moduleName = 'common';
+	
+	exports.default = CommonModule;
+
+/***/ },
+/* 276 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _immutable = __webpack_require__(246);
+	
+	var _immutable2 = _interopRequireDefault(_immutable);
+	
+	var _ActionType = __webpack_require__(274);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	var _DefaultState = __webpack_require__(277);
+	
+	var _DefaultState2 = _interopRequireDefault(_DefaultState);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function () {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? _DefaultState2.default : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case _ActionType2.default.COMMON_SET_COMPONENTS:
+	      return state.setIn(['components'], _immutable2.default.fromJS(action.components));
+	    default:
+	      return state;
+	  }
+	};
+
+/***/ },
+/* 277 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _immutable = __webpack_require__(246);
+	
+	var _immutable2 = _interopRequireDefault(_immutable);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _immutable2.default.fromJS({
+	  components: {}
+	});
+
+/***/ },
+/* 278 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _ConnectedTableWrapper = __webpack_require__(279);
+	
+	var _ConnectedTableWrapper2 = _interopRequireDefault(_ConnectedTableWrapper);
+	
+	var _Reducer = __webpack_require__(290);
+	
+	var _Reducer2 = _interopRequireDefault(_Reducer);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var TableWrapperModule = function TableWrapperModule(opts) {
+	  return {
+	    reducer: _Reducer2.default,
+	    components: {
+	      TableWrapper: _ConnectedTableWrapper2.default
+	    }
+	  };
+	};
+	
+	TableWrapperModule.moduleName = 'tableWrapper';
+	
+	exports.default = TableWrapperModule;
+
+/***/ },
+/* 279 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(280);
+	
+	var _TableWrapper = __webpack_require__(289);
+	
+	var _TableWrapper2 = _interopRequireDefault(_TableWrapper);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _reactRedux.connect)(function (state) {
+	  var common = state.get('common');
+	  var tableWrapperState = state.get('tableWrapper').get('state');
+	
+	  // const beforeTableComponents = state.get('beforeTable').get('components').toJS()
+	
+	  return {
+	    Table: common.get('components').get('table').toJS().Table,
+	    BeforeTableLayout: common.get('components').get('beforeTable').toJS().BeforeTableLayout,
+	    overrideTable: tableWrapperState.get('overrideTable'),
+	    overrideTableWith: tableWrapperState.get('overrideTableWith')
+	  };
+	})(_TableWrapper2.default);
+
+/***/ },
+/* 280 */,
+/* 281 */,
+/* 282 */,
+/* 283 */,
+/* 284 */,
+/* 285 */,
+/* 286 */,
+/* 287 */,
+/* 288 */,
+/* 289 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (props) {
+	  var Table = props.Table;
+	  var BeforeTableLayout = props.BeforeTableLayout;
+	
+	  if (props.overrideTable) {
+	    return _react2.default.createElement(
+	      "div",
+	      { className: "table-wrapper" },
+	      props.overrideTableWith
+	    );
+	  } else {
+	    return _react2.default.createElement(
+	      "div",
+	      { className: "table-wrapper" },
+	      _react2.default.createElement(BeforeTableLayout, { store: props.store }),
+	      _react2.default.createElement(Table, { store: props.store })
+	    );
+	  }
+	};
+
+/***/ },
+/* 290 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _immutable = __webpack_require__(246);
+	
+	var _immutable2 = _interopRequireDefault(_immutable);
+	
+	var _ActionType = __webpack_require__(291);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	var defaultState = _immutable2.default.fromJS({
+	  state: {
+	    overrideTable: false,
+	    overrideTableWith: undefined
+	  }
+	});
+	
+	exports.default = function () {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? defaultState : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case _ActionType2.default.TABLE_WRAPPER_SET_OVERRIDE_TABLE_WITH:
+	      return state.mergeIn(['state'], {
+	        overrideTable: true,
+	        overrideTableWith: action.overrideTableWith
+	      });
+	    case _ActionType2.default.TABLE_WRAPPER_UNSET_OVERRIDE_TABLE_WITH:
+	      return state.mergeIn(['state'], {
+	        overrideTable: false,
+	        overrideTableWith: undefined
+	      });
+	    case _ActionType2.default.TABLE_WRAPPER_SET_BEFORE_TABLE_COMPONENTS:
+	      return state.setIn(['state', 'beforeTableComponents'], _immutable2.default.fromJS(action.beforeTableComponents));
+	    default:
+	      return state;
+	  }
+	};
+
+/***/ },
+/* 291 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var TABLE_WRAPPER_SET_OVERRIDE_TABLE_WITH = 'TABLE_WRAPPER_SET_OVERRIDE_TABLE_WITH';
+	var TABLE_WRAPPER_UNSET_OVERRIDE_TABLE_WITH = 'TABLE_WRAPPER_UNSET_OVERRIDE_TABLE_WITH';
+	var TABLE_WRAPPER_SET_BEFORE_TABLE_COMPONENTS = 'TABLE_WRAPPER_SET_BEFORE_TABLE_COMPONENTS';
+	
+	exports.default = {
+	  TABLE_WRAPPER_SET_OVERRIDE_TABLE_WITH: TABLE_WRAPPER_SET_OVERRIDE_TABLE_WITH,
+	  TABLE_WRAPPER_UNSET_OVERRIDE_TABLE_WITH: TABLE_WRAPPER_UNSET_OVERRIDE_TABLE_WITH,
+	  TABLE_WRAPPER_SET_BEFORE_TABLE_COMPONENTS: TABLE_WRAPPER_SET_BEFORE_TABLE_COMPONENTS
+	};
+
+/***/ },
+/* 292 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _Reducer = __webpack_require__(293);
+	
+	var _Reducer2 = _interopRequireDefault(_Reducer);
+	
+	var _Components = __webpack_require__(297);
+	
+	var _Components2 = _interopRequireDefault(_Components);
+	
+	var _ActionType = __webpack_require__(296);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var tableReplaceComputedViewModelHead = function tableReplaceComputedViewModelHead(dispatch, head) {
+	  if (undefined !== head) {
+	    dispatch({
+	      type: _ActionType2.default.TABLE_REPLACE_COMPUTED_VIEW_MODEL_HEAD,
+	      head: head
+	    });
+	  }
+	};
+	
+	var tableReplaceComputedViewModelProps = function tableReplaceComputedViewModelProps(dispatch, className) {
+	  dispatch({
+	    type: _ActionType2.default.TABLE_REPLACE_COMPUTED_VIEW_MODEL_PROPS,
+	    props: {
+	      className: className
+	    }
+	  });
+	};
 	
 	var TableModule = function TableModule(opts) {
-	  var _actions;
-	
-	  var actions = (_actions = {}, _defineProperty(_actions, _ActionType2.default.TABLE_REPLACE_COMPUTED_VIEW_MODEL_PROPS, _ActionType2.default.TABLE_REPLACE_COMPUTED_VIEW_MODEL_PROPS), _defineProperty(_actions, _ActionType2.default.TABLE_REPLACE_COMPUTED_VIEW_MODEL_BODYS, _ActionType2.default.TABLE_REPLACE_COMPUTED_VIEW_MODEL_BODYS), _actions);
+	  var boot = function boot(dispatch) {
+	    if (undefined !== opts) {
+	      tableReplaceComputedViewModelHead(dispatch, opts.head);
+	      tableReplaceComputedViewModelProps(dispatch, opts.className);
+	    }
+	  };
 	
 	  return {
-	    defaultOpts: _DefaultOpts2.default,
-	    defaultState: _DefaultState2.default,
 	    reducer: _Reducer2.default,
 	    components: _Components2.default,
-	    actions: actions,
-	    boot: function boot(dispatch) {
-	      if (undefined !== opts) {
-	        if (undefined !== opts.head) {
-	          dispatch({
-	            type: _ActionType2.default.TABLE_REPLACE_COMPUTED_VIEW_MODEL_HEAD,
-	            head: opts.head
-	          });
-	        }
-	
-	        dispatch({
-	          type: _ActionType2.default.TABLE_REPLACE_COMPUTED_VIEW_MODEL_PROPS,
-	          props: {
-	            className: opts.className
-	          }
-	        });
-	      }
-	    }
+	    boot: boot
 	  };
 	};
 	
@@ -3287,8 +3029,7 @@ webpackJsonp([0],{
 	exports.default = TableModule;
 
 /***/ },
-
-/***/ 295:
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3297,41 +3038,32 @@ webpackJsonp([0],{
 	  value: true
 	});
 	
-	var _UndefinedFunction = __webpack_require__(296);
+	var _reduxImmutable = __webpack_require__(244);
 	
-	var _UndefinedFunction2 = _interopRequireDefault(_UndefinedFunction);
+	var _DefaultState = __webpack_require__(294);
+	
+	var _DefaultState2 = _interopRequireDefault(_DefaultState);
+	
+	var _ComputeViewModelReducer = __webpack_require__(295);
+	
+	var _ComputeViewModelReducer2 = _interopRequireDefault(_ComputeViewModelReducer);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = {
-	  getData: _UndefinedFunction2.default.bind('table.getData'),
-	  renderCell: _UndefinedFunction2.default.bind('table.renderCell'),
-	  messages: {
-	    data: {
-	      errorLoading: 'Error loading data.',
-	      loadingMessage: 'Loading data...'
+	exports.default = function () {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? _DefaultState2.default : arguments[0];
+	  var action = arguments[1];
+	
+	  return (0, _reduxImmutable.combineReducers)({
+	    computedViewModel: _ComputeViewModelReducer2.default,
+	    state: function state(s) {
+	      return s;
 	    }
-	  }
+	  })(state, action);
 	};
 
 /***/ },
-
-/***/ 296:
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	exports.default = function (functionName) {
-	  throw new Error('Call to undefined state function "' + functionName + '".');
-	};
-
-/***/ },
-
-/***/ 297:
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3340,7 +3072,7 @@ webpackJsonp([0],{
 	  value: true
 	});
 	
-	var _immutable = __webpack_require__(280);
+	var _immutable = __webpack_require__(246);
 	
 	var _immutable2 = _interopRequireDefault(_immutable);
 	
@@ -3362,8 +3094,7 @@ webpackJsonp([0],{
 	});
 
 /***/ },
-
-/***/ 298:
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3372,46 +3103,11 @@ webpackJsonp([0],{
 	  value: true
 	});
 	
-	var _reduxImmutable = __webpack_require__(278);
-	
-	var _DefaultState = __webpack_require__(297);
-	
-	var _DefaultState2 = _interopRequireDefault(_DefaultState);
-	
-	var _ComputeViewModelReducer = __webpack_require__(299);
-	
-	var _ComputeViewModelReducer2 = _interopRequireDefault(_ComputeViewModelReducer);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = function () {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? _DefaultState2.default : arguments[0];
-	  var action = arguments[1];
-	
-	  return (0, _reduxImmutable.combineReducers)({
-	    computedViewModel: _ComputeViewModelReducer2.default,
-	    state: function state(s) {
-	      return s;
-	    }
-	  })(state, action);
-	};
-
-/***/ },
-
-/***/ 299:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _ActionType = __webpack_require__(300);
+	var _ActionType = __webpack_require__(296);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
-	var _immutable = __webpack_require__(280);
+	var _immutable = __webpack_require__(246);
 	
 	var _immutable2 = _interopRequireDefault(_immutable);
 	
@@ -3431,8 +3127,7 @@ webpackJsonp([0],{
 	};
 
 /***/ },
-
-/***/ 300:
+/* 296 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3451,8 +3146,7 @@ webpackJsonp([0],{
 	};
 
 /***/ },
-
-/***/ 301:
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3461,19 +3155,19 @@ webpackJsonp([0],{
 	  value: true
 	});
 	
-	var _Table = __webpack_require__(302);
+	var _Table = __webpack_require__(298);
 	
 	var _Table2 = _interopRequireDefault(_Table);
 	
-	var _TableBody = __webpack_require__(303);
+	var _TableBody = __webpack_require__(299);
 	
 	var _TableBody2 = _interopRequireDefault(_TableBody);
 	
-	var _TableRow = __webpack_require__(304);
+	var _TableRow = __webpack_require__(300);
 	
 	var _TableRow2 = _interopRequireDefault(_TableRow);
 	
-	var _ConnectedTable = __webpack_require__(305);
+	var _ConnectedTable = __webpack_require__(301);
 	
 	var _ConnectedTable2 = _interopRequireDefault(_ConnectedTable);
 	
@@ -3492,8 +3186,7 @@ webpackJsonp([0],{
 	};
 
 /***/ },
-
-/***/ 302:
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3517,8 +3210,7 @@ webpackJsonp([0],{
 	};
 
 /***/ },
-
-/***/ 303:
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3542,8 +3234,7 @@ webpackJsonp([0],{
 	};
 
 /***/ },
-
-/***/ 304:
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3567,8 +3258,7 @@ webpackJsonp([0],{
 	};
 
 /***/ },
-
-/***/ 305:
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3577,9 +3267,9 @@ webpackJsonp([0],{
 	  value: true
 	});
 	
-	var _reactRedux = __webpack_require__(244);
+	var _reactRedux = __webpack_require__(280);
 	
-	var _ContainerTable = __webpack_require__(306);
+	var _ContainerTable = __webpack_require__(302);
 	
 	var _ContainerTable2 = _interopRequireDefault(_ContainerTable);
 	
@@ -3596,8 +3286,7 @@ webpackJsonp([0],{
 	})(_ContainerTable2.default);
 
 /***/ },
-
-/***/ 306:
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3610,15 +3299,15 @@ webpackJsonp([0],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Table = __webpack_require__(302);
+	var _Table = __webpack_require__(298);
 	
 	var _Table2 = _interopRequireDefault(_Table);
 	
-	var _ContainerTableHead = __webpack_require__(307);
+	var _ContainerTableHead = __webpack_require__(303);
 	
 	var _ContainerTableHead2 = _interopRequireDefault(_ContainerTableHead);
 	
-	var _ContainerTableBody = __webpack_require__(313);
+	var _ContainerTableBody = __webpack_require__(309);
 	
 	var _ContainerTableBody2 = _interopRequireDefault(_ContainerTableBody);
 	
@@ -3640,8 +3329,7 @@ webpackJsonp([0],{
 	};
 
 /***/ },
-
-/***/ 307:
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3654,11 +3342,11 @@ webpackJsonp([0],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _TableHead = __webpack_require__(308);
+	var _TableHead = __webpack_require__(304);
 	
 	var _TableHead2 = _interopRequireDefault(_TableHead);
 	
-	var _ContainerTableRow = __webpack_require__(309);
+	var _ContainerTableRow = __webpack_require__(305);
 	
 	var _ContainerTableRow2 = _interopRequireDefault(_ContainerTableRow);
 	
@@ -3679,8 +3367,7 @@ webpackJsonp([0],{
 	};
 
 /***/ },
-
-/***/ 308:
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3704,8 +3391,7 @@ webpackJsonp([0],{
 	};
 
 /***/ },
-
-/***/ 309:
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3718,11 +3404,11 @@ webpackJsonp([0],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _TableRow = __webpack_require__(304);
+	var _TableRow = __webpack_require__(300);
 	
 	var _TableRow2 = _interopRequireDefault(_TableRow);
 	
-	var _ContainerTableCell = __webpack_require__(310);
+	var _ContainerTableCell = __webpack_require__(306);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -3747,8 +3433,7 @@ webpackJsonp([0],{
 	};
 
 /***/ },
-
-/***/ 310:
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3762,11 +3447,11 @@ webpackJsonp([0],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _TableData = __webpack_require__(311);
+	var _TableData = __webpack_require__(307);
 	
 	var _TableData2 = _interopRequireDefault(_TableData);
 	
-	var _TableHeading = __webpack_require__(312);
+	var _TableHeading = __webpack_require__(308);
 	
 	var _TableHeading2 = _interopRequireDefault(_TableHeading);
 	
@@ -3789,8 +3474,7 @@ webpackJsonp([0],{
 	exports.TableHeading = TableHeading;
 
 /***/ },
-
-/***/ 311:
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3814,8 +3498,7 @@ webpackJsonp([0],{
 	};
 
 /***/ },
-
-/***/ 312:
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3839,8 +3522,7 @@ webpackJsonp([0],{
 	};
 
 /***/ },
-
-/***/ 313:
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3853,11 +3535,11 @@ webpackJsonp([0],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _TableBody = __webpack_require__(303);
+	var _TableBody = __webpack_require__(299);
 	
 	var _TableBody2 = _interopRequireDefault(_TableBody);
 	
-	var _ContainerTableRow = __webpack_require__(309);
+	var _ContainerTableRow = __webpack_require__(305);
 	
 	var _ContainerTableRow2 = _interopRequireDefault(_ContainerTableRow);
 	
@@ -3878,8 +3560,7 @@ webpackJsonp([0],{
 	};
 
 /***/ },
-
-/***/ 314:
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3888,11 +3569,11 @@ webpackJsonp([0],{
 	  value: true
 	});
 	
-	var _Reducer = __webpack_require__(315);
+	var _Reducer = __webpack_require__(311);
 	
 	var _Reducer2 = _interopRequireDefault(_Reducer);
 	
-	var _ActionType = __webpack_require__(316);
+	var _ActionType = __webpack_require__(312);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
@@ -3914,8 +3595,7 @@ webpackJsonp([0],{
 	exports.default = DataModule;
 
 /***/ },
-
-/***/ 315:
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3924,20 +3604,22 @@ webpackJsonp([0],{
 	  value: true
 	});
 	
-	var _immutable = __webpack_require__(280);
+	var _immutable = __webpack_require__(246);
 	
 	var _immutable2 = _interopRequireDefault(_immutable);
 	
-	var _ActionType = __webpack_require__(316);
+	var _ActionType = __webpack_require__(312);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
+	var _DefaultState = __webpack_require__(313);
+	
+	var _DefaultState2 = _interopRequireDefault(_DefaultState);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var defaultState = _immutable2.default.fromJS({});
-	
 	exports.default = function () {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? defaultState : arguments[0];
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? _DefaultState2.default : arguments[0];
 	  var action = arguments[1];
 	
 	  switch (action.type) {
@@ -3949,8 +3631,7 @@ webpackJsonp([0],{
 	};
 
 /***/ },
-
-/***/ 316:
+/* 312 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3965,8 +3646,7 @@ webpackJsonp([0],{
 	};
 
 /***/ },
-
-/***/ 317:
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3975,29 +3655,56 @@ webpackJsonp([0],{
 	  value: true
 	});
 	
-	var _ActionType = __webpack_require__(318);
+	var _immutable = __webpack_require__(246);
+	
+	var _immutable2 = _interopRequireDefault(_immutable);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _immutable2.default.fromJS({});
+
+/***/ },
+/* 314 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _ActionType = __webpack_require__(315);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
-	var _ActionType3 = __webpack_require__(316);
+	var _ActionType3 = __webpack_require__(312);
 	
 	var _ActionType4 = _interopRequireDefault(_ActionType3);
+	
+	var _ActionType5 = __webpack_require__(291);
+	
+	var _ActionType6 = _interopRequireDefault(_ActionType5);
+	
+	var _Reducer = __webpack_require__(316);
+	
+	var _Reducer2 = _interopRequireDefault(_Reducer);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 	
-	var AsyncDataModule = function AsyncDataModule(opts) {
-	  var actions = {};
-	
+	var makeScheduleFetchData = function makeScheduleFetchData() {
 	  var promise = undefined;
+	  var tableWrapperOverrideUnset = false;
 	
-	  var fetchData = function fetchData(dispatch) {
+	  return function (getFetchDataPromise, dispatch, getState) {
 	    if (undefined !== promise) {
 	      promise.cancel();
 	    }
 	
-	    promise = opts.fetchData();
+	    var asyncDataState = getState().get('asyncData').get('state').get('options').toJS();
+	
+	    promise = getFetchDataPromise(asyncDataState);
 	
 	    promise.then(function (data) {
 	      dispatch({
@@ -4005,20 +3712,46 @@ webpackJsonp([0],{
 	        data: data
 	      });
 	    });
-	  };
 	
-	  actions[_ActionType2.default.ASYNC_DATA_UPDATE_DATA] = _ActionType2.default.ASYNC_DATA_UPDATE_DATA;
+	    promise.then(function () {
+	      if (tableWrapperOverrideUnset) {
+	        return;
+	      }
+	
+	      tableWrapperOverrideUnset = true;
+	
+	      dispatch({
+	        type: _ActionType6.default.TABLE_WRAPPER_UNSET_OVERRIDE_TABLE_WITH
+	      });
+	    });
+	  };
+	};
+	
+	var setTableWrapperContentLoading = function setTableWrapperContentLoading(dispatch) {
+	  dispatch({
+	    type: _ActionType6.default.TABLE_WRAPPER_SET_OVERRIDE_TABLE_WITH,
+	    overrideTableWith: 'Loading...'
+	  });
+	};
+	
+	var updateData = function updateData(dispatch) {
+	  dispatch({
+	    type: _ActionType2.default.ASYNC_DATA_UPDATE_DATA
+	  });
+	};
+	
+	var AsyncDataModule = function AsyncDataModule(opts) {
+	  var scheduleFetchData = makeScheduleFetchData();
 	
 	  return {
-	    actions: actions,
+	    reducer: _Reducer2.default,
 	    boot: function boot(dispatch) {
-	      dispatch({
-	        type: _ActionType2.default.ASYNC_DATA_UPDATE_DATA
-	      });
+	      setTableWrapperContentLoading(dispatch);
+	      updateData(dispatch);
 	    },
 	    listeners: function listeners() {
-	      return _defineProperty({}, _ActionType2.default.ASYNC_DATA_UPDATE_DATA, function (dispatch) {
-	        fetchData(dispatch);
+	      return _defineProperty({}, _ActionType2.default.ASYNC_DATA_UPDATE_DATA, function (action, dispatch, getState) {
+	        scheduleFetchData(opts.fetchData, dispatch, getState);
 	      });
 	    }
 	  };
@@ -4029,8 +3762,7 @@ webpackJsonp([0],{
 	exports.default = AsyncDataModule;
 
 /***/ },
-
-/***/ 318:
+/* 315 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4039,14 +3771,15 @@ webpackJsonp([0],{
 	  value: true
 	});
 	var ASYNC_DATA_UPDATE_DATA = 'ASYNC_DATA_UPDATE_DATA';
+	var ASYNC_UPDATE_OPTIONS = 'ASYNC_UPDATE_OPTIONS';
 	
 	exports.default = {
-	  ASYNC_DATA_UPDATE_DATA: ASYNC_DATA_UPDATE_DATA
+	  ASYNC_DATA_UPDATE_DATA: ASYNC_DATA_UPDATE_DATA,
+	  ASYNC_UPDATE_OPTIONS: ASYNC_UPDATE_OPTIONS
 	};
 
 /***/ },
-
-/***/ 319:
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4055,11 +3788,49 @@ webpackJsonp([0],{
 	  value: true
 	});
 	
-	var _ActionType = __webpack_require__(316);
+	var _immutable = __webpack_require__(246);
+	
+	var _immutable2 = _interopRequireDefault(_immutable);
+	
+	var _ActionType = __webpack_require__(315);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
-	var _ActionType3 = __webpack_require__(300);
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var defaultState = _immutable2.default.fromJS({
+	  state: {
+	    options: {}
+	  }
+	});
+	
+	exports.default = function () {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? defaultState : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case _ActionType2.default.ASYNC_UPDATE_OPTIONS:
+	      return state.mergeIn(['state', 'options'], action.options);
+	    default:
+	      return state;
+	  }
+	};
+
+/***/ },
+/* 317 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _ActionType = __webpack_require__(312);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	var _ActionType3 = __webpack_require__(296);
 	
 	var _ActionType4 = _interopRequireDefault(_ActionType3);
 	
@@ -4067,16 +3838,18 @@ webpackJsonp([0],{
 	
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 	
+	function tableReplaceComputedViewModelBodys(dispatch, bodys) {
+	  dispatch({
+	    type: _ActionType4.default.TABLE_REPLACE_COMPUTED_VIEW_MODEL_BODYS,
+	    bodys: bodys
+	  });
+	}
+	
 	var ParseDataModule = function ParseDataModule(opts) {
 	  return {
 	    listeners: function listeners() {
-	      return _defineProperty({}, _ActionType2.default.DATA_REPLACE_DATA, function (dispatch, action) {
-	        var bodys = opts.updateBodys(action.data);
-	
-	        dispatch({
-	          type: _ActionType4.default.TABLE_REPLACE_COMPUTED_VIEW_MODEL_BODYS,
-	          bodys: bodys
-	        });
+	      return _defineProperty({}, _ActionType2.default.DATA_REPLACE_DATA, function (action, dispatch) {
+	        tableReplaceComputedViewModelBodys(dispatch, opts.updateBodys(action.data));
 	      });
 	    }
 	  };
@@ -4087,11 +3860,144 @@ webpackJsonp([0],{
 	exports.default = ParseDataModule;
 
 /***/ },
-
-/***/ 320:
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _Reducer = __webpack_require__(319);
+	
+	var _Reducer2 = _interopRequireDefault(_Reducer);
+	
+	var _ConnectedBeforeTableLayout = __webpack_require__(322);
+	
+	var _ConnectedBeforeTableLayout2 = _interopRequireDefault(_ConnectedBeforeTableLayout);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var BeforeTableModule = function BeforeTableModule() {
+	  return {
+	    reducer: _Reducer2.default,
+	    components: {
+	      BeforeTableLayout: _ConnectedBeforeTableLayout2.default
+	    }
+	  };
+	};
+	
+	BeforeTableModule.moduleName = 'beforeTable';
+	
+	exports.default = BeforeTableModule;
+
+/***/ },
+/* 319 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _DefaultState = __webpack_require__(320);
+	
+	var _DefaultState2 = _interopRequireDefault(_DefaultState);
+	
+	var _ActionType = __webpack_require__(321);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function () {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? _DefaultState2.default : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case _ActionType2.default.BEFORE_TABLE_REGISTER_COMPONENT:
+	      var temp = state.setIn(['state', 'rows', action.row, 'slots', action.slot], action.component);
+	
+	      return temp;
+	    default:
+	      return state;
+	  }
+	};
+
+/***/ },
+/* 320 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _immutable = __webpack_require__(246);
+	
+	var _immutable2 = _interopRequireDefault(_immutable);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _immutable2.default.fromJS({
+	  state: {
+	    rows: [{
+	      slots: []
+	    }, {
+	      slots: []
+	    }]
+	  }
+	});
+
+/***/ },
+/* 321 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var BEFORE_TABLE_REGISTER_COMPONENT = 'BEFORE_TABLE_REGISTER_COMPONENT';
+	
+	exports.default = {
+	  BEFORE_TABLE_REGISTER_COMPONENT: BEFORE_TABLE_REGISTER_COMPONENT
+	};
+
+/***/ },
+/* 322 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(280);
+	
+	var _BeforeTableLayout = __webpack_require__(323);
+	
+	var _BeforeTableLayout2 = _interopRequireDefault(_BeforeTableLayout);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _reactRedux.connect)(function (state) {
+	  var rows = state.get('beforeTable').get('state').get('rows').toJS();
+	
+	  return {
+	    rows: rows
+	  };
+	})(_BeforeTableLayout2.default);
+
+/***/ },
+/* 323 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -4103,26 +4009,55 @@ webpackJsonp([0],{
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var PaginatorModule = function PaginatorModule() {
-	  return {
-	
-	    beforeTableComponents: function beforeTableComponents() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        'test'
-	      );
-	    }
+	exports.default = function (props) {
+	  var renderComponent = function renderComponent(Component) {
+	    return _react2.default.createElement(Component, { store: props.store });
 	  };
+	
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "row before-table" },
+	    _react2.default.createElement(
+	      "div",
+	      { className: "col-md-12" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "row" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "col-md-3" },
+	          renderComponent(props.rows[0].slots[0])
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "col-md-2" },
+	          renderComponent(props.rows[0].slots[1])
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "row" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "col-md-2" },
+	          renderComponent(props.rows[1].slots[0])
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "col-md-10" },
+	          _react2.default.createElement(
+	            "div",
+	            { className: "pull-right" },
+	            renderComponent(props.rows[1].slots[1])
+	          )
+	        )
+	      )
+	    )
+	  );
 	};
-	
-	PaginatorModule.moduleName = 'paginator';
-	
-	exports.default = PaginatorModule;
 
 /***/ },
-
-/***/ 321:
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4131,25 +4066,41 @@ webpackJsonp([0],{
 	  value: true
 	});
 	
-	var _Reducer = __webpack_require__(322);
+	var _Reducer = __webpack_require__(325);
 	
 	var _Reducer2 = _interopRequireDefault(_Reducer);
 	
-	var _ActionType = __webpack_require__(324);
+	var _ActionType = __webpack_require__(327);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
-	var _ActionType3 = __webpack_require__(300);
+	var _ActionType3 = __webpack_require__(296);
 	
 	var _ActionType4 = _interopRequireDefault(_ActionType3);
 	
-	var _ConnectedSortIcon = __webpack_require__(325);
+	var _ActionType5 = __webpack_require__(328);
+	
+	var _ActionType6 = _interopRequireDefault(_ActionType5);
+	
+	var _ConnectedSortIcon = __webpack_require__(329);
 	
 	var _ConnectedSortIcon2 = _interopRequireDefault(_ConnectedSortIcon);
 	
 	var _react = __webpack_require__(2);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _lodash = __webpack_require__(272);
+	
+	var _lodash2 = _interopRequireDefault(_lodash);
+	
+	var _DefaultState = __webpack_require__(326);
+	
+	var _DefaultState2 = _interopRequireDefault(_DefaultState);
+	
+	var _ActionType7 = __webpack_require__(315);
+	
+	var _ActionType8 = _interopRequireDefault(_ActionType7);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -4161,19 +4112,124 @@ webpackJsonp([0],{
 	  }
 	
 	  return {
+	    defaultState: _DefaultState2.default,
 	    reducer: _Reducer2.default,
 	    listeners: function listeners() {
-	      return _defineProperty({}, _ActionType2.default.SORT_RESET_SORT_STATE, function (dispatch) {});
+	      var _ref;
+	
+	      return _ref = {}, _defineProperty(_ref, _ActionType2.default.SORT_TOGGLE_SORT, function (action, dispatch, getState) {
+	        var state = getState();
+	
+	        var previousSortState = state.get('sort').get('state').toJS();
+	
+	        var order = undefined;
+	
+	        var defaultOrder = 'asc';
+	
+	        if (previousSortState.sort !== action.sort) {
+	          order = defaultOrder;
+	        } else if ('asc' === previousSortState.order) {
+	          order = 'desc';
+	        } else if ('desc' === previousSortState.order) {
+	          order = 'asc';
+	        } else {
+	          throw new Error('Unsupported sortState.order "' + previousSortState.order + '"');
+	        }
+	
+	        dispatch({
+	          type: _ActionType2.default.SORT_UPDATE_SORT_STATE,
+	          state: {
+	            sort: action.sort,
+	            order: order
+	          }
+	        });
+	      }), _defineProperty(_ref, _ActionType2.default.SORT_RESET_SORT_STATE, function (action, dispatch) {
+	        dispatch({
+	          type: _ActionType2.default.SORT_UPDATE_SORT_STATE,
+	          state: {
+	            sort: undefined,
+	            order: undefined
+	          }
+	        });
+	      }), _defineProperty(_ref, _ActionType2.default.SORT_UPDATE_SORT_STATE, function (action, dispatch, getState) {
+	        var state = getState();
+	
+	        var sortState = action.state;
+	
+	        var tableComputedViewModel = state.get('table').get('computedViewModel').toJS();
+	
+	        function getIconClassName(cell) {
+	          var base = 'glyphicon';
+	
+	          if (cell.name === sortState.sort) {
+	            if ('asc' === sortState.order) {
+	              return base + ' glyphicon-arrow-up';
+	            } else if ('desc' === sortState.order) {
+	              return base + ' glyphicon-arrow-down';
+	            } else {
+	              throw new Error('Unexpected action.order "' + sortState.order + '".');
+	            }
+	          }
+	
+	          return base + ' glyphicon-sort';
+	        }
+	
+	        function getShowRemoveIcon(cell) {
+	          var sortState = action.state;
+	
+	          return cell.name === sortState.sort;
+	        }
+	
+	        var viewModelCells = tableComputedViewModel.head.rows[0].cells.map(function (cell) {
+	          return {
+	            iconClassName: getIconClassName(cell),
+	            showRemoveIcon: getShowRemoveIcon(cell)
+	          };
+	        });
+	
+	        dispatch({
+	          type: _ActionType2.default.SORT_UPDATE_COMPUTED_VIEW_MODEL_CELLS,
+	          cells: viewModelCells
+	        });
+	
+	        dispatch({
+	          type: _ActionType6.default.ROUTING_UPDATE_ROUTE,
+	          queryParams: action.state
+	        });
+	
+	        if (undefined !== sortState.sort && undefined !== sortState.order) {
+	          dispatch({
+	            type: _ActionType8.default.ASYNC_UPDATE_OPTIONS,
+	            options: {
+	              sort: {
+	                sort: sortState.sort,
+	                order: sortState.order
+	              }
+	            }
+	          });
+	        } else {
+	          dispatch({
+	            type: _ActionType8.default.ASYNC_UPDATE_OPTIONS,
+	            options: {
+	              sort: undefined
+	            }
+	          });
+	        }
+	
+	        dispatch({
+	          type: _ActionType8.default.ASYNC_DATA_UPDATE_DATA
+	        });
+	      }), _ref;
 	    },
 	    filters: function filters() {
 	      var sortableColumns = getSortableColumns();
 	
-	      return _defineProperty({}, _ActionType4.default.TABLE_REPLACE_COMPUTED_VIEW_MODEL_HEAD, function (action, store) {
+	      return _defineProperty({}, _ActionType4.default.TABLE_REPLACE_COMPUTED_VIEW_MODEL_HEAD, function (action, dispatch, getState, store) {
 	        if (action.head.rows.length > 1) {
 	          throw new Error('Unsupported multi-rows header.');
 	        }
 	
-	        action.head.rows[0].cells.forEach(function (cell) {
+	        action.head.rows[0].cells.forEach(function (cell, cellIndex) {
 	          if (sortableColumns.indexOf(cell.name) !== -1) {
 	            var className = void 0;
 	
@@ -4183,19 +4239,44 @@ webpackJsonp([0],{
 	              className = 'sortable';
 	            }
 	
-	            cell.props = {
-	              className: className
-	            };
+	            _lodash2.default.merge(cell, {
+	              props: {
+	                onClick: function onClick(event) {
+	                  event.preventDefault();
+	
+	                  dispatch({
+	                    type: _ActionType2.default.SORT_TOGGLE_SORT,
+	                    sort: cell.name
+	                  });
+	                },
+	                className: className
+	              }
+	            });
 	
 	            cell.content = [cell.content, _react2.default.createElement(_ConnectedSortIcon2.default, {
 	              key: 'sortIcon',
-	              store: store,
-	              iconClassName: "glyphicon glyphicon-arrow-up",
-	              showRemoveIcon: true })];
+	              cellIndex: cellIndex,
+	              store: store })];
 	          }
 	        });
 	
 	        return action;
+	      });
+	    },
+	    boot: function boot(dispatch, getState) {
+	      var sortState = {};
+	      var query = getState().get('opts').get('routing').toJS().location.query;
+	
+	      if (undefined !== query.sort && undefined !== query.order) {
+	        sortState.sort = query.sort;
+	        sortState.order = query.order;
+	      }
+	
+	      // console.log(sortState)
+	
+	      dispatch({
+	        type: _ActionType2.default.SORT_UPDATE_SORT_STATE,
+	        state: sortState
 	      });
 	    }
 	  };
@@ -4206,8 +4287,7 @@ webpackJsonp([0],{
 	exports.default = SortModule;
 
 /***/ },
-
-/***/ 322:
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4216,9 +4296,17 @@ webpackJsonp([0],{
 	  value: true
 	});
 	
-	var _DefaultState = __webpack_require__(323);
+	var _DefaultState = __webpack_require__(326);
 	
 	var _DefaultState2 = _interopRequireDefault(_DefaultState);
+	
+	var _ActionType = __webpack_require__(327);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	var _immutable = __webpack_require__(246);
+	
+	var _immutable2 = _interopRequireDefault(_immutable);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -4227,14 +4315,17 @@ webpackJsonp([0],{
 	  var action = arguments[1];
 	
 	  switch (action.type) {
+	    case _ActionType2.default.SORT_UPDATE_COMPUTED_VIEW_MODEL_CELLS:
+	      return state.setIn(['computedViewModel', 'cells'], _immutable2.default.fromJS(action.cells));
+	    case _ActionType2.default.SORT_UPDATE_SORT_STATE:
+	      return state.setIn(['state'], _immutable2.default.fromJS(action.state));
 	    default:
 	      return state;
 	  }
 	};
 
 /***/ },
-
-/***/ 323:
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4243,19 +4334,23 @@ webpackJsonp([0],{
 	  value: true
 	});
 	
-	var _immutable = __webpack_require__(280);
+	var _immutable = __webpack_require__(246);
 	
 	var _immutable2 = _interopRequireDefault(_immutable);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = _immutable2.default.fromJS({
-	  state: {}
+	  state: {},
+	  computedViewModel: {
+	    cells: [{}, //TODO Remove
+	    {} //TODO Remove
+	    ]
+	  }
 	});
 
 /***/ },
-
-/***/ 324:
+/* 327 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4264,16 +4359,38 @@ webpackJsonp([0],{
 	  value: true
 	});
 	var SORT_TOGGLE_SORT = 'SORT_TOGGLE_SORT';
+	var SORT_UPDATE_SORT_STATE = 'SORT_UPDATE_SORT_STATE';
 	var SORT_RESET_SORT_STATE = 'SORT_RESET_SORT_STATE';
+	var SORT_UPDATE_COMPUTED_VIEW_MODEL_CELLS = 'SORT_UPDATE_COMPUTED_VIEW_MODEL_CELLS';
 	
 	exports.default = {
 	  SORT_TOGGLE_SORT: SORT_TOGGLE_SORT,
-	  SORT_RESET_SORT_STATE: SORT_RESET_SORT_STATE
+	  SORT_UPDATE_SORT_STATE: SORT_UPDATE_SORT_STATE,
+	  SORT_RESET_SORT_STATE: SORT_RESET_SORT_STATE,
+	  SORT_UPDATE_COMPUTED_VIEW_MODEL_CELLS: SORT_UPDATE_COMPUTED_VIEW_MODEL_CELLS
 	};
 
 /***/ },
+/* 328 */
+/***/ function(module, exports) {
 
-/***/ 325:
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var SET_PREVIOUS_LOCATION_QUERY = 'SET_PREVIOUS_LOCATION_QUERY';
+	var ROUTING_UPDATE_ROUTE = 'ROUTING_UPDATE_ROUTE';
+	var SET_MAKE_LINK = 'SET_MAKE_LINK';
+	
+	exports.default = {
+	  SET_PREVIOUS_LOCATION_QUERY: SET_PREVIOUS_LOCATION_QUERY,
+	  ROUTING_UPDATE_ROUTE: ROUTING_UPDATE_ROUTE,
+	  SET_MAKE_LINK: SET_MAKE_LINK
+	};
+
+/***/ },
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4282,21 +4399,30 @@ webpackJsonp([0],{
 	  value: true
 	});
 	
-	var _reactRedux = __webpack_require__(244);
+	var _reactRedux = __webpack_require__(280);
 	
-	var _ActionType = __webpack_require__(324);
+	var _ActionType = __webpack_require__(327);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
-	var _SortIcon = __webpack_require__(326);
+	var _SortIcon = __webpack_require__(330);
 	
 	var _SortIcon2 = _interopRequireDefault(_SortIcon);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	exports.default = (0, _reactRedux.connect)(undefined, {
+	exports.default = (0, _reactRedux.connect)(function (state, ownProps) {
+	  var cellIndex = ownProps.cellIndex;
+	
+	  var computedViewModel = state.get('sort').get('computedViewModel').toJS();
+	
+	  return {
+	    iconClassName: computedViewModel.cells[cellIndex].iconClassName,
+	    showRemoveIcon: computedViewModel.cells[cellIndex].showRemoveIcon
+	  };
+	}, {
 	  handleResetSortContextClicked: function handleResetSortContextClicked(event) {
-	    event.preventDefault();
+	    event.stopPropagation();
 	
 	    return {
 	      type: _ActionType2.default.SORT_RESET_SORT_STATE
@@ -4305,8 +4431,7 @@ webpackJsonp([0],{
 	})(_SortIcon2.default);
 
 /***/ },
-
-/***/ 326:
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -4347,7 +4472,1763 @@ webpackJsonp([0],{
 	
 	exports.default = SortIcon;
 
-/***/ }
+/***/ },
+/* 331 */
+/***/ function(module, exports, __webpack_require__) {
 
-});
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _ActionType = __webpack_require__(328);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	var _Reducer = __webpack_require__(332);
+	
+	var _Reducer2 = _interopRequireDefault(_Reducer);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	var goToPage = function goToPage(router, pathname, query) {
+	  router.push(router.createPath({ pathname: pathname, query: query }));
+	};
+	
+	var RoutingModule = function RoutingModule(opts) {
+	  return {
+	    reducer: _Reducer2.default,
+	    listeners: function listeners() {
+	      return _defineProperty({}, _ActionType2.default.ROUTING_UPDATE_ROUTE, function (action, dispatch, getState) {
+	        //Override any page and pageSize query parameters
+	        var query = Object.assign({}, getState().get('routing').get('state').get('previousLocationQuery').toJS(), action.queryParams);
+	
+	        goToPage(opts.router, opts.location.pathname, query);
+	
+	        dispatch({
+	          type: _ActionType2.default.SET_PREVIOUS_LOCATION_QUERY,
+	          previousLocationQuery: query
+	        });
+	      });
+	    },
+	    boot: function boot(dispatch) {
+	      dispatch({
+	        type: _ActionType2.default.SET_PREVIOUS_LOCATION_QUERY,
+	        previousLocationQuery: opts.location.query
+	      });
+	
+	      dispatch({
+	        type: _ActionType2.default.SET_MAKE_LINK,
+	        makeLink: function makeLink(getState, paramQuery) {
+	          //Override any page and pageSize query parameters
+	          var query = Object.assign({}, getState().get('routing').get('state').get('previousLocationQuery').toJS(), paramQuery);
+	
+	          return opts.router.createPath({
+	            pathname: opts.location.pathname,
+	            query: query
+	          });
+	        }
+	      });
+	    }
+	  };
+	};
+	
+	RoutingModule.moduleName = 'routing';
+	
+	exports.default = RoutingModule;
+
+/***/ },
+/* 332 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _DefaultState = __webpack_require__(333);
+	
+	var _DefaultState2 = _interopRequireDefault(_DefaultState);
+	
+	var _ActionType = __webpack_require__(328);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function () {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? _DefaultState2.default : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case _ActionType2.default.SET_MAKE_LINK:
+	      return state.set('makeLink', action.makeLink);
+	    case _ActionType2.default.SET_PREVIOUS_LOCATION_QUERY:
+	      return state.mergeIn(['state'], { previousLocationQuery: action.previousLocationQuery });
+	    default:
+	      return state;
+	  }
+	};
+
+/***/ },
+/* 333 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _immutable = __webpack_require__(246);
+	
+	var _immutable2 = _interopRequireDefault(_immutable);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _immutable2.default.fromJS({
+	  state: {}
+	});
+
+/***/ },
+/* 334 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _MakeModule = __webpack_require__(335);
+	
+	var _MakeModule2 = _interopRequireDefault(_MakeModule);
+	
+	var _Reducer = __webpack_require__(336);
+	
+	var _Reducer2 = _interopRequireDefault(_Reducer);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _MakeModule2.default)('filter', function () {
+	  return {
+	    reducer: _Reducer2.default
+	  };
+	});
+
+/***/ },
+/* 335 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	exports.default = function (moduleName, makeModuleDefinition) {
+	  var Module = makeModuleDefinition;
+	
+	  Module.moduleName = moduleName;
+	
+	  return Module;
+	};
+
+/***/ },
+/* 336 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _DefaultState = __webpack_require__(337);
+	
+	var _DefaultState2 = _interopRequireDefault(_DefaultState);
+	
+	var _ActionType = __webpack_require__(338);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function () {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? _DefaultState2.default : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case _ActionType2.default.FILTER_UPDATE_Q_FIELD_VALUE:
+	      return state.mergeIn(['state'], { qFieldValue: action.qFieldValue });
+	    case _ActionType2.default.FILTER_RESET_Q_FIELD_VALUE:
+	      return state.mergeIn(['state'], { qFieldValue: '' });
+	    default:
+	      return state;
+	  }
+	};
+
+/***/ },
+/* 337 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _immutable = __webpack_require__(246);
+	
+	var _immutable2 = _interopRequireDefault(_immutable);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _immutable2.default.fromJS({
+	  state: {
+	    qFieldValue: ''
+	  }
+	});
+
+/***/ },
+/* 338 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var FILTER_UPDATE_Q_FIELD_VALUE = 'FILTER_UPDATE_Q_FIELD_VALUE';
+	var FILTER_RESET_Q_FIELD_VALUE = 'FILTER_RESET_Q_FIELD_VALUE';
+	
+	exports.default = {
+	  FILTER_UPDATE_Q_FIELD_VALUE: FILTER_UPDATE_Q_FIELD_VALUE,
+	  FILTER_RESET_Q_FIELD_VALUE: FILTER_RESET_Q_FIELD_VALUE
+	};
+
+/***/ },
+/* 339 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _MakeModule = __webpack_require__(335);
+	
+	var _MakeModule2 = _interopRequireDefault(_MakeModule);
+	
+	var _ActionType = __webpack_require__(321);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	var _ConnectedFilter = __webpack_require__(340);
+	
+	var _ConnectedFilter2 = _interopRequireDefault(_ConnectedFilter);
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _MakeModule2.default)('filterBeforeTable', function () {
+	  return {
+	    boot: function boot(dispatch) {
+	      dispatch({
+	        type: _ActionType2.default.BEFORE_TABLE_REGISTER_COMPONENT,
+	        row: 0,
+	        slot: 0,
+	        component: function component(props) {
+	          return _react2.default.createElement(
+	            'div',
+	            { className: 'filter' },
+	            _react2.default.createElement(_ConnectedFilter2.default, { store: props.store })
+	          );
+	        }
+	      });
+	    }
+	  };
+	});
+
+/***/ },
+/* 340 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(280);
+	
+	var _ActionType = __webpack_require__(338);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	var _Filter = __webpack_require__(341);
+	
+	var _Filter2 = _interopRequireDefault(_Filter);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _reactRedux.connect)(function (state) {
+	  var filterState = state.get('filter').get('state').toJS();
+	
+	  return {
+	    qFieldValue: filterState.qFieldValue
+	  };
+	}, {
+	  handleQChanged: function handleQChanged(event) {
+	    return {
+	      type: _ActionType2.default.FILTER_UPDATE_Q_FIELD_VALUE,
+	      qFieldValue: event.target.value
+	    };
+	  },
+	  resetButtonClicked: function resetButtonClicked() {
+	    return {
+	      type: _ActionType2.default.FILTER_RESET_Q_FIELD_VALUE
+	    };
+	  }
+	})(_Filter2.default);
+
+/***/ },
+/* 341 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    "div",
+	    null,
+	    _react2.default.createElement(
+	      "label",
+	      null,
+	      "Filter",
+	      _react2.default.createElement("input", {
+	        type: "text",
+	        className: "form-control",
+	        value: props.qFieldValue,
+	        placeholder: "Filter:",
+	        onChange: props.handleQChanged })
+	    ),
+	    _react2.default.createElement("i", {
+	      className: "reset-button glyphicon glyphicon-remove-circle",
+	      onClick: props.resetButtonClicked })
+	  );
+	};
+
+/***/ },
+/* 342 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _MakeModule = __webpack_require__(335);
+	
+	var _MakeModule2 = _interopRequireDefault(_MakeModule);
+	
+	var _ActionType = __webpack_require__(338);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	var _ActionType3 = __webpack_require__(315);
+	
+	var _ActionType4 = _interopRequireDefault(_ActionType3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	var makeOnFilterUpdateQFieldValue = function makeOnFilterUpdateQFieldValue() {
+	  var updateQFieldValueTimeout = undefined;
+	
+	  return function (overrideDelay, action, dispatch) {
+	    if (undefined !== updateQFieldValueTimeout) {
+	      clearTimeout(updateQFieldValueTimeout);
+	    }
+	
+	    /**
+	     * Taking snapshot of value,
+	     * important to get action.qFieldValue as it was when invoking function,
+	     * not as it will be 300 ms later
+	     */
+	    var rawQValue = action.qFieldValue;
+	    var q = '' === rawQValue ? undefined : rawQValue;
+	
+	    var delay = undefined;
+	
+	    if (undefined === overrideDelay) {
+	      if (undefined === action.delay) {
+	        delay = 300;
+	      } else {
+	        delay = action.delay;
+	      }
+	    } else {
+	      delay = overrideDelay;
+	    }
+	
+	    var doUpdate = function doUpdate() {
+	      dispatch({
+	        type: _ActionType4.default.ASYNC_UPDATE_OPTIONS,
+	        options: {
+	          q: q
+	        }
+	      });
+	
+	      dispatch({
+	        type: _ActionType4.default.ASYNC_DATA_UPDATE_DATA
+	      });
+	    };
+	
+	    if (0 === delay) {
+	      updateQFieldValueTimeout = undefined;
+	
+	      doUpdate();
+	    } else {
+	      updateQFieldValueTimeout = setTimeout(doUpdate, delay);
+	    }
+	  };
+	};
+	
+	exports.default = (0, _MakeModule2.default)('filterAsyncData', function () {
+	  var onFilterUpdateQFieldValue = makeOnFilterUpdateQFieldValue();
+	
+	  return {
+	    listeners: function listeners() {
+	      var _ref;
+	
+	      return _ref = {}, _defineProperty(_ref, _ActionType2.default.FILTER_UPDATE_Q_FIELD_VALUE, onFilterUpdateQFieldValue.bind(undefined, undefined)), _defineProperty(_ref, _ActionType2.default.FILTER_RESET_Q_FIELD_VALUE, onFilterUpdateQFieldValue.bind(undefined, 0)), _ref;
+	    }
+	  };
+	});
+
+/***/ },
+/* 343 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _MakeModule = __webpack_require__(335);
+	
+	var _MakeModule2 = _interopRequireDefault(_MakeModule);
+	
+	var _ActionType = __webpack_require__(315);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	var _ActionType3 = __webpack_require__(328);
+	
+	var _ActionType4 = _interopRequireDefault(_ActionType3);
+	
+	var _ActionType5 = __webpack_require__(338);
+	
+	var _ActionType6 = _interopRequireDefault(_ActionType5);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	exports.default = (0, _MakeModule2.default)('filterRouting', function () {
+	  return {
+	    listeners: function listeners() {
+	      return _defineProperty({}, _ActionType2.default.ASYNC_UPDATE_OPTIONS, function (action, dispatch) {
+	        if ('q' in action.options) {
+	          dispatch({
+	            type: _ActionType4.default.ROUTING_UPDATE_ROUTE,
+	            queryParams: {
+	              q: action.options.q
+	            }
+	          });
+	        }
+	      });
+	    },
+	    boot: function boot(dispatch, getState) {
+	      var query = getState().get('opts').get('routing').toJS().location.query;
+	      var qFieldValue = undefined === query.q ? '' : query.q;
+	
+	      dispatch({
+	        type: _ActionType6.default.FILTER_UPDATE_Q_FIELD_VALUE,
+	        qFieldValue: qFieldValue,
+	        delay: 0,
+	        boot: true
+	      });
+	    }
+	  };
+	});
+
+/***/ },
+/* 344 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _MakeModule = __webpack_require__(335);
+	
+	var _MakeModule2 = _interopRequireDefault(_MakeModule);
+	
+	var _Reducer = __webpack_require__(345);
+	
+	var _Reducer2 = _interopRequireDefault(_Reducer);
+	
+	var _ActionType = __webpack_require__(347);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	function isPositiveInteger(value) {
+	  return (/^[0-9]+$/.test(value) && value >= 1
+	  );
+	}
+	
+	var onFieldValueChangedEvent = function onFieldValueChangedEvent(action, dispatch) {
+	  var value = action.goToPageFieldValue;
+	
+	  if (!('' === value || isPositiveInteger(value))) {
+	    return;
+	  }
+	
+	  dispatch({
+	    type: _ActionType2.default.GO_TO_PAGE_UPDATE_GO_TO_PAGE_FIELD_VALUE,
+	    goToPageFieldValue: value
+	  });
+	};
+	
+	function getPageFromGetState(getState) {
+	  var goToPageState = getState().get('goToPage').get('state').toJS();
+	  var goToPageFieldValue = goToPageState.goToPageFieldValue;
+	
+	  return '' === goToPageFieldValue ? undefined : parseInt(goToPageFieldValue, 10);
+	}
+	
+	function dispatchGoToPageUpdateGoToPageFromGetState(dispatch, getState) {
+	  var page = getPageFromGetState(getState);
+	
+	  dispatch({
+	    type: _ActionType2.default.GO_TO_PAGE_UPDATE_GO_TO_PAGE,
+	    page: page
+	  });
+	}
+	
+	exports.default = (0, _MakeModule2.default)('goToPage', function () {
+	  return {
+	    reducer: _Reducer2.default,
+	    listeners: function listeners() {
+	      var _ref;
+	
+	      return _ref = {}, _defineProperty(_ref, _ActionType2.default.GO_TO_PAGE_FIELD_VALUE_CHANGED_EVENT, onFieldValueChangedEvent), _defineProperty(_ref, _ActionType2.default.GO_TO_PAGE_KEY_DOWN_EVENT, function (action, dispatch, getState) {
+	        if (13 !== action.keyCode) {
+	          return;
+	        }
+	
+	        dispatchGoToPageUpdateGoToPageFromGetState(dispatch, getState);
+	      }), _defineProperty(_ref, _ActionType2.default.GO_TO_PAGE_GO_BUTTON_CLICKED_EVENT, function (action, dispatch, getState) {
+	        dispatchGoToPageUpdateGoToPageFromGetState(dispatch, getState);
+	      }), _ref;
+	    }
+	  };
+	});
+
+/***/ },
+/* 345 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _DefaultState = __webpack_require__(346);
+	
+	var _DefaultState2 = _interopRequireDefault(_DefaultState);
+	
+	var _ActionType = __webpack_require__(347);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function () {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? _DefaultState2.default : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case _ActionType2.default.GO_TO_PAGE_UPDATE_GO_TO_PAGE_FIELD_VALUE:
+	      return state.mergeIn(['state'], { goToPageFieldValue: action.goToPageFieldValue });
+	    case _ActionType2.default.GO_TO_PAGE_UPDATE_GO_TO_PAGE:
+	      return state.mergeIn(['state'], { goToPage: action.goToPage });
+	    default:
+	      return state;
+	  }
+	};
+
+/***/ },
+/* 346 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _immutable = __webpack_require__(246);
+	
+	var _immutable2 = _interopRequireDefault(_immutable);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _immutable2.default.fromJS({
+	  state: {
+	    goToPageFieldValue: ''
+	  }
+	});
+
+/***/ },
+/* 347 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	//Updata data
+	var GO_TO_PAGE_UPDATE_GO_TO_PAGE_FIELD_VALUE = 'GO_TO_PAGE_UPDATE_GO_TO_PAGE_FIELD_VALUE';
+	var GO_TO_PAGE_UPDATE_GO_TO_PAGE = 'GO_TO_PAGE_UPDATE_GO_TO_PAGE';
+	
+	//Other actions
+	var GO_TO_PAGE_FIELD_VALUE_CHANGED_EVENT = 'GO_TO_PAGE_FIELD_VALUE_CHANGED_EVENT';
+	var GO_TO_PAGE_KEY_DOWN_EVENT = 'GO_TO_PAGE_KEY_DOWN_EVENT';
+	var GO_TO_PAGE_GO_BUTTON_CLICKED_EVENT = 'GO_TO_PAGE_GO_BUTTON_CLICKED_EVENT';
+	
+	exports.default = {
+	  GO_TO_PAGE_UPDATE_GO_TO_PAGE_FIELD_VALUE: GO_TO_PAGE_UPDATE_GO_TO_PAGE_FIELD_VALUE,
+	  GO_TO_PAGE_UPDATE_GO_TO_PAGE: GO_TO_PAGE_UPDATE_GO_TO_PAGE,
+	  GO_TO_PAGE_FIELD_VALUE_CHANGED_EVENT: GO_TO_PAGE_FIELD_VALUE_CHANGED_EVENT,
+	  GO_TO_PAGE_KEY_DOWN_EVENT: GO_TO_PAGE_KEY_DOWN_EVENT,
+	  GO_TO_PAGE_GO_BUTTON_CLICKED_EVENT: GO_TO_PAGE_GO_BUTTON_CLICKED_EVENT
+	};
+
+/***/ },
+/* 348 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _MakeModule = __webpack_require__(335);
+	
+	var _MakeModule2 = _interopRequireDefault(_MakeModule);
+	
+	var _ActionType = __webpack_require__(321);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	var _ConnectedGoToPage = __webpack_require__(349);
+	
+	var _ConnectedGoToPage2 = _interopRequireDefault(_ConnectedGoToPage);
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _MakeModule2.default)('goToPageBeforeTable', function () {
+	  return {
+	    boot: function boot(dispatch) {
+	      dispatch({
+	        type: _ActionType2.default.BEFORE_TABLE_REGISTER_COMPONENT,
+	        row: 0,
+	        slot: 1,
+	        component: function component(props) {
+	          return _react2.default.createElement(
+	            'div',
+	            { className: 'go-to-page' },
+	            _react2.default.createElement(_ConnectedGoToPage2.default, { store: props.store })
+	          );
+	        }
+	      });
+	    }
+	  };
+	});
+
+/***/ },
+/* 349 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(280);
+	
+	var _ActionType = __webpack_require__(347);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	var _GoToPage = __webpack_require__(350);
+	
+	var _GoToPage2 = _interopRequireDefault(_GoToPage);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _reactRedux.connect)(function (state) {
+	  var goToPageState = state.get('goToPage').get('state').toJS();
+	
+	  return {
+	    goToPageFieldValue: goToPageState.goToPageFieldValue
+	  };
+	}, {
+	  handleGoToPageChanged: function handleGoToPageChanged(event) {
+	    var value = event.target.value;
+	
+	    return {
+	      type: _ActionType2.default.GO_TO_PAGE_FIELD_VALUE_CHANGED_EVENT,
+	      goToPageFieldValue: value
+	    };
+	  },
+	  handleGoToPageKeyDown: function handleGoToPageKeyDown(event) {
+	    return {
+	      type: _ActionType2.default.GO_TO_PAGE_KEY_DOWN_EVENT,
+	      keyCode: event.keyCode
+	    };
+	  },
+	  handleGoToPageGoButtonClicked: function handleGoToPageGoButtonClicked(event) {
+	    event.preventDefault();
+	
+	    return {
+	      type: _ActionType2.default.GO_TO_PAGE_GO_BUTTON_CLICKED_EVENT
+	    };
+	  }
+	})(_GoToPage2.default);
+
+/***/ },
+/* 350 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    "label",
+	    null,
+	    "Go to page",
+	    _react2.default.createElement(
+	      "div",
+	      { className: "input-group" },
+	      _react2.default.createElement("input", {
+	        type: "text",
+	        className: "form-control",
+	        placeholder: 'Page:',
+	        value: props.goToPageFieldValue,
+	        onChange: props.handleGoToPageChanged,
+	        onKeyDown: props.handleGoToPageKeyDown }),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "input-group-btn" },
+	        _react2.default.createElement(
+	          "button",
+	          {
+	            className: "btn btn-default",
+	            onClick: props.handleGoToPageGoButtonClicked },
+	          "Go"
+	        )
+	      )
+	    )
+	  );
+	};
+
+/***/ },
+/* 351 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _MakeModule = __webpack_require__(335);
+	
+	var _MakeModule2 = _interopRequireDefault(_MakeModule);
+	
+	var _ActionType = __webpack_require__(347);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	var _ActionType3 = __webpack_require__(315);
+	
+	var _ActionType4 = _interopRequireDefault(_ActionType3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	exports.default = (0, _MakeModule2.default)('goToPageAsyncDataModule', function () {
+	  return {
+	    listeners: function listeners() {
+	      return _defineProperty({}, _ActionType2.default.GO_TO_PAGE_UPDATE_GO_TO_PAGE, function (action, dispatch) {
+	        if (true === action.noAsyncDataUpdate) {
+	          return;
+	        }
+	
+	        dispatch({
+	          type: _ActionType4.default.ASYNC_UPDATE_OPTIONS,
+	          options: {
+	            page: action.page
+	          }
+	        });
+	
+	        dispatch({
+	          type: _ActionType4.default.ASYNC_DATA_UPDATE_DATA
+	        });
+	      });
+	    }
+	  };
+	});
+
+/***/ },
+/* 352 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _MakeModule = __webpack_require__(335);
+	
+	var _MakeModule2 = _interopRequireDefault(_MakeModule);
+	
+	var _ActionType = __webpack_require__(315);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	var _ActionType3 = __webpack_require__(328);
+	
+	var _ActionType4 = _interopRequireDefault(_ActionType3);
+	
+	var _ActionType5 = __webpack_require__(347);
+	
+	var _ActionType6 = _interopRequireDefault(_ActionType5);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	exports.default = (0, _MakeModule2.default)('goToPageAsyncDataRouting', function () {
+	  return {
+	    listeners: function listeners() {
+	      return _defineProperty({}, _ActionType2.default.ASYNC_UPDATE_OPTIONS, function (action, dispatch) {
+	        if ('page' in action.options) {
+	          var page = 1 === action.options.page ? undefined : action.options.page;
+	
+	          dispatch({
+	            type: _ActionType4.default.ROUTING_UPDATE_ROUTE,
+	            queryParams: {
+	              page: page
+	            }
+	          });
+	        }
+	      });
+	    },
+	    boot: function boot(dispatch, getState) {
+	      var query = getState().get('opts').get('routing').toJS().location.query;
+	      var page = undefined === query.page ? undefined : parseInt(query.page, 10);
+	
+	      dispatch({
+	        type: _ActionType6.default.GO_TO_PAGE_UPDATE_GO_TO_PAGE,
+	        page: page
+	      });
+	    }
+	  };
+	});
+
+/***/ },
+/* 353 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _MakeModule = __webpack_require__(335);
+	
+	var _MakeModule2 = _interopRequireDefault(_MakeModule);
+	
+	var _Reducer = __webpack_require__(354);
+	
+	var _Reducer2 = _interopRequireDefault(_Reducer);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _MakeModule2.default)('pageSize', function () {
+	  return {
+	    reducer: _Reducer2.default
+	  };
+	});
+
+/***/ },
+/* 354 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _DefaultState = __webpack_require__(355);
+	
+	var _DefaultState2 = _interopRequireDefault(_DefaultState);
+	
+	var _ActionType = __webpack_require__(356);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function () {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? _DefaultState2.default : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case _ActionType2.default.PAGE_SIZE_UPDATE_PAGE_SIZE:
+	      return state.mergeIn(['state'], { pageSize: action.pageSize });
+	    default:
+	      return state;
+	  }
+	};
+
+/***/ },
+/* 355 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _immutable = __webpack_require__(246);
+	
+	var _immutable2 = _interopRequireDefault(_immutable);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _immutable2.default.fromJS({
+	  state: {
+	    pageSize: 10
+	  }
+	});
+
+/***/ },
+/* 356 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var PAGE_SIZE_UPDATE_PAGE_SIZE = 'PAGE_SIZE_UPDATE_PAGE_SIZE';
+	
+	exports.default = {
+	  PAGE_SIZE_UPDATE_PAGE_SIZE: PAGE_SIZE_UPDATE_PAGE_SIZE
+	};
+
+/***/ },
+/* 357 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _MakeModule = __webpack_require__(335);
+	
+	var _MakeModule2 = _interopRequireDefault(_MakeModule);
+	
+	var _ActionType = __webpack_require__(321);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	var _ConnectedPageSize = __webpack_require__(358);
+	
+	var _ConnectedPageSize2 = _interopRequireDefault(_ConnectedPageSize);
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _MakeModule2.default)('pageSizeBeforeTable', function () {
+	  return {
+	    boot: function boot(dispatch) {
+	      dispatch({
+	        type: _ActionType2.default.BEFORE_TABLE_REGISTER_COMPONENT,
+	        row: 1,
+	        slot: 0,
+	        component: function component(props) {
+	          return _react2.default.createElement(
+	            'div',
+	            { className: 'page-size' },
+	            _react2.default.createElement(_ConnectedPageSize2.default, { store: props.store })
+	          );
+	        }
+	      });
+	    }
+	  };
+	});
+
+/***/ },
+/* 358 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(280);
+	
+	var _ActionType = __webpack_require__(356);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	var _PageSize = __webpack_require__(359);
+	
+	var _PageSize2 = _interopRequireDefault(_PageSize);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _reactRedux.connect)(function (state) {
+	  var pageSizeState = state.get('pageSize').get('state').toJS();
+	
+	  return {
+	    pageSize: pageSizeState.pageSize
+	  };
+	}, {
+	  handlePageSizeChange: function handlePageSizeChange(event) {
+	    return {
+	      type: _ActionType2.default.PAGE_SIZE_UPDATE_PAGE_SIZE,
+	      pageSize: parseInt(event.target.value, 10)
+	    };
+	  }
+	})(_PageSize2.default);
+
+/***/ },
+/* 359 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    "label",
+	    null,
+	    "Page size ",
+	    _react2.default.createElement(
+	      "select",
+	      {
+	        className: "form-control",
+	        value: props.pageSize,
+	        onChange: props.handlePageSizeChange },
+	      _react2.default.createElement(
+	        "option",
+	        { value: 10 },
+	        "10"
+	      ),
+	      _react2.default.createElement(
+	        "option",
+	        { value: 25 },
+	        "25"
+	      ),
+	      _react2.default.createElement(
+	        "option",
+	        { value: 50 },
+	        "50"
+	      ),
+	      _react2.default.createElement(
+	        "option",
+	        { value: 100 },
+	        "100"
+	      )
+	    )
+	  );
+	};
+
+/***/ },
+/* 360 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _MakeModule = __webpack_require__(335);
+	
+	var _MakeModule2 = _interopRequireDefault(_MakeModule);
+	
+	var _ActionType = __webpack_require__(356);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	var _ActionType3 = __webpack_require__(315);
+	
+	var _ActionType4 = _interopRequireDefault(_ActionType3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	function getPageSizeFromRawPageSize(rawPageSize) {
+	  return parseInt(rawPageSize, 10);
+	}
+	
+	exports.default = (0, _MakeModule2.default)('pageSizeAsyncData', function () {
+	  return {
+	    listeners: function listeners() {
+	      return _defineProperty({}, _ActionType2.default.PAGE_SIZE_UPDATE_PAGE_SIZE, function (action, dispatch) {
+	        dispatch({
+	          type: _ActionType4.default.ASYNC_UPDATE_OPTIONS,
+	          options: {
+	            pageSize: getPageSizeFromRawPageSize(action.pageSize)
+	          }
+	        });
+	
+	        dispatch({
+	          type: _ActionType4.default.ASYNC_DATA_UPDATE_DATA
+	        });
+	      });
+	    }
+	  };
+	});
+
+/***/ },
+/* 361 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _MakeModule = __webpack_require__(335);
+	
+	var _MakeModule2 = _interopRequireDefault(_MakeModule);
+	
+	var _ActionType = __webpack_require__(315);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	var _ActionType3 = __webpack_require__(328);
+	
+	var _ActionType4 = _interopRequireDefault(_ActionType3);
+	
+	var _ActionType5 = __webpack_require__(356);
+	
+	var _ActionType6 = _interopRequireDefault(_ActionType5);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	exports.default = (0, _MakeModule2.default)('pageSizeAsyncDataRouting', function () {
+	  return {
+	    listeners: function listeners() {
+	      return _defineProperty({}, _ActionType2.default.ASYNC_UPDATE_OPTIONS, function (action, dispatch) {
+	        if ('pageSize' in action.options) {
+	          var pageSize = 10 === action.options.pageSize ? undefined : action.options.pageSize;
+	
+	          dispatch({
+	            type: _ActionType4.default.ROUTING_UPDATE_ROUTE,
+	            queryParams: {
+	              pageSize: pageSize
+	            }
+	          });
+	        }
+	      });
+	    },
+	    boot: function boot(dispatch, getState) {
+	      var query = getState().get('opts').get('routing').toJS().location.query;
+	
+	      var pageSize = undefined === query.pageSize ? 10 : parseInt(query.pageSize, 10);
+	
+	      dispatch({
+	        type: _ActionType6.default.PAGE_SIZE_UPDATE_PAGE_SIZE,
+	        pageSize: pageSize,
+	        boot: true
+	      });
+	    }
+	  };
+	});
+
+/***/ },
+/* 362 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _MakeModule = __webpack_require__(335);
+	
+	var _MakeModule2 = _interopRequireDefault(_MakeModule);
+	
+	var _Reducer = __webpack_require__(363);
+	
+	var _Reducer2 = _interopRequireDefault(_Reducer);
+	
+	var _ActionType = __webpack_require__(312);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	var _ActionType3 = __webpack_require__(365);
+	
+	var _ActionType4 = _interopRequireDefault(_ActionType3);
+	
+	var _ActionType5 = __webpack_require__(347);
+	
+	var _ActionType6 = _interopRequireDefault(_ActionType5);
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	var getClassName = function getClassName(page, buttonPage) {
+	  return page === buttonPage ? 'current' : null;
+	};
+	
+	exports.default = (0, _MakeModule2.default)('paginator', function () {
+	  return {
+	    reducer: _Reducer2.default,
+	    listeners: function listeners() {
+	      return _defineProperty({}, _ActionType2.default.DATA_REPLACE_DATA, function (action, dispatch, getState) {
+	        var options = getState().get('asyncData').get('state').get('options').toJS();
+	
+	        var makeLinkFromState = function makeLinkFromState(page) {
+	          return getState().get('routing').get('makeLink')(getState, { page: page });
+	        };
+	
+	        var filteredTotal = action.data.info.filteredTotal;
+	        var page = undefined === options.page ? 1 : options.page;
+	        var pageSize = undefined === options.pageSize ? 10 : options.pageSize;
+	
+	        var totalPages = Math.ceil(filteredTotal / pageSize);
+	
+	        var firstDisabled = page <= 1;
+	        var lastDisabled = page >= totalPages;
+	        var previousDisabled = firstDisabled;
+	        var nextDisabled = lastDisabled;
+	
+	        var maximumPages = 10;
+	
+	        var buttons = [];
+	
+	        var showButtons = void 0;
+	
+	        function addButtons(from, to) {
+	          var previousPage = page - 1;
+	          var nextPage = page + 1;
+	          var lastPage = totalPages;
+	
+	          showButtons = to > 1;
+	
+	          buttons.push({
+	            key: 'first',
+	            page: 1,
+	            content: _react2.default.createElement(
+	              'span',
+	              null,
+	              '«'
+	            ),
+	            link: firstDisabled ? '' : makeLinkFromState(1),
+	            disabled: firstDisabled,
+	            className: firstDisabled ? 'disabled' : undefined
+	          });
+	
+	          buttons.push({
+	            key: 'previous',
+	            page: previousPage,
+	            content: _react2.default.createElement(
+	              'span',
+	              null,
+	              '‹'
+	            ),
+	            link: previousDisabled ? '' : makeLinkFromState(previousPage),
+	            disabled: previousDisabled,
+	            className: previousDisabled ? 'disabled' : undefined
+	          });
+	
+	          for (var i = from - 1; i < to; i += 1) {
+	            var buttonPage = i + 1;
+	
+	            buttons.push({
+	              page: buttonPage,
+	              key: buttonPage,
+	              content: buttonPage,
+	              link: makeLinkFromState(buttonPage),
+	              disabled: false,
+	              className: getClassName(page, buttonPage)
+	            });
+	          }
+	
+	          buttons.push({
+	            key: 'next',
+	            page: nextPage,
+	            content: _react2.default.createElement(
+	              'span',
+	              null,
+	              '›'
+	            ),
+	            link: nextDisabled ? '' : makeLinkFromState(nextPage),
+	            disabled: nextDisabled,
+	            className: nextDisabled ? 'disabled' : undefined
+	          });
+	
+	          buttons.push({
+	            key: 'last',
+	            page: lastPage,
+	            content: _react2.default.createElement(
+	              'span',
+	              null,
+	              '»'
+	            ),
+	            link: lastDisabled ? '' : makeLinkFromState(lastPage),
+	            disabled: lastDisabled,
+	            className: lastDisabled ? 'disabled' : undefined
+	          });
+	        }
+	
+	        if (totalPages <= maximumPages) {
+	          addButtons(1, totalPages);
+	        } else {
+	          var mid = maximumPages / 2 + 1;
+	
+	          if (page <= mid) {
+	            addButtons(1, maximumPages);
+	          } else if (page >= totalPages - (mid - 2)) {
+	            addButtons(totalPages - (maximumPages - 1), totalPages);
+	          } else {
+	            var paginatorLastPage = page + (mid - 2);
+	
+	            addButtons(page - (mid - 1), paginatorLastPage < totalPages ? paginatorLastPage : totalPages);
+	          }
+	        }
+	
+	        buttons.forEach(function (button) {
+	          button.handleClick = function (page, event) {
+	            event.preventDefault();
+	
+	            if (!button.disabled) {
+	              dispatch({
+	                type: _ActionType6.default.GO_TO_PAGE_UPDATE_GO_TO_PAGE,
+	                page: page
+	              });
+	            }
+	          };
+	        });
+	
+	        dispatch({
+	          type: _ActionType4.default.PAGINATOR_REPLACE_COMPUTED_VIEW_MODEL_BUTTONS,
+	          buttons: buttons
+	        });
+	      });
+	    }
+	  };
+	});
+
+/***/ },
+/* 363 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _DefaultState = __webpack_require__(364);
+	
+	var _DefaultState2 = _interopRequireDefault(_DefaultState);
+	
+	var _ActionType = __webpack_require__(365);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function () {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? _DefaultState2.default : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case _ActionType2.default.PAGINATOR_REPLACE_COMPUTED_VIEW_MODEL_BUTTONS:
+	      return state.mergeIn(['computedViewModel'], {
+	        buttons: action.buttons
+	      });
+	    default:
+	      return state;
+	  }
+	};
+
+/***/ },
+/* 364 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _immutable = __webpack_require__(246);
+	
+	var _immutable2 = _interopRequireDefault(_immutable);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _immutable2.default.fromJS({
+	  state: {},
+	  computedViewModel: {
+	    buttons: []
+	  }
+	});
+
+/***/ },
+/* 365 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var PAGINATOR_REPLACE_COMPUTED_VIEW_MODEL_BUTTONS = 'PAGINATOR_REPLACE_COMPUTED_VIEW_MODEL_BUTTONS';
+	
+	exports.default = {
+	  PAGINATOR_REPLACE_COMPUTED_VIEW_MODEL_BUTTONS: PAGINATOR_REPLACE_COMPUTED_VIEW_MODEL_BUTTONS
+	};
+
+/***/ },
+/* 366 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _MakeModule = __webpack_require__(335);
+	
+	var _MakeModule2 = _interopRequireDefault(_MakeModule);
+	
+	var _ActionType = __webpack_require__(321);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	var _ConnectedPagination = __webpack_require__(367);
+	
+	var _ConnectedPagination2 = _interopRequireDefault(_ConnectedPagination);
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _MakeModule2.default)('paginatorBeforeTable', function () {
+	  return {
+	    boot: function boot(dispatch) {
+	      dispatch({
+	        type: _ActionType2.default.BEFORE_TABLE_REGISTER_COMPONENT,
+	        row: 1,
+	        slot: 1,
+	        component: function component(props) {
+	          return _react2.default.createElement(
+	            'div',
+	            { className: 'paginator' },
+	            _react2.default.createElement(_ConnectedPagination2.default, { store: props.store })
+	          );
+	        }
+	      });
+	    }
+	  };
+	});
+
+/***/ },
+/* 367 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(280);
+	
+	var _Pagination = __webpack_require__(368);
+	
+	var _Pagination2 = _interopRequireDefault(_Pagination);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _reactRedux.connect)(function (state) {
+	  var buttons = state.get('paginator').get('computedViewModel').get('buttons').toJS();
+	
+	  return {
+	    buttons: buttons
+	  };
+	})(_Pagination2.default);
+
+/***/ },
+/* 368 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var addPageButton = function addPageButton(page, key, content, link, className, disabled, handleClick) {
+	  return _react2.default.createElement(
+	    "li",
+	    {
+	      key: key,
+	      className: className },
+	    _react2.default.createElement(
+	      "a",
+	      {
+	        disabled: disabled,
+	        href: link,
+	        onClick: handleClick.bind(undefined, page) },
+	      _react2.default.createElement(
+	        "span",
+	        null,
+	        content
+	      )
+	    )
+	  );
+	};
+	
+	exports.default = function (props) {
+	  var buttons = props.buttons;
+	
+	  return _react2.default.createElement(
+	    "ul",
+	    { className: "pagination" },
+	    function () {
+	      return buttons.map(function (button) {
+	        return addPageButton(button.page, button.key, button.content, button.link, button.className, button.disabled, button.handleClick);
+	      });
+	    }()
+	  );
+	};
+
+/***/ },
+/* 369 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _MakeModule = __webpack_require__(335);
+	
+	var _MakeModule2 = _interopRequireDefault(_MakeModule);
+	
+	var _ActionType = __webpack_require__(338);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	var _ActionType3 = __webpack_require__(347);
+	
+	var _ActionType4 = _interopRequireDefault(_ActionType3);
+	
+	var _ActionType5 = __webpack_require__(315);
+	
+	var _ActionType6 = _interopRequireDefault(_ActionType5);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	exports.default = (0, _MakeModule2.default)('filterPage', function () {
+	  return {
+	    preListeners: function preListeners() {
+	      return _defineProperty({}, _ActionType2.default.FILTER_UPDATE_Q_FIELD_VALUE, function (action, dispatch) {
+	        if (true !== action.boot) {
+	          dispatch({
+	            type: _ActionType4.default.GO_TO_PAGE_UPDATE_GO_TO_PAGE_FIELD_VALUE,
+	            goToPageFieldValue: ''
+	          });
+	
+	          dispatch({
+	            type: _ActionType6.default.ASYNC_UPDATE_OPTIONS,
+	            options: {
+	              page: undefined
+	            }
+	          });
+	
+	          dispatch({
+	            type: _ActionType4.default.GO_TO_PAGE_UPDATE_GO_TO_PAGE,
+	            page: 1,
+	            noAsyncDataUpdate: true
+	          });
+	        }
+	      });
+	    }
+	  };
+	});
+
+/***/ },
+/* 370 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _MakeModule = __webpack_require__(335);
+	
+	var _MakeModule2 = _interopRequireDefault(_MakeModule);
+	
+	var _ActionType = __webpack_require__(356);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	var _ActionType3 = __webpack_require__(347);
+	
+	var _ActionType4 = _interopRequireDefault(_ActionType3);
+	
+	var _ActionType5 = __webpack_require__(315);
+	
+	var _ActionType6 = _interopRequireDefault(_ActionType5);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	exports.default = (0, _MakeModule2.default)('pageSizePage', function () {
+	  return {
+	    preListeners: function preListeners() {
+	      return _defineProperty({}, _ActionType2.default.PAGE_SIZE_UPDATE_PAGE_SIZE, function (action, dispatch) {
+	        if (true !== action.boot) {
+	          dispatch({
+	            type: _ActionType4.default.GO_TO_PAGE_UPDATE_GO_TO_PAGE_FIELD_VALUE,
+	            goToPageFieldValue: ''
+	          });
+	
+	          dispatch({
+	            type: _ActionType6.default.ASYNC_UPDATE_OPTIONS,
+	            options: {
+	              page: undefined
+	            }
+	          });
+	
+	          dispatch({
+	            type: _ActionType4.default.GO_TO_PAGE_UPDATE_GO_TO_PAGE,
+	            page: 1,
+	            noAsyncDataUpdate: true
+	          });
+	        }
+	      });
+	    }
+	  };
+	});
+
+/***/ }
+]);
 //# sourceMappingURL=example.js.map

@@ -1,7 +1,7 @@
-.table-wrapper table > thead > tr > th.sortable {
-  cursor: pointer;
+.table-wrapper .filter .reset-button {
+  margin-left: 7px;
 }
-.table-wrapper table > tbody > tr > td.clickable {
+.table-wrapper .reset-button {
   cursor: pointer;
 }
 .table-wrapper .pagination > li.current > a {
