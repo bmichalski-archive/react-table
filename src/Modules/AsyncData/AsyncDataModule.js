@@ -3,6 +3,20 @@ import DataModuleActionType from '../Data/Action/ActionType'
 import TableWrapperActionType from '../TableWrapper/Action/ActionType'
 import reducer from './Store/Reducer'
 
+const setTableWrapperContentErrorLoadingData = (dispatch) => {
+  dispatch({
+    type: TableWrapperActionType.TABLE_WRAPPER_SET_OVERRIDE_TABLE_WITH,
+    overrideTableWith: 'Error loading data.'
+  })
+}
+
+const setTableWrapperContentLoading = (dispatch) => {
+  dispatch({
+    type: TableWrapperActionType.TABLE_WRAPPER_SET_OVERRIDE_TABLE_WITH,
+    overrideTableWith: 'Loading...'
+  })
+}
+
 const makeScheduleFetchData = () => {
   let promise = undefined
   let tableWrapperOverrideUnset = false
@@ -21,9 +35,7 @@ const makeScheduleFetchData = () => {
         type: DataModuleActionType.DATA_REPLACE_DATA,
         data
       })
-    })
-
-    promise.then(() => {
+    }).then(() => {
       if (tableWrapperOverrideUnset) {
         return
       }
@@ -33,15 +45,12 @@ const makeScheduleFetchData = () => {
       dispatch({
         type: TableWrapperActionType.TABLE_WRAPPER_UNSET_OVERRIDE_TABLE_WITH
       })
-    })
-  }
-}
+    }).catch((e) => {
+      setTableWrapperContentErrorLoadingData(dispatch)
 
-const setTableWrapperContentLoading = (dispatch) => {
-  dispatch({
-    type: TableWrapperActionType.TABLE_WRAPPER_SET_OVERRIDE_TABLE_WITH,
-    overrideTableWith: 'Loading...'
-  })
+      throw e
+    }).done()
+  }
 }
 
 const updateData = (dispatch) => {

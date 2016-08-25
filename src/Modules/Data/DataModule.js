@@ -8,7 +8,7 @@ const DataModule = () => {
 
   return {
     reducer: reducer,
-    actions: actions
+    actions
   }
 }
 

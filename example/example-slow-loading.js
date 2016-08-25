@@ -3702,6 +3702,20 @@ webpackJsonp([2],[
 	
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 	
+	var setTableWrapperContentErrorLoadingData = function setTableWrapperContentErrorLoadingData(dispatch) {
+	  dispatch({
+	    type: _ActionType6.default.TABLE_WRAPPER_SET_OVERRIDE_TABLE_WITH,
+	    overrideTableWith: 'Error loading data.'
+	  });
+	};
+	
+	var setTableWrapperContentLoading = function setTableWrapperContentLoading(dispatch) {
+	  dispatch({
+	    type: _ActionType6.default.TABLE_WRAPPER_SET_OVERRIDE_TABLE_WITH,
+	    overrideTableWith: 'Loading...'
+	  });
+	};
+	
 	var makeScheduleFetchData = function makeScheduleFetchData() {
 	  var promise = undefined;
 	  var tableWrapperOverrideUnset = false;
@@ -3720,9 +3734,7 @@ webpackJsonp([2],[
 	        type: _ActionType4.default.DATA_REPLACE_DATA,
 	        data: data
 	      });
-	    });
-	
-	    promise.then(function () {
+	    }).then(function () {
 	      if (tableWrapperOverrideUnset) {
 	        return;
 	      }
@@ -3732,15 +3744,12 @@ webpackJsonp([2],[
 	      dispatch({
 	        type: _ActionType6.default.TABLE_WRAPPER_UNSET_OVERRIDE_TABLE_WITH
 	      });
-	    });
-	  };
-	};
+	    }).catch(function (e) {
+	      setTableWrapperContentErrorLoadingData(dispatch);
 	
-	var setTableWrapperContentLoading = function setTableWrapperContentLoading(dispatch) {
-	  dispatch({
-	    type: _ActionType6.default.TABLE_WRAPPER_SET_OVERRIDE_TABLE_WITH,
-	    overrideTableWith: 'Loading...'
-	  });
+	      throw e;
+	    }).done();
+	  };
 	};
 	
 	var updateData = function updateData(dispatch) {
