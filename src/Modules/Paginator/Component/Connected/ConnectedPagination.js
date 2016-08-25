@@ -3,10 +3,14 @@ import PresentationalPagination from '../Presentational/Pagination'
 
 export default connect(
   (state) => {
-    const buttons = state.get('paginator').get('computedViewModel').get('buttons').toJS()
+    const paginatorComputedViewModel = state.get('paginator').get('computedViewModel').toJS()
+
+    const buttons = paginatorComputedViewModel.buttons
+    const showButtons = paginatorComputedViewModel.showButtons
 
     return {
-      buttons: buttons
+      buttons,
+      showButtons
     }
   }
 )(PresentationalPagination)

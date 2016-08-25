@@ -5758,7 +5758,7 @@ webpackJsonp([1],[
 	          var nextPage = page + 1;
 	          var lastPage = totalPages;
 	
-	          showButtons = to > 1;
+	          var showButtons = to > 1;
 	
 	          buttons.push({
 	            key: 'first',
@@ -5824,21 +5824,23 @@ webpackJsonp([1],[
 	            disabled: lastDisabled,
 	            className: lastDisabled ? 'disabled' : undefined
 	          });
+	
+	          return showButtons;
 	        }
 	
 	        if (totalPages <= maximumPages) {
-	          addButtons(1, totalPages);
+	          showButtons = addButtons(1, totalPages);
 	        } else {
 	          var mid = maximumPages / 2 + 1;
 	
 	          if (page <= mid) {
-	            addButtons(1, maximumPages);
+	            showButtons = addButtons(1, maximumPages);
 	          } else if (page >= totalPages - (mid - 2)) {
-	            addButtons(totalPages - (maximumPages - 1), totalPages);
+	            showButtons = addButtons(totalPages - (maximumPages - 1), totalPages);
 	          } else {
 	            var paginatorLastPage = page + (mid - 2);
 	
-	            addButtons(page - (mid - 1), paginatorLastPage < totalPages ? paginatorLastPage : totalPages);
+	            showButtons = addButtons(page - (mid - 1), paginatorLastPage < totalPages ? paginatorLastPage : totalPages);
 	          }
 	        }
 	
@@ -5857,7 +5859,8 @@ webpackJsonp([1],[
 	
 	        dispatch({
 	          type: _ActionType4.default.PAGINATOR_REPLACE_COMPUTED_VIEW_MODEL_BUTTONS,
-	          buttons: buttons
+	          buttons: buttons,
+	          showButtons: showButtons
 	        });
 	      });
 	    }
@@ -5891,7 +5894,8 @@ webpackJsonp([1],[
 	  switch (action.type) {
 	    case _ActionType2.default.PAGINATOR_REPLACE_COMPUTED_VIEW_MODEL_BUTTONS:
 	      return state.mergeIn(['computedViewModel'], {
-	        buttons: action.buttons
+	        buttons: action.buttons,
+	        showButtons: action.showButtons
 	      });
 	    default:
 	      return state;
@@ -6002,10 +6006,14 @@ webpackJsonp([1],[
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = (0, _reactRedux.connect)(function (state) {
-	  var buttons = state.get('paginator').get('computedViewModel').get('buttons').toJS();
+	  var paginatorComputedViewModel = state.get('paginator').get('computedViewModel').toJS();
+	
+	  var buttons = paginatorComputedViewModel.buttons;
+	  var showButtons = paginatorComputedViewModel.showButtons;
 	
 	  return {
-	    buttons: buttons
+	    buttons: buttons,
+	    showButtons: showButtons
 	  };
 	})(_Pagination2.default);
 
@@ -6047,6 +6055,12 @@ webpackJsonp([1],[
 	};
 	
 	exports.default = function (props) {
+	  var showButtons = props.showButtons;
+	
+	  if (!showButtons) {
+	    return null;
+	  }
+	
 	  var buttons = props.buttons;
 	
 	  return _react2.default.createElement(

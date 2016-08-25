@@ -45,7 +45,7 @@ export default makeModule(
               const nextPage = page + 1
               const lastPage = totalPages
 
-              showButtons = to > 1
+              const showButtons = to > 1
 
               buttons.push({
                 key: 'first',
@@ -95,24 +95,26 @@ export default makeModule(
                 disabled: lastDisabled,
                 className: lastDisabled ? 'disabled' : undefined
               })
+
+              return showButtons
             }
 
             if (totalPages <= maximumPages) {
-              addButtons(1, totalPages)
+              showButtons = addButtons(1, totalPages)
             } else {
               const mid = maximumPages / 2 + 1
 
               if (page <= mid) {
-                addButtons(1, maximumPages)
+                showButtons = addButtons(1, maximumPages)
               } else if (page >= (totalPages - (mid - 2))) {
-                addButtons(
+                showButtons = addButtons(
                   totalPages - (maximumPages - 1),
                   totalPages
                 )
               } else {
                 const paginatorLastPage = page + (mid - 2)
 
-                addButtons(
+                showButtons = addButtons(
                   page - (mid - 1),
                   paginatorLastPage < totalPages ? paginatorLastPage : totalPages
                 )
@@ -134,7 +136,8 @@ export default makeModule(
 
             dispatch({
               type: PaginatorActionType.PAGINATOR_REPLACE_COMPUTED_VIEW_MODEL_BUTTONS,
-              buttons: buttons
+              buttons,
+              showButtons
             })
           }
         }

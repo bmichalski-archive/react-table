@@ -7,7 +7,8 @@ export default (state = defaultState, action) => {
       return state.mergeIn(
         [ 'computedViewModel' ],
         {
-          buttons: action.buttons
+          buttons: action.buttons,
+          showButtons: action.showButtons
         }
       )
     default:

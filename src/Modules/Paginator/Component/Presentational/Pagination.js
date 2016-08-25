@@ -16,6 +16,12 @@ const addPageButton = (page, key, content, link, className, disabled, handleClic
 }
 
 export default (props) => {
+  const showButtons = props.showButtons
+
+  if (!showButtons) {
+    return null
+  }
+
   const buttons = props.buttons
 
   return (
