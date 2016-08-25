@@ -71,7 +71,7 @@ webpackJsonp([1],[
 	
 	var _DemoTableWrapper2 = _interopRequireDefault(_DemoTableWrapper);
 	
-	var _bluebird = __webpack_require__(371);
+	var _bluebird = __webpack_require__(378);
 	
 	var _bluebird2 = _interopRequireDefault(_bluebird);
 	
@@ -325,7 +325,7 @@ webpackJsonp([1],[
 	
 	var _index = __webpack_require__(241);
 	
-	var _bluebird = __webpack_require__(371);
+	var _bluebird = __webpack_require__(378);
 	
 	var _bluebird2 = _interopRequireDefault(_bluebird);
 	
@@ -583,75 +583,83 @@ webpackJsonp([1],[
 	
 	var _BeforeTableModule2 = _interopRequireDefault(_BeforeTableModule);
 	
-	var _SortModule = __webpack_require__(324);
+	var _AfterTableModule = __webpack_require__(324);
+	
+	var _AfterTableModule2 = _interopRequireDefault(_AfterTableModule);
+	
+	var _SortModule = __webpack_require__(331);
 	
 	var _SortModule2 = _interopRequireDefault(_SortModule);
 	
-	var _RoutingModule = __webpack_require__(331);
+	var _RoutingModule = __webpack_require__(338);
 	
 	var _RoutingModule2 = _interopRequireDefault(_RoutingModule);
 	
-	var _FilterModule = __webpack_require__(334);
+	var _FilterModule = __webpack_require__(341);
 	
 	var _FilterModule2 = _interopRequireDefault(_FilterModule);
 	
-	var _FilterBeforeTableModule = __webpack_require__(339);
+	var _FilterBeforeTableModule = __webpack_require__(345);
 	
 	var _FilterBeforeTableModule2 = _interopRequireDefault(_FilterBeforeTableModule);
 	
-	var _FilterAsyncDataModule = __webpack_require__(342);
+	var _FilterAsyncDataModule = __webpack_require__(348);
 	
 	var _FilterAsyncDataModule2 = _interopRequireDefault(_FilterAsyncDataModule);
 	
-	var _FilterAsyncDataRoutingModule = __webpack_require__(343);
+	var _FilterAsyncDataRoutingModule = __webpack_require__(349);
 	
 	var _FilterAsyncDataRoutingModule2 = _interopRequireDefault(_FilterAsyncDataRoutingModule);
 	
-	var _GoToPageModule = __webpack_require__(344);
+	var _GoToPageModule = __webpack_require__(350);
 	
 	var _GoToPageModule2 = _interopRequireDefault(_GoToPageModule);
 	
-	var _GoToPageBeforeTableModule = __webpack_require__(348);
+	var _GoToPageBeforeTableModule = __webpack_require__(354);
 	
 	var _GoToPageBeforeTableModule2 = _interopRequireDefault(_GoToPageBeforeTableModule);
 	
-	var _GoToPageAsyncDataModule = __webpack_require__(351);
+	var _GoToPageAsyncDataModule = __webpack_require__(357);
 	
 	var _GoToPageAsyncDataModule2 = _interopRequireDefault(_GoToPageAsyncDataModule);
 	
-	var _GoToPageAsyncDataRoutingModule = __webpack_require__(352);
+	var _GoToPageAsyncDataRoutingModule = __webpack_require__(358);
 	
 	var _GoToPageAsyncDataRoutingModule2 = _interopRequireDefault(_GoToPageAsyncDataRoutingModule);
 	
-	var _PageSizeModule = __webpack_require__(353);
+	var _PageSizeModule = __webpack_require__(359);
 	
 	var _PageSizeModule2 = _interopRequireDefault(_PageSizeModule);
 	
-	var _PageSizeBeforeTableModule = __webpack_require__(357);
+	var _PageSizeBeforeTableModule = __webpack_require__(363);
 	
 	var _PageSizeBeforeTableModule2 = _interopRequireDefault(_PageSizeBeforeTableModule);
 	
-	var _PageSizeAsyncDataModule = __webpack_require__(360);
+	var _PageSizeAsyncDataModule = __webpack_require__(366);
 	
 	var _PageSizeAsyncDataModule2 = _interopRequireDefault(_PageSizeAsyncDataModule);
 	
-	var _PageSizeAsyncDataRoutingModule = __webpack_require__(361);
+	var _PageSizeAsyncDataRoutingModule = __webpack_require__(367);
 	
 	var _PageSizeAsyncDataRoutingModule2 = _interopRequireDefault(_PageSizeAsyncDataRoutingModule);
 	
-	var _PaginatorModule = __webpack_require__(362);
+	var _PaginatorModule = __webpack_require__(368);
 	
 	var _PaginatorModule2 = _interopRequireDefault(_PaginatorModule);
 	
-	var _PaginatorBeforeTableModule = __webpack_require__(366);
+	var _PaginatorBeforeTableModule = __webpack_require__(372);
 	
 	var _PaginatorBeforeTableModule2 = _interopRequireDefault(_PaginatorBeforeTableModule);
 	
-	var _FilterPageModule = __webpack_require__(369);
+	var _PaginatorAfterTableModule = __webpack_require__(375);
+	
+	var _PaginatorAfterTableModule2 = _interopRequireDefault(_PaginatorAfterTableModule);
+	
+	var _FilterPageModule = __webpack_require__(376);
 	
 	var _FilterPageModule2 = _interopRequireDefault(_FilterPageModule);
 	
-	var _PageSizePageModule = __webpack_require__(370);
+	var _PageSizePageModule = __webpack_require__(377);
 	
 	var _PageSizePageModule2 = _interopRequireDefault(_PageSizePageModule);
 	
@@ -677,7 +685,7 @@ webpackJsonp([1],[
 	    value: function componentWillMount() {
 	      var props = this.props;
 	
-	      var store = (0, _ModuleLoader2.default)(props.opts, _CommonModule2.default, _TableWrapperModule2.default, _TableModule2.default, _DataModule2.default, _AsyncDataModule2.default, _ParseDataModule2.default, _BeforeTableModule2.default, _RoutingModule2.default, _SortModule2.default, _FilterModule2.default, _FilterBeforeTableModule2.default, _FilterAsyncDataModule2.default, _FilterAsyncDataRoutingModule2.default, _GoToPageModule2.default, _GoToPageBeforeTableModule2.default, _GoToPageAsyncDataModule2.default, _GoToPageAsyncDataRoutingModule2.default, _PageSizeModule2.default, _PageSizeBeforeTableModule2.default, _PageSizeAsyncDataModule2.default, _PageSizeAsyncDataRoutingModule2.default, _PaginatorModule2.default, _PaginatorBeforeTableModule2.default, _FilterPageModule2.default, _PageSizePageModule2.default);
+	      var store = (0, _ModuleLoader2.default)(props.opts, _CommonModule2.default, _TableWrapperModule2.default, _TableModule2.default, _DataModule2.default, _AsyncDataModule2.default, _ParseDataModule2.default, _BeforeTableModule2.default, _AfterTableModule2.default, _RoutingModule2.default, _SortModule2.default, _FilterModule2.default, _FilterBeforeTableModule2.default, _FilterAsyncDataModule2.default, _FilterAsyncDataRoutingModule2.default, _GoToPageModule2.default, _GoToPageBeforeTableModule2.default, _GoToPageAsyncDataModule2.default, _GoToPageAsyncDataRoutingModule2.default, _PageSizeModule2.default, _PageSizeBeforeTableModule2.default, _PageSizeAsyncDataModule2.default, _PageSizeAsyncDataRoutingModule2.default, _PaginatorModule2.default, _PaginatorBeforeTableModule2.default, _PaginatorAfterTableModule2.default, _FilterPageModule2.default, _PageSizePageModule2.default);
 	
 	      this._store = store;
 	    }
@@ -2793,11 +2801,10 @@ webpackJsonp([1],[
 	  var common = state.get('common');
 	  var tableWrapperState = state.get('tableWrapper').get('state');
 	
-	  // const beforeTableComponents = state.get('beforeTable').get('components').toJS()
-	
 	  return {
 	    Table: common.get('components').get('table').toJS().Table,
 	    BeforeTableLayout: common.get('components').get('beforeTable').toJS().BeforeTableLayout,
+	    AfterTableLayout: common.get('components').get('afterTable').toJS().AfterTableLayout,
 	    overrideTable: tableWrapperState.get('overrideTable'),
 	    overrideTableWith: tableWrapperState.get('overrideTableWith')
 	  };
@@ -2831,6 +2838,7 @@ webpackJsonp([1],[
 	exports.default = function (props) {
 	  var Table = props.Table;
 	  var BeforeTableLayout = props.BeforeTableLayout;
+	  var AfterTableLayout = props.AfterTableLayout;
 	
 	  if (props.overrideTable) {
 	    return _react2.default.createElement(
@@ -2843,7 +2851,8 @@ webpackJsonp([1],[
 	      "div",
 	      { className: "table-wrapper" },
 	      _react2.default.createElement(BeforeTableLayout, { store: props.store }),
-	      _react2.default.createElement(Table, { store: props.store })
+	      _react2.default.createElement(Table, { store: props.store }),
+	      _react2.default.createElement(AfterTableLayout, { store: props.store })
 	    );
 	  }
 	};
@@ -4019,7 +4028,189 @@ webpackJsonp([1],[
 	
 	var _Reducer2 = _interopRequireDefault(_Reducer);
 	
+	var _ConnectedBeforeAfterLayout = __webpack_require__(328);
+	
+	var _ConnectedBeforeAfterLayout2 = _interopRequireDefault(_ConnectedBeforeAfterLayout);
+	
+	var _MakeModule = __webpack_require__(330);
+	
+	var _MakeModule2 = _interopRequireDefault(_MakeModule);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _MakeModule2.default)('afterTable', function () {
+	  return {
+	    reducer: _Reducer2.default,
+	    components: {
+	      AfterTableLayout: _ConnectedBeforeAfterLayout2.default
+	    }
+	  };
+	});
+
+/***/ },
+/* 325 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _DefaultState = __webpack_require__(326);
+	
+	var _DefaultState2 = _interopRequireDefault(_DefaultState);
+	
 	var _ActionType = __webpack_require__(327);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function () {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? _DefaultState2.default : arguments[0];
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case _ActionType2.default.AFTER_TABLE_REGISTER_COMPONENT:
+	      return state.setIn(['state', 'slot'], action.component);
+	    default:
+	      return state;
+	  }
+	};
+
+/***/ },
+/* 326 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _immutable = __webpack_require__(246);
+	
+	var _immutable2 = _interopRequireDefault(_immutable);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _immutable2.default.fromJS({
+	  state: {
+	    slot: undefined
+	  }
+	});
+
+/***/ },
+/* 327 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var AFTER_TABLE_REGISTER_COMPONENT = 'AFTER_TABLE_REGISTER_COMPONENT';
+	
+	exports.default = {
+	  AFTER_TABLE_REGISTER_COMPONENT: AFTER_TABLE_REGISTER_COMPONENT
+	};
+
+/***/ },
+/* 328 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(280);
+	
+	var _AfterTableLayout = __webpack_require__(329);
+	
+	var _AfterTableLayout2 = _interopRequireDefault(_AfterTableLayout);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _reactRedux.connect)(function (state) {
+	  var slot = state.get('afterTable').get('state').get('slot');
+	
+	  return {
+	    slot: slot
+	  };
+	})(_AfterTableLayout2.default);
+
+/***/ },
+/* 329 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = function (props) {
+	  var renderComponent = function renderComponent(Component) {
+	    return _react2.default.createElement(Component, { store: props.store });
+	  };
+	
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "row after-table" },
+	    _react2.default.createElement(
+	      "div",
+	      { className: "col-md-12" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "pull-right" },
+	        renderComponent(props.slot)
+	      )
+	    )
+	  );
+	};
+
+/***/ },
+/* 330 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	exports.default = function (moduleName, makeModuleDefinition) {
+	  var Module = makeModuleDefinition;
+	
+	  Module.moduleName = moduleName;
+	
+	  return Module;
+	};
+
+/***/ },
+/* 331 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _Reducer = __webpack_require__(332);
+	
+	var _Reducer2 = _interopRequireDefault(_Reducer);
+	
+	var _ActionType = __webpack_require__(334);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
@@ -4027,11 +4218,11 @@ webpackJsonp([1],[
 	
 	var _ActionType4 = _interopRequireDefault(_ActionType3);
 	
-	var _ActionType5 = __webpack_require__(328);
+	var _ActionType5 = __webpack_require__(335);
 	
 	var _ActionType6 = _interopRequireDefault(_ActionType5);
 	
-	var _ConnectedSortIcon = __webpack_require__(329);
+	var _ConnectedSortIcon = __webpack_require__(336);
 	
 	var _ConnectedSortIcon2 = _interopRequireDefault(_ConnectedSortIcon);
 	
@@ -4043,7 +4234,7 @@ webpackJsonp([1],[
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
-	var _DefaultState = __webpack_require__(326);
+	var _DefaultState = __webpack_require__(333);
 	
 	var _DefaultState2 = _interopRequireDefault(_DefaultState);
 	
@@ -4234,7 +4425,7 @@ webpackJsonp([1],[
 	exports.default = SortModule;
 
 /***/ },
-/* 325 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4243,11 +4434,11 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _DefaultState = __webpack_require__(326);
+	var _DefaultState = __webpack_require__(333);
 	
 	var _DefaultState2 = _interopRequireDefault(_DefaultState);
 	
-	var _ActionType = __webpack_require__(327);
+	var _ActionType = __webpack_require__(334);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
@@ -4272,7 +4463,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 326 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4297,7 +4488,7 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 327 */
+/* 334 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4318,7 +4509,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 328 */
+/* 335 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4337,7 +4528,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 329 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4348,11 +4539,11 @@ webpackJsonp([1],[
 	
 	var _reactRedux = __webpack_require__(280);
 	
-	var _ActionType = __webpack_require__(327);
+	var _ActionType = __webpack_require__(334);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
-	var _SortIcon = __webpack_require__(330);
+	var _SortIcon = __webpack_require__(337);
 	
 	var _SortIcon2 = _interopRequireDefault(_SortIcon);
 	
@@ -4378,7 +4569,7 @@ webpackJsonp([1],[
 	})(_SortIcon2.default);
 
 /***/ },
-/* 330 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -4420,7 +4611,7 @@ webpackJsonp([1],[
 	exports.default = SortIcon;
 
 /***/ },
-/* 331 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4429,11 +4620,11 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _ActionType = __webpack_require__(328);
+	var _ActionType = __webpack_require__(335);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
-	var _Reducer = __webpack_require__(332);
+	var _Reducer = __webpack_require__(339);
 	
 	var _Reducer2 = _interopRequireDefault(_Reducer);
 	
@@ -4488,7 +4679,7 @@ webpackJsonp([1],[
 	exports.default = RoutingModule;
 
 /***/ },
-/* 332 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4497,11 +4688,11 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _DefaultState = __webpack_require__(333);
+	var _DefaultState = __webpack_require__(340);
 	
 	var _DefaultState2 = _interopRequireDefault(_DefaultState);
 	
-	var _ActionType = __webpack_require__(328);
+	var _ActionType = __webpack_require__(335);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
@@ -4522,7 +4713,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 333 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4542,7 +4733,7 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 334 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4551,11 +4742,11 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _MakeModule = __webpack_require__(335);
+	var _MakeModule = __webpack_require__(330);
 	
 	var _MakeModule2 = _interopRequireDefault(_MakeModule);
 	
-	var _Reducer = __webpack_require__(336);
+	var _Reducer = __webpack_require__(342);
 	
 	var _Reducer2 = _interopRequireDefault(_Reducer);
 	
@@ -4568,25 +4759,7 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 335 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	exports.default = function (moduleName, makeModuleDefinition) {
-	  var Module = makeModuleDefinition;
-	
-	  Module.moduleName = moduleName;
-	
-	  return Module;
-	};
-
-/***/ },
-/* 336 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4595,11 +4768,11 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _DefaultState = __webpack_require__(337);
+	var _DefaultState = __webpack_require__(343);
 	
 	var _DefaultState2 = _interopRequireDefault(_DefaultState);
 	
-	var _ActionType = __webpack_require__(338);
+	var _ActionType = __webpack_require__(344);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
@@ -4620,7 +4793,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 337 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4642,7 +4815,7 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 338 */
+/* 344 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -4659,7 +4832,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 339 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4668,7 +4841,7 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _MakeModule = __webpack_require__(335);
+	var _MakeModule = __webpack_require__(330);
 	
 	var _MakeModule2 = _interopRequireDefault(_MakeModule);
 	
@@ -4676,7 +4849,7 @@ webpackJsonp([1],[
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
-	var _ConnectedFilter = __webpack_require__(340);
+	var _ConnectedFilter = __webpack_require__(346);
 	
 	var _ConnectedFilter2 = _interopRequireDefault(_ConnectedFilter);
 	
@@ -4706,7 +4879,7 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 340 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4717,11 +4890,11 @@ webpackJsonp([1],[
 	
 	var _reactRedux = __webpack_require__(280);
 	
-	var _ActionType = __webpack_require__(338);
+	var _ActionType = __webpack_require__(344);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
-	var _Filter = __webpack_require__(341);
+	var _Filter = __webpack_require__(347);
 	
 	var _Filter2 = _interopRequireDefault(_Filter);
 	
@@ -4748,7 +4921,7 @@ webpackJsonp([1],[
 	})(_Filter2.default);
 
 /***/ },
-/* 341 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -4785,7 +4958,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 342 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4794,11 +4967,11 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _MakeModule = __webpack_require__(335);
+	var _MakeModule = __webpack_require__(330);
 	
 	var _MakeModule2 = _interopRequireDefault(_MakeModule);
 	
-	var _ActionType = __webpack_require__(338);
+	var _ActionType = __webpack_require__(344);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
@@ -4874,7 +5047,7 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 343 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4883,7 +5056,7 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _MakeModule = __webpack_require__(335);
+	var _MakeModule = __webpack_require__(330);
 	
 	var _MakeModule2 = _interopRequireDefault(_MakeModule);
 	
@@ -4891,11 +5064,11 @@ webpackJsonp([1],[
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
-	var _ActionType3 = __webpack_require__(328);
+	var _ActionType3 = __webpack_require__(335);
 	
 	var _ActionType4 = _interopRequireDefault(_ActionType3);
 	
-	var _ActionType5 = __webpack_require__(338);
+	var _ActionType5 = __webpack_require__(344);
 	
 	var _ActionType6 = _interopRequireDefault(_ActionType5);
 	
@@ -4932,7 +5105,7 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 344 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4941,15 +5114,15 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _MakeModule = __webpack_require__(335);
+	var _MakeModule = __webpack_require__(330);
 	
 	var _MakeModule2 = _interopRequireDefault(_MakeModule);
 	
-	var _Reducer = __webpack_require__(345);
+	var _Reducer = __webpack_require__(351);
 	
 	var _Reducer2 = _interopRequireDefault(_Reducer);
 	
-	var _ActionType = __webpack_require__(347);
+	var _ActionType = __webpack_require__(353);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
@@ -5011,7 +5184,7 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 345 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5020,11 +5193,11 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _DefaultState = __webpack_require__(346);
+	var _DefaultState = __webpack_require__(352);
 	
 	var _DefaultState2 = _interopRequireDefault(_DefaultState);
 	
-	var _ActionType = __webpack_require__(347);
+	var _ActionType = __webpack_require__(353);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
@@ -5045,7 +5218,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 346 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5067,7 +5240,7 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 347 */
+/* 353 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5093,7 +5266,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 348 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5102,7 +5275,7 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _MakeModule = __webpack_require__(335);
+	var _MakeModule = __webpack_require__(330);
 	
 	var _MakeModule2 = _interopRequireDefault(_MakeModule);
 	
@@ -5110,7 +5283,7 @@ webpackJsonp([1],[
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
-	var _ConnectedGoToPage = __webpack_require__(349);
+	var _ConnectedGoToPage = __webpack_require__(355);
 	
 	var _ConnectedGoToPage2 = _interopRequireDefault(_ConnectedGoToPage);
 	
@@ -5140,7 +5313,7 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 349 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5151,11 +5324,11 @@ webpackJsonp([1],[
 	
 	var _reactRedux = __webpack_require__(280);
 	
-	var _ActionType = __webpack_require__(347);
+	var _ActionType = __webpack_require__(353);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
-	var _GoToPage = __webpack_require__(350);
+	var _GoToPage = __webpack_require__(356);
 	
 	var _GoToPage2 = _interopRequireDefault(_GoToPage);
 	
@@ -5192,7 +5365,7 @@ webpackJsonp([1],[
 	})(_GoToPage2.default);
 
 /***/ },
-/* 350 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -5238,7 +5411,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 351 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5247,11 +5420,11 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _MakeModule = __webpack_require__(335);
+	var _MakeModule = __webpack_require__(330);
 	
 	var _MakeModule2 = _interopRequireDefault(_MakeModule);
 	
-	var _ActionType = __webpack_require__(347);
+	var _ActionType = __webpack_require__(353);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
@@ -5287,7 +5460,7 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 352 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5296,7 +5469,7 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _MakeModule = __webpack_require__(335);
+	var _MakeModule = __webpack_require__(330);
 	
 	var _MakeModule2 = _interopRequireDefault(_MakeModule);
 	
@@ -5304,11 +5477,11 @@ webpackJsonp([1],[
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
-	var _ActionType3 = __webpack_require__(328);
+	var _ActionType3 = __webpack_require__(335);
 	
 	var _ActionType4 = _interopRequireDefault(_ActionType3);
 	
-	var _ActionType5 = __webpack_require__(347);
+	var _ActionType5 = __webpack_require__(353);
 	
 	var _ActionType6 = _interopRequireDefault(_ActionType5);
 	
@@ -5345,7 +5518,7 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 353 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5354,11 +5527,11 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _MakeModule = __webpack_require__(335);
+	var _MakeModule = __webpack_require__(330);
 	
 	var _MakeModule2 = _interopRequireDefault(_MakeModule);
 	
-	var _Reducer = __webpack_require__(354);
+	var _Reducer = __webpack_require__(360);
 	
 	var _Reducer2 = _interopRequireDefault(_Reducer);
 	
@@ -5371,7 +5544,7 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 354 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5380,11 +5553,11 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _DefaultState = __webpack_require__(355);
+	var _DefaultState = __webpack_require__(361);
 	
 	var _DefaultState2 = _interopRequireDefault(_DefaultState);
 	
-	var _ActionType = __webpack_require__(356);
+	var _ActionType = __webpack_require__(362);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
@@ -5403,7 +5576,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 355 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5425,7 +5598,7 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 356 */
+/* 362 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5440,7 +5613,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 357 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5449,7 +5622,7 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _MakeModule = __webpack_require__(335);
+	var _MakeModule = __webpack_require__(330);
 	
 	var _MakeModule2 = _interopRequireDefault(_MakeModule);
 	
@@ -5457,7 +5630,7 @@ webpackJsonp([1],[
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
-	var _ConnectedPageSize = __webpack_require__(358);
+	var _ConnectedPageSize = __webpack_require__(364);
 	
 	var _ConnectedPageSize2 = _interopRequireDefault(_ConnectedPageSize);
 	
@@ -5487,7 +5660,7 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 358 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5498,11 +5671,11 @@ webpackJsonp([1],[
 	
 	var _reactRedux = __webpack_require__(280);
 	
-	var _ActionType = __webpack_require__(356);
+	var _ActionType = __webpack_require__(362);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
-	var _PageSize = __webpack_require__(359);
+	var _PageSize = __webpack_require__(365);
 	
 	var _PageSize2 = _interopRequireDefault(_PageSize);
 	
@@ -5524,7 +5697,7 @@ webpackJsonp([1],[
 	})(_PageSize2.default);
 
 /***/ },
-/* 359 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -5575,7 +5748,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 360 */
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5584,11 +5757,11 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _MakeModule = __webpack_require__(335);
+	var _MakeModule = __webpack_require__(330);
 	
 	var _MakeModule2 = _interopRequireDefault(_MakeModule);
 	
-	var _ActionType = __webpack_require__(356);
+	var _ActionType = __webpack_require__(362);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
@@ -5624,7 +5797,7 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 361 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5633,7 +5806,7 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _MakeModule = __webpack_require__(335);
+	var _MakeModule = __webpack_require__(330);
 	
 	var _MakeModule2 = _interopRequireDefault(_MakeModule);
 	
@@ -5641,11 +5814,11 @@ webpackJsonp([1],[
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
-	var _ActionType3 = __webpack_require__(328);
+	var _ActionType3 = __webpack_require__(335);
 	
 	var _ActionType4 = _interopRequireDefault(_ActionType3);
 	
-	var _ActionType5 = __webpack_require__(356);
+	var _ActionType5 = __webpack_require__(362);
 	
 	var _ActionType6 = _interopRequireDefault(_ActionType5);
 	
@@ -5684,7 +5857,7 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 362 */
+/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5693,11 +5866,11 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _MakeModule = __webpack_require__(335);
+	var _MakeModule = __webpack_require__(330);
 	
 	var _MakeModule2 = _interopRequireDefault(_MakeModule);
 	
-	var _Reducer = __webpack_require__(363);
+	var _Reducer = __webpack_require__(369);
 	
 	var _Reducer2 = _interopRequireDefault(_Reducer);
 	
@@ -5705,11 +5878,11 @@ webpackJsonp([1],[
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
-	var _ActionType3 = __webpack_require__(365);
+	var _ActionType3 = __webpack_require__(371);
 	
 	var _ActionType4 = _interopRequireDefault(_ActionType3);
 	
-	var _ActionType5 = __webpack_require__(347);
+	var _ActionType5 = __webpack_require__(353);
 	
 	var _ActionType6 = _interopRequireDefault(_ActionType5);
 	
@@ -5868,7 +6041,7 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 363 */
+/* 369 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5877,11 +6050,11 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _DefaultState = __webpack_require__(364);
+	var _DefaultState = __webpack_require__(370);
 	
 	var _DefaultState2 = _interopRequireDefault(_DefaultState);
 	
-	var _ActionType = __webpack_require__(365);
+	var _ActionType = __webpack_require__(371);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
@@ -5903,7 +6076,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 364 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5926,7 +6099,7 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 365 */
+/* 371 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5941,7 +6114,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 366 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5950,7 +6123,7 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _MakeModule = __webpack_require__(335);
+	var _MakeModule = __webpack_require__(330);
 	
 	var _MakeModule2 = _interopRequireDefault(_MakeModule);
 	
@@ -5958,7 +6131,7 @@ webpackJsonp([1],[
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
-	var _ConnectedPagination = __webpack_require__(367);
+	var _ConnectedPagination = __webpack_require__(373);
 	
 	var _ConnectedPagination2 = _interopRequireDefault(_ConnectedPagination);
 	
@@ -5988,7 +6161,7 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 367 */
+/* 373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5999,7 +6172,7 @@ webpackJsonp([1],[
 	
 	var _reactRedux = __webpack_require__(280);
 	
-	var _Pagination = __webpack_require__(368);
+	var _Pagination = __webpack_require__(374);
 	
 	var _Pagination2 = _interopRequireDefault(_Pagination);
 	
@@ -6018,7 +6191,7 @@ webpackJsonp([1],[
 	})(_Pagination2.default);
 
 /***/ },
-/* 368 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -6075,7 +6248,7 @@ webpackJsonp([1],[
 	};
 
 /***/ },
-/* 369 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6084,15 +6257,60 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _MakeModule = __webpack_require__(335);
+	var _MakeModule = __webpack_require__(330);
 	
 	var _MakeModule2 = _interopRequireDefault(_MakeModule);
 	
-	var _ActionType = __webpack_require__(338);
+	var _ActionType = __webpack_require__(327);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
-	var _ActionType3 = __webpack_require__(347);
+	var _ConnectedPagination = __webpack_require__(373);
+	
+	var _ConnectedPagination2 = _interopRequireDefault(_ConnectedPagination);
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = (0, _MakeModule2.default)('paginatorAfterTable', function () {
+	  return {
+	    boot: function boot(dispatch) {
+	      dispatch({
+	        type: _ActionType2.default.AFTER_TABLE_REGISTER_COMPONENT,
+	        component: function component(props) {
+	          return _react2.default.createElement(
+	            'div',
+	            { className: 'paginator' },
+	            _react2.default.createElement(_ConnectedPagination2.default, { store: props.store })
+	          );
+	        }
+	      });
+	    }
+	  };
+	});
+
+/***/ },
+/* 376 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _MakeModule = __webpack_require__(330);
+	
+	var _MakeModule2 = _interopRequireDefault(_MakeModule);
+	
+	var _ActionType = __webpack_require__(344);
+	
+	var _ActionType2 = _interopRequireDefault(_ActionType);
+	
+	var _ActionType3 = __webpack_require__(353);
 	
 	var _ActionType4 = _interopRequireDefault(_ActionType3);
 	
@@ -6133,7 +6351,7 @@ webpackJsonp([1],[
 	});
 
 /***/ },
-/* 370 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6142,15 +6360,15 @@ webpackJsonp([1],[
 	  value: true
 	});
 	
-	var _MakeModule = __webpack_require__(335);
+	var _MakeModule = __webpack_require__(330);
 	
 	var _MakeModule2 = _interopRequireDefault(_MakeModule);
 	
-	var _ActionType = __webpack_require__(356);
+	var _ActionType = __webpack_require__(362);
 	
 	var _ActionType2 = _interopRequireDefault(_ActionType);
 	
-	var _ActionType3 = __webpack_require__(347);
+	var _ActionType3 = __webpack_require__(353);
 	
 	var _ActionType4 = _interopRequireDefault(_ActionType3);
 	

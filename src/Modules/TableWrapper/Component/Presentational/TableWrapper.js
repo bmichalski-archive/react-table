@@ -3,6 +3,7 @@ import React from 'react'
 export default (props) => {
   const Table = props.Table
   const BeforeTableLayout = props.BeforeTableLayout
+  const AfterTableLayout = props.AfterTableLayout
 
   if (props.overrideTable) {
     return (
@@ -15,6 +16,7 @@ export default (props) => {
       <div className="table-wrapper">
         <BeforeTableLayout store={props.store}></BeforeTableLayout>
         <Table store={props.store}></Table>
+        <AfterTableLayout store={props.store}></AfterTableLayout>
       </div>
     )
   }

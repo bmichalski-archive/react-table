@@ -7,6 +7,7 @@ import dataModule from './Modules/Data/DataModule'
 import asyncDataModule from './Modules/AsyncData/AsyncDataModule'
 import parseDataModule from './Modules/ParseData/ParseDataModule'
 import beforeTableModule from './Modules/BeforeTable/BeforeTableModule'
+import afterTableModule from './Modules/AfterTable/AfterTableModule'
 import sortModule from './Modules/Sort/SortModule'
 import routingModule from './Modules/Routing/RoutingModule'
 
@@ -27,6 +28,7 @@ import pageSizeAsyncDataRoutingModule from './Modules/PageSizeAsyncDataRouting/P
 
 import paginatorModule from './Modules/Paginator/PaginatorModule'
 import paginatorBeforeTableModule from './Modules/PaginatorBeforeTable/PaginatorBeforeTableModule'
+import paginatorAfterTableModule from './Modules/PaginatorAfterTable/PaginatorAfterTableModule'
 
 import filterPageModule from './Modules/FilterPage/FilterPageModule'
 import pageSizePageModule from './Modules/PageSizePage/PageSizePageModule'
@@ -44,6 +46,7 @@ class TableWithStore extends Component {
       asyncDataModule,
       parseDataModule,
       beforeTableModule,
+      afterTableModule,
       routingModule,
       sortModule,
       filterModule,
@@ -60,6 +63,7 @@ class TableWithStore extends Component {
       pageSizeAsyncDataRoutingModule,
       paginatorModule,
       paginatorBeforeTableModule,
+      paginatorAfterTableModule,
       filterPageModule,
       pageSizePageModule
     )
