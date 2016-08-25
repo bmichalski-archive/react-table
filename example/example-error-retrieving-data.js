@@ -4108,7 +4108,7 @@ webpackJsonp([1],[
 	        var tableComputedViewModel = state.get('table').get('computedViewModel').toJS();
 	
 	        function getIconClassName(cell) {
-	          var base = 'glyphicon';
+	          var base = 'sort glyphicon';
 	
 	          if (cell.name === sortState.sort) {
 	            if ('asc' === sortState.order) {
@@ -4220,8 +4220,6 @@ webpackJsonp([1],[
 	        sortState.sort = query.sort;
 	        sortState.order = query.order;
 	      }
-	
-	      // console.log(sortState)
 	
 	      dispatch({
 	        type: _ActionType2.default.SORT_UPDATE_SORT_STATE,
@@ -4403,14 +4401,14 @@ webpackJsonp([1],[
 	  function renderRemoveIcon() {
 	    if (showRemoveIcon) {
 	      return _react2.default.createElement("i", {
-	        className: "glyphicon glyphicon-remove",
+	        className: "glyphicon glyphicon-remove reset-sort",
 	        onClick: handleResetSortContextClicked });
 	    }
 	  }
 	
 	  return _react2.default.createElement(
 	    "div",
-	    { className: "pull-right" },
+	    { className: "sort pull-right" },
 	    renderRemoveIcon(),
 	    " ",
 	    _react2.default.createElement("i", { className: iconClassName })

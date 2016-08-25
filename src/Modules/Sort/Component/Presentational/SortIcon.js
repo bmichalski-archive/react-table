@@ -9,7 +9,7 @@ const SortIcon = (props) => {
     if (showRemoveIcon) {
       return (
         <i
-          className="glyphicon glyphicon-remove"
+          className="glyphicon glyphicon-remove reset-sort"
           onClick={handleResetSortContextClicked}>
         </i>
       )
@@ -17,7 +17,7 @@ const SortIcon = (props) => {
   }
 
   return (
-    <div className="pull-right">
+    <div className="sort pull-right">
       {renderRemoveIcon()}
       &nbsp;
       <i className={iconClassName}></i>

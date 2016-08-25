@@ -7,8 +7,29 @@
     }
   }
 
+  table {
+    > thead {
+      > tr {
+        > th {
+          &.sortable {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
   .reset-button {
     cursor: pointer;
+  }
+
+  div.sort {
+    i {
+      &.reset-sort,
+      &.sort {
+        cursor: pointer;
+      }
+    }
   }
 
   .pagination {

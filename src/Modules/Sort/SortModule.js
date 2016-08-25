@@ -62,7 +62,7 @@ const SortModule = (opts) => {
           const tableComputedViewModel = state.get('table').get('computedViewModel').toJS()
 
           function getIconClassName(cell) {
-            const base = 'glyphicon'
+            const base = 'sort glyphicon'
 
             if (cell.name === sortState.sort) {
               if ('asc' === sortState.order) {
@@ -183,8 +183,6 @@ const SortModule = (opts) => {
         sortState.sort = query.sort
         sortState.order = query.order
       }
-
-      // console.log(sortState)
 
       dispatch({
         type: SortActionType.SORT_UPDATE_SORT_STATE,
