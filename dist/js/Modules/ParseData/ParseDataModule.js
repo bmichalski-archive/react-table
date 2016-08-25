@@ -16,16 +16,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function tableReplaceComputedViewModelBodys(dispatch, bodys) {
+  dispatch({
+    type: _ActionType4.default.TABLE_REPLACE_COMPUTED_VIEW_MODEL_BODYS,
+    bodys: bodys
+  });
+}
+
 var ParseDataModule = function ParseDataModule(opts) {
   return {
     listeners: function listeners() {
-      return _defineProperty({}, _ActionType2.default.DATA_REPLACE_DATA, function (dispatch, action) {
-        var bodys = opts.updateBodys(action.data);
-
-        dispatch({
-          type: _ActionType4.default.TABLE_REPLACE_COMPUTED_VIEW_MODEL_BODYS,
-          bodys: bodys
-        });
+      return _defineProperty({}, _ActionType2.default.DATA_REPLACE_DATA, function (action, dispatch) {
+        tableReplaceComputedViewModelBodys(dispatch, opts.updateBodys(action.data));
       });
     }
   };

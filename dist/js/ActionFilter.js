@@ -26,7 +26,7 @@ exports.default = function () {
 
             if (undefined !== callbacks) {
               callbacks.forEach(function (cb) {
-                action = cb(action, _this.store);
+                action = cb(action, _this.store.dispatch, _this.store.getState, _this.store);
 
                 _assert2.default.notStrictEqual(undefined, action);
               });

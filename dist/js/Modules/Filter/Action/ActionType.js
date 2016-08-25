@@ -1,0 +1,12 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var FILTER_UPDATE_Q_FIELD_VALUE = 'FILTER_UPDATE_Q_FIELD_VALUE';
+var FILTER_RESET_Q_FIELD_VALUE = 'FILTER_RESET_Q_FIELD_VALUE';
+
+exports.default = {
+  FILTER_UPDATE_Q_FIELD_VALUE: FILTER_UPDATE_Q_FIELD_VALUE,
+  FILTER_RESET_Q_FIELD_VALUE: FILTER_RESET_Q_FIELD_VALUE
+};

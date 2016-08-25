@@ -18,14 +18,14 @@ var SortIcon = function SortIcon(props) {
   function renderRemoveIcon() {
     if (showRemoveIcon) {
       return _react2.default.createElement("i", {
-        className: "glyphicon glyphicon-remove",
+        className: "glyphicon glyphicon-remove reset-sort",
         onClick: handleResetSortContextClicked });
     }
   }
 
   return _react2.default.createElement(
     "div",
-    { className: "pull-right" },
+    { className: "sort pull-right" },
     renderRemoveIcon(),
     " ",
     _react2.default.createElement("i", { className: iconClassName })
