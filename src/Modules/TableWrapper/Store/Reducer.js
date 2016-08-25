@@ -20,6 +20,16 @@ export default (state = defaultState, action) => {
         overrideTable: false,
         overrideTableWith: undefined
       })
+    case TableWrapperActionType.TABLE_WRAPPER_SET_OVERRIDE_TABLE_INNER_AND_AFTER_TABLE_LAYOUT:
+      return state.mergeIn(['state'], {
+        overrideTableInnerAndAfterTableLayout: true,
+        overrideTableInnerAndAfterTableLayoutWith: action.overrideTableInnerAndAfterTableLayoutWith
+      })
+    case TableWrapperActionType.TABLE_WRAPPER_UNSET_OVERRIDE_TABLE_INNER_AND_AFTER_TABLE_LAYOUT:
+      return state.mergeIn(['state'], {
+        overrideTableInnerAndAfterTableLayout: false,
+        overrideTableInnerAndAfterTableLayoutWith: undefined
+      })
     case TableWrapperActionType.TABLE_WRAPPER_SET_BEFORE_TABLE_COMPONENTS:
       return state.setIn([ 'state', 'beforeTableComponents' ], Immutable.fromJS(action.beforeTableComponents))
     default:

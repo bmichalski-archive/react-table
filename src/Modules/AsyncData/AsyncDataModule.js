@@ -10,10 +10,17 @@ const setTableWrapperContentErrorLoadingData = (dispatch) => {
   })
 }
 
-const setTableWrapperContentLoading = (dispatch) => {
+const setTableWrapperContentLoadingOnBoot = (dispatch) => {
   dispatch({
     type: TableWrapperActionType.TABLE_WRAPPER_SET_OVERRIDE_TABLE_WITH,
     overrideTableWith: 'Loading...'
+  })
+}
+
+const setTableWrapperContentLoading = (dispatch) => {
+  dispatch({
+    type: TableWrapperActionType.TABLE_WRAPPER_SET_OVERRIDE_TABLE_INNER_AND_AFTER_TABLE_LAYOUT,
+    overrideTableInnerAndAfterTableLayoutWith: 'Loading...'
   })
 }
 
@@ -26,6 +33,8 @@ const makeScheduleFetchData = () => {
       promise.cancel()
     }
 
+    setTableWrapperContentLoading(dispatch)
+
     const asyncDataState = getState().get('asyncData').get('state').get('options').toJS()
 
     promise = getFetchDataPromise(asyncDataState)
@@ -36,6 +45,10 @@ const makeScheduleFetchData = () => {
         data
       })
     }).then(() => {
+      dispatch({
+        type: TableWrapperActionType.TABLE_WRAPPER_UNSET_OVERRIDE_TABLE_INNER_AND_AFTER_TABLE_LAYOUT
+      })
+
       if (tableWrapperOverrideUnset) {
         return
       }
@@ -65,7 +78,7 @@ const AsyncDataModule = (opts) => {
   return {
     reducer: reducer,
     boot: (dispatch) => {
-      setTableWrapperContentLoading(dispatch)
+      setTableWrapperContentLoadingOnBoot(dispatch)
       updateData(dispatch)
     },
     listeners: () => {

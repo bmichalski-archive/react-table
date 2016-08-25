@@ -11,6 +11,13 @@ export default (props) => {
         {props.overrideTableWith}
       </div>
     )
+  } else if (props.overrideTableInnerAndAfterTableLayout) {
+    return (
+      <div className="table-wrapper">
+        <BeforeTableLayout store={props.store}></BeforeTableLayout>
+        {props.overrideTableInnerAndAfterTableLayoutWith}
+      </div>
+    )
   } else {
     return (
       <div className="table-wrapper">

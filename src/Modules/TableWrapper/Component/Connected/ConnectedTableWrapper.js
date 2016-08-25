@@ -11,7 +11,9 @@ export default connect(
       BeforeTableLayout: common.get('components').get('beforeTable').toJS().BeforeTableLayout,
       AfterTableLayout: common.get('components').get('afterTable').toJS().AfterTableLayout,
       overrideTable: tableWrapperState.get('overrideTable'),
-      overrideTableWith: tableWrapperState.get('overrideTableWith')
+      overrideTableWith: tableWrapperState.get('overrideTableWith'),
+      overrideTableInnerAndAfterTableLayout: tableWrapperState.get('overrideTableInnerAndAfterTableLayout'),
+      overrideTableInnerAndAfterTableLayoutWith: tableWrapperState.get('overrideTableInnerAndAfterTableLayoutWith')
     }
   }
 )(PresentationalTableWrapper)

@@ -7,7 +7,7 @@ export default (props) => {
 
   return (
     <div className="row after-table">
-      <div className="col-md-12">
+      <div className="col-md-8 col-md-offset-4">
         <div className="pull-right">
           {renderComponent(props.slot)}
         </div>

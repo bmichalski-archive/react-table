@@ -16,7 +16,7 @@ export default (props) => {
           <div className="col-md-2">
             {renderComponent(props.rows[1].slots[0])}
           </div>
-          <div className="col-md-10">
+          <div className="col-md-8 col-md-offset-2">
             <div className="pull-right">
               {renderComponent(props.rows[1].slots[1])}
             </div>

@@ -2764,20 +2764,20 @@ webpackJsonp([1],[
 	
 	var _Reducer2 = _interopRequireDefault(_Reducer);
 	
+	var _MakeModule = __webpack_require__(330);
+	
+	var _MakeModule2 = _interopRequireDefault(_MakeModule);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var TableWrapperModule = function TableWrapperModule(opts) {
+	exports.default = (0, _MakeModule2.default)('tableWrapper', function () {
 	  return {
 	    reducer: _Reducer2.default,
 	    components: {
 	      TableWrapper: _ConnectedTableWrapper2.default
 	    }
 	  };
-	};
-	
-	TableWrapperModule.moduleName = 'tableWrapper';
-	
-	exports.default = TableWrapperModule;
+	});
 
 /***/ },
 /* 279 */
@@ -2806,7 +2806,9 @@ webpackJsonp([1],[
 	    BeforeTableLayout: common.get('components').get('beforeTable').toJS().BeforeTableLayout,
 	    AfterTableLayout: common.get('components').get('afterTable').toJS().AfterTableLayout,
 	    overrideTable: tableWrapperState.get('overrideTable'),
-	    overrideTableWith: tableWrapperState.get('overrideTableWith')
+	    overrideTableWith: tableWrapperState.get('overrideTableWith'),
+	    overrideTableInnerAndAfterTableLayout: tableWrapperState.get('overrideTableInnerAndAfterTableLayout'),
+	    overrideTableInnerAndAfterTableLayoutWith: tableWrapperState.get('overrideTableInnerAndAfterTableLayoutWith')
 	  };
 	})(_TableWrapper2.default);
 
@@ -2845,6 +2847,13 @@ webpackJsonp([1],[
 	      "div",
 	      { className: "table-wrapper" },
 	      props.overrideTableWith
+	    );
+	  } else if (props.overrideTableInnerAndAfterTableLayout) {
+	    return _react2.default.createElement(
+	      "div",
+	      { className: "table-wrapper" },
+	      _react2.default.createElement(BeforeTableLayout, { store: props.store }),
+	      props.overrideTableInnerAndAfterTableLayoutWith
 	    );
 	  } else {
 	    return _react2.default.createElement(
@@ -2899,6 +2908,16 @@ webpackJsonp([1],[
 	        overrideTable: false,
 	        overrideTableWith: undefined
 	      });
+	    case _ActionType2.default.TABLE_WRAPPER_SET_OVERRIDE_TABLE_INNER_AND_AFTER_TABLE_LAYOUT:
+	      return state.mergeIn(['state'], {
+	        overrideTableInnerAndAfterTableLayout: true,
+	        overrideTableInnerAndAfterTableLayoutWith: action.overrideTableInnerAndAfterTableLayoutWith
+	      });
+	    case _ActionType2.default.TABLE_WRAPPER_UNSET_OVERRIDE_TABLE_INNER_AND_AFTER_TABLE_LAYOUT:
+	      return state.mergeIn(['state'], {
+	        overrideTableInnerAndAfterTableLayout: false,
+	        overrideTableInnerAndAfterTableLayoutWith: undefined
+	      });
 	    case _ActionType2.default.TABLE_WRAPPER_SET_BEFORE_TABLE_COMPONENTS:
 	      return state.setIn(['state', 'beforeTableComponents'], _immutable2.default.fromJS(action.beforeTableComponents));
 	    default:
@@ -2917,11 +2936,15 @@ webpackJsonp([1],[
 	});
 	var TABLE_WRAPPER_SET_OVERRIDE_TABLE_WITH = 'TABLE_WRAPPER_SET_OVERRIDE_TABLE_WITH';
 	var TABLE_WRAPPER_UNSET_OVERRIDE_TABLE_WITH = 'TABLE_WRAPPER_UNSET_OVERRIDE_TABLE_WITH';
+	var TABLE_WRAPPER_SET_OVERRIDE_TABLE_INNER_AND_AFTER_TABLE_LAYOUT = 'TABLE_WRAPPER_SET_OVERRIDE_TABLE_INNER_AND_AFTER_TABLE_LAYOUT';
+	var TABLE_WRAPPER_UNSET_OVERRIDE_TABLE_INNER_AND_AFTER_TABLE_LAYOUT = 'TABLE_WRAPPER_UNSET_OVERRIDE_TABLE_INNER_AND_AFTER_TABLE_LAYOUT';
 	var TABLE_WRAPPER_SET_BEFORE_TABLE_COMPONENTS = 'TABLE_WRAPPER_SET_BEFORE_TABLE_COMPONENTS';
 	
 	exports.default = {
 	  TABLE_WRAPPER_SET_OVERRIDE_TABLE_WITH: TABLE_WRAPPER_SET_OVERRIDE_TABLE_WITH,
 	  TABLE_WRAPPER_UNSET_OVERRIDE_TABLE_WITH: TABLE_WRAPPER_UNSET_OVERRIDE_TABLE_WITH,
+	  TABLE_WRAPPER_SET_OVERRIDE_TABLE_INNER_AND_AFTER_TABLE_LAYOUT: TABLE_WRAPPER_SET_OVERRIDE_TABLE_INNER_AND_AFTER_TABLE_LAYOUT,
+	  TABLE_WRAPPER_UNSET_OVERRIDE_TABLE_INNER_AND_AFTER_TABLE_LAYOUT: TABLE_WRAPPER_UNSET_OVERRIDE_TABLE_INNER_AND_AFTER_TABLE_LAYOUT,
 	  TABLE_WRAPPER_SET_BEFORE_TABLE_COMPONENTS: TABLE_WRAPPER_SET_BEFORE_TABLE_COMPONENTS
 	};
 
@@ -3658,10 +3681,17 @@ webpackJsonp([1],[
 	  });
 	};
 	
-	var setTableWrapperContentLoading = function setTableWrapperContentLoading(dispatch) {
+	var setTableWrapperContentLoadingOnBoot = function setTableWrapperContentLoadingOnBoot(dispatch) {
 	  dispatch({
 	    type: _ActionType6.default.TABLE_WRAPPER_SET_OVERRIDE_TABLE_WITH,
 	    overrideTableWith: 'Loading...'
+	  });
+	};
+	
+	var setTableWrapperContentLoading = function setTableWrapperContentLoading(dispatch) {
+	  dispatch({
+	    type: _ActionType6.default.TABLE_WRAPPER_SET_OVERRIDE_TABLE_INNER_AND_AFTER_TABLE_LAYOUT,
+	    overrideTableInnerAndAfterTableLayoutWith: 'Loading...'
 	  });
 	};
 	
@@ -3674,6 +3704,8 @@ webpackJsonp([1],[
 	      promise.cancel();
 	    }
 	
+	    setTableWrapperContentLoading(dispatch);
+	
 	    var asyncDataState = getState().get('asyncData').get('state').get('options').toJS();
 	
 	    promise = getFetchDataPromise(asyncDataState);
@@ -3684,6 +3716,10 @@ webpackJsonp([1],[
 	        data: data
 	      });
 	    }).then(function () {
+	      dispatch({
+	        type: _ActionType6.default.TABLE_WRAPPER_UNSET_OVERRIDE_TABLE_INNER_AND_AFTER_TABLE_LAYOUT
+	      });
+	
 	      if (tableWrapperOverrideUnset) {
 	        return;
 	      }
@@ -3713,7 +3749,7 @@ webpackJsonp([1],[
 	  return {
 	    reducer: _Reducer2.default,
 	    boot: function boot(dispatch) {
-	      setTableWrapperContentLoading(dispatch);
+	      setTableWrapperContentLoadingOnBoot(dispatch);
 	      updateData(dispatch);
 	    },
 	    listeners: function listeners() {
@@ -4011,7 +4047,7 @@ webpackJsonp([1],[
 	        ),
 	        _react2.default.createElement(
 	          "div",
-	          { className: "col-md-10" },
+	          { className: "col-md-8 col-md-offset-2" },
 	          _react2.default.createElement(
 	            "div",
 	            { className: "pull-right" },
@@ -4177,7 +4213,7 @@ webpackJsonp([1],[
 	    { className: "row after-table" },
 	    _react2.default.createElement(
 	      "div",
-	      { className: "col-md-12" },
+	      { className: "col-md-8 col-md-offset-4" },
 	      _react2.default.createElement(
 	        "div",
 	        { className: "pull-right" },
