@@ -6,13 +6,13 @@ export default (props) => {
   const renderRows = () => {
     return props.rows.map((row, i) => {
       return (
-        <ContainerTableRow key={i} cells={row.cells} />
+        <ContainerTableRow key={i} cells={row.cells} props={row.props} />
       )
     })
   }
 
   return (
-    <PresentationalTableHead>
+    <PresentationalTableHead props={props.props}>
       {renderRows()}
     </PresentationalTableHead>
   )

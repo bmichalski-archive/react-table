@@ -6,13 +6,13 @@ export default (props) => {
   function renderRows() {
     return props.rows.map((row, i) => {
       return (
-        <Row key={i} cells={row.cells} ></Row>
+        <Row key={i} cells={row.cells} props={row.props}></Row>
       )
     })
   }
 
   return (
-    <TableBody>
+    <TableBody props={props.props}>
       {renderRows()}
     </TableBody>
   )

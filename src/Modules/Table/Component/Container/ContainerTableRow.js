@@ -18,7 +18,7 @@ export default (props) => {
   }
   
   return (
-    <TableRow>
+    <TableRow props={props.props}>
       {renderCells()}
     </TableRow>
   )

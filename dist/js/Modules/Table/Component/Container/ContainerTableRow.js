@@ -31,7 +31,7 @@ exports.default = function (props) {
 
   return _react2.default.createElement(
     _TableRow2.default,
-    null,
+    { props: props.props },
     renderCells()
   );
 };

@@ -32,7 +32,10 @@ const DemoTableWrapper = (props) => {
                 type: 'HEADING',
                 content: 'Second column'
               }
-            ]
+            ],
+            props: {
+              className: 'test-head-row-classname'
+            }
           }
         ]
       }
@@ -43,7 +46,10 @@ const DemoTableWrapper = (props) => {
 
         data.result.forEach((resultRow) => {
           const row = {
-            cells: []
+            cells: [],
+            props: {
+              className: 'test-body-row-classname'
+            }
           }
 
           resultRow.forEach((resultCell) => {

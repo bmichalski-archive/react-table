@@ -2,7 +2,7 @@ import React from 'react'
 
 export default (props) => {
   return (
-    <thead>
+    <thead {...props.props}>
       {props.children}
     </thead>
   )

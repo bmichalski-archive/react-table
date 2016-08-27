@@ -23,16 +23,18 @@ var _ContainerTableBody2 = _interopRequireDefault(_ContainerTableBody);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (props) {
+  var head = props.head;
+
   var renderBodys = function renderBodys() {
     return props.bodys.map(function (body, i) {
-      return _react2.default.createElement(_ContainerTableBody2.default, { key: i, rows: body.rows });
+      return _react2.default.createElement(_ContainerTableBody2.default, { key: i, rows: body.rows, props: body.props });
     });
   };
 
   return _react2.default.createElement(
     _Table2.default,
     { props: props.props },
-    _react2.default.createElement(_ContainerTableHead2.default, { rows: props.head.rows }),
+    _react2.default.createElement(_ContainerTableHead2.default, { rows: head.rows, props: head.props }),
     renderBodys()
   );
 };

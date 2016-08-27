@@ -21,13 +21,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = function (props) {
   function renderRows() {
     return props.rows.map(function (row, i) {
-      return _react2.default.createElement(_ContainerTableRow2.default, { key: i, cells: row.cells });
+      return _react2.default.createElement(_ContainerTableRow2.default, { key: i, cells: row.cells, props: row.props });
     });
   }
 
   return _react2.default.createElement(
     _TableBody2.default,
-    null,
+    { props: props.props },
     renderRows()
   );
 };

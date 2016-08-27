@@ -136,7 +136,7 @@ var TableWithStore = function (_Component) {
   function TableWithStore() {
     _classCallCheck(this, TableWithStore);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(TableWithStore).apply(this, arguments));
+    return _possibleConstructorReturn(this, (TableWithStore.__proto__ || Object.getPrototypeOf(TableWithStore)).apply(this, arguments));
   }
 
   _createClass(TableWithStore, [{
